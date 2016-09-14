@@ -1,0 +1,26 @@
+<script>
+function loadHTML(myDivId, url) {
+  let xmlhttp = new XMLHttpRequest();
+
+  xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState == XMLHttpRequest.DONE ) {
+      if(xmlhttp.status == 200) {
+        document.getElementById(myDivId).innerHTML = xmlhttp.responseText;
+        var allScripts = document.getElementById(myDivId).getElementsByTagName('script');
+        for (var n = 0; n < allScripts .length; n++) {
+          eval(allScripts[n].innerHTML)//run script inside div generally not a good idea but these scripts are anyways intended to be executed.
+        }
+      } else {
+        alert('Error');
+      }
+    }
+  }
+
+  xmlhttp.open("GET", url, true);
+  xmlhttp.send();
+}
+
+loadHTML( "mydiv", "build/1.html" );
+</script>
+<link rel="stylesheet" href="atom-dark-syntax.css">
+<div id="mydiv"></div>
