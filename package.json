@@ -1,0 +1,23 @@
+{
+  "name": "js-exercises",
+  "version": "1.0.0",
+  "description": "app for training your js skilld",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "less": "lessc --include-path=solarized-dark-syntax/styles solarized-dark-syntax/index.less atom-dark-syntax.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IamEmpty/js-exercises.git"
+  },
+  "author": "IamEmpty",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/IamEmpty/js-exercises/issues"
+  },
+  "homepage": "https://github.com/IamEmpty/js-exercises#readme",
+  "dependencies": {
+    "highlights": "^1.4.1"
+  }
+}
