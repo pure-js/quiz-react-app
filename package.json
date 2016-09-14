@@ -4,8 +4,13 @@
   "description": "app for training your js skilld",
   "main": "index.js",
   "scripts": {
+    "start": "npm run less && npm run highlights",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "less": "lessc --include-path=solarized-dark-syntax/styles solarized-dark-syntax/index.less atom-dark-syntax.css"
+    "less": "lessc index.less build/atom-dark-syntax.css",
+    "highlights": "concurrently \"npm run highlights1\" \"npm run highlights2\" \"npm run highlights3\" ",
+    "highlights1": "highlights exercises/hoisting/1.js -o build/1.html",
+    "highlights2": "highlights exercises/hoisting/2.js -o build/2.html",
+    "highlights3": "highlights exercises/hoisting/3.js -o build/3.html"
   },
   "repository": {
     "type": "git",
@@ -18,6 +23,7 @@
   },
   "homepage": "https://github.com/IamEmpty/js-exercises#readme",
   "dependencies": {
+    "concurrently": "^2.2.0",
     "highlights": "^1.4.1"
   }
 }
