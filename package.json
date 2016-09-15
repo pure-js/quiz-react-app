@@ -4,9 +4,10 @@
   "description": "app for training your js skilld",
   "main": "index.js",
   "scripts": {
-    "start": "npm run less && npm run highlights",
+    "start": "npm run less && npm run highlights && npm run serve",
     "test": "echo \"Error: no test specified\" && exit 1",
     "less": "lessc index.less build/atom-dark-syntax.css",
+    "serve": "browser-sync start --server",
     "highlights": "concurrently \"npm run highlights1\" \"npm run highlights2\" \"npm run highlights3\" ",
     "highlights1": "highlights exercises/hoisting/1.js -o build/1.html",
     "highlights2": "highlights exercises/hoisting/2.js -o build/2.html",

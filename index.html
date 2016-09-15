@@ -10,6 +10,7 @@ function loadHTML(myDivId, url) {
         for (var n = 0; n < allScripts .length; n++) {
           eval(allScripts[n].innerHTML)//run script inside div generally not a good idea but these scripts are anyways intended to be executed.
         }
+        console.log('yes');
       } else {
         alert('Error');
       }
@@ -22,5 +23,5 @@ function loadHTML(myDivId, url) {
 
 loadHTML( "mydiv", "build/1.html" );
 </script>
-<link rel="stylesheet" href="atom-dark-syntax.css">
+<link rel="stylesheet" href="build/atom-dark-syntax.css">
 <div id="mydiv"></div>
