@@ -1,5 +1,5 @@
-<script>
 function loadHTML(myDivId, url) {
+  let htmlUrl = url + '.html';
   let xmlhttp = new XMLHttpRequest();
 
   xmlhttp.onreadystatechange = function() {
@@ -7,21 +7,17 @@ function loadHTML(myDivId, url) {
       if(xmlhttp.status == 200) {
         document.getElementById(myDivId).innerHTML = xmlhttp.responseText;
         var allScripts = document.getElementById(myDivId).getElementsByTagName('script');
-        for (var n = 0; n < allScripts .length; n++) {
-          eval(allScripts[n].innerHTML)//run script inside div generally not a good idea but these scripts are anyways intended to be executed.
+        for (let n = 0; n < allScripts.length; n++) {
+          eval(allScripts[n].innerHTML); //run script inside div generally not a good idea but these scripts are anyways intended to be executed.
         }
-        console.log('yes');
       } else {
         alert('Error');
       }
     }
   }
 
-  xmlhttp.open("GET", url, true);
+  xmlhttp.open('GET', htmlUrl, true);
   xmlhttp.send();
 }
 
-loadHTML( "mydiv", "build/1.html" );
-</script>
-<link rel="stylesheet" href="build/atom-dark-syntax.css">
-<div id="mydiv"></div>
+loadHTML('mydiv', '1');
