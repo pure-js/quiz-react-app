@@ -1,5 +1,5 @@
 function loadHTML(myDivId, url) {
-  let htmlUrl = url + '.html';
+  url = url + '.html';
   let xmlhttp = new XMLHttpRequest();
 
   xmlhttp.onreadystatechange = function() {
@@ -16,8 +16,16 @@ function loadHTML(myDivId, url) {
     }
   }
 
-  xmlhttp.open('GET', htmlUrl, true);
+  xmlhttp.open('GET', url, true);
   xmlhttp.send();
 }
 
-loadHTML('mydiv', '1');
+let rand = getRandomIntInclusive(1, 3);
+
+loadHTML('mydiv', rand);
+
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
