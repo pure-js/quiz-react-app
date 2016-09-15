@@ -1,12 +1,12 @@
 {
   "name": "js-exercises",
   "version": "1.0.0",
-  "description": "app for training your js skilld",
+  "description": "app for training your js skills",
   "main": "index.js",
   "scripts": {
     "start": "npm run less && npm run highlights && npm run pug && npm run jsmin && npm run serve",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "less": "lessc index.less build/atom-dark-syntax.css",
+    "less": "lessc -x src/index.less build/atom-dark-syntax.css",
     "serve": "browser-sync start --config 'bs-config.js'",
     "pug": "pug src/index.pug -o build",
     "jsmin": "uglifyjs src/main.js -o build/main.min.js",
