@@ -4,12 +4,8 @@
   "description": "app for training your js skills",
   "main": "index.js",
   "scripts": {
-    "start": "npm run less && npm run highlights && npm run pug && npm run jsmin && npm run serve",
+    "start": "gulp",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "less": "lessc -x src/index.less build/atom-dark-syntax.css",
-    "serve": "browser-sync start --config 'bs-config.js'",
-    "pug": "pug src/index.pug -o build",
-    "jsmin": "uglifyjs src/main.js -o build/main.min.js",
     "highlights": "concurrently \"npm run highlights1\" \"npm run highlights2\" \"npm run highlights3\" ",
     "highlights1": "highlights exercises/hoisting/1.js -o build/1.html",
     "highlights2": "highlights exercises/hoisting/2.js -o build/2.html",
@@ -26,7 +22,18 @@
   },
   "homepage": "https://github.com/IamEmpty/js-exercises#readme",
   "dependencies": {
-    "concurrently": "^2.2.0",
-    "highlights": "^1.4.1"
+    "gulp": "^3.9.1",
+    "gulp-less": "^3.1.0",
+    "gulp-load-plugins": "^1.3.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.0.0",
+    "highlights": "^1.4.1",
+    "pug": "^2.0.0-beta6"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.16.0",
+    "gulp": "^3.9.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sourcemaps": "^1.6.0"
   }
 }
