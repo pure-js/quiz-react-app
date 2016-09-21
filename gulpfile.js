@@ -42,6 +42,21 @@ gulp.task('deploy', ['build'], function() {
     .pipe(ghPages());
 });
 
+gulp.task('hex', function() {
+  let Highlights = require('highlights');
+  let highlighter = new Highlights();
+  let html = highlighter.highlightSync({
+    fileContents: 'var hello = "world";',
+    scopeName: 'source.js'
+  });
+
+  console.log(html);
+
+  // gulp.src(paths.dist + '**/*')
+  //   .pipe(ghPages());
+});
+
+
 // The default task (called when you run `gulp` from cli)
 gulp.task('build', ['html', 'css', 'js']);
 gulp.task('dev', ['build', 'watch', 'serve']);
