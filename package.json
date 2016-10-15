@@ -4,7 +4,7 @@
   "description": "app for training your js skills",
   "main": "index.js",
   "scripts": {
-    "start": "gulp",
+    "start": "npm run highlights",
     "test": "echo \"Error: no test specified\" && exit 1",
     "highlights": "concurrently \"npm run highlights1\" \"npm run highlights2\" \"npm run highlights3\" ",
     "highlights1": "highlights exercises/hoisting/1.js -o build/1.html",
