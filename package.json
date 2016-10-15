@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/IamEmpty/js-exercises#readme",
   "dependencies": {
-    "concurrently": "^2.2.0",
+    "concurrently": "^3.1.0",
     "highlights": "^1.4.1"
   }
 }
