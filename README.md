@@ -1,10 +1,11 @@
 # JavaScript exercises
-## Usage
+## Run dev server
 ```
 npm i
-npm i -g less
-npm i -g highlights
-npm i -g concurrently
-npm i -g browser-sync
+npm i -g gulp-cli
+git submodule init
+git submodule update
+npm i concurrently -g
 npm start
+gulp
 ```
