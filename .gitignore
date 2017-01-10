@@ -7,3 +7,5 @@ dist/
 .tmp/
 
 .idea/
+
+.DS_store

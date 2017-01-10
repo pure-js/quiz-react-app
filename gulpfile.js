@@ -22,7 +22,7 @@ gulp.task('hex', function() {
 
 
 // The default task (called when you run `gulp` from cli)
-gulp.task('dev',dev);
+gulp.task('dev', dev);
 gulp.task('default', dev);
 
 gulp.task('deploy', gulp.series(dev, () =>
