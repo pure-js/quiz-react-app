@@ -13,29 +13,29 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/IamEmpty/js-exercises.git"
+    "url": "git+https://github.com/pure-js/js-exercises.git"
   },
-  "author": "IamEmpty",
+  "author": "pure-js",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/IamEmpty/js-exercises/issues"
+    "url": "https://github.com/pure-js/js-exercises/issues"
   },
-  "homepage": "https://github.com/IamEmpty/js-exercises#readme",
+  "homepage": "https://github.com/pure-js/js-exercises#readme",
   "dependencies": {
-    "gulp": "^3.9.1",
     "gulp-less": "^3.1.0",
     "gulp-load-plugins": "^1.3.0",
     "gulp-pug": "^3.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^2.0.0",
-    "highlights": "^1.4.1",
-    "pug": "^2.0.0-beta6"
+    "highlights": "^1.4.1"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.16.0",
     "browser-sync": "^2.16.0",
-    "gulp": "^3.9.1",
+    "del": "^2.2.2",
+    "gulp": "github:gulpjs/gulp#4.0",
     "gulp-babel": "^6.1.2",
+    "gulp-gh-pages": "^0.5.4",
     "gulp-plumber": "^1.1.0",
     "gulp-sourcemaps": "^2.1.1"
   }
