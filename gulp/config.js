@@ -4,6 +4,8 @@ module.exports = {
     less: 'src/main.less',
     lessWatch: 'src/*.less',
     js: 'src/main.js',
-    build: 'build/'
+    dev: '.tmp/',
+    build: 'build/',
+    deploy: '.publish'
   }
 };

@@ -5,9 +5,10 @@ const gulp = require('gulp'),
   del = require('del');
 
 
-const clean = () => del([ paths.build, paths.dev, '.publish' ]);
+const clean = () => del([ paths.build, paths.dev, paths.deploy ]);
 exports.clean = clean;
 
+// TODO: make this working
 gulp.task('hex', function() {
   const Highlights = require('highlights');
   let highlighter = new Highlights();
@@ -17,18 +18,14 @@ gulp.task('hex', function() {
   });
 
   console.log(html);
-
-  // gulp.src(paths.dist + '**/*')
-  //   .pipe(ghPages());
 });
 
 
 // The default task (called when you run `gulp` from cli)
-gulp.task('dev', gulp.series(dev));
-gulp.task('build', gulp.parallel(dev));
+gulp.task('dev',dev);
 gulp.task('default', dev);
 
-gulp.task('deploy', gulp.series('build', () =>
+gulp.task('deploy', gulp.series(dev, () =>
   gulp.src(paths.dist + '**/*')
     .pipe(ghPages())
 ));

@@ -6,7 +6,7 @@ function loadHTML(myDivId, url) {
     if (xmlhttp.readyState == XMLHttpRequest.DONE ) {
       if(xmlhttp.status == 200) {
         document.getElementById(myDivId).innerHTML = xmlhttp.responseText;
-        var allScripts = document.getElementById(myDivId).getElementsByTagName('script');
+        let allScripts = document.getElementById(myDivId).getElementsByTagName('script');
         for (let n = 0; n < allScripts.length; n++) {
           eval(allScripts[n].innerHTML); //run script inside div generally not a good idea but these scripts are anyways intended to be executed.
         }
@@ -14,7 +14,7 @@ function loadHTML(myDivId, url) {
         alert('Error');
       }
     }
-  }
+  };
 
   xmlhttp.open('GET', url, true);
   xmlhttp.send();

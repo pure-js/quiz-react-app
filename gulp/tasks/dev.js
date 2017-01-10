@@ -17,14 +17,14 @@ function css() {
       compress: true
     }))
     .pipe(plugins.sourcemaps.write(''))
-    .pipe(gulp.dest(paths.build));
+    .pipe(gulp.dest(paths.dev));
 }
 
 function html() {
   return gulp.src(paths.pug)
     .pipe(plugins.plumber())
     .pipe(plugins.pug())
-    .pipe(gulp.dest(paths.build));
+    .pipe(gulp.dest(paths.dev));
 }
 
 function js() {
@@ -35,7 +35,7 @@ function js() {
       presets: ['es2015']
     }))
     .pipe(plugins.uglify())
-    .pipe(gulp.dest(paths.build));
+    .pipe(gulp.dest(paths.dev));
 }
 
 // Rerun the task when a file changes
@@ -49,9 +49,9 @@ function watch() {
 function serve() {
   browserSync.init({
     server: {
-      baseDir: 'build',
+      baseDir: paths.dev,
       index: 'index.html'
     },
-    browser: 'google chrome'
+    browser: ['google chrome', 'chrome']
   });
 }
