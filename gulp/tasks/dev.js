@@ -5,7 +5,7 @@ const gulp = require('gulp'),
   plugins = require('gulp-load-plugins')(),
   browserSync = require('browser-sync').create();
 
-module.exports = gulp.parallel(html, css, js, serve, watch);
+module.exports = gulp.series(html, css, js, serve, watch);
 
 // Get one .less file and render
 function css() {
@@ -14,7 +14,7 @@ function css() {
     .pipe(plugins.rename('main.min.css'))
     .pipe(plugins.sourcemaps.init())
     .pipe(plugins.less({
-      compress: true
+      compress: false
     }))
     .pipe(plugins.sourcemaps.write(''))
     .pipe(gulp.dest(paths.dev));
@@ -31,10 +31,6 @@ function js() {
   return gulp.src(paths.js)
     .pipe(plugins.plumber())
     .pipe(plugins.rename('main.min.js'))
-    .pipe(plugins.babel({
-      presets: ['es2015']
-    }))
-    .pipe(plugins.uglify())
     .pipe(gulp.dest(paths.dev));
 }
 

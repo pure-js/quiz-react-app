@@ -20,7 +20,7 @@ function loadHTML(myDivId, url) {
   xmlhttp.send();
 }
 
-let rand = getRandomIntInclusive(1, 3);
+let rand = getRandomIntInclusive(4, 13);
 
 loadHTML('mydiv', rand);
 
