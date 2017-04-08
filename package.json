@@ -42,6 +42,7 @@
     "gulp-gh-pages": "^0.5.4",
     "gulp-plumber": "^1.1.0",
     "gulp-sourcemaps": "^2.1.1",
-    "mkdirp": "^0.5.1"
+    "mkdirp": "^0.5.1",
+    "prismjs": "^1.6.0"
   }
 }

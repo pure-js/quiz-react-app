@@ -4,7 +4,8 @@ const gulp = require('gulp'),
   dev = require('./gulp/tasks/dev'),
   build = require('./gulp/tasks/build'),
   del = require('del'),
-  mkdirp = require('mkdirp');
+  mkdirp = require('mkdirp'),
+  prism = require('prismjs');
 
 const clean = () => del([ paths.build, paths.dev, paths.deploy ]);
 exports.clean = clean;
@@ -14,14 +15,9 @@ function wrap() {
   const folder = './exercises/';
   const tmpFolder = '.tmp/';
   const fs = require('fs');
-  const Highlights = require('highlights');
 
   mkdirp(tmpFolder, function(err) {
     if (err) throw err;
-    // if (err) {
-    //   if (err.code == 'EEXIST') cb(null); // ignore the error if the folder already exists
-    //   else cb(err); // something else went wrong
-    // } else cb(null); // successfully created folder
   });
 
   fs.readdir(folder, (err, files) => {
@@ -29,7 +25,6 @@ function wrap() {
       if(file.indexOf('.') !== -1) {
         let contents = fs.readFileSync(folder + file, 'utf8');
 
-        highlighter = new Highlights();
         let html = highlighter.highlightSync({
           fileContents: contents,
           scopeName: 'source.js'
