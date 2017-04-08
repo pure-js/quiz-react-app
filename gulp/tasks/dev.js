@@ -11,7 +11,7 @@ module.exports = gulp.series(html, css, js, serve, watch);
 function css() {
   return gulp.src(paths.less)
     .pipe(plugins.plumber())
-    .pipe(plugins.rename('main.min.css'))
+    .pipe(plugins.rename('main.css'))
     .pipe(plugins.sourcemaps.init())
     .pipe(plugins.less({
       compress: false
@@ -23,6 +23,7 @@ function css() {
 function html() {
   return gulp.src(paths.pug)
     .pipe(plugins.plumber())
+    .pipe(plugins.rename('index.html'))
     .pipe(plugins.pug())
     .pipe(gulp.dest(paths.dev));
 }
@@ -30,7 +31,7 @@ function html() {
 function js() {
   return gulp.src(paths.js)
     .pipe(plugins.plumber())
-    .pipe(plugins.rename('main.min.js'))
+    .pipe(plugins.rename('main.js'))
     .pipe(gulp.dest(paths.dev));
 }
 

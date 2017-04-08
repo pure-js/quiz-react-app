@@ -48,7 +48,7 @@ function wrap() {
 
 // The default task (called when you run `gulp` from cli)
 gulp.task('dev', gulp.parallel(wrap, dev));
-gulp.task('build', gulp.parallel(wrap, build));
+gulp.task('build', gulp.parallel(build));
 gulp.task('default', gulp.series('dev'));
 
 gulp.task('deploy', gulp.series('build', () =>
