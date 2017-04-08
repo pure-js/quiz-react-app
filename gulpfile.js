@@ -3,7 +3,8 @@ const gulp = require('gulp'),
   paths = require('./gulp/config').paths,
   dev = require('./gulp/tasks/dev'),
   build = require('./gulp/tasks/build'),
-  del = require('del');
+  del = require('del'),
+  mkdirp = require('mkdirp');
 
 const clean = () => del([ paths.build, paths.dev, paths.deploy ]);
 exports.clean = clean;
@@ -15,7 +16,7 @@ function wrap() {
   const fs = require('fs');
   const Highlights = require('highlights');
 
-  fs.mkdir(tmpFolder, function(err) {
+  mkdirp(tmpFolder, function(err) {
     if (err) throw err;
     // if (err) {
     //   if (err.code == 'EEXIST') cb(null); // ignore the error if the folder already exists
