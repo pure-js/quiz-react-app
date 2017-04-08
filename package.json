@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run highlights",
+    "poststart": "gulp",
     "test": "echo \"Error: no test specified\" && exit 1",
     "highlights": "concurrently \"npm run highlights1\" \"npm run highlights2\" \"npm run highlights3\" ",
     "highlights1": "highlights exercises/hoisting/1.js -o build/1.html",
@@ -27,7 +28,7 @@
     "gulp-pug": "^3.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^2.0.0",
-    "highlights": "^1.4.1"
+    "highlights": "^3.0.1"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.16.0",
