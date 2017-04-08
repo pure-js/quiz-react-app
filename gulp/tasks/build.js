@@ -13,13 +13,14 @@ function css() {
     .pipe(plugins.less({
       compress: true
     }))
-    .pipe(gulp.dest(paths.dev));
+    .pipe(gulp.dest(paths.build));
 }
 
 function html() {
-  return gulp.src(paths.pug)
+  return gulp.src(paths.prod.pug)
+    .pipe(plugins.rename('index.html'))
     .pipe(plugins.pug())
-    .pipe(gulp.dest(paths.dev));
+    .pipe(gulp.dest(paths.build));
 }
 
 function js() {
@@ -29,5 +30,5 @@ function js() {
       presets: ['es2015']
     }))
     .pipe(plugins.uglify())
-    .pipe(gulp.dest(paths.dev));
+    .pipe(gulp.dest(paths.build));
 }
