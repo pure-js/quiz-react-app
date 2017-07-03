@@ -4,6 +4,6 @@
 npm i
 git submodule init
 git submodule update
-npm i concurrently -g
+npm run server
 npm start
 ```

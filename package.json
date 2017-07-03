@@ -4,7 +4,8 @@
   "description": "app for training your js skills",
   "main": "src/main.js",
   "scripts": {
-    "start": "gulp",
+    "server": "node server/server.js",
+    "start": "gulp dev",
     "dev": "gulp dev",
     "build": "gulp build",
     "deploy": "gulp deploy",
@@ -23,6 +24,7 @@
   "dependencies": {
     "amdefine": "^1.0.1",
     "buffer-shims": "^1.0.0",
+    "cors": "^2.8.3",
     "gulp": "github:gulpjs/gulp#4.0",
     "highlights": "^3.0.1",
     "path-dirname": "^1.0.2",

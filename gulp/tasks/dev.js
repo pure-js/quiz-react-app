@@ -48,4 +48,4 @@ const serve = () => {
   });
 }
 
-module.exports = gulp.series(html, css, js, serve, watch);
+module.exports = gulp.series(html, css, js, watch, serve);
