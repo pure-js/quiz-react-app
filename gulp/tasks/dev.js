@@ -5,11 +5,9 @@ const gulp = require('gulp'),
   plugins = require('gulp-load-plugins')(),
   browserSync = require('browser-sync').create();
 
-module.exports = gulp.series(html, css, js, serve, watch);
-
 // Get one .less file and render
-function css() {
-  return gulp.src(paths.less)
+const css = () =>
+  gulp.src(paths.less)
     .pipe(plugins.plumber())
     .pipe(plugins.rename('main.css'))
     .pipe(plugins.sourcemaps.init())
@@ -18,32 +16,29 @@ function css() {
     }))
     .pipe(plugins.sourcemaps.write(''))
     .pipe(gulp.dest(paths.dev));
-}
 
-function html() {
-  return gulp.src(paths.pug)
+const html = () =>
+  gulp.src(paths.pug)
     .pipe(plugins.plumber())
     .pipe(plugins.rename('index.html'))
     .pipe(plugins.pug())
     .pipe(gulp.dest(paths.dev));
-}
 
-function js() {
-  return gulp.src(paths.js)
+const js = () =>
+  gulp.src(paths.js)
     .pipe(plugins.plumber())
     .pipe(plugins.rename('main.js'))
     .pipe(gulp.dest(paths.dev));
-}
 
 // Rerun the task when a file changes
-function watch() {
+const watch = () => {
   gulp.watch(paths.lessWatch, css);
   gulp.watch(paths.pug, html);
   gulp.watch(paths.js, js);
 }
 
 // Static server
-function serve() {
+const serve = () => {
   browserSync.init({
     server: {
       baseDir: paths.dev,
@@ -52,3 +47,5 @@ function serve() {
     browser: ['google chrome', 'chrome']
   });
 }
+
+module.exports = gulp.series(html, css, js, serve, watch);

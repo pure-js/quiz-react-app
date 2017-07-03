@@ -1,7 +1,7 @@
 const gulp = require('gulp'),
   ghPages = require('gulp-gh-pages'),
   paths = require('./gulp/config').paths,
-  dev = require('./gulp/tasks/dev'),
+  develop = require('./gulp/tasks/dev'),
   build = require('./gulp/tasks/build'),
   del = require('del'),
   mkdirp = require('mkdirp'),
@@ -42,9 +42,11 @@ function wrap() {
 }
 
 // The default task (called when you run `gulp` from cli)
-gulp.task('dev', gulp.parallel(wrap, dev));
+const dev = () => gulp.parallel(wrap, develop);
+exports.dev = dev;
+
 gulp.task('build', gulp.parallel(build));
-gulp.task('default', gulp.series('dev'));
+exports.default = dev;
 
 gulp.task('deploy', gulp.series('build', () =>
   gulp.src(paths.build + '**/*')
