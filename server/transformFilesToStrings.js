@@ -35,4 +35,9 @@ function getFilesContent(folder, files) {
 getFilesList(folderName).then((files) => {
   const zo = getFilesContent(folderName, files);
   return Promise.all(zo);
-}).then(content => fs.writeFile(output, content, 'utf8'));
+}).then(content => {
+  console.log(content.join(''));
+  fs.writeFile(output, 'const arr = ' + JSON.stringify(content) + ';', 'utf8', (err) => {
+    if (err) throw err
+  });
+});

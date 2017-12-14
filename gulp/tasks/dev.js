@@ -28,7 +28,6 @@ const html = () =>
 const js = () =>
   gulp.src(development.js)
     .pipe(plugins.plumber())
-    .pipe(plugins.rename('main.js'))
     .pipe(gulp.dest(development.dest));
 
 // Rerun the task when a file changes

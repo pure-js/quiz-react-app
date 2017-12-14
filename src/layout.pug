@@ -3,9 +3,11 @@ html(lang='en')
   head
     title JavaScript Exercises
     block scripts
-      script(src='main.js', async)
+      script(src='exercises.js')
+      script(src='showRandomQuiz.js')
       link(rel='stylesheet', href='main.css')
   body
-    #mydiv
+    pre
+      code#code
     input.console-input(type='text', autofocus)
-    button(type='button', onclick='alert("Not working")') Go to quiz
+    button(type='button', onclick='showRandomQuiz()') Go to quiz
