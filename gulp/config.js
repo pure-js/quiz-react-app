@@ -11,7 +11,7 @@ const production = {
   less: 'src/main.less',
   lessWatch: 'src/*.less',
   js: 'src/*.js',
-  dest: 'build/',
+  dest: 'dist/',
   deploy: '.publish'
 };
 

@@ -1,7 +1,8 @@
 const fs = require('fs');
+const param = process.argv.slice(2)[0];
 
 const folderName = 'exercises';
-const output = '.tmp/exercises.js';
+const output = param + '/exercises.js';
 
 function getFilesList(folder) {
   return new Promise((resolve, reject) => {
@@ -36,7 +37,6 @@ getFilesList(folderName).then((files) => {
   const zo = getFilesContent(folderName, files);
   return Promise.all(zo);
 }).then(content => {
-  console.log(content.join(''));
   fs.writeFile(output, 'const arr = ' + JSON.stringify(content) + ';', 'utf8', (err) => {
     if (err) throw err
   });
