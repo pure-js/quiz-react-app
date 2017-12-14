@@ -1,9 +1,8 @@
-const gulp = require('gulp'),
-  config = require('../config'),
-  paths = config.paths,
-  names = config.names,
-  plugins = require('gulp-load-plugins')(),
-  browserSync = require('browser-sync').create();
+import gulp from 'gulp';
+import { paths } from '../config';
+import gulpLoadPlugins from 'gulp-load-plugins';
+const plugins = gulpLoadPlugins();
+import browserSync from 'browser-sync';
 
 // Get one .less file and render
 const css = () =>
@@ -20,8 +19,8 @@ const css = () =>
 const html = () =>
   gulp.src(paths.pug)
     .pipe(plugins.plumber())
-    .pipe(plugins.rename('index.html'))
     .pipe(plugins.pug())
+    .pipe(plugins.rename('index.html'))
     .pipe(gulp.dest(paths.dev));
 
 const js = () =>
@@ -35,7 +34,7 @@ const watch = () => {
   gulp.watch(paths.lessWatch, css);
   gulp.watch(paths.pug, html);
   gulp.watch(paths.js, js);
-}
+};
 
 // Static server
 const serve = () => {
@@ -46,6 +45,7 @@ const serve = () => {
     },
     browser: ['google chrome', 'chrome']
   });
-}
+};
 
-module.exports = gulp.series(html, css, js, watch, serve);
+const dev = gulp.series(gulp.parallel(css, html, js), watch, serve);
+export default dev;

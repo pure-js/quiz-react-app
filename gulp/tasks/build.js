@@ -28,4 +28,5 @@ const js = () =>
     .pipe(plugins.uglify())
     .pipe(gulp.dest(paths.build));
 
-module.exports = gulp.series(html, css, js);
+const build = gulp.series(html, css, js);
+export default build;

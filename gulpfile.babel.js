@@ -1,11 +1,10 @@
-const gulp = require('gulp'),
-  ghPages = require('gulp-gh-pages'),
-  paths = require('./gulp/config').paths,
-  develop = require('./gulp/tasks/dev'),
-  build = require('./gulp/tasks/build'),
-  del = require('del'),
-  mkdirp = require('mkdirp'),
-  prism = require('prismjs');
+import gulp from 'gulp';
+import ghPages from 'gulp-gh-pages';
+import { paths } from './gulp/config';
+import develop from './gulp/tasks/dev';
+import build from './gulp/tasks/build';
+import del from 'del';
+import prism from 'prismjs';
 
 const clean = () => del([ paths.build, paths.dev, paths.deploy ]);
 exports.clean = clean;

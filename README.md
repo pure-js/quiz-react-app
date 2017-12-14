@@ -1,5 +1,5 @@
 # JavaScript exercises
-## Run dev server
+## Contribution
 ```
 npm i
 git submodule init
