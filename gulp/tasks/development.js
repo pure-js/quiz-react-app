@@ -48,5 +48,5 @@ const serve = () => {
   });
 };
 
-const dev = gulp.series(gulp.parallel(css, html, js), watch, serve);
-export default dev;
+const develop = gulp.series(gulp.parallel(css, html, js), watch, serve);
+export default develop;
