@@ -1,12 +1,11 @@
 import gulp from 'gulp';
 import ghPages from 'gulp-gh-pages';
-import { paths } from './gulp/config';
+import { development, production } from './gulp/config';
 import develop from './gulp/tasks/dev';
 import build from './gulp/tasks/build';
 import del from 'del';
-import prism from 'prismjs';
 
-const clean = () => del([ paths.build, paths.dev, paths.deploy ]);
+const clean = () => del([ development.dest, production.dest, production.deploy ]);
 exports.clean = clean;
 
 // The default task (called when you run `gulp` from cli)

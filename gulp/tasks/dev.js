@@ -1,12 +1,12 @@
 import gulp from 'gulp';
-import { paths } from '../config';
+import { development } from '../config';
 import gulpLoadPlugins from 'gulp-load-plugins';
 const plugins = gulpLoadPlugins();
 import browserSync from 'browser-sync';
 
 // Get one .less file and render
 const css = () =>
-  gulp.src(paths.less)
+  gulp.src(development.less)
     .pipe(plugins.plumber())
     .pipe(plugins.rename('main.css'))
     .pipe(plugins.sourcemaps.init())
@@ -14,33 +14,35 @@ const css = () =>
       compress: false
     }))
     .pipe(plugins.sourcemaps.write(''))
-    .pipe(gulp.dest(paths.dev));
+    .pipe(gulp.dest(development.dest));
 
 const html = () =>
-  gulp.src(paths.pug)
+  gulp.src(development.pug)
     .pipe(plugins.plumber())
-    .pipe(plugins.pug())
+    .pipe(plugins.pug({
+      pretty: true
+    }))
     .pipe(plugins.rename('index.html'))
-    .pipe(gulp.dest(paths.dev));
+    .pipe(gulp.dest(development.dest));
 
 const js = () =>
-  gulp.src(paths.js)
+  gulp.src(development.js)
     .pipe(plugins.plumber())
     .pipe(plugins.rename('main.js'))
-    .pipe(gulp.dest(paths.dev));
+    .pipe(gulp.dest(development.dest));
 
 // Rerun the task when a file changes
 const watch = () => {
-  gulp.watch(paths.lessWatch, css);
-  gulp.watch(paths.pug, html);
-  gulp.watch(paths.js, js);
+  gulp.watch(development.lessWatch, css);
+  gulp.watch(development.pug, html);
+  gulp.watch(development.js, js);
 };
 
 // Static server
 const serve = () => {
   browserSync.init({
     server: {
-      baseDir: paths.dev,
+      baseDir: development.dev,
       index: 'index.html'
     },
     browser: ['google chrome', 'chrome']

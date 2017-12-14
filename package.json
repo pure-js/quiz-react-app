@@ -8,6 +8,7 @@
     "start": "gulp dev",
     "dev": "gulp dev",
     "build": "gulp build",
+    "clean": "gulp clean",
     "deploy": "gulp deploy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
