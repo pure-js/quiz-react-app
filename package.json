@@ -4,7 +4,7 @@
   "description": "app for training your js skills",
   "main": "src/main.js",
   "scripts": {
-    "server": "node server/server.js",
+    "preinstall": "node server/transformFilesToStrings.js",
     "start": "gulp dev",
     "dev": "gulp dev",
     "build": "gulp build",
