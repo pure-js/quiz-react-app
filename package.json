@@ -5,7 +5,7 @@
   "main": "src/main.js",
   "scripts": {
     "start": "npm run dev",
-    "dev": "gulp dev && node server/transformFilesToStrings.js ./tmp",
+    "dev": "gulp dev && node server/transformFilesToStrings.js .tmp",
     "build": "gulp prod && node server/transformFilesToStrings.js dist",
     "clean": "gulp clean",
     "deploy": "gh-pages -d dist",

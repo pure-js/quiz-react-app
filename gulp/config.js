@@ -3,6 +3,7 @@ const development = {
   less: 'src/main.less',
   lessWatch: 'src/*.less',
   js: 'src/*.js',
+  copy: 'manifest.json',
   dest: '.tmp/',
 };
 
@@ -11,8 +12,9 @@ const production = {
   less: 'src/main.less',
   lessWatch: 'src/*.less',
   js: 'src/*.js',
+  copy: 'manifest.json',
   dest: 'dist/',
-  deploy: '.publish'
+  deploy: '.publish',
 };
 
 export { development, production };

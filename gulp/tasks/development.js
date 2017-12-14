@@ -30,6 +30,10 @@ const js = () =>
     .pipe(plugins.plumber())
     .pipe(gulp.dest(development.dest));
 
+const copy = () =>
+  gulp.src(development.copy)
+    .pipe(gulp.dest(development.dest));
+
 // Rerun the task when a file changes
 const watch = () => {
   gulp.watch(development.lessWatch, css);
@@ -48,5 +52,5 @@ const serve = () => {
   });
 };
 
-const develop = gulp.series(gulp.parallel(css, html, js), watch, serve);
+const develop = gulp.series(gulp.parallel(css, html, js, copy), watch, serve);
 export default develop;
