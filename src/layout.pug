@@ -7,9 +7,9 @@ html(lang='en')
     link(rel='manifest' href='manifest.json')
     block stylesheets
       link(rel='stylesheet', href='bootstrap.css')
-      link(rel='stylesheet', href='main.css')
       link(rel='stylesheet', href='prism.css')
       link(rel='stylesheet', href='prism-solarizedlight.css')
+      link(rel='stylesheet', href='main.css')
   body
     header
       nav.navbar.navbar-dark.bg-dark
@@ -24,7 +24,7 @@ html(lang='en')
           pre
             code#code.language-javascript
           input.console-input(type='text', autofocus)
-          button.btn.btn-info.btn_cursor(type='button', onclick='showRandomQuiz()') Next quiz
+          button.btn.btn-info.btn_cursor(type='button', onclick='showRandomQuiz(); Prism.highlightAll();') Next quiz
     block scripts
       script(src='exercises.js' async)
       script(src='prism.js' async)
