@@ -6,17 +6,26 @@ html(lang='en')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
     link(rel='manifest' href='manifest.json')
     block stylesheets
+      link(rel='stylesheet', href='bootstrap.css')
       link(rel='stylesheet', href='main.css')
       link(rel='stylesheet', href='prism.css')
       link(rel='stylesheet', href='prism-solarizedlight.css')
   body
     header
-      h1 JavaScript Quiz
-    main
-      pre
-        code#code.language-javascript
-      input.console-input(type='text', autofocus)
-      button(type='button', onclick='showRandomQuiz()') Go to quiz
+      nav.navbar.navbar-dark.bg-dark
+        .container
+          .row
+            .col-12
+              a.navbar-brand(href='#')
+                | JavaScript Quiz
+    main.container
+      .row
+        .col-12
+          pre
+            code#code.language-javascript
+          input.console-input(type='text', autofocus)
+          button.btn.btn-info.btn_cursor(type='button', onclick='showRandomQuiz()') Next quiz
     block scripts
       script(src='exercises.js' async)
+      script(src='prism.js' async)
       script(src='showRandomQuiz.js' async)
