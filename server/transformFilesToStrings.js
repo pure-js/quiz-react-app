@@ -37,7 +37,9 @@ getFilesList(folderName).then((files) => {
   const zo = getFilesContent(folderName, files);
   return Promise.all(zo);
 }).then(content => {
-  fs.writeFile(output, 'const arr = ' + JSON.stringify(content) + ';', 'utf8', (err) => {
-    if (err) throw err
+  fs.mkdir(param, () => {
+    fs.writeFile(output, 'const arr = ' + JSON.stringify(content) + ';', 'utf8', (err) => {
+      if (err) throw err
+    });
   });
 });

@@ -25,11 +25,6 @@ const html = () =>
     .pipe(plugins.rename('index.html'))
     .pipe(gulp.dest(development.dest));
 
-const js = () =>
-  gulp.src(development.js)
-    .pipe(plugins.plumber())
-    .pipe(gulp.dest(development.dest));
-
 const copy = () =>
   gulp.src(development.copy)
     .pipe(gulp.dest(development.dest));
@@ -38,7 +33,6 @@ const copy = () =>
 const watch = () => {
   gulp.watch(development.lessWatch, css);
   gulp.watch(development.pug, html);
-  gulp.watch(development.js, js);
 };
 
 // Static server
@@ -52,5 +46,5 @@ const serve = () => {
   });
 };
 
-const develop = gulp.series(gulp.parallel(css, html, js, copy), watch, serve);
+const develop = gulp.series(gulp.parallel(css, html, copy), watch, serve);
 export default develop;

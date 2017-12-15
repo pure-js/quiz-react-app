@@ -23,9 +23,12 @@ html(lang='en')
         .col-12
           pre
             code#code.language-javascript
-          input.console-input(type='text', autofocus)
-          button.btn.btn-info.btn_cursor(type='button', onclick='showRandomQuiz(); Prism.highlightAll();') Next quiz
+          form
+            .form-group
+              label(for='console-output') Web Console Output:
+              textarea#console-output.form-control.console-output(rows='1', autofocus)
+          button#answer.btn.btn-info.btn_cursor(type='button') Answer
+          button#next-quiz.btn.btn-info.btn_cursor(type='button') Next quiz
     block scripts
       script(src='exercises.js' async)
-      script(src='prism.js' async)
-      script(src='showRandomQuiz.js' async)
+      script(src='bundle.js' async)
