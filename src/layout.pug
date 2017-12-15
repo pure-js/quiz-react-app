@@ -2,16 +2,21 @@ doctype html
 html(lang='en')
   head
     meta(charset='utf-8')
-    title JavaScript Exercises
+    title JavaScript Quiz
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
     link(rel='manifest' href='manifest.json')
     block stylesheets
       link(rel='stylesheet', href='main.css')
+      link(rel='stylesheet', href='prism.css')
+      link(rel='stylesheet', href='prism-solarizedlight.css')
   body
-    pre
-      code#code
-    input.console-input(type='text', autofocus)
-    button(type='button', onclick='showRandomQuiz()') Go to quiz
+    header
+      h1 JavaScript Quiz
+    main
+      pre
+        code#code.language-javascript
+      input.console-input(type='text', autofocus)
+      button(type='button', onclick='showRandomQuiz()') Go to quiz
     block scripts
       script(src='exercises.js' async)
       script(src='showRandomQuiz.js' async)
