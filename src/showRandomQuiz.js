@@ -10,6 +10,4 @@ function showRandomQuiz() {
   document.getElementById('code').innerHTML = arr[rand];
 }
 
-window.addEventListener('load', function(event) {
-  showRandomQuiz();
-});
+export default showRandomQuiz;

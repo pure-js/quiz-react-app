@@ -28,6 +28,7 @@ const html = () =>
 const js = () =>
   gulp.src(development.js)
     .pipe(plugins.plumber())
+    .pipe(plugins.babel())
     .pipe(gulp.dest(development.dest));
 
 const copy = () =>
