@@ -26,5 +26,9 @@ const js = () =>
     }))
     .pipe(gulp.dest(production.dest));
 
-const prod = gulp.parallel(html, css, js);
+const copy = () =>
+  gulp.src(production.copy)
+    .pipe(gulp.dest(production.dest));
+
+const prod = gulp.parallel(html, css, js, copy);
 export default prod;

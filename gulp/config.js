@@ -3,6 +3,11 @@ const development = {
   less: 'src/main.less',
   lessWatch: 'src/*.less',
   js: 'src/*.js',
+  copy: [
+    'manifest.json',
+    'node_modules/prismjs/themes/prism.css',
+    'node_modules/prismjs/themes/prism-solarizedlight.css'
+  ],
   dest: '.tmp/',
 };
 
@@ -11,8 +16,13 @@ const production = {
   less: 'src/main.less',
   lessWatch: 'src/*.less',
   js: 'src/*.js',
+  copy: [
+    'manifest.json',
+    'node_modules/prismjs/themes/prism.css',
+    'node_modules/prismjs/themes/prism-solarizedlight.css'
+  ],
   dest: 'dist/',
-  deploy: '.publish'
+  deploy: '.publish',
 };
 
 export { development, production };

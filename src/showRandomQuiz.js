@@ -13,4 +13,3 @@ function showRandomQuiz() {
 window.addEventListener('load', function(event) {
   showRandomQuiz();
 });
-
