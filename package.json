@@ -5,11 +5,11 @@
   "main": "src/main.js",
   "scripts": {
     "start": "npm run dev",
-    "dev": "gulp dev && node server/transformFilesToStrings.js .tmp",
+    "dev": "node server/transformFilesToStrings.js .tmp && gulp dev",
     "devJs": "webpack-dev-server --open --config webpack.dev.js",
     "build": "gulp prod && node server/transformFilesToStrings.js dist",
     "buildJs": "webpack webpack --config webpack.prod.js",
-    "clean": "gulp clean",
+    "clean": "trash .tmp/ dist/ .publish",
     "deploy": "gh-pages -d dist",
     "lint": "eslint src/*.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -35,7 +35,6 @@
     "babel-register": "~6.26.0",
     "browser-sync": "~2.18.13",
     "clean-webpack-plugin": "~0.1.17",
-    "del": "^3.0.0",
     "eslint-config-airbnb-base": "~12.1.0",
     "eslint-plugin-import": "~2.8.0",
     "gh-pages": "~1.1.0",
@@ -48,6 +47,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-sourcemaps": "~2.6.1",
     "prismjs": "^1.6.0",
+    "trash-cli": "~1.4.0",
     "webpack": "~3.10.0",
     "webpack-dev-server": "~2.9.7",
     "webpack-merge": "~4.1.1"
