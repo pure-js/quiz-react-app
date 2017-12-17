@@ -2,7 +2,6 @@ import gulp from 'gulp';
 import { development } from '../config';
 import gulpLoadPlugins from 'gulp-load-plugins';
 const plugins = gulpLoadPlugins();
-import browserSync from 'browser-sync';
 
 // Get one .less file and render
 const css = () =>
@@ -35,16 +34,5 @@ const watch = () => {
   gulp.watch(development.pug, html);
 };
 
-// Static server
-const serve = () => {
-  browserSync.init({
-    server: {
-      baseDir: development.dev,
-      index: 'index.html'
-    },
-    browser: ['google chrome', 'chrome']
-  });
-};
-
-const develop = gulp.series(gulp.parallel(css, html, copy), watch, serve);
+const develop = gulp.series(gulp.parallel(css, html, copy), watch);
 export default develop;

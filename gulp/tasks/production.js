@@ -18,17 +18,9 @@ const html = () =>
     .pipe(plugins.pug())
     .pipe(gulp.dest(production.dest));
 
-const js = () =>
-  gulp.src(production.js)
-    .pipe(plugins.babelMinify())
-    .pipe(plugins.rename({
-      extname: ".min.js"
-    }))
-    .pipe(gulp.dest(production.dest));
-
 const copy = () =>
   gulp.src(production.copy)
     .pipe(gulp.dest(production.dest));
 
-const prod = gulp.parallel(html, css, js, copy);
+const prod = gulp.parallel(html, css, copy);
 export default prod;
