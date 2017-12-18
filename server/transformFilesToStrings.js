@@ -13,11 +13,13 @@ function getFilesList(folder) {
   });
 }
 
-function getFileContent(file) {
+function getFileContent(name, file) {
   return new Promise((resolve, reject) => {
     fs.readFile(file, 'utf8', (err, data) => {
       if (err) reject(err);
-      resolve(data);
+      const obj = {};
+      obj[name] = data;
+      resolve(obj);
     });
   });
 }
@@ -27,7 +29,10 @@ function getFilesContent(folder, files) {
   const length = files.length;
   for (let i = 0; i < length; i++) {
     const file = folder + '/' + files[i];
-    if (file.slice(-2) === 'js') arr.push(getFileContent(file));
+
+    if (file.slice(-2) === 'js') {
+      arr.push(getFileContent(files[i].slice(0, -3), file));
+    }
   }
 
   return arr;
