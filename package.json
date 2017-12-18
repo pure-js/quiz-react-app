@@ -1,6 +1,6 @@
 {
   "name": "js-exercises",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "app for training your js skills",
   "main": "src/main.js",
   "scripts": {
