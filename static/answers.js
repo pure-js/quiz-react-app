@@ -1,13 +1,18 @@
 const answers = [{
-  '4': '1object'
+  name: '4',
+  value : '1object',
 }, {
-  '6': NaN
+  name: '6',
+  value : NaN,
 }, {
-  '7': NaN
+  name: '7',
+  value : NaN,
 }, {
-  '8': 8
+  name: '8',
+  value : 8,
 }, {
-  '9': [0, 1]
+  name: '9',
+  value : [0, 1],
 }];
 
 export default answers;
