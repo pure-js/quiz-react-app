@@ -6,7 +6,10 @@ const common = {
 const development = Object.assign({}, common, {
   pug: 'src/layout.pug',
   lessWatch: 'src/*.less',
-  jsWatch: 'src/**/*.js',
+  jsWatch: [
+    'src/**/*.js',
+    'static/**/*.js',
+  ],
   copy: [
     'manifest.json',
     'node_modules/bootstrap/dist/css/bootstrap.css'

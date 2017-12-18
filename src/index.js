@@ -9,7 +9,6 @@ import showResult from './components/showResult';
 
 window.addEventListener('load', () => {
   showRandomQuiz(questions);
-  Prism.highlightAll();
 
   const $answer = document.getElementById('answer');
   const $nextQuiz = document.getElementById('next-quiz');
@@ -17,7 +16,6 @@ window.addEventListener('load', () => {
 
   $nextQuiz.addEventListener('click', () => {
     showRandomQuiz(questions);
-    Prism.highlightAll();
   });
 
   $textArea.addEventListener('keypress', () => {
@@ -26,6 +24,7 @@ window.addEventListener('load', () => {
 
   $answer.addEventListener('click', () => {
     const userAnswer = $textArea.value;
-    showResult(checkAnswer(userAnswer, current.answer.value));
+    const answer = checkAnswer(userAnswer, current.answer.value);
+    showResult(answer);
   });
 });

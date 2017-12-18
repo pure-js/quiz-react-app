@@ -10,7 +10,7 @@ const current = {
   },
 
   get answer() {
-    return answers.find((answer) => answer.name = this.quiz.name);
+    return answers.find((answer) => answer.name === this.quiz.name);
   }
 };
 

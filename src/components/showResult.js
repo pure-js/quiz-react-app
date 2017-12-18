@@ -12,7 +12,6 @@ function showResult(correctAnswer) {
   } else {
     $textArea.classList.remove('is-valid');
     $textArea.classList.add('is-invalid');
-    console.log('false', current.question.value, current.answer.value);
   }
 }
 
