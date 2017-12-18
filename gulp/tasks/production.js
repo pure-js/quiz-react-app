@@ -7,10 +7,10 @@ const plugins = gulpLoadPlugins();
 // Get one .less file and render
 const css = () =>
   gulp.src(production.less)
-    .pipe(plugins.rename('main.min.css'))
     .pipe(plugins.less({
       compress: true
     }))
+    .pipe(plugins.rename('main.min.css'))
     .pipe(gulp.dest(production.dest));
 
 const html = () =>
