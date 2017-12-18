@@ -1,13 +1,13 @@
-import domElements from "./domElements";
-import checkAnswer from "./checkAnswer";
-import showResult from "./showResult";
-import current from "./current";
-import progress from "./progress";
+import domElements from './domElements';
+import checkAnswer from './checkAnswer';
+import showResult from './showResult';
+import current from './current';
+import progress from './progress';
 
 
 function updateProgressBar(answers) {
-  document.getElementById('progress-success').style.width = answers.correct + '%';
-  document.getElementById('progress-failure').style.width = answers.wrong + '%';
+  document.getElementById('progress-success').style.width = `${answers.correct}%`;
+  document.getElementById('progress-failure').style.width = `${answers.wrong}%`;
 }
 
 function toAnswer() {

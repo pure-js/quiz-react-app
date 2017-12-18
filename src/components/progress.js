@@ -1,4 +1,4 @@
-import current from "./current";
+import current from './current';
 
 const progress = {
   answers: {
@@ -16,9 +16,9 @@ const progress = {
 
   get percentageOverall() {
     return {
-      wrong: this.answers.wrong.length * 100 / current.quiz.length,
-      correct: this.answers.correct.length * 100 / current.quiz.length,
-    }
+      wrong: (this.answers.wrong.length * 100) / current.quiz.length,
+      correct: (this.answers.correct.length * 100) / current.quiz.length,
+    };
   },
 };
 

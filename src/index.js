@@ -7,12 +7,12 @@ import shuffleArray from './components/shuffleArray';
 import toAnswer from './components/toAnswer';
 
 window.addEventListener('load', () => {
-  domElements.$startQuiz.addEventListener('click', () => {
+  domElements.$exam.addEventListener('click', () => {
     current.quiz = shuffleArray(questions);
     showNextQuiz(questions);
     document.getElementById('first-screen').classList.add('d-none');
     document.getElementById('quiz-screen').classList.remove('d-none');
-    domElements.$startQuiz.removeEventListener('click', () => {});
+    domElements.$exam.removeEventListener('click', () => {});
   });
 
   domElements.$nextQuiz.addEventListener('click', () => {
@@ -26,4 +26,14 @@ window.addEventListener('load', () => {
   domElements.$answer.addEventListener('click', () => {
     toAnswer();
   });
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js')
+      .then((registration) => {
+        console.log('Registered:', registration);
+      })
+      .catch((error) => {
+        console.log('Registration failed: ', error);
+      });
+  }
 });

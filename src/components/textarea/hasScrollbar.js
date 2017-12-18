@@ -1,8 +1,8 @@
 /*
 returns {boolean}
  */
-function hasScrollbar(el_id) {
-  const el = document.getElementById(el_id);
+function hasScrollbar(elementId) {
+  const el = document.getElementById(elementId);
   return (el.clientHeight < el.scrollHeight);
 }
 
