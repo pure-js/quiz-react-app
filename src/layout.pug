@@ -14,10 +14,12 @@ html(lang='en')
         nav.navbar.navbar-dark.navbar_no-padding
           a.navbar-brand(href='#') JavaScript Quiz
       .progress(style='height: 5px')
-        .progress-bar.bg-success(style='width: 50%')
-        .progress-bar.bg-danger(style='width: 40%')
+        #progress-success.progress-bar.bg-success(style='width: 0%')
+        #progress-failure.progress-bar.bg-danger(style='width: 0%')
     main.container
-      .row
+      .row#first-screen
+        button#start.mx-auto.btn.btn-lg.btn-info.btn_start(type='button') Start Quiz
+      .row#quiz-screen.d-none
         .col-12.bg-solarized
           pre.language_custom
             code#code.language-javascript

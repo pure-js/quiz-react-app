@@ -1,16 +1,23 @@
 import addRow from './components/textarea/textAreaAddRow';
-import showRandomQuiz from './components/showRandomQuiz';
-import checkAnswer from './components/checkAnswer';
+import showNextQuiz from './components/showNextQuiz';
 import questions from '../static/questions';
 import current from './components/current';
-import showResult from './components/showResult';
 import domElements from './components/domElements';
+import shuffleArray from './components/shuffleArray';
+import toAnswer from './components/toAnswer';
 
 window.addEventListener('load', () => {
-  showRandomQuiz(questions);
+  domElements.$startQuiz.addEventListener('click', () => {
+    const shuffled= shuffleArray(questions);
+    current.quiz = shuffled;
+    showNextQuiz(questions);
+    document.getElementById('first-screen').classList.add('d-none');
+    document.getElementById('quiz-screen').classList.remove('d-none');
+    domElements.$startQuiz.removeEventListener('click', () => {});
+  });
 
   domElements.$nextQuiz.addEventListener('click', () => {
-    showRandomQuiz(questions);
+    showNextQuiz(questions);
   });
 
   domElements.$textArea.addEventListener('keypress', () => {
@@ -18,8 +25,6 @@ window.addEventListener('load', () => {
   });
 
   domElements.$answer.addEventListener('click', () => {
-    const userAnswer = domElements.$textArea.value;
-    const answer = checkAnswer(userAnswer, current.answer.value);
-    showResult(answer);
+    toAnswer();
   });
 });

@@ -1,4 +1,4 @@
-import showRandomQuiz from "./showRandomQuiz";
+import showNextQuiz from "./showNextQuiz";
 import questions from "../../static/questions";
 import { clearTextAreaClasses } from "./cssClassManipulation";
 
@@ -21,12 +21,13 @@ function showResult(correctAnswer) {
   if (correctAnswer) {
     clearTextAreaClasses($textArea, ['is-invalid']);
     $textArea.classList.add('is-valid');
-    showRandomQuiz(questions);
+    showNextQuiz(questions);
   } else {
     clearTextAreaClasses($textArea, ['is-valid']);
     $textArea.classList.add('is-invalid');
     const $formGroup = document.getElementsByClassName('form-group')[0];
     addFeedbackIfNotExist($formGroup, $formGroup.childNodes[0]);
+    showNextQuiz(questions);
   }
 }
 
