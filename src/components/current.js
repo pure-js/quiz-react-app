@@ -20,8 +20,8 @@ const current = {
   },
 
   get answer() {
-    return answers.find((answer) => answer.name === this.currentQuestion.name);
-  }
+    return answers.find(answer => answer.name === this.currentQuestion.name);
+  },
 };
 
 export default current;

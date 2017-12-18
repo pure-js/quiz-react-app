@@ -1,8 +1,9 @@
+import Prism from 'prismjs';
+
 import current from './current';
-import Prism from "prismjs";
-import { clearTextAreaClasses } from "./cssClassManipulation";
-import domElements from "./domElements";
-import showResults from "./showResults";
+import { clearTextAreaClasses } from './cssClassManipulation';
+import domElements from './domElements';
+import showResults from './showResults';
 
 function showNextQuiz() {
   const currentQuestion = current.next;

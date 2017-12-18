@@ -1,13 +1,13 @@
-import showNextQuiz from "./showNextQuiz";
-import questions from "../../static/questions";
-import { clearTextAreaClasses } from "./cssClassManipulation";
+import showNextQuiz from './showNextQuiz';
+import questions from '../../static/questions';
+import { clearTextAreaClasses } from './cssClassManipulation';
 
 function addFeedbackIfNotExist(parentNode, referenceNode) {
   const $feed = document.getElementsByClassName('invalid-feedback');
 
   if ($feed.length < 1) {
     const $feedback = document.createElement('div');
-    const content = document.createTextNode("Wrong answer!");
+    const content = document.createTextNode('Wrong answer!');
     $feedback.classList.add('invalid-feedback');
     $feedback.style.display = 'block';
     $feedback.appendChild(content);

@@ -7,12 +7,12 @@ import shuffleArray from './components/shuffleArray';
 import toAnswer from './components/toAnswer';
 
 window.addEventListener('load', () => {
-  domElements.$startQuiz.addEventListener('click', () => {
+  domElements.$exam.addEventListener('click', () => {
     current.quiz = shuffleArray(questions);
     showNextQuiz(questions);
     document.getElementById('first-screen').classList.add('d-none');
     document.getElementById('quiz-screen').classList.remove('d-none');
-    domElements.$startQuiz.removeEventListener('click', () => {});
+    domElements.$exam.removeEventListener('click', () => {});
   });
 
   domElements.$nextQuiz.addEventListener('click', () => {
