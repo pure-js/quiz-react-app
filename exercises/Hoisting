@@ -1,0 +1,2 @@
+alert(str); // ?
+var str = "Hello";
