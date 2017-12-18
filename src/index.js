@@ -2,11 +2,11 @@ import Prism from 'prismjs';
 import addRow from './components/textarea/textAreaAddRow';
 import showRandomQuiz from './showRandomQuiz';
 import checkAnswer from './check-answer';
-import questions from '../static/exercises';
+import questions from '../static/questions';
 import answers from '../static/answers';
 
 window.addEventListener('load', function() {
-  showRandomQuiz();
+  showRandomQuiz(questions);
   Prism.highlightAll();
 
   const $answer = document.getElementById('next-quiz');
@@ -14,7 +14,7 @@ window.addEventListener('load', function() {
   const $textArea = document.getElementById('console-output');
 
   $nextQuiz.addEventListener('click', () => {
-    showRandomQuiz();
+    showRandomQuiz(questions);
     Prism.highlightAll();
   });
 
