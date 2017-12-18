@@ -1,5 +1,6 @@
 import current from './current';
 import Prism from "prismjs";
+import {clearTextAreaClasses} from "./cssClassManipulation";
 
 function showRandomQuiz(questions) {
   function getRandomIntInclusive(min, max) {
@@ -14,6 +15,8 @@ function showRandomQuiz(questions) {
 
   current.question = currentQuestion;
   Prism.highlightAll();
+  const $textArea = document.getElementById('console-output');
+  clearTextAreaClasses($textArea, ['is-valid', 'is-invalid']);
 }
 
 export default showRandomQuiz;
