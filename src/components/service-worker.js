@@ -1,18 +1,18 @@
 const CACHE_NAME = 'static-cache';
-// const urlsToCache = [
-//   '.',
-//   'index.html',
-//   'bootstrap.min.css',
-//   'bundle.min.js',
-//   'main.min.js',
-// ];
 const urlsToCache = [
   '.',
   'index.html',
-  'bootstrap.css',
-  'bundle.js',
-  'main.js',
+  'bootstrap.min.css',
+  'bundle.min.js',
+  'main.min.js',
 ];
+// const urlsToCache = [
+//   '.',
+//   'index.html',
+//   'bootstrap.css',
+//   'bundle.js',
+//   'main.js',
+// ];
 
 this.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE_NAME)

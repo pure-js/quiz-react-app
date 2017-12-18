@@ -1,8 +1,8 @@
 import hasScrollbar from './hasScrollbar';
 
-function addRow(elId) {
-  if (hasScrollbar(elId)) {
-    const el = document.getElementById(elId);
+function addRow(elementId) {
+  if (hasScrollbar(elementId)) {
+    const el = document.getElementById(elementId);
     el.rows = Number(el.rows) + 1;
   }
 }
