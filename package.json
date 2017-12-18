@@ -8,7 +8,6 @@
     "dev": "gulp dev",
     "devJs": "webpack-dev-server --open --config webpack.dev.js",
     "build": "gulp prod",
-    "buildJs": "webpack webpack --config webpack.prod.js",
     "questions-to-array": "node server/transformFilesToStrings.js ./",
     "clean": "trash .tmp/ dist/ .publish",
     "deploy": "gh-pages -d dist",
@@ -27,7 +26,8 @@
   "homepage": "https://github.com/pure-js/js-exercises#readme",
   "dependencies": {
     "bootstrap": "~4.0.0-beta.2",
-    "gulp": "github:gulpjs/gulp#4.0"
+    "gulp": "github:gulpjs/gulp#4.0",
+    "prismjs": "~1.9.0"
   },
   "devDependencies": {
     "babel-cli": "~6.26.0",
@@ -36,6 +36,7 @@
     "babel-register": "~6.26.0",
     "browser-sync": "~2.18.13",
     "clean-webpack-plugin": "~0.1.17",
+    "eslint": "~4.13.1",
     "eslint-config-airbnb-base": "~12.1.0",
     "eslint-plugin-import": "~2.8.0",
     "gh-pages": "~1.1.0",
@@ -45,10 +46,10 @@
     "gulp-pug": "^3.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-sourcemaps": "~2.6.1",
-    "prismjs": "^1.6.0",
     "trash-cli": "~1.4.0",
     "webpack": "~3.10.0",
     "webpack-dev-server": "~2.9.7",
-    "webpack-merge": "~4.1.1"
+    "webpack-merge": "~4.1.1",
+    "webpack-stream": "~4.0.0"
   }
 }

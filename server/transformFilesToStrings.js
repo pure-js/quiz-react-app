@@ -2,7 +2,7 @@ const fs = require('fs');
 const param = process.argv.slice(2)[0];
 
 const folderName = 'exercises';
-const output = param + '/exercises.js';
+const output = param + '/questions.js';
 
 function getFilesList(folder) {
   return new Promise((resolve, reject) => {
