@@ -1,7 +1,7 @@
 {
-    "short_name": "JS Quiz",
-    "name": "JavaScript Quiz",
-    "background_color": "#002b36",
-    "display": "standalone",
-    "theme_color": "#002b36"
+  "short_name": "JS Quiz",
+  "name": "JavaScript Quiz",
+  "background_color": "#002b36",
+  "display": "standalone",
+  "theme_color": "#002b36"
 }

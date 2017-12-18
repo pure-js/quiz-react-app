@@ -2,7 +2,7 @@ const fs = require('fs');
 const param = process.argv.slice(2)[0];
 
 const folderName = 'exercises';
-const output = param + '/questions.js';
+const folder = param.substring(0, param.indexOf('/'));
 
 function getFilesList(folder) {
   return new Promise((resolve, reject) => {
@@ -37,8 +37,8 @@ getFilesList(folderName).then((files) => {
   const zo = getFilesContent(folderName, files);
   return Promise.all(zo);
 }).then(content => {
-  fs.mkdir(param, () => {
-    fs.writeFile(output, 'const questions = ' + JSON.stringify(content) + ';\nexport default questions;', 'utf8', (err) => {
+  fs.mkdir(folder, () => {
+    fs.writeFile(param, 'const questions = ' + JSON.stringify(content) + ';\nexport default questions;\n', 'utf8', (err) => {
       if (err) throw err
     });
   });
