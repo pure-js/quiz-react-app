@@ -9,9 +9,9 @@ function showRandomQuiz(questions) {
 
   const rand = getRandomIntInclusive(0, questions.length - 1);
   const currentQuestion = questions[rand];
-  document.getElementById('code').innerHTML = Object.values(currentQuestion);
+  document.getElementById('code').innerHTML = currentQuestion.value;
 
-  current.questionName = Object.keys(currentQuestion);
+  current.question = currentQuestion;
 }
 
 export default showRandomQuiz;

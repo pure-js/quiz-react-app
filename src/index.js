@@ -26,7 +26,6 @@ window.addEventListener('load', () => {
 
   $answer.addEventListener('click', () => {
     const userAnswer = $textArea.value;
-    const answer = answers.find(answer => Object.keys(answer) === current.questionName);
-    showResult(checkAnswer(userAnswer, answer));
+    showResult(checkAnswer(userAnswer, current.answer.value));
   });
 });
