@@ -8,8 +8,7 @@ import toAnswer from './components/toAnswer';
 
 window.addEventListener('load', () => {
   domElements.$startQuiz.addEventListener('click', () => {
-    const shuffled= shuffleArray(questions);
-    current.quiz = shuffled;
+    current.quiz = shuffleArray(questions);
     showNextQuiz(questions);
     document.getElementById('first-screen').classList.add('d-none');
     document.getElementById('quiz-screen').classList.remove('d-none');

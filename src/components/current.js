@@ -15,10 +15,6 @@ const current = {
     this.questions = questions;
   },
 
-  get question() {
-    return this.currentQuestion;
-  },
-
   set question(question) {
     this.currentQuestion = question;
   },
