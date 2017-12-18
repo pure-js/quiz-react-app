@@ -1,3 +1,6 @@
+import current from './current';
+import Prism from "prismjs";
+
 function showRandomQuiz(questions) {
   function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
@@ -6,8 +9,11 @@ function showRandomQuiz(questions) {
   }
 
   const rand = getRandomIntInclusive(0, questions.length - 1);
+  const currentQuestion = questions[rand];
+  document.getElementById('code').innerHTML = currentQuestion.value;
 
-  document.getElementById('code').innerHTML = questions[rand];
+  current.question = currentQuestion;
+  Prism.highlightAll();
 }
 
 export default showRandomQuiz;
