@@ -18,9 +18,11 @@ html(lang='en')
         #progress-failure.progress-bar.bg-danger(style='width: 0%')
     main.container
       .row#first-screen
-        .btn-group
-          button#exam.mx-auto.btn.btn-lg.btn-info.btn_start(type='button') Exam
-          button#train.mx-auto.btn.btn-lg.btn-info.btn_start(type='button') Train
+        .col-12
+          .d-flex.justify-content-center
+            .btn-group
+              button#exam.btn.btn-lg.btn-info.btn_start(type='button') Exam
+              button#train.btn.btn-lg.btn-info.btn_start(type='button') Train
       .row#quiz-screen.d-none
         .col-12.bg-solarized
           pre.language_custom
