@@ -5,7 +5,7 @@ import checkAnswer from './check-answer';
 import questions from '../static/questions';
 import answers from '../static/answers';
 
-window.addEventListener('load', function() {
+window.addEventListener('load', () => {
   showRandomQuiz(questions);
   Prism.highlightAll();
 
