@@ -22,11 +22,15 @@ const development = Object.assign({}, common, {
 const production = Object.assign({}, common, {
   pug: 'src/index-prod.pug',
   copy: [
-    'manifest.json',
     'node_modules/bootstrap/dist/css/bootstrap.min.css',
-    'static/**',
+    'static/**/*.png',
   ],
-  sw: 'src/components/service-worker.js',
+  sw: [
+    'src/components/service-worker.js',
+  ],
+  json: [
+    'manifest.json',
+  ],
   dest: 'dist/',
   deploy: '.publish',
 });

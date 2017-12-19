@@ -24,20 +24,23 @@ const html = () =>
 
 const js = () =>
   gulp.src(production.js)
-    .pipe(plugins.plumber())
     .pipe(webpack(webpackConfig))
     .pipe(gulp.dest(production.dest));
 
 const minifyJs = () =>
   gulp.src(production.sw)
-    .pipe(plugins.plumber())
     .pipe(plugins.babelMinify())
     .pipe(plugins.rename('sw.min.js'))
+    .pipe(gulp.dest(production.dest));
+
+const minifyJson = () =>
+  gulp.src(production.json)
+    .pipe(plugins.jsonminify())
     .pipe(gulp.dest(production.dest));
 
 const copy = () =>
   gulp.src(production.copy)
     .pipe(gulp.dest(production.dest));
 
-const prod = gulp.parallel(html, css, js, minifyJs, copy);
+const prod = gulp.parallel(html, css, js, minifyJs, minifyJson, copy);
 export default prod;
