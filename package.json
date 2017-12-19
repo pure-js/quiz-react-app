@@ -25,15 +25,20 @@
   },
   "homepage": "https://github.com/pure-js/js-exercises#readme",
   "dependencies": {
+    "@babel/cli": "^7.0.0-beta.35",
+    "@babel/core": "^7.0.0-beta.35",
+    "@babel/preset-env": "^7.0.0-beta.35",
+    "@babel/preset-react": "^7.0.0-beta.35",
+    "@babel/register": "^7.0.0-beta.35",
+    "babel-loader": "^8.0.0-beta.0",
     "bootstrap": "~4.0.0-beta.2",
     "gulp": "github:gulpjs/gulp#4.0",
-    "prismjs": "~1.9.0"
+    "prismjs": "~1.9.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
   },
   "devDependencies": {
-    "babel-cli": "~6.26.0",
     "babel-minify-webpack-plugin": "~0.2.0",
-    "babel-preset-env": "~1.6.1",
-    "babel-register": "~6.26.0",
     "browser-sync": "~2.18.13",
     "clean-webpack-plugin": "~0.1.17",
     "eslint": "~4.13.1",
@@ -49,7 +54,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-sourcemaps": "~2.6.1",
     "trash-cli": "~1.4.0",
-    "webpack": "~3.10.0",
+    "webpack": "^3.10.0",
     "webpack-dev-server": "~2.9.7",
     "webpack-stream": "~4.0.0"
   }

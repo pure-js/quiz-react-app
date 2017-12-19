@@ -10,6 +10,7 @@ html(lang='en')
       link(rel='stylesheet', href='bootstrap.css')
       link(rel='stylesheet', href='main.css')
   body
+    #app
     header.bg-dark
       .container
         nav.navbar.navbar-dark.navbar_no-padding
@@ -17,6 +18,7 @@ html(lang='en')
       .progress(style='height: 5px')
         #progress-success.progress-bar.bg-success(style='width: 0%')
         #progress-failure.progress-bar.bg-danger(style='width: 0%')
+    .arrow-right
     main.container
       .row#first-screen
         .col-12
@@ -32,9 +34,9 @@ html(lang='en')
           form
             .form-group
               label(for='console-output') Web Console Output:
-              textarea#console-output.form-control.console-output(rows='1', autofocus)
+              textarea#console-output.form-control.console-output(rows='2', autofocus)
             .btn-group
               button#answer.btn.btn-info.btn_cursor(type='button') Answer
               button#next-quiz.btn.btn-light.btn_cursor(type='button') Next quiz
     block scripts
-      script(src='app.bundle.js' async)
+      script(src='app.js' async)
