@@ -4,39 +4,13 @@ html(lang='en')
     meta(charset='utf-8')
     title JavaScript Quiz
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
-    link(rel='manifest' href='manifest.json')
     meta(name='theme-color' content="#343a40")
+    link(rel='manifest' href='manifest.json')
     block stylesheets
       link(rel='stylesheet', href='bootstrap.css')
       link(rel='stylesheet', href='main.css')
   body
-    #app
-    header.bg-dark
-      .container
-        nav.navbar.navbar-dark.navbar_no-padding
-          a.navbar-brand(href='#') JavaScript Quiz
-      .progress(style='height: 5px')
-        #progress-success.progress-bar.bg-success(style='width: 0%')
-        #progress-failure.progress-bar.bg-danger(style='width: 0%')
-    .arrow-right
-    main.container
-      .row#first-screen
-        .col-12
-          .d-flex.justify-content-center
-            .btn-group
-              button#exam.btn.btn-lg.btn-info.btn_start(type='button') Exam
-              button#train.btn.btn-lg.btn-info.btn_start(type='button') Train
-      .row#quiz-screen.d-none
-        .col-12.bg-solarized
-          pre.language_custom
-            code#code.language-javascript
-        .col-12
-          form
-            .form-group
-              label(for='console-output') Web Console Output:
-              textarea#console-output.form-control.console-output(rows='2', autofocus)
-            .btn-group
-              button#answer.btn.btn-info.btn_cursor(type='button') Answer
-              button#next-quiz.btn.btn-light.btn_cursor(type='button') Next quiz
+    noscript You need to enable JavaScript to run this app.
+    #root
     block scripts
       script(src='app.js' async)

@@ -1,3 +1,6 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 import addRow from './components/textarea/textAreaAddRow';
 import showNextQuiz from './components/showNextQuiz';
 import questions from '../static/questions';
@@ -6,13 +9,9 @@ import domElements from './components/domElements';
 import shuffleArray from './components/shuffleArray';
 import toAnswer from './components/toAnswer';
 
-import React from 'react';
-import ReactDOM from 'react-dom';
+import App from './App';
 
-ReactDOM.render(
-  <h1>Hello, world!</h1>,
-  document.getElementById('app')
-);
+ReactDOM.render(<App />, document.getElementById('root'));
 
 window.addEventListener('load', () => {
   domElements.$exam.addEventListener('click', () => {
