@@ -13,7 +13,6 @@ const development = Object.assign({}, common, {
   copy: [
     'manifest.json',
     'node_modules/bootstrap/dist/css/bootstrap.css',
-    'src/components/service-worker.js',
   ],
   dest: '.tmp/',
 });
@@ -23,7 +22,6 @@ const production = Object.assign({}, common, {
   copy: [
     'manifest.json',
     'node_modules/bootstrap/dist/css/bootstrap.min.css',
-    'src/components/service-worker.js',
   ],
   dest: 'dist/',
   deploy: '.publish',

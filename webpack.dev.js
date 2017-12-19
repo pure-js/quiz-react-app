@@ -1,14 +1,19 @@
 const path = require('path');
-const merge = require('webpack-merge');
-const common = require('./webpack.common.js');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-module.exports = merge(common, {
+module.exports = {
+  entry: {
+    app: './src/index.js',
+  },
+  plugins: [
+    new CleanWebpackPlugin(['.tmp']),
+  ],
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, '.tmp')
+    filename: '[name].js',
+    path: path.resolve(__dirname, '.tmp'),
   },
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: '.tmp'
+    contentBase: '.tmp',
   },
-});
+};
