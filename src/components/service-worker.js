@@ -9,7 +9,7 @@ const urlsToCache = [
   'sw.min.js',
 ];
 
-this.addEventListener('install', (event) => {
+window.self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE_NAME)
     .then(cache => cache.addAll(urlsToCache)));
 });
@@ -33,8 +33,17 @@ function fetchAndCache(url) {
     });
 }
 
-this.addEventListener('fetch', (event) => {
+window.self.addEventListener('fetch', (event) => {
   event.respondWith(caches.match(event.request)
     .then(response =>
       response || fetchAndCache(event.request)));
+});
+
+window.self.addEventListener('activate', (event) => {
+  event.waitUntil(caches.keys().then(cacheNames =>
+    Promise.all(cacheNames.filter((cacheName) => {
+      // Return true if you want to remove this cache,
+      // but remember that caches are shared across
+      // the whole origin
+    }).map(cacheName => caches.delete(cacheName)))));
 });
