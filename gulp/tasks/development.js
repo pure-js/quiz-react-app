@@ -1,7 +1,10 @@
 import gulp from 'gulp';
-import { development } from '../config';
 import gulpLoadPlugins from 'gulp-load-plugins';
+import { development } from '../config';
+
 const webpack = require('webpack-stream');
+const webpackConfig = require('../../webpack.dev.js');
+
 const plugins = gulpLoadPlugins();
 
 // Get one .less file and render
@@ -11,7 +14,7 @@ const css = () =>
     .pipe(plugins.rename('main.css'))
     .pipe(plugins.sourcemaps.init())
     .pipe(plugins.less({
-      compress: false
+      compress: false,
     }))
     .pipe(plugins.sourcemaps.write(''))
     .pipe(gulp.dest(development.dest));
@@ -20,7 +23,7 @@ const html = () =>
   gulp.src(development.pug)
     .pipe(plugins.plumber())
     .pipe(plugins.pug({
-      pretty: true
+      pretty: true,
     }))
     .pipe(plugins.rename('index.html'))
     .pipe(gulp.dest(development.dest));
@@ -28,7 +31,7 @@ const html = () =>
 const js = () =>
   gulp.src(development.js)
     .pipe(plugins.plumber())
-    .pipe(webpack(require('../../webpack.dev.js')))
+    .pipe(webpack(webpackConfig))
     .pipe(gulp.dest(development.dest));
 
 const copy = () =>

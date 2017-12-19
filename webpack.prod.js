@@ -1,14 +1,18 @@
 const path = require('path');
-const merge = require('webpack-merge');
 const MinifyPlugin = require("babel-minify-webpack-plugin");
-const common = require('./webpack.common.js');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-module.exports = merge(common, {
-  output: {
-    filename: 'bundle.min.js',
-    path: path.resolve(__dirname, 'dist')
+module.exports = {
+  entry: {
+    app: './src/index.js',
+    sw: './src/components/service-worker.js',
   },
   plugins: [
-    new MinifyPlugin()
-  ]
-});
+    new CleanWebpackPlugin(['dist']),
+    new MinifyPlugin(),
+  ],
+  output: {
+    filename: '[name].min.js',
+    path: path.resolve(__dirname, 'dist'),
+  },
+};

@@ -1,14 +1,17 @@
 import gulp from 'gulp';
-import { development, production } from '../config';
 import gulpLoadPlugins from 'gulp-load-plugins';
+import { production } from '../config';
+
 const webpack = require('webpack-stream');
+const webpackConfig = require('../../webpack.prod.js');
+
 const plugins = gulpLoadPlugins();
 
 // Get one .less file and render
 const css = () =>
   gulp.src(production.less)
     .pipe(plugins.less({
-      compress: true
+      compress: true,
     }))
     .pipe(plugins.rename('main.min.css'))
     .pipe(gulp.dest(production.dest));
@@ -20,9 +23,9 @@ const html = () =>
     .pipe(gulp.dest(production.dest));
 
 const js = () =>
-  gulp.src(development.js)
+  gulp.src(production.js)
     .pipe(plugins.plumber())
-    .pipe(webpack(require('../../webpack.prod.js')))
+    .pipe(webpack(webpackConfig))
     .pipe(gulp.dest(production.dest));
 
 const copy = () =>
