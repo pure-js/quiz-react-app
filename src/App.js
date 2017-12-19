@@ -1,6 +1,46 @@
 import React, { Component } from 'react';
 
+import addRow from './components/textarea/textAreaAddRow';
+import showNextQuiz from './components/showNextQuiz';
+import questions from '../static/questions';
+import current from './components/current';
+import domElements from './components/domElements';
+import shuffleArray from './components/shuffleArray';
+import toAnswer from './components/toAnswer';
+
 class App extends Component {
+  componentDidMount() {
+    domElements.$nextQuiz.addEventListener('click', () => {
+      showNextQuiz(questions);
+    });
+
+    domElements.$textArea.addEventListener('keypress', () => {
+      addRow('console-output');
+    });
+
+    domElements.$answer.addEventListener('click', () => {
+      toAnswer();
+    });
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.min.js')
+        .then((registration) => {
+          console.log('Registered:', registration);
+        })
+        .catch((error) => {
+          console.log('Registration failed: ', error);
+        });
+    }
+  }
+
+  Sep() {
+    current.quiz = shuffleArray(questions);
+    showNextQuiz(questions);
+    document.getElementById('first-screen').classList.add('d-none');
+    document.getElementById('quiz-screen').classList.remove('d-none');
+    domElements.$exam.removeEventListener('click', () => {});
+  }
+
   render() {
     return (
       <div>
@@ -21,7 +61,7 @@ class App extends Component {
             <div className="col-12">
               <div className="d-flex justify-content-center">
                 <div className="btn-group">
-                  <button id="exam" type="button" className="btn btn-lg btn-info btn_start">Exam</button>
+                  <button id="exam" type="button" className="btn btn-lg btn-info btn_start" onClick={this.Sep}>Exam</button>
                   <button id="train" type="button" className="btn btn-lg btn-info btn_start">Train</button>
                 </div>
               </div>
