@@ -5,7 +5,6 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
   entry: {
     app: './src/index.js',
-    sw: './src/components/service-worker.js',
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),

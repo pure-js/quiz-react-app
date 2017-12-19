@@ -1,6 +1,8 @@
 const common = {
   less: 'src/main.less',
-  js: 'src/index.js',
+  js: [
+    'src/index.js',
+  ],
 };
 
 const development = Object.assign({}, common, {
@@ -22,7 +24,9 @@ const production = Object.assign({}, common, {
   copy: [
     'manifest.json',
     'node_modules/bootstrap/dist/css/bootstrap.min.css',
+    'static/**',
   ],
+  sw: 'src/components/service-worker.js',
   dest: 'dist/',
   deploy: '.publish',
 });

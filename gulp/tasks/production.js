@@ -28,9 +28,16 @@ const js = () =>
     .pipe(webpack(webpackConfig))
     .pipe(gulp.dest(production.dest));
 
+const minifyJs = () =>
+  gulp.src(production.sw)
+    .pipe(plugins.plumber())
+    .pipe(plugins.babelMinify())
+    .pipe(plugins.rename('sw.min.js'))
+    .pipe(gulp.dest(production.dest));
+
 const copy = () =>
   gulp.src(production.copy)
     .pipe(gulp.dest(production.dest));
 
-const prod = gulp.parallel(html, css, js, copy);
+const prod = gulp.parallel(html, css, js, minifyJs, copy);
 export default prod;
