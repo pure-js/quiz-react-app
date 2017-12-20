@@ -27,6 +27,7 @@
   "dependencies": {
     "@babel/cli": "^7.0.0-beta.35",
     "@babel/core": "^7.0.0-beta.35",
+    "@babel/plugin-proposal-class-properties": "~7.0.0-beta.35",
     "@babel/preset-env": "^7.0.0-beta.35",
     "@babel/preset-react": "^7.0.0-beta.35",
     "@babel/register": "^7.0.0-beta.35",
@@ -35,7 +36,9 @@
     "gulp": "github:gulpjs/gulp#4.0",
     "prismjs": "~1.9.0",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "react-router": "~4.2.0",
+    "react-router-dom": "~4.2.2"
   },
   "devDependencies": {
     "babel-minify-webpack-plugin": "~0.2.0",
