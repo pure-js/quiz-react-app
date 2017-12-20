@@ -58,11 +58,15 @@ class Exam extends Component {
   answerIsCorrect = (userAnswer, correctAnswer) => userAnswer === correctAnswer;
 
   handleAnswer = () => {
+    console.log(this.state.userAnswer, this.state.answer.value);
     if(this.answerIsCorrect(this.state.userAnswer, this.state.answer.value)) {
       if (this.iteration < this.maxIteration) {
         this.iteration = this.iteration + 1;
         this.setState({
           question: this.questions[this.iteration]
+        });
+        this.setState({
+          answer: answers.find(answer => answer.name === this.state.question.name),
         });
       } else {
         this.setState({
@@ -74,10 +78,9 @@ class Exam extends Component {
     }
   };
 
-  handleAnswerChange = () => {
+  handleAnswerChange = (event) => {
     this.setState({userAnswer: event.target.value});
   };
-
 
   componentDidMount() {
     Prism.highlightAll();

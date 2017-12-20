@@ -1,18 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-class ProgressBar extends Component {
-  constructor(props) {
-    super(props);
-  }
+const ProgressBar = (props) => {
+  const {success, failure} = props;
 
-  render() {
-    return (
-      <div style={{height: 5 + "px"}} className="progress">
-        <div id="progress-success" style={this.props.success} className="progress-bar bg-success"></div>
-        <div id="progress-failure" style={this.props.failure} className="progress-bar bg-danger"></div>
-      </div>
-    );
-  }
-}
+  return (
+    <div style={{ height: '5px' }} className="progress">
+      <div id="progress-success" style={success} className="progress-bar bg-success" />
+      <div id="progress-failure" style={failure} className="progress-bar bg-danger" />
+    </div>
+  );
+};
 
 export default ProgressBar;
