@@ -10,17 +10,9 @@ import toAnswer from './components/toAnswer';
 
 class App extends Component {
   componentDidMount() {
-    domElements.$nextQuiz.addEventListener('click', () => {
-      showNextQuiz(questions);
-    });
 
-    domElements.$textArea.addEventListener('keypress', () => {
-      addRow('console-output');
-    });
 
-    domElements.$answer.addEventListener('click', () => {
-      toAnswer();
-    });
+
 
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('sw.min.js')
@@ -33,13 +25,15 @@ class App extends Component {
     }
   }
 
-  Sep() {
+  Exam() {
     current.quiz = shuffleArray(questions);
     showNextQuiz(questions);
     document.getElementById('first-screen').classList.add('d-none');
     document.getElementById('quiz-screen').classList.remove('d-none');
     domElements.$exam.removeEventListener('click', () => {});
   }
+
+  
 
   render() {
     return (
@@ -61,7 +55,7 @@ class App extends Component {
             <div className="col-12">
               <div className="d-flex justify-content-center">
                 <div className="btn-group">
-                  <button id="exam" type="button" className="btn btn-lg btn-info btn_start" onClick={this.Sep}>Exam</button>
+                  <button id="exam" type="button" className="btn btn-lg btn-info btn_start" onClick={this.Exam}>Exam</button>
                   <button id="train" type="button" className="btn btn-lg btn-info btn_start">Train</button>
                 </div>
               </div>
@@ -75,11 +69,11 @@ class App extends Component {
               <form>
                 <div className="form-group">
                   <label htmlFor="console-output">Web Console Output:</label>
-                  <textarea id="console-output" rows="2" autoFocus={true} className="form-control console-output"></textarea>
+                  <textarea id="console-output" onClick={addRow('console-output');} rows="2" autoFocus={true} className="form-control console-output"></textarea>
                 </div>
                 <div className="btn-group">
-                  <button id="answer" type="button" className="btn btn-info btn_cursor">Answer</button>
-                  <button id="next-quiz" type="button" className="btn btn-light btn_cursor">Next quiz</button>
+                  <button id="answer" onClick={toAnswer();} type="button" className="btn btn-info btn_cursor">Answer</button>
+                  <button id="next-quiz" onClick={showNextQuiz(questions);} type="button" className="btn btn-light btn_cursor">Next quiz</button>
                 </div>
               </form>
             </div>
