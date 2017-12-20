@@ -1,8 +1,36 @@
 import React, { Component } from 'react';
 
 import showNextQuiz from "./showNextQuiz";
+import shuffleArray from './shuffleArray';
+import questions from '../../static/questions';
 
 class Exam extends Component {
+  constructor(props) {
+    super(props);
+
+    this.iteration = 0;
+    this.questions = shuffleArray(questions);
+    this.maxIteration = questions.length - 1;
+
+    this.state = {
+      question: this.questions[0],
+      disabled: false,
+    };
+  }
+
+  handleAnswer = () => {
+    if (this.iteration < this.maxIteration) {
+      this.iteration = this.iteration + 1;
+      this.setState({
+        question: this.questions[this.iteration]
+      });
+    } else {
+      this.setState({
+        disabled: true
+      });
+    }
+  };
+
   render() {
     return (
       <div>
@@ -23,9 +51,11 @@ class Exam extends Component {
               <span aria-hidden="true">&times;</span>
             </button>
             <div className="col-12 bg-solarized">
-          <pre className="language_custom">
-            <code id="code" className="language-javascript"></code>
-          </pre>
+              <pre className="language_custom">
+                <code id="code" className="language-javascript">
+                  {this.state.question.value}
+                </code>
+              </pre>
             </div>
             <div className="col-12">
               <form>
@@ -34,8 +64,8 @@ class Exam extends Component {
                   <textarea id="console-output" onKeyPress={this.addRow} rows="2" autoFocus={true} className="form-control console-output"></textarea>
                 </div>
                 <div className="btn-group">
-                  <button id="answer" onClick={this.toAnswer} type="button" className="btn btn-info btn_cursor">Answer</button>
-                  <button id="next-quiz" onClick={showNextQuiz} type="button" className="btn btn-light btn_cursor">Next quiz</button>
+                  <button id="answer" onClick={this.handleAnswer} disabled={this.state.disabled} type="button" className="btn btn-info btn_cursor">Answer</button>
+                  <button id="next-quiz" onClick={showNextQuiz} type="button" className="btn btn-light btn_cursor">I don't know</button>
                 </div>
               </form>
             </div>

@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 
 import Exam from './Exam';
-import showNextQuiz from './showNextQuiz';
-import questions from '../../static/questions';
 import current from './current';
 import domElements from './domElements';
-import shuffleArray from './shuffleArray';
 import hasScrollbar from "./textarea/hasScrollbar";
 import checkAnswer from "./checkAnswer";
 import progress from "./progress";
@@ -41,13 +38,6 @@ class App extends Component {
   //       });
   //   }
   // }
-
-  static exam() {
-    current.quiz = shuffleArray(questions);
-    showNextQuiz(questions);
-    document.getElementById('first-screen').classList.add('d-none');
-    domElements.$exam.removeEventListener('click', () => {});
-  }
 
   static addRow(elementId) {
     if (hasScrollbar(elementId)) {
