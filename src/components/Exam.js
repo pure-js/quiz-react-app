@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import Prism from 'prismjs';
 
-import showNextQuiz from "./showNextQuiz";
+import showNextQuiz from './showNextQuiz';
 import shuffleArray from './shuffleArray';
 import questions from '../../static/questions';
 
@@ -30,6 +31,14 @@ class Exam extends Component {
       });
     }
   };
+
+  componentDidMount() {
+    Prism.highlightAll();
+  }
+
+  componentDidUpdate() {
+    Prism.highlightAll();
+  }
 
   render() {
     return (
