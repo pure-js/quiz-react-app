@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Prism from 'prismjs';
 
-import showNextQuiz from './showNextQuiz';
 import shuffleArray from './shuffleArray';
 import questions from '../../static/questions';
+import answers from '../../static/answers';
+import ProgressBar from './ProgressBar';
 
 class Exam extends Component {
   constructor(props) {
@@ -11,19 +12,38 @@ class Exam extends Component {
 
     this.iteration = 0;
     this.questions = shuffleArray(questions);
-    this.maxIteration = questions.length - 1;
+    this.questionsLength = questions.length;
+    this.maxIteration = this.questionsLength - 1;
+    this.failure = 0;
+    this.success = 0;
 
     this.state = {
+      userAnswer: '',
       question: this.questions[0],
       disabled: false,
+      success: {
+        width: 0 + '%'
+      },
+      failure: {
+        width: 0 + '%'
+      },
+      overall: this.questions.length,
     };
+
+    this.state.answer = answers.find(answer => answer.name === this.state.question.name);
   }
 
-  handleAnswer = () => {
+  handleNotAnswer = () => {
+    this.failure = this.failure + 1;
+    this.setState({
+      failure: {
+        width: (this.failure * 100) / this.questionsLength + '%' || 0 + '%'
+      },
+    });
     if (this.iteration < this.maxIteration) {
       this.iteration = this.iteration + 1;
       this.setState({
-        question: this.questions[this.iteration]
+        question: this.questions[this.iteration],
       });
     } else {
       this.setState({
@@ -31,6 +51,30 @@ class Exam extends Component {
       });
     }
   };
+
+  answerIsCorrect = (userAnswer, correctAnswer) => userAnswer === correctAnswer;
+
+  handleAnswer = () => {
+    if(this.answerIsCorrect(this.state.userAnswer, this.state.answer)) {
+      if (this.iteration < this.maxIteration) {
+        this.iteration = this.iteration + 1;
+        this.setState({
+          question: this.questions[this.iteration]
+        });
+      } else {
+        this.setState({
+          disabled: true
+        });
+      }
+    } else {
+      this.handleNotAnswer();
+    }
+  };
+
+  handleAnswerChange = () => {
+    this.setState({userAnswer: event.target.value});
+  };
+
 
   componentDidMount() {
     Prism.highlightAll();
@@ -43,16 +87,13 @@ class Exam extends Component {
   render() {
     return (
       <div>
-        <header className="bg-dark">
+        <header>
           <div className="container">
-            <nav className="navbar navbar-dark navbar_no-padding">
+            <nav className="navbar navbar_no-padding">
               <a href="#" className="navbar-brand" onClick={this.props.action}>JavaScript Quiz</a>
             </nav>
           </div>
-          <div style={{height: 5 + "px"}} className="progress">
-            <div id="progress-success" style={{width: 0 + "%"}} className="progress-bar bg-success"></div>
-            <div id="progress-failure" style={{width: 0 + "%"}} className="progress-bar bg-danger"></div>
-          </div>
+          <ProgressBar success={this.state.success} failure={this.state.failure} overall={this.state.overall}/>
         </header>
         <main className="container">
           <div id="quiz-screen" className="row">
@@ -70,11 +111,11 @@ class Exam extends Component {
               <form>
                 <div className="form-group">
                   <label htmlFor="console-output">Web Console Output:</label>
-                  <textarea id="console-output" onKeyPress={this.addRow} rows="2" autoFocus={true} className="form-control console-output"></textarea>
+                  <textarea id="console-output" onKeyPress={this.addRow} value={this.state.userAnswer} onChange={this.handleAnswerChange} rows="2" autoFocus={true} className="form-control console-output"></textarea>
                 </div>
                 <div className="btn-group">
                   <button id="answer" onClick={this.handleAnswer} disabled={this.state.disabled} type="button" className="btn btn-info btn_cursor">Answer</button>
-                  <button id="next-quiz" onClick={showNextQuiz} type="button" className="btn btn-light btn_cursor">I don't know</button>
+                  <button id="next-quiz" onClick={this.handleNotAnswer} disabled={this.state.disabled} type="button" className="btn btn-light btn_cursor">I don't know</button>
                 </div>
               </form>
             </div>

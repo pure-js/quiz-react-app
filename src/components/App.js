@@ -66,10 +66,8 @@ class App extends Component {
   }
 
   render() {
-    const isExam = this.state.exam;
-
     let screen;
-    if (isExam) {
+    if (this.state.exam) {
       screen = <Exam action={this.handleCloseExamClick}/>;
     } else {
       screen = <FirstScreen action={this.handleExamClick}/>;
