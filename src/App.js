@@ -69,7 +69,7 @@ class App extends Component {
               <form>
                 <div className="form-group">
                   <label htmlFor="console-output">Web Console Output:</label>
-                  <textarea id="console-output" onClick={addRow('console-output');} rows="2" autoFocus={true} className="form-control console-output"></textarea>
+                  <textarea id="console-output" onKeyPress={addRow('console-output');} rows="2" autoFocus={true} className="form-control console-output"></textarea>
                 </div>
                 <div className="btn-group">
                   <button id="answer" onClick={toAnswer();} type="button" className="btn btn-info btn_cursor">Answer</button>
