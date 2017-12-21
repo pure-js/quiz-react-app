@@ -25,10 +25,15 @@ module.exports = {
     new MinifyPlugin(),
     new HtmlWebpackPlugin({
       template: 'src/index-template.html',
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeScriptTypeAttributes: true,
+      },
     }),
-    // new ScriptExtHtmlWebpackPlugin({
-    //   defaultAttribute: 'async',
-    // }),
+    new ScriptExtHtmlWebpackPlugin({
+      defaultAttribute: 'defer',
+    }),
   ],
   output: {
     filename: '[name].[chunkhash].min.js',
