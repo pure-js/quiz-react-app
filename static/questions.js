@@ -9,7 +9,7 @@ const questions = [
   },
   {
     "name": "12",
-    "value": "function F() {}\n\n// true or false?\nconsole.log(F instanceof Function);\n"
+    "value": "function F() {}\n\nconsole.log(F instanceof Function);\n"
   },
   {
     "name": "13",

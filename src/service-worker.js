@@ -2,11 +2,10 @@ const CACHE_NAME = 'static-cache';
 const urlsToCache = [
   '.',
   'app.min.js',
+  'vendor.min.js',
   'bootstrap.min.css',
   'index.html',
   'main.min.css',
-  'manifest.json',
-  'sw.min.js',
 ];
 
 window.self.addEventListener('install', (event) => {

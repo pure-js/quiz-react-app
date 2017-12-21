@@ -1,8 +1,7 @@
 const fs = require('fs');
-const param = process.argv.slice(2)[0];
 
+const param = process.argv.slice(2)[0];
 const folderName = 'exercises';
-const folder = param.substring(0, param.indexOf('/'));
 
 function getFilesList(folder) {
   return new Promise((resolve, reject) => {
@@ -18,7 +17,7 @@ function getFileContent(name, file) {
     fs.readFile(file, 'utf8', (err, data) => {
       if (err) reject(err);
       resolve({
-        name: name,
+        name,
         value: data,
       });
     });
@@ -26,9 +25,9 @@ function getFileContent(name, file) {
 }
 
 function getFilesContent(folder, files) {
-  let arr = [];
-  const length = files.length;
-  for (let i = 0; i < length; i++) {
+  const arr = [];
+  const { length } = files;
+  for (let i = 0; i < length; i += 1) {
     const file = folder + '/' + files[i];
 
     if (file.slice(-2) === 'js') {
@@ -42,10 +41,12 @@ function getFilesContent(folder, files) {
 getFilesList(folderName).then((files) => {
   const zo = getFilesContent(folderName, files);
   return Promise.all(zo);
-}).then(content => {
-  fs.mkdir(folder, () => {
+}).then((content) => {
+  const paramFolder = param.substring(0, param.indexOf('/'));
+
+  fs.mkdir(paramFolder, () => {
     fs.writeFile(param, 'const questions = ' + JSON.stringify(content, null, 2) + ';\nexport default questions;\n', 'utf8', (err) => {
-      if (err) throw err
+      if (err) throw err;
     });
   });
 });
