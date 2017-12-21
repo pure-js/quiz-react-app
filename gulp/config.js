@@ -6,7 +6,6 @@ const common = {
 };
 
 const development = Object.assign({}, common, {
-  pug: 'src/layout.pug',
   lessWatch: 'src/*.less',
   jsWatch: [
     'src/**/*.js',
@@ -19,7 +18,6 @@ const development = Object.assign({}, common, {
 });
 
 const production = Object.assign({}, common, {
-  pug: 'src/index-prod.pug',
   copy: [
     'static/**/*.png',
   ],

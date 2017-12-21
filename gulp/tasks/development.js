@@ -11,21 +11,12 @@ const plugins = gulpLoadPlugins();
 const css = () =>
   gulp.src(development.less)
     .pipe(plugins.plumber())
-    .pipe(plugins.rename('main.css'))
+    .pipe(plugins.rename('main.min.css'))
     .pipe(plugins.sourcemaps.init())
     .pipe(plugins.less({
       compress: false,
     }))
     .pipe(plugins.sourcemaps.write(''))
-    .pipe(gulp.dest(development.dest));
-
-const html = () =>
-  gulp.src(development.pug)
-    .pipe(plugins.plumber())
-    .pipe(plugins.pug({
-      pretty: true,
-    }))
-    .pipe(plugins.rename('index.html'))
     .pipe(gulp.dest(development.dest));
 
 const js = () =>
@@ -41,9 +32,8 @@ const copy = () =>
 // Rerun the task when a file changes
 const watch = () => {
   gulp.watch(development.lessWatch, css);
-  gulp.watch(development.pug, html);
   gulp.watch(development.jsWatch, js);
 };
 
-const develop = gulp.series(gulp.parallel(css, html, js, copy), watch);
+const develop = gulp.series(gulp.parallel(css, js, copy), watch);
 export default develop;
