@@ -33,9 +33,22 @@ pre {
 
 .btn_cursor {
   cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 }
 
 .btn_start {
   .btn_cursor;
   margin-top: 35vh;
+}
+
+.arrow-right {
+  width: 0; 
+  height: 0; 
+  border-top: 60vh solid transparent;
+  border-bottom: 60vh solid transparent;
+  border-left: 60vh solid #FFC500;
+  position: fixed;
 }
