@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Prism from 'prismjs';
 
 import shuffleArray from './shuffleArray';
 import questions from '../../static/questions';
 import answers from '../../static/answers';
 import ProgressBar from './ProgressBar';
+import Code from './Code';
 
 class Exam extends Component {
   constructor(props) {
@@ -82,14 +82,6 @@ class Exam extends Component {
     this.setState({userAnswer: event.target.value});
   };
 
-  componentDidMount() {
-    Prism.highlightAll();
-  }
-
-  componentDidUpdate() {
-    Prism.highlightAll();
-  }
-
   render() {
     return (
       <div>
@@ -106,13 +98,7 @@ class Exam extends Component {
             <button type="button" onClick={this.props.action} className="close btn_cursor" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
-            <div className="col-12 bg-solarized">
-              <pre className="language_custom">
-                <code id="code" className="language-javascript">
-                  {this.state.question.value}
-                </code>
-              </pre>
-            </div>
+            <Code question={this.state.question.value}/>
             <div className="col-12">
               <form>
                 <div className="form-group">

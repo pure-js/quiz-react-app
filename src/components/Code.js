@@ -1,18 +1,31 @@
 import React, { Component } from 'react';
+import Prism from 'prismjs';
+import PropTypes from 'prop-types';
 
-class ProgressBar extends Component {
-  constructor(props) {
-    super(props);
+
+class Code extends Component {
+  componentDidMount() {
+    Prism.highlightAll();
+  }
+
+  componentDidUpdate() {
+    Prism.highlightAll();
   }
 
   render() {
     return (
-      <div style={{height: 5 + "px"}} className="progress">
-        <div id="progress-success" style={this.props.success} className="progress-bar bg-success"></div>
-        <div id="progress-failure" style={this.props.failure} className="progress-bar bg-danger"></div>
+      <div className="col-12 bg-solarized">
+        <pre className="language_custom">
+          <code id="code" className="language-javascript">
+            {this.props.question}
+          </code>
+        </pre>
       </div>
     );
   }
 }
+Code.propTypes = {
+  question: PropTypes.string.isRequired,
+};
 
-export default ProgressBar;
+export default Code;
