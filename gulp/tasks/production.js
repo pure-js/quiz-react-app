@@ -16,12 +16,6 @@ const css = () =>
     .pipe(plugins.rename('main.min.css'))
     .pipe(gulp.dest(production.dest));
 
-const html = () =>
-  gulp.src(production.pug)
-    .pipe(plugins.rename('index.html'))
-    .pipe(plugins.pug())
-    .pipe(gulp.dest(production.dest));
-
 const js = () =>
   gulp.src(production.js)
     .pipe(webpack(webpackConfig))
@@ -36,5 +30,5 @@ const copy = () =>
   gulp.src(production.copy)
     .pipe(gulp.dest(production.dest));
 
-const prod = gulp.parallel(html, css, js, minifyJson, copy);
+const prod = gulp.parallel(css, js, minifyJson, copy);
 export default prod;
