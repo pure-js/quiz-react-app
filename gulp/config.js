@@ -14,7 +14,6 @@ const development = Object.assign({}, common, {
   ],
   copy: [
     'manifest.json',
-    'node_modules/bootstrap/dist/css/bootstrap.css',
   ],
   dest: '.tmp/',
 });
@@ -22,7 +21,6 @@ const development = Object.assign({}, common, {
 const production = Object.assign({}, common, {
   pug: 'src/index-prod.pug',
   copy: [
-    'node_modules/bootstrap/dist/css/bootstrap.min.css',
     'static/**/*.png',
   ],
   sw: [
