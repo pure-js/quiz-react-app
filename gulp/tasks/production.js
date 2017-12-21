@@ -27,12 +27,6 @@ const js = () =>
     .pipe(webpack(webpackConfig))
     .pipe(gulp.dest(production.dest));
 
-// const minifyJs = () =>
-//   gulp.src(production.sw)
-//     .pipe(plugins.babelMinify())
-//     .pipe(plugins.rename('sw.min.js'))
-//     .pipe(gulp.dest(production.dest));
-
 const minifyJson = () =>
   gulp.src(production.json)
     .pipe(plugins.jsonminify())
