@@ -33,21 +33,16 @@ class Exam extends Component {
     this.state.answer = answers.find(answer => answer.name === this.state.question.name);
   }
 
-  handleNotAnswer = () => {
-    this.failure = this.failure + 1;
-    this.setState({
-      failure: {
-        width: (this.failure * 100) / this.questionsLength + '%' || 0 + '%',
-      },
-    });
+  handleAnyAnswer = () => {
     if (this.iteration < this.maxIteration) {
       this.iteration = this.iteration + 1;
       this.setState({
-        question: this.questions[this.iteration],
+        question: this.questions[this.iteration]
       });
       this.setState({
         answer: answers.find(answer => answer.name === this.state.question.name),
       });
+      this.success = this.success + 1;
     } else {
       this.setState({
         disabled: true
@@ -55,24 +50,28 @@ class Exam extends Component {
     }
   };
 
+  handleNotAnswer = () => {
+    this.failure = this.failure + 1;
+    this.setState({
+      failure: {
+        width: (this.failure * 100) / this.questionsLength + '%',
+      },
+    });
+    this.handleAnyAnswer();
+  };
+
   answerIsCorrect = (userAnswer, correctAnswer) => userAnswer === correctAnswer;
 
   handleAnswer = () => {
     console.log(this.state.userAnswer, this.state.answer.value);
     if(this.answerIsCorrect(this.state.userAnswer, this.state.answer.value)) {
-      if (this.iteration < this.maxIteration) {
-        this.iteration = this.iteration + 1;
-        this.setState({
-          question: this.questions[this.iteration]
-        });
-        this.setState({
-          answer: answers.find(answer => answer.name === this.state.question.name),
-        });
-      } else {
-        this.setState({
-          disabled: true
-        });
-      }
+      this.handleAnyAnswer();
+      this.success = this.success + 1;
+      this.setState({
+        success: {
+          width: (this.success * 100) / this.questionsLength + '%',
+        },
+      });
     } else {
       this.handleNotAnswer();
     }
