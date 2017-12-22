@@ -1,7 +1,7 @@
 {
   "name": "js-exercises",
   "version": "3.0.0-0",
-  "description": "app for training your js skills",
+  "description": "javascript skills training app",
   "main": "src/main.js",
   "scripts": {
     "start": "npm run dev",
