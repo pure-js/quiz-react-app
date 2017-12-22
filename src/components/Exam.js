@@ -5,6 +5,7 @@ import questions from '../../static/questions';
 import answers from '../../static/answers';
 import ProgressBar from './ProgressBar';
 import Code from './Code';
+import UserAnswer from './UserAnswer';
 
 class Exam extends Component {
   constructor(props) {
@@ -20,7 +21,6 @@ class Exam extends Component {
     this.state = {
       userAnswer: '',
       question: this.questions[0],
-      disabled: false,
       success: {
         width: 0 + '%'
       },
@@ -30,8 +30,15 @@ class Exam extends Component {
       overall: this.questions.length,
     };
 
-    this.state.answer = answers.find(answer => answer.name === this.state.question.name);
+    this.answer = answers.find(answer => answer.name === this.state.question.name);
   }
+
+  addAnswer = (answer, callback) => {
+    this.setState({
+      userAnswer: answer,
+    }, callback);
+    this.answer = answers.find(answer => answer.name === this.state.question.name);
+  };
 
   handleAnyAnswer = () => {
     if (this.iteration < this.maxIteration) {
@@ -39,14 +46,8 @@ class Exam extends Component {
       this.setState({
         question: this.questions[this.iteration]
       });
-      this.setState({
-        answer: answers.find(answer => answer.name === this.state.question.name),
-      });
+      this.answer = answers.find(answer => answer.name === this.state.question.name);
       this.success = this.success + 1;
-    } else {
-      this.setState({
-        disabled: true
-      });
     }
   };
 
@@ -63,8 +64,8 @@ class Exam extends Component {
   answerIsCorrect = (userAnswer, correctAnswer) => userAnswer === correctAnswer;
 
   handleAnswer = () => {
-    console.log(this.state.userAnswer, this.state.answer.value);
-    if(this.answerIsCorrect(this.state.userAnswer, this.state.answer.value)) {
+    console.log(this.state.userAnswer, this.answer.value);
+    if(this.answerIsCorrect(this.state.userAnswer, this.answer.value)) {
       this.handleAnyAnswer();
       this.success = this.success + 1;
       this.setState({
@@ -75,10 +76,6 @@ class Exam extends Component {
     } else {
       this.handleNotAnswer();
     }
-  };
-
-  handleAnswerChange = (event) => {
-    this.setState({userAnswer: event.target.value});
   };
 
   render() {
@@ -99,16 +96,7 @@ class Exam extends Component {
             </button>
             <Code question={this.state.question.value}/>
             <div className="col-12">
-              <form>
-                <div className="form-group">
-                  <label htmlFor="console-output">Web Console Output:</label>
-                  <textarea id="console-output" onKeyPress={this.addRow} value={this.state.userAnswer} onChange={this.handleAnswerChange} rows="2" autoFocus={true} className="form-control console-output"></textarea>
-                </div>
-                <div className="btn-group">
-                  <button id="answer" onClick={this.handleAnswer} disabled={this.state.disabled} type="button" className="btn btn-info btn_cursor">Answer</button>
-                  <button id="next-quiz" onClick={this.handleNotAnswer} disabled={this.state.disabled} type="button" className="btn btn-light btn_cursor">I don't know</button>
-                </div>
-              </form>
+              <UserAnswer userAnswer={this.addAnswer} handleAnswer={this.handleAnswer}/>
             </div>
           </div>
         </main>

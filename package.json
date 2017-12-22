@@ -1,7 +1,7 @@
 {
   "name": "js-exercises",
   "version": "3.0.0-0",
-  "description": "app for training your js skills",
+  "description": "javascript skills training app",
   "main": "src/main.js",
   "scripts": {
     "start": "npm run dev",
@@ -58,7 +58,6 @@
     "gulp-less": "^3.3.2",
     "gulp-load-plugins": "^1.3.0",
     "gulp-plumber": "^1.1.0",
-    "gulp-pug": "^3.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-sourcemaps": "~2.6.1",
     "script-ext-html-webpack-plugin": "~1.8.8",

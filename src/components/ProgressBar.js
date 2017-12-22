@@ -12,8 +12,17 @@ const ProgressBar = (props) => {
   );
 };
 ProgressBar.propTypes = {
-  success: PropTypes.object,
-  failure: PropTypes.object,
+  success: PropTypes.shape({
+    width: PropTypes.string,
+  }),
+  failure: PropTypes.shape({
+    width: PropTypes.string,
+  }),
+};
+
+ProgressBar.defaultProps = {
+  success: '0%',
+  failure: '0%',
 };
 
 export default ProgressBar;
