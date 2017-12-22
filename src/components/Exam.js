@@ -30,8 +30,15 @@ class Exam extends Component {
       overall: this.questions.length,
     };
 
-    this.state.answer = answers.find(answer => answer.name === this.state.question.name);
+    this.answer = answers.find(answer => answer.name === this.state.question.name);
   }
+
+  addAnswer = (answer, callback) => {
+    this.setState({
+      userAnswer: answer,
+    }, callback);
+    this.answer = answers.find(answer => answer.name === this.state.question.name);
+  };
 
   handleAnyAnswer = () => {
     if (this.iteration < this.maxIteration) {
@@ -39,9 +46,7 @@ class Exam extends Component {
       this.setState({
         question: this.questions[this.iteration]
       });
-      this.setState({
-        answer: answers.find(answer => answer.name === this.state.question.name),
-      });
+      this.answer = answers.find(answer => answer.name === this.state.question.name);
       this.success = this.success + 1;
     }
   };
@@ -59,8 +64,8 @@ class Exam extends Component {
   answerIsCorrect = (userAnswer, correctAnswer) => userAnswer === correctAnswer;
 
   handleAnswer = () => {
-    console.log(this.state.userAnswer, this.state.answer.value);
-    if(this.answerIsCorrect(this.state.userAnswer, this.state.answer.value)) {
+    console.log(this.state.userAnswer, this.answer.value);
+    if(this.answerIsCorrect(this.state.userAnswer, this.answer.value)) {
       this.handleAnyAnswer();
       this.success = this.success + 1;
       this.setState({
@@ -91,7 +96,7 @@ class Exam extends Component {
             </button>
             <Code question={this.state.question.value}/>
             <div className="col-12">
-              <UserAnswer userAnswer={this.state.userAnswer} handleAnswer={this.handleAnswer}/>
+              <UserAnswer userAnswer={this.addAnswer} handleAnswer={this.handleAnswer}/>
             </div>
           </div>
         </main>

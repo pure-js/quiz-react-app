@@ -33,7 +33,7 @@ const answers = [
   },
   {
     name: '9',
-    value: '0 1',
+    value: '0\n1',
   },
   {
     name: '1',
