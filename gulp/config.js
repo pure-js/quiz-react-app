@@ -19,7 +19,7 @@ const development = Object.assign({}, common, {
 
 const production = Object.assign({}, common, {
   copy: [
-    'static/**/*.png',
+    'static/**/*.{png,svg,ico}',
   ],
   sw: [
     'src/components/service-worker.js',
