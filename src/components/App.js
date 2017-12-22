@@ -2,14 +2,17 @@ import React, { Component } from 'react';
 
 import Exam from './Exam';
 import Home from "./Home";
+import FinalResults from './FinalResults';
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      home: true,
       exam: false,
       train: false,
+      results: false,
     };
   }
 
@@ -21,13 +24,26 @@ class App extends Component {
     this.setState({exam: false});
   };
 
+  handleShowResults = () => {
+    this.setState({
+      exam: false,
+      results: true,
+    });
+  };
+
+  returnHome = () => {
+    this.setState({
+      home: true,
+      exam: false,
+      results: false,
+    });
+  };
+
   render() {
     let screen;
-    if (this.state.exam) {
-      screen = <Exam action={this.handleCloseExamClick}/>;
-    } else {
-      screen = <Home action={this.handleExamClick}/>;
-    }
+    if (this.state.home) screen = <Home action={this.handleExamClick}/>;
+    if (this.state.exam) screen = <Exam action={this.handleCloseExamClick} results={this.handleShowResults}/>;
+    if (this.state.results) screen = <FinalResults results={345435} returnHome={this.returnHome}/>;
 
     return (
       <div>{screen}</div>
