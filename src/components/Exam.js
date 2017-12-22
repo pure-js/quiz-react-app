@@ -48,6 +48,10 @@ class Exam extends Component {
       });
       this.answer = answers.find(answer => answer.name === this.state.question.name);
       this.success = this.success + 1;
+    } else {
+      if (this.state.question === this.questions[this.questionsLength - 1]) {
+        this.props.results();
+      }
     }
   };
 
@@ -64,15 +68,14 @@ class Exam extends Component {
   answerIsCorrect = (userAnswer, correctAnswer) => userAnswer === correctAnswer;
 
   handleAnswer = () => {
-    console.log(this.state.userAnswer, this.answer.value);
     if(this.answerIsCorrect(this.state.userAnswer, this.answer.value)) {
-      this.handleAnyAnswer();
       this.success = this.success + 1;
       this.setState({
         success: {
           width: (this.success * 100) / this.questionsLength + '%',
         },
       });
+      this.handleAnyAnswer();
     } else {
       this.handleNotAnswer();
     }
