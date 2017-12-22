@@ -5,6 +5,7 @@ import questions from '../../static/questions';
 import answers from '../../static/answers';
 import ProgressBar from './ProgressBar';
 import Code from './Code';
+import UserAnswer from './UserAnswer';
 
 class Exam extends Component {
   constructor(props) {
@@ -20,7 +21,6 @@ class Exam extends Component {
     this.state = {
       userAnswer: '',
       question: this.questions[0],
-      disabled: false,
       success: {
         width: 0 + '%'
       },
@@ -43,10 +43,6 @@ class Exam extends Component {
         answer: answers.find(answer => answer.name === this.state.question.name),
       });
       this.success = this.success + 1;
-    } else {
-      this.setState({
-        disabled: true
-      });
     }
   };
 
@@ -77,10 +73,6 @@ class Exam extends Component {
     }
   };
 
-  handleAnswerChange = (event) => {
-    this.setState({userAnswer: event.target.value});
-  };
-
   render() {
     return (
       <div>
@@ -99,16 +91,7 @@ class Exam extends Component {
             </button>
             <Code question={this.state.question.value}/>
             <div className="col-12">
-              <form>
-                <div className="form-group">
-                  <label htmlFor="console-output">Web Console Output:</label>
-                  <textarea id="console-output" onKeyPress={this.addRow} value={this.state.userAnswer} onChange={this.handleAnswerChange} rows="2" autoFocus={true} className="form-control console-output"></textarea>
-                </div>
-                <div className="btn-group">
-                  <button id="answer" onClick={this.handleAnswer} disabled={this.state.disabled} type="button" className="btn btn-info btn_cursor">Answer</button>
-                  <button id="next-quiz" onClick={this.handleNotAnswer} disabled={this.state.disabled} type="button" className="btn btn-light btn_cursor">I don't know</button>
-                </div>
-              </form>
+              <UserAnswer userAnswer={this.state.userAnswer} handleAnswer={this.handleAnswer}/>
             </div>
           </div>
         </main>
