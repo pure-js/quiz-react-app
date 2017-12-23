@@ -4,6 +4,7 @@ const MinifyPlugin = require('babel-minify-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -34,6 +35,10 @@ module.exports = {
     new ScriptExtHtmlWebpackPlugin({
       defaultAttribute: 'defer',
     }),
+    new WorkboxPlugin({
+      clientsClaim: true,
+      skipWaiting: true,
+    })
   ],
   output: {
     filename: '[name].[chunkhash].min.js',

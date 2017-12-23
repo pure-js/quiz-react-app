@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import styles from './Home.css';
+
 const Home = (props) => {
   const { action } = props;
 

@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import Prism from 'prismjs';
 import PropTypes from 'prop-types';
 
+import styles from '../node_modules/prismjs/themes/prism.css';
+import styles from '../node_modules/prismjs/themes/prism-solarizedlight.css';
+import styles from './Code.css';
 
 class Code extends Component {
   componentDidMount() {

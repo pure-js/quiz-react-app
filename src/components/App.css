@@ -1,0 +1,11 @@
+body {
+    margin: 0;
+}
+
+.btn_cursor {
+    cursor: pointer;
+
+    &:disabled {
+        cursor: not-allowed;
+    }
+}
