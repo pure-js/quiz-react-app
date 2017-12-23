@@ -1,23 +1,10 @@
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import { development } from '../config';
-
-const webpack = require('webpack-stream');
+import webpack from 'webpack-stream';
 const webpackConfig = require('../../webpack.dev.js');
 
 const plugins = gulpLoadPlugins();
-
-// Get one .less file and render
-const css = () =>
-  gulp.src(development.less)
-    .pipe(plugins.plumber())
-    .pipe(plugins.rename('main.min.css'))
-    .pipe(plugins.sourcemaps.init())
-    .pipe(plugins.less({
-      compress: false,
-    }))
-    .pipe(plugins.sourcemaps.write(''))
-    .pipe(gulp.dest(development.dest));
 
 const js = () =>
   gulp.src(development.js)
@@ -31,9 +18,8 @@ const copy = () =>
 
 // Rerun the task when a file changes
 const watch = () => {
-  gulp.watch(development.lessWatch, css);
   gulp.watch(development.jsWatch, js);
 };
 
-const develop = gulp.series(gulp.parallel(css, js, copy), watch);
+const develop = gulp.series(gulp.parallel(js, copy), watch);
 export default develop;

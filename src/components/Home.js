@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from '../../node_modules/bootstrap/dist/css/bootstrap.css';
+import bootstrap from '../../node_modules/bootstrap/dist/css/bootstrap.css';
 import styles from './Home.css';
 
 const Home = (props) => {
@@ -9,8 +9,8 @@ const Home = (props) => {
 
   return (
     <div>
-      <div className="arrow-right" />
-      <main className="container">
+      <div className={styles['arrow-right']} />
+      <main className={bootstrap.container}>
         <div id="first-screen" className="row">
           <div className="col-12">
             <div className="d-flex justify-content-center">

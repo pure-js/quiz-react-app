@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import bootstrap from '../../node_modules/bootstrap/dist/css/bootstrap.css';
+
 const ProgressBar = (props) => {
   const { success, failure } = props;
 
