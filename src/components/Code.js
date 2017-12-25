@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import Prism from 'prismjs';
 import PropTypes from 'prop-types';
 
-import '../../node_modules/prismjs/themes/prism.css';
-import '../../node_modules/prismjs/themes/prism-solarizedlight.css';
+import prism from '../../node_modules/prismjs/themes/prism.css';
+import prismTheme from '../../node_modules/prismjs/themes/prism-solarizedlight.css';
 import './Code.css';
 
 class Code extends Component {
