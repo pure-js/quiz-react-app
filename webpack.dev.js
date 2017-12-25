@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
   entry: {
@@ -13,6 +14,8 @@ module.exports = {
     new ScriptExtHtmlWebpackPlugin({
       defaultAttribute: 'async',
     }),
+    new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
   ],
   output: {
     filename: '[name].js',
@@ -21,6 +24,7 @@ module.exports = {
   devtool: 'inline-source-map',
   devServer: {
     contentBase: '.tmp',
+    hot: true,
   },
   module: {
     rules: [
@@ -48,9 +52,9 @@ module.exports = {
             options: {
               modules: true,
             },
-          }
+          },
         ],
-      }
+      },
     ],
   },
 };
