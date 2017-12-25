@@ -1,8 +1,3 @@
-.navbar_no-padding {
-  padding-left: 0;
-  padding-right: 0;
-}
-
 pre.language_custom {
   margin-top: 0;
   padding-top: 1.5em;
@@ -42,3 +37,4 @@ pre {
   background-color: #002b36;
   color: #839496;
 }
+

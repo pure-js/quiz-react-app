@@ -4,9 +4,6 @@ import Exam from './Exam';
 import Home from "./Home";
 import FinalResults from './FinalResults';
 
-import '../../node_modules/bootstrap/dist/css/bootstrap.css';
-import './App.css';
-
 class App extends Component {
   constructor(props) {
     super(props);

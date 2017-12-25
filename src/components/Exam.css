@@ -1,0 +1,8 @@
+.navbar_no-padding {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.btn_cursor {
+    cursor: pointer;
+}
