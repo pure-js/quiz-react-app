@@ -35,6 +35,7 @@ class Exam extends Component {
       question: this.questions[0],
     };
     this.answer = answers.find(answer => answer.name === this.state.question.name);
+    this.userAnswers = [];
   }
 
   addAnswer = (answer) => {
@@ -45,6 +46,10 @@ class Exam extends Component {
 
   handleAnyAnswer = () => {
     if (this.iteration < this.maxIteration) {
+      this.userAnswers.push({
+        name: this.state.question.name,
+        answer: this.userAnswer,
+      });
       this.iteration = this.iteration + 1;
       this.setState({
         question: this.questions[this.iteration]
