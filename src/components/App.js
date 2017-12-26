@@ -17,7 +17,10 @@ class App extends Component {
   }
 
   handleExamClick = () => {
-    this.setState({exam: true});
+    this.setState({
+      home: false,
+      exam: true,
+    });
   };
 
   handleCloseExamClick = () => {
