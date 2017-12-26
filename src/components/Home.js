@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import bootstrap from '../../node_modules/bootstrap/dist/css/bootstrap.css';
+import buttons from './button.css';
 import styles from './Home.css';
 
 const Home = (props) => {
@@ -19,14 +20,14 @@ const Home = (props) => {
                 <button
                   id="exam"
                   type="button"
-                  className={classNames(bootstrap.btn, bootstrap['btn-lg'], bootstrap['btn-info'], styles.btn_start, styles.btn_cursor)}
+                  className={classNames(bootstrap.btn, bootstrap['btn-lg'], bootstrap['btn-info'], buttons.btn_start)}
                   onClick={action}
                 >Exam
                 </button>
                 <button
                   id="train"
                   type="button"
-                  className={classNames(bootstrap.btn, bootstrap['btn-lg'], bootstrap['btn-info'], styles.btn_start, styles.btn_cursor)}
+                  className={classNames(bootstrap.btn, bootstrap['btn-lg'], bootstrap['btn-info'], buttons.btn_start)}
                   disabled
                 >Train
                 </button>

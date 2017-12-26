@@ -2,18 +2,6 @@ body {
   margin: 0;
 }
 
-.btn_cursor {
-  cursor: pointer;
-}
-
-.btn_cursor:disabled {
-    cursor: not-allowed;
-}
-
-.btn_start {
-    margin-top: 35vh;
-}
-
 .arrow-right {
     width: 0; 
     height: 0; 

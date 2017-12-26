@@ -9,7 +9,7 @@ import Code from './Code';
 import UserAnswer from './UserAnswer';
 
 import bootstrap from '../../node_modules/bootstrap/dist/css/bootstrap.css';
-import button from './button.css';
+import buttons from './button.css';
 import styles from './Exam.css';
 
 class Exam extends Component {
@@ -99,7 +99,7 @@ class Exam extends Component {
         </header>
         <main className={bootstrap.container}>
           <div id="quiz-screen" className={bootstrap.row}>
-            <button type="button" onClick={this.props.action} className={classNames(bootstrap.close, button.btn_cursor)} aria-label="Close">
+            <button type="button" onClick={this.props.action} className={classNames(bootstrap.close, buttons.btn_cursor)} aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
             <Code question={this.state.question.value}/>

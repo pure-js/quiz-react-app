@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import Prism from 'prismjs';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-import prism from '../../node_modules/prismjs/themes/prism.css';
-import prismTheme from '../../node_modules/prismjs/themes/prism-solarizedlight.css';
-import './Code.css';
+import '!style-loader!css-loader!../../node_modules/prismjs/themes/prism.css';
+import '!style-loader!css-loader!../../node_modules/prismjs/themes/prism-solarizedlight.css';
+
+import bootstrap from '../../node_modules/bootstrap/dist/css/bootstrap.css';
+import styles from './Code.css';
 
 class Code extends Component {
   componentDidMount() {
@@ -17,8 +20,8 @@ class Code extends Component {
 
   render() {
     return (
-      <div className="col-12 bg-solarized">
-        <pre className="language_custom">
+      <div className={classNames(bootstrap['col-12'], bootstrap['bg-solarized'])}>
+        <pre className={styles.language_custom}>
           <code id="code" className="language-javascript">
             {this.props.question}
           </code>
