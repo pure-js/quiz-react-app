@@ -1,20 +1,9 @@
 import gulp from 'gulp';
-import gulpLoadPlugins from 'gulp-load-plugins';
+import webpack from 'webpack-stream';
+import jsonminify from 'gulp-jsonminify';
+
 import { production } from '../config';
-
-const webpack = require('webpack-stream');
-const webpackConfig = require('../../webpack.prod.js');
-
-const plugins = gulpLoadPlugins();
-
-// Get one .less file and render
-const css = () =>
-  gulp.src(production.less)
-    .pipe(plugins.less({
-      compress: true,
-    }))
-    .pipe(plugins.rename('main.min.css'))
-    .pipe(gulp.dest(production.dest));
+import webpackConfig from '../../webpack.prod.babel';
 
 const js = () =>
   gulp.src(production.js)
@@ -23,12 +12,12 @@ const js = () =>
 
 const minifyJson = () =>
   gulp.src(production.json)
-    .pipe(plugins.jsonminify())
+    .pipe(jsonminify())
     .pipe(gulp.dest(production.dest));
 
 const copy = () =>
   gulp.src(production.copy)
     .pipe(gulp.dest(production.dest));
 
-const prod = gulp.parallel(css, js, minifyJson, copy);
+const prod = gulp.parallel(js, minifyJson, copy);
 export default prod;

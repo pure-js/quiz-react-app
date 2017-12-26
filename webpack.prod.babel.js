@@ -1,11 +1,12 @@
-const path = require('path');
-const webpack = require('webpack');
-const MinifyPlugin = require('babel-minify-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+import path from 'path';
+import webpack from 'webpack';
+import MinifyPlugin from 'babel-minify-webpack-plugin';
+import CleanWebpackPlugin from 'clean-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import ScriptExtHtmlWebpackPlugin from 'script-ext-html-webpack-plugin';
+import WorkboxPlugin from 'workbox-webpack-plugin';
 
-module.exports = {
+const config = {
   entry: {
     app: './src/index.js',
     vendor: [
@@ -34,6 +35,10 @@ module.exports = {
     new ScriptExtHtmlWebpackPlugin({
       defaultAttribute: 'defer',
     }),
+    new WorkboxPlugin({
+      clientsClaim: true,
+      skipWaiting: true,
+    }),
   ],
   output: {
     filename: '[name].[chunkhash].min.js',
@@ -54,6 +59,22 @@ module.exports = {
           },
         },
       },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+            },
+          },
+        ],
+      },
     ],
   },
 };
+
+export default config;

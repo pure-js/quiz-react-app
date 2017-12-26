@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import classNames from 'classnames';
 
 import shuffleArray from './shuffleArray';
 import questions from '../../static/questions';
@@ -6,6 +7,10 @@ import answers from '../../static/answers';
 import ProgressBar from './ProgressBar';
 import Code from './Code';
 import UserAnswer from './UserAnswer';
+
+import bootstrap from '../../node_modules/bootstrap/dist/css/bootstrap.css';
+import buttons from './button.css';
+import styles from './Exam.css';
 
 class Exam extends Component {
   constructor(props) {
@@ -85,20 +90,20 @@ class Exam extends Component {
     return (
       <div>
         <header>
-          <div className="container">
-            <nav className="navbar navbar_no-padding">
-              <a href="#" className="navbar-brand" onClick={this.props.action}>JavaScript Quiz</a>
+          <div className={bootstrap.container}>
+            <nav className={classNames(bootstrap.navbar, styles['navbar_no-padding'])}>
+              <a href="#" className={bootstrap['navbar-brand']} onClick={this.props.action}>JavaScript Quiz</a>
             </nav>
           </div>
           <ProgressBar success={this.state.success} failure={this.state.failure} overall={this.state.overall}/>
         </header>
-        <main className="container">
-          <div id="quiz-screen" className="row">
-            <button type="button" onClick={this.props.action} className="close btn_cursor" aria-label="Close">
+        <main className={bootstrap.container}>
+          <div id="quiz-screen" className={bootstrap.row}>
+            <button type="button" onClick={this.props.action} className={classNames(bootstrap.close, buttons.btn_cursor)} aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
             <Code question={this.state.question.value}/>
-            <div className="col-12">
+            <div className={bootstrap['col-12']}>
               <UserAnswer userAnswer={this.addAnswer} handleAnswer={this.handleAnswer}/>
             </div>
           </div>

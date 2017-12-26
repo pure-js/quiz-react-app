@@ -1,8 +1,9 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+import path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import ScriptExtHtmlWebpackPlugin from 'script-ext-html-webpack-plugin';
+import webpack from 'webpack';
 
-module.exports = {
+const config = {
   entry: {
     app: './src/index.js',
   },
@@ -11,8 +12,10 @@ module.exports = {
       template: 'src/index-template.html',
     }),
     new ScriptExtHtmlWebpackPlugin({
-      defaultAttribute: 'async',
+      defaultAttribute: 'defer',
     }),
+    new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
   ],
   output: {
     filename: '[name].js',
@@ -21,6 +24,7 @@ module.exports = {
   devtool: 'inline-source-map',
   devServer: {
     contentBase: '.tmp',
+    hot: true,
   },
   module: {
     rules: [
@@ -37,6 +41,22 @@ module.exports = {
           },
         },
       },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+            },
+          },
+        ],
+      },
     ],
   },
 };
+
+export default config;

@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
+
+import bootstrap from '../../node_modules/bootstrap/dist/css/bootstrap.css';
+import button from './button.css';
 
 class UserAnswer extends Component {
   constructor(props) {
@@ -33,29 +37,29 @@ class UserAnswer extends Component {
   render() {
     return (
       <form>
-        <div className="form-group">
+        <div className={bootstrap['form-group']}>
           <label htmlFor="console-output">Web Console Output:</label>
           <textarea
             id="console-output"
             value={this.userAnswer}
             onInput={this.handleAnswerChange}
             rows="2"
-            className="form-control console-output"
+            className={bootstrap['form-control']}
           />
         </div>
-        <div className="btn-group">
+        <div className={bootstrap['btn-group']}>
           <button
             id="answer"
             onClick={this.handleSubmit}
             type="button"
-            className="btn btn-info btn_cursor"
+            className={classNames(bootstrap.btn, bootstrap['btn-info'], button.btn_cursor)}
           >Answer
           </button>
           <button
             id="next-quiz"
             onClick={this.handleSubmit}
             type="button"
-            className="btn btn-light btn_cursor"
+            className={classNames(bootstrap.btn, bootstrap['btn-light'], button.btn_cursor)}
           >I don't know
           </button>
         </div>

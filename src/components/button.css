@@ -1,0 +1,16 @@
+.btn_cursor {
+  cursor: pointer;
+}
+
+.btn_cursor:disabled {
+  cursor: not-allowed;
+}
+
+.btn_start {
+  margin-top: 35vh;
+  cursor: pointer;
+}
+
+.btn_start:disabled {
+  cursor: not-allowed;
+}

@@ -1,16 +1,10 @@
 const common = {
-  less: 'src/main.less',
   js: [
     'src/index.js',
   ],
 };
 
 const development = Object.assign({}, common, {
-  lessWatch: 'src/*.less',
-  jsWatch: [
-    'src/**/*.js',
-    'static/**/*.js',
-  ],
   copy: [
     'manifest.json',
   ],
