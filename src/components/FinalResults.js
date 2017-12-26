@@ -10,7 +10,6 @@ const FinalResults = (props) => {
 
   return (
     <div>
-      {/*<div className={bootstrap['arrow-right']} />*/}
       <main className={bootstrap.container}>
         <div className={bootstrap.row}>
           <div className={bootstrap['col-12']}>

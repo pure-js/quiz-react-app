@@ -20,19 +20,21 @@ class Exam extends Component {
     this.questions = shuffleArray(questions);
     this.questionsLength = questions.length;
     this.maxIteration = this.questionsLength - 1;
-    this.failure = 0;
-    this.success = 0;
+    this.successCounter = 0;
+    this.failureCounter = 0;
 
     this.state = {
       userAnswer: '',
       question: this.questions[0],
-      success: {
-        width: 0 + '%'
-      },
-      failure: {
-        width: 0 + '%'
-      },
       overall: this.questions.length,
+    };
+
+    this.success = {
+      width: 0 + '%'
+    };
+
+    this.failure = {
+      width: 0 + '%'
     };
 
     this.answer = answers.find(answer => answer.name === this.state.question.name);
@@ -52,7 +54,6 @@ class Exam extends Component {
         question: this.questions[this.iteration]
       });
       this.answer = answers.find(answer => answer.name === this.state.question.name);
-      this.success = this.success + 1;
     } else {
       if (this.state.question === this.questions[this.questionsLength - 1]) {
         this.props.results();
@@ -61,12 +62,10 @@ class Exam extends Component {
   };
 
   handleNotAnswer = () => {
-    this.failure = this.failure + 1;
-    this.setState({
-      failure: {
-        width: (this.failure * 100) / this.questionsLength + '%',
-      },
-    });
+    this.failureCounter += 1;
+    this.failure = {
+      width: (this.failureCounter * 100) / this.questionsLength + '%',
+    };
     this.handleAnyAnswer();
   };
 
@@ -74,12 +73,10 @@ class Exam extends Component {
 
   handleAnswer = () => {
     if(this.answerIsCorrect(this.state.userAnswer, this.answer.value)) {
-      this.success = this.success + 1;
-      this.setState({
-        success: {
-          width: (this.success * 100) / this.questionsLength + '%',
-        },
-      });
+      this.successCounter += 1;
+      this.success = {
+        width: (this.successCounter * 100) / this.questionsLength + '%',
+      };
       this.handleAnyAnswer();
     } else {
       this.handleNotAnswer();
@@ -95,7 +92,7 @@ class Exam extends Component {
               <a href="#" className={bootstrap['navbar-brand']} onClick={this.props.action}>JavaScript Quiz</a>
             </nav>
           </div>
-          <ProgressBar success={this.state.success} failure={this.state.failure} overall={this.state.overall}/>
+          <ProgressBar success={this.success} failure={this.failure} overall={this.state.overall}/>
         </header>
         <main className={bootstrap.container}>
           <div id="quiz-screen" className={bootstrap.row}>
