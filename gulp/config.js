@@ -4,13 +4,6 @@ const common = {
   ],
 };
 
-const development = Object.assign({}, common, {
-  copy: [
-    'manifest.json',
-  ],
-  dest: '.tmp/',
-});
-
 const production = Object.assign({}, common, {
   copy: [
     'static/**/*.{png,svg,ico}',
@@ -25,4 +18,4 @@ const production = Object.assign({}, common, {
   deploy: '.publish',
 });
 
-export { development, production };
+export default production;
