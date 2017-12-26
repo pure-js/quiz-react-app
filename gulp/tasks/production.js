@@ -8,9 +8,5 @@ const minifyJson = () =>
     .pipe(jsonminify())
     .pipe(gulp.dest(production.dest));
 
-const copy = () =>
-  gulp.src(production.copy)
-    .pipe(gulp.dest(production.dest));
-
-const prod = gulp.parallel(minifyJson, copy);
+const prod = gulp.parallel(minifyJson);
 export default prod;
