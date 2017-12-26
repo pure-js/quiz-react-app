@@ -31,7 +31,7 @@ class UserAnswer extends Component {
   };
 
   handleSubmit = () => {
-    this.props.userAnswer(this.state.userAnswer, this.props.handleAnswer);
+    this.props.userAnswer(this.state.userAnswer);
   };
 
   render() {
