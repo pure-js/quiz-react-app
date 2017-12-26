@@ -2,12 +2,18 @@ import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ScriptExtHtmlWebpackPlugin from 'script-ext-html-webpack-plugin';
 import webpack from 'webpack';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 const config = {
   entry: {
     app: './src/index.js',
   },
   plugins: [
+    new CopyWebpackPlugin([
+      {
+        from: 'manifest.json',
+      },
+    ]),
     new HtmlWebpackPlugin({
       template: 'src/index-template.html',
     }),

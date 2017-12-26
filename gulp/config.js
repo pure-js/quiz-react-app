@@ -1,20 +1,4 @@
-const common = {
-  js: [
-    'src/index.js',
-  ],
-};
-
-const development = Object.assign({}, common, {
-  copy: [
-    'manifest.json',
-  ],
-  dest: '.tmp/',
-});
-
-const production = Object.assign({}, common, {
-  copy: [
-    'static/**/*.{png,svg,ico}',
-  ],
+const production = {
   sw: [
     'src/components/service-worker.js',
   ],
@@ -22,7 +6,6 @@ const production = Object.assign({}, common, {
     'manifest.json',
   ],
   dest: 'dist/',
-  deploy: '.publish',
-});
+};
 
-export { development, production };
+export default production;
