@@ -33,6 +33,7 @@ class Exam extends Component {
 
     this.state = {
       question: this.questions[0],
+      sek: this.props.uss,
     };
     this.answer = answers.find(answer => answer.name === this.state.question.name);
     this.userAnswers = [];
@@ -57,6 +58,9 @@ class Exam extends Component {
       this.answer = answers.find(answer => answer.name === this.state.question.name);
     } else {
       if (this.state.question === this.questions[this.questionsLength - 1]) {
+        this.setState({
+          sek: this.userAnswers,
+        });
         this.props.results();
       }
     }
