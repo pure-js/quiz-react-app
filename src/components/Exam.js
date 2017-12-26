@@ -22,29 +22,25 @@ class Exam extends Component {
     this.maxIteration = this.questionsLength - 1;
     this.successCounter = 0;
     this.failureCounter = 0;
-
-    this.state = {
-      userAnswer: '',
-      question: this.questions[0],
-      overall: this.questions.length,
-    };
-
+    this.userAnswer = '';
     this.success = {
       width: 0 + '%'
     };
-
     this.failure = {
       width: 0 + '%'
     };
+    this.overall = this.questions.length;
 
+    this.state = {
+      question: this.questions[0],
+    };
     this.answer = answers.find(answer => answer.name === this.state.question.name);
   }
 
-  addAnswer = (answer, callback) => {
-    this.setState({
-      userAnswer: answer,
-    }, callback);
+  addAnswer = (answer) => {
+    this.userAnswer = answer;
     this.answer = answers.find(answer => answer.name === this.state.question.name);
+    this.handleAnswer();
   };
 
   handleAnyAnswer = () => {
@@ -72,7 +68,7 @@ class Exam extends Component {
   answerIsCorrect = (userAnswer, correctAnswer) => userAnswer === correctAnswer;
 
   handleAnswer = () => {
-    if(this.answerIsCorrect(this.state.userAnswer, this.answer.value)) {
+    if(this.answerIsCorrect(this.userAnswer, this.answer.value)) {
       this.successCounter += 1;
       this.success = {
         width: (this.successCounter * 100) / this.questionsLength + '%',
@@ -92,7 +88,7 @@ class Exam extends Component {
               <a href="#" className={bootstrap['navbar-brand']} onClick={this.props.action}>JavaScript Quiz</a>
             </nav>
           </div>
-          <ProgressBar success={this.success} failure={this.failure} overall={this.state.overall}/>
+          <ProgressBar success={this.success} failure={this.failure} overall={this.overall}/>
         </header>
         <main className={bootstrap.container}>
           <div id="quiz-screen" className={bootstrap.row}>
