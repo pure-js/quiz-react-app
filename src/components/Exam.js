@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 
 import shuffleArray from './shuffleArray';
+import getAnsweredQuestions from './getAnsweredQuestions';
 import questions from '../../static/questions';
 import answers from '../../static/answers';
 import ProgressBar from './ProgressBar';
@@ -17,7 +18,7 @@ class Exam extends Component {
     super(props);
 
     this.iteration = 0;
-    this.questions = shuffleArray(questions);
+    this.questions = shuffleArray(getAnsweredQuestions(questions, answers));
     this.questionsLength = questions.length;
     this.maxIteration = this.questionsLength - 1;
     this.successCounter = 0;
