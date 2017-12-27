@@ -102,9 +102,6 @@ class Exam extends Component {
         </header>
         <main className={bootstrap.container}>
           <div id="quiz-screen" className={bootstrap.row}>
-            <button type="button" onClick={this.props.action} className={classNames(bootstrap.close, buttons.btn_cursor)} aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
             <Code question={this.state.question.value}/>
             <div className={bootstrap['col-12']}>
               <UserAnswer userAnswer={this.addAnswer} handleAnswer={this.handleAnswer}/>
