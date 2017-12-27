@@ -5,7 +5,7 @@
   "main": "src/main.js",
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.dev.babel.js",
-    "build": "gulp && webpack --config webpack.prod.babel.js",
+    "build": "webpack --config webpack.prod.babel.js && gulp",
     "questions-to-array": "node server/transformFilesToStrings.js ./static/questions.js",
     "clean": "trash .tmp/ dist/ .publish",
     "deploy": "npm run build && gh-pages -d dist",
