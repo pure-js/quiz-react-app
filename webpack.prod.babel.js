@@ -6,6 +6,8 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ScriptExtHtmlWebpackPlugin from 'script-ext-html-webpack-plugin';
 import WorkboxPlugin from 'workbox-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
+
 
 const plugins = [
   new CleanWebpackPlugin(['dist']),
@@ -37,6 +39,7 @@ const plugins = [
   new webpack.optimize.CommonsChunkPlugin({
     name: 'manifest',
   }),
+  new ExtractTextPlugin('styles.min.css'),
   new WorkboxPlugin({
     clientsClaim: true,
     skipWaiting: true,
@@ -60,17 +63,18 @@ const module = {
     },
     {
       test: /\.css$/,
-      use: [
-        {
-          loader: 'style-loader',
-        },
-        {
-          loader: 'css-loader',
-          options: {
-            modules: true,
+      use: ExtractTextPlugin.extract({
+        fallback: 'style-loader',
+        use: [
+          {
+            loader: 'css-loader',
+            options: {
+              minimize: true,
+              modules: true,
+            },
           },
-        },
-      ],
+        ],
+      }),
     },
   ],
 };
