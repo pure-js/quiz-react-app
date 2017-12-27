@@ -19,7 +19,7 @@ class Exam extends Component {
 
     this.iteration = 0;
     this.questions = shuffleArray(getAnsweredQuestions(questions, answers));
-    this.questionsLength = questions.length;
+    this.questionsLength = this.questions.length;
     this.maxIteration = this.questionsLength - 1;
     this.successCounter = 0;
     this.failureCounter = 0;
@@ -30,7 +30,6 @@ class Exam extends Component {
     this.failure = {
       width: 0 + '%'
     };
-    this.overall = this.questions.length;
 
     this.state = {
       question: this.questions[0],
@@ -96,9 +95,12 @@ class Exam extends Component {
           <div className={bootstrap.container}>
             <nav className={classNames(bootstrap.navbar, styles['navbar_no-padding'])}>
               <a href="#" className={bootstrap['navbar-brand']} onClick={this.props.action}>JavaScript Quiz</a>
+              <span className={bootstrap['navbar-text']}>
+                {this.iteration + 1} of {this.questionsLength}
+              </span>
             </nav>
           </div>
-          <ProgressBar success={this.success} failure={this.failure} overall={this.overall}/>
+          <ProgressBar success={this.success} failure={this.failure} overall={this.questionsLength}/>
         </header>
         <main className={bootstrap.container}>
           <div id="quiz-screen" className={bootstrap.row}>

@@ -9,7 +9,9 @@ class UserAnswer extends Component {
   constructor(props) {
     super(props);
 
-    this.userAnswer = '';
+    this.state = {
+      userAnswer: '',
+    };
   }
 
   hasScrollbar = el => el.clientHeight < el.scrollHeight;
