@@ -8,7 +8,7 @@
     "build": "gulp && webpack --config webpack.prod.babel.js",
     "questions-to-array": "node server/transformFilesToStrings.js ./static/questions.js",
     "clean": "trash .tmp/ dist/ .publish",
-    "deploy": "gh-pages -d dist",
+    "deploy": "npm run build && gh-pages -d dist",
     "lint": "eslint src/*.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
