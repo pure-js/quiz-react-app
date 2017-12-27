@@ -14,6 +14,8 @@ class App extends Component {
       train: false,
       results: false,
     };
+
+    this.userAnswers = [];
   }
 
   handleExamClick = () => {
@@ -45,8 +47,8 @@ class App extends Component {
   render() {
     let screen;
     if (this.state.home) screen = <Home action={this.handleExamClick}/>;
-    if (this.state.exam) screen = <Exam action={this.handleCloseExamClick} results={this.handleShowResults}/>;
-    if (this.state.results) screen = <FinalResults results={345435} returnHome={this.returnHome}/>;
+    if (this.state.exam) screen = <Exam action={this.handleCloseExamClick} results={this.handleShowResults} uss={this.userAnswers}/>;
+    if (this.state.results) screen = <FinalResults userAnswers={this.userAnswers} returnHome={this.returnHome}/>;
 
     return (
       <div>{screen}</div>

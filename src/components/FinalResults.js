@@ -6,7 +6,7 @@ import bootstrap from '../../node_modules/bootstrap/dist/css/bootstrap.css';
 import buttons from './button.css';
 
 const FinalResults = (props) => {
-  const { results, returnHome } = props;
+  const { userAnswers, returnHome } = props;
 
   return (
     <div>
@@ -14,7 +14,7 @@ const FinalResults = (props) => {
         <div className={bootstrap.row}>
           <div className={bootstrap['col-12']}>
             <h1 className={bootstrap['text-center']}>Best ever results!</h1>
-            <p className={bootstrap['text-center']}>Your score is {results}</p>
+            <p className={bootstrap['text-center']}>Your score is {userAnswers}</p>
           </div>
         </div>
         <div id="first-screen" className={bootstrap.row}>
@@ -44,7 +44,7 @@ const FinalResults = (props) => {
   );
 };
 FinalResults.propTypes = {
-  results: PropTypes.number.isRequired,
+  userAnswers: PropTypes.arrayOf(PropTypes.any).isRequired,
   returnHome: PropTypes.func.isRequired,
 };
 
