@@ -18,9 +18,6 @@ const plugins = [
       from: '**/*.{png,svg,ico}',
     },
   ]),
-  new webpack.optimize.CommonsChunkPlugin({
-    name: 'vendor',
-  }),
   new MinifyPlugin(),
   new HtmlWebpackPlugin({
     template: 'src/index-template.html',
@@ -32,6 +29,13 @@ const plugins = [
   }),
   new ScriptExtHtmlWebpackPlugin({
     defaultAttribute: 'defer',
+  }),
+  new webpack.HashedModuleIdsPlugin(),
+  new webpack.optimize.CommonsChunkPlugin({
+    name: 'vendor',
+  }),
+  new webpack.optimize.CommonsChunkPlugin({
+    name: 'manifest',
   }),
   new WorkboxPlugin({
     clientsClaim: true,
@@ -78,6 +82,8 @@ const config = {
       'react',
       'react-dom',
       'prismjs',
+      'classnames',
+      'prop-types',
     ],
   },
   plugins,
