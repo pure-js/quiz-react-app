@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import bootstrap from '../../node_modules/bootstrap/dist/css/bootstrap.css';
-import buttons from './button.css';
+import buttons from '../components/button.css';
 
 const FinalResults = (props) => {
   const { userAnswers, returnHome } = props;

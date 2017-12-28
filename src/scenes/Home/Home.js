@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import bootstrap from '../../node_modules/bootstrap/dist/css/bootstrap.css';
-import buttons from './button.css';
+import bootstrap from '../../../node_modules/bootstrap/dist/css/bootstrap.css';
+import buttons from '../../components/button.css';
 import styles from './Home.css';
 
 const Home = (props) => {

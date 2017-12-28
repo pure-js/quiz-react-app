@@ -3,10 +3,10 @@ import Prism from 'prismjs';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import bootstrap from '../../node_modules/bootstrap/dist/css/bootstrap.css';
+import bootstrap from '../../../node_modules/bootstrap/dist/css/bootstrap.css';
 import styles from './Code.css';
 
-import '!style-loader!css-loader!../../node_modules/prismjs/themes/prism.css';
+import '!style-loader!css-loader!../../../node_modules/prismjs/themes/prism.css';
 import '!style-loader!css-loader!../../node_modules/prismjs/themes/prism-solarizedlight.css';
 
 class Code extends Component {

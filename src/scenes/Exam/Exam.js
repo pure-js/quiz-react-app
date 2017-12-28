@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 
-import shuffleArray from './shuffleArray';
-import getAnsweredQuestions from './getAnsweredQuestions';
-import questions from '../../static/questions';
-import answers from '../../static/answers';
-import ProgressBar from './ProgressBar';
-import Code from './Code';
-import UserAnswer from './UserAnswer';
+import shuffleArray from '../../services/shuffleArray';
+import getAnsweredQuestions from '../../services/getAnsweredQuestions';
+import questions from '../../../static/questions';
+import answers from '../../../static/answers';
+import ProgressBar from '../../components/ProgressBar';
+import Code from '../../components/Code/Code';
+import UserAnswer from '../../components/UserAnswer';
 
-import bootstrap from '../../node_modules/bootstrap/dist/css/bootstrap.css';
-import buttons from './button.css';
+import bootstrap from '../../../node_modules/bootstrap/dist/css/bootstrap.css';
 import styles from './Exam.css';
 
 class Exam extends Component {

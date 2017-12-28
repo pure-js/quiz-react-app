@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import Exam from './Exam';
-import Home from "./Home";
-import FinalResults from './FinalResults';
+import Exam from '../scenes/Exam/Exam';
+import Home from "../scenes/Home/Home";
+import FinalResults from '../scenes/FinalResults';
 
 class App extends Component {
   constructor(props) {
