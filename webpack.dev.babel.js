@@ -54,7 +54,7 @@ const module = {
 
 const config = {
   entry: {
-    app: './src/index.js',
+    app: './src/Header.js',
   },
   plugins,
   module,

@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
-import classNames from 'classnames';
 
 import shuffleArray from '../../services/shuffleArray';
 import getAnsweredQuestions from '../../services/getAnsweredQuestions';
 import questions from '../../../static/questions';
 import answers from '../../../static/answers';
-import ProgressBar from '../../components/ProgressBar';
 import Code from '../../components/Code/Code';
 import UserAnswer from '../../components/UserAnswer';
+import Header from '../../components/Header/Header';
+import ProgressBar from '../../components/ProgressBar';
 
 import bootstrap from '../../../node_modules/bootstrap/dist/css/bootstrap.css';
-import styles from './Exam.css';
 
 class Exam extends Component {
   constructor(props) {
@@ -90,17 +89,8 @@ class Exam extends Component {
   render() {
     return (
       <div>
-        <header>
-          <div className={bootstrap.container}>
-            <nav className={classNames(bootstrap.navbar, styles['navbar_no-padding'])}>
-              <a href="#" className={bootstrap['navbar-brand']} onClick={this.props.action}>JavaScript Quiz</a>
-              <span className={bootstrap['navbar-text']}>
-                {this.iteration + 1} of {this.questionsLength}
-              </span>
-            </nav>
-          </div>
-          <ProgressBar success={this.success} failure={this.failure} overall={this.questionsLength}/>
-        </header>
+        <Header home={this.props.home} current={this.iteration + 1} total={}/>
+        <ProgressBar success={this.success} failure={this.failure} overall={this.questionsLength}/>
         <main className={bootstrap.container}>
           <div id="quiz-screen" className={bootstrap.row}>
             <Code question={this.state.question.value}/>
