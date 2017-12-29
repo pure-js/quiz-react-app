@@ -7,7 +7,7 @@ import buttons from '../../components/button.css';
 import styles from './Home.css';
 
 const Home = (props) => {
-  const { action } = props;
+  const { exam, train } = props;
 
   return (
     <div>
@@ -21,14 +21,14 @@ const Home = (props) => {
                   id="exam"
                   type="button"
                   className={classNames(bootstrap.btn, bootstrap['btn-lg'], bootstrap['btn-info'], buttons.btn_start)}
-                  onClick={action}
+                  onClick={exam}
                 >Exam
                 </button>
                 <button
                   id="train"
                   type="button"
                   className={classNames(bootstrap.btn, bootstrap['btn-lg'], bootstrap['btn-info'], buttons.btn_start)}
-                  disabled
+                  onClick={train}
                 >Train
                 </button>
               </div>
@@ -39,8 +39,10 @@ const Home = (props) => {
     </div>
   );
 };
+
 Home.propTypes = {
-  action: PropTypes.func.isRequired,
+  exam: PropTypes.func.isRequired,
+  train: PropTypes.func.isRequired,
 };
 
 export default Home;

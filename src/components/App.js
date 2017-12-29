@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
-import Exam from '../scenes/Exam/Exam';
 import Home from "../scenes/Home/Home";
+import Exam from '../scenes/Exam/Exam';
+import Train from '../scenes/Train/Train';
 import FinalResults from '../scenes/FinalResults';
 
 class App extends Component {
@@ -22,6 +23,13 @@ class App extends Component {
     this.setState({
       home: false,
       exam: true,
+    });
+  };
+
+  handleTrainClick = () => {
+    this.setState({
+      home: false,
+      train: true,
     });
   };
 
@@ -49,8 +57,9 @@ class App extends Component {
 
   render() {
     let screen;
-    if (this.state.home) screen = <Home action={this.handleExamClick}/>;
+    if (this.state.home) screen = <Home exam={this.handleExamClick} train={this.handleTrainClick}/>;
     if (this.state.exam) screen = <Exam action={this.handleCloseExamClick} results={this.handleShowResults} uss={this.userAnswers}/>;
+    if (this.state.train) screen = <Train action={this.handleCloseExamClick} results={this.handleShowResults} uss={this.userAnswers}/>;
     if (this.state.results) screen = <FinalResults userAnswers={this.userAnswers} returnHome={this.returnHome}/>;
 
     return (
