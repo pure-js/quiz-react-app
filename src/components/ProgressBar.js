@@ -18,6 +18,7 @@ const ProgressBar = (props) => {
     </div>
   );
 };
+
 ProgressBar.propTypes = {
   success: PropTypes.shape({
     width: PropTypes.string,

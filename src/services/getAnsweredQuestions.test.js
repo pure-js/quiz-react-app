@@ -15,7 +15,7 @@ test('adds 1 + 2 to equal 3', () => {
     },
   ];
 
-  expect(getAnsweredQuestions(questions, answers)).toBe([{
+  expect(getAnsweredQuestions(questions, answers)).toEqual([{
     name: '1',
   }]);
 });
