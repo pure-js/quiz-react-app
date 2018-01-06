@@ -56,6 +56,26 @@ const answers = [
     value: 'undefined',
   },
   {
+    name: '108',
+    value: '1function',
+  },
+  {
+    name: '109',
+    value: 'string',
+  },
+  {
+    name: '110',
+    value: 'undefined',
+  },
+  {
+    name: '111',
+    value: '2',
+  },
+  {
+    name: '112',
+    value: 'false',
+  },
+  {
     name: '113',
     value: '2',
   },
