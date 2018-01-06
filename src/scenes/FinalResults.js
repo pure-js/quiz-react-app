@@ -6,7 +6,7 @@ import bootstrap from '../../node_modules/bootstrap/dist/css/bootstrap.css';
 import buttons from '../components/button.css';
 
 const FinalResults = (props) => {
-  const { userAnswers, returnHome } = props;
+  const { userAnswers, tryAgain, returnHome } = props;
 
   return (
     <div>
@@ -25,7 +25,7 @@ const FinalResults = (props) => {
                   id="exam"
                   type="button"
                   className={classNames(bootstrap.btn, bootstrap['btn-lg'], bootstrap['btn-info'], buttons.btn_start)}
-                  disabled
+                  onClick={tryAgain}
                 >Try again
                 </button>
                 <button
@@ -45,6 +45,7 @@ const FinalResults = (props) => {
 };
 FinalResults.propTypes = {
   userAnswers: PropTypes.arrayOf(PropTypes.any).isRequired,
+  tryAgain: PropTypes.func.isRequired,
   returnHome: PropTypes.func.isRequired,
 };
 
