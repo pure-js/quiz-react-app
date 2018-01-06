@@ -5,7 +5,7 @@ import getAnsweredQuestions from '../../services/getAnsweredQuestions';
 import questions from '../../../static/questions';
 import answers from '../../../static/answers';
 import Code from '../../components/Code/Code';
-import UserAnswer from '../../components/UserAnswer';
+import Textarea from '../../components/Textarea/Textarea';
 import Header from '../../components/Header/Header';
 import ProgressBar from '../../components/ProgressBar';
 
@@ -95,7 +95,7 @@ class Exam extends Component {
           <div id="quiz-screen" className={bootstrap.row}>
             <Code question={this.state.question.value}/>
             <div className={bootstrap['col-12']}>
-              <UserAnswer userAnswer={this.addAnswer} handleAnswer={this.handleAnswer}/>
+              <Textarea userAnswer={this.addAnswer} handleAnswer={this.handleAnswer}/>
             </div>
           </div>
         </main>

@@ -8,7 +8,7 @@ import answers from '../../../static/answers';
 import ProgressBar from '../../components/ProgressBar';
 import Code from '../../components/Code/Code';
 import Header from '../../components/Header/Header';
-import UserAnswer from '../../components/UserAnswer';
+import Textarea from '../../components/Textarea/Textarea';
 
 import bootstrap from '../../../node_modules/bootstrap/dist/css/bootstrap.css';
 import styles from './Train.css';
@@ -110,7 +110,7 @@ class Train extends Component {
           <div id="quiz-screen" className={bootstrap.row}>
             <Code question={this.state.question.value}/>
             <div className={bootstrap['col-12']}>
-              <UserAnswer userAnswer={this.addAnswer} handleAnswer={this.handleAnswer}/>
+              <Textarea userAnswer={this.addAnswer} handleAnswer={this.handleAnswer}/>
             </div>
           </div>
         </main>
