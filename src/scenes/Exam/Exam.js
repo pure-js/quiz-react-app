@@ -89,7 +89,7 @@ class Exam extends Component {
   render() {
     return (
       <div>
-        <Header home={this.props.home} current={this.iteration + 1} total={}/>
+        <Header home={this.props.home} current={this.iteration + 1} total={this.questionsLength}/>
         <ProgressBar success={this.success} failure={this.failure} overall={this.questionsLength}/>
         <main className={bootstrap.container}>
           <div id="quiz-screen" className={bootstrap.row}>

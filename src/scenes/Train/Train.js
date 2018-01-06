@@ -7,6 +7,7 @@ import questions from '../../../static/questions';
 import answers from '../../../static/answers';
 import ProgressBar from '../../components/ProgressBar';
 import Code from '../../components/Code/Code';
+import Header from '../../components/Header/Header';
 import UserAnswer from '../../components/UserAnswer';
 
 import bootstrap from '../../../node_modules/bootstrap/dist/css/bootstrap.css';

@@ -81,7 +81,7 @@ const module = {
 
 const config = {
   entry: {
-    app: './src/Header.js',
+    app: './src/index.js',
     vendor: [
       'react',
       'react-dom',
