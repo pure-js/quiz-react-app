@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
-import Exam from '../scenes/Exam/Exam';
 import Home from "../scenes/Home/Home";
+import Exam from '../scenes/Exam/Exam';
+import Train from '../scenes/Train/Train';
 import FinalResults from '../scenes/FinalResults';
 
 class App extends Component {
@@ -25,6 +26,13 @@ class App extends Component {
     });
   };
 
+  handleTrainClick = () => {
+    this.setState({
+      home: false,
+      train: true,
+    });
+  };
+
   handleCloseExamClick = () => {
     this.setState({
       home: true,
@@ -34,7 +42,9 @@ class App extends Component {
 
   handleShowResults = () => {
     this.setState({
+      home: false,
       exam: false,
+      train: false,
       results: true,
     });
   };
@@ -43,15 +53,17 @@ class App extends Component {
     this.setState({
       home: true,
       exam: false,
+      train: false,
       results: false,
     });
   };
 
   render() {
     let screen;
-    if (this.state.home) screen = <Home action={this.handleExamClick}/>;
-    if (this.state.exam) screen = <Exam action={this.handleCloseExamClick} results={this.handleShowResults} uss={this.userAnswers}/>;
-    if (this.state.results) screen = <FinalResults userAnswers={this.userAnswers} returnHome={this.returnHome}/>;
+    if (this.state.home) screen = <Home exam={this.handleExamClick} train={this.handleTrainClick}/>;
+    if (this.state.exam) screen = <Exam home={this.handleCloseExamClick} results={this.handleShowResults} uss={this.userAnswers}/>;
+    if (this.state.train) screen = <Train home={this.handleCloseExamClick} results={this.handleShowResults} uss={this.userAnswers}/>;
+    if (this.state.results) screen = <FinalResults userAnswers={this.userAnswers} tryAgain={this.handleExamClick} returnHome={this.returnHome}/>;
 
     return (
       <div>{screen}</div>

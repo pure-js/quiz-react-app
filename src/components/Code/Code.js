@@ -30,6 +30,7 @@ class Code extends Component {
     );
   }
 }
+
 Code.propTypes = {
   question: PropTypes.string.isRequired,
 };

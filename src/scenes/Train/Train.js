@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
+import classNames from 'classnames';
 
 import shuffleArray from '../../services/shuffleArray';
 import getAnsweredQuestions from '../../services/getAnsweredQuestions';
 import questions from '../../../static/questions';
 import answers from '../../../static/answers';
-import Code from '../../components/Code/Code';
-import Textarea from '../../components/Textarea/Textarea';
-import Header from '../../components/Header/Header';
 import ProgressBar from '../../components/ProgressBar';
+import Code from '../../components/Code/Code';
+import Header from '../../components/Header/Header';
+import Textarea from '../../components/Textarea/Textarea';
 
 import bootstrap from '../../../node_modules/bootstrap/dist/css/bootstrap.css';
+import styles from './Train.css';
 
-class Exam extends Component {
+class Train extends Component {
   constructor(props) {
     super(props);
 
@@ -36,6 +38,10 @@ class Exam extends Component {
     this.answer = answers.find(answer => answer.name === this.state.question.name);
     this.userAnswers = [];
   }
+
+  showDifference = () => {
+
+  };
 
   addAnswer = (answer) => {
     this.userAnswer = answer;
@@ -89,8 +95,17 @@ class Exam extends Component {
   render() {
     return (
       <div>
-        <Header home={this.props.home} current={this.iteration + 1} total={this.questionsLength}/>
-        <ProgressBar success={this.success} failure={this.failure} overall={this.questionsLength}/>
+        <header>
+          <div className={bootstrap.container}>
+            <nav className={classNames(bootstrap.navbar, styles['navbar_no-padding'])}>
+              <a href="#" className={bootstrap['navbar-brand']} onClick={this.props.action}>JavaScript Quiz</a>
+              <span className={bootstrap['navbar-text']}>
+                {this.iteration + 1} of {this.questionsLength}
+              </span>
+            </nav>
+          </div>
+          <ProgressBar success={this.success} failure={this.failure} overall={this.questionsLength}/>
+        </header>
         <main className={bootstrap.container}>
           <div id="quiz-screen" className={bootstrap.row}>
             <Code question={this.state.question.value}/>
@@ -104,4 +119,4 @@ class Exam extends Component {
   }
 }
 
-export default Exam;
+export default Train;

@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import bootstrap from '../../node_modules/bootstrap/dist/css/bootstrap.css';
-import button from './button.css';
+import bootstrap from '../../../node_modules/bootstrap/dist/css/bootstrap.css';
+import button from '../button.css';
 
 class UserAnswer extends Component {
   constructor(props) {
@@ -38,7 +38,12 @@ class UserAnswer extends Component {
     return (
       <form>
         <div className={bootstrap['form-group']}>
-          <label htmlFor="console-output">Web Console Output:</label>
+          <label htmlFor="console-output">
+            Web Console Output:
+            Please use enter for each new line.
+            Please note that your result is case sensitive.
+          </label>
+          <span>></span>
           <textarea
             id="console-output"
             value={this.userAnswer}
@@ -67,6 +72,7 @@ class UserAnswer extends Component {
     );
   }
 }
+
 UserAnswer.propTypes = {
   userAnswer: PropTypes.func,
   handleAnswer: PropTypes.func.isRequired,
