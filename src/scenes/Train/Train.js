@@ -95,17 +95,8 @@ class Train extends Component {
   render() {
     return (
       <div>
-        <header>
-          <div className={bootstrap.container}>
-            <nav className={classNames(bootstrap.navbar, styles['navbar_no-padding'])}>
-              <a href="#" className={bootstrap['navbar-brand']} onClick={this.props.action}>JavaScript Quiz</a>
-              <span className={bootstrap['navbar-text']}>
-                {this.iteration + 1} of {this.questionsLength}
-              </span>
-            </nav>
-          </div>
-          <ProgressBar success={this.success} failure={this.failure} overall={this.questionsLength}/>
-        </header>
+        <Header home={this.props.home} current={this.iteration + 1} total={this.questionsLength}/>
+        <ProgressBar success={this.success} failure={this.failure} overall={this.questionsLength}/>
         <main className={bootstrap.container}>
           <div id="quiz-screen" className={bootstrap.row}>
             <Code question={this.state.question.value}/>
