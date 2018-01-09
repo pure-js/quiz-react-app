@@ -31,6 +31,14 @@ const Home = (props) => {
                   onClick={train}
                 >Train
                 </button>
+                <button
+                  id="train-by-category"
+                  type="button"
+                  className={classNames(bootstrap.btn, bootstrap['btn-lg'], bootstrap['btn-info'], buttons.btn_start)}
+                  onClick={train}
+                  disabled
+                >Train by category
+                </button>
               </div>
             </div>
           </div>

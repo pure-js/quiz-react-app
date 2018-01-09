@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-
 import bootstrap from '../../../node_modules/bootstrap/dist/css/bootstrap.css';
 import styles from './Header.css';
 
@@ -25,6 +24,8 @@ const Header = (props) => {
 
 Header.propTypes = {
   home: PropTypes.func.isRequired,
+  current: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
 };
 
 export default Header;
