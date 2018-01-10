@@ -1,0 +1,13 @@
+.console {
+  border: none;
+  border-top: 1px solid #000;
+  display: flex;
+  width: 100%;
+  padding-left: 15px;
+}
+
+.console_icon {
+  color: blue;
+  position: absolute;
+  top: 31px;
+}

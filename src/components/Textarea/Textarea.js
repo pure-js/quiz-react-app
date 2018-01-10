@@ -4,6 +4,7 @@ import classNames from 'classnames';
 
 import bootstrap from '../../../node_modules/bootstrap/dist/css/bootstrap.css';
 import button from '../button.css';
+import textarea from './Textarea.css';
 
 class UserAnswer extends Component {
   constructor(props) {
@@ -43,14 +44,16 @@ class UserAnswer extends Component {
             Please use enter for each new line.
             Please note that your result is case sensitive.
           </label>
-          <span>></span>
           <textarea
             id="console-output"
             value={this.userAnswer}
             onInput={this.handleAnswerChange}
             rows="2"
-            className={bootstrap['form-control']}
+            className={textarea.console}
           />
+          <span
+            className={textarea.console_icon}
+          >></span>
         </div>
         <div className={bootstrap['btn-group']}>
           <button
