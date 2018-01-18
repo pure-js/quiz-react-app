@@ -1,5 +1,7 @@
 # JavaScript exercises
 ## Contribution
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/pure-js/js-exercises.svg)](https://greenkeeper.io/)
 ```
 npm i
 npm start
