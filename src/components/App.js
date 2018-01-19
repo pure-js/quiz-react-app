@@ -23,6 +23,7 @@ class App extends Component {
     this.setState({
       home: false,
       exam: true,
+      results: false,
     });
   };
 
