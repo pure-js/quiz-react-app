@@ -13,8 +13,8 @@ const FinalResults = (props) => {
       <main className={bootstrap.container}>
         <div className={bootstrap.row}>
           <div className={bootstrap['col-12']}>
-            <h1 className={bootstrap['text-center']}>Best ever results!</h1>
-            <p className={bootstrap['text-center']}>Your score is {userAnswers}</p>
+            <h1 className={bootstrap['text-center']}>Your results</h1>
+            <p className={bootstrap['text-center']}>Correct answers: {userAnswers} from 20</p>
           </div>
         </div>
         <div id="first-screen" className={bootstrap.row}>

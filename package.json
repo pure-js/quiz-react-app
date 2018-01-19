@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/pure-js/js-exercises#readme",
   "dependencies": {
-    "bootstrap": "~4.0.0-beta.3",
+    "bootstrap": "~4.0.0",
     "classnames": "~2.2.5",
     "prismjs": "~1.10.0",
     "prop-types": "^15.6.0",
@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@babel/cli": "~7.0.0-beta.38",
-    "@babel/core": "~7.0.0-beta.37",
+    "@babel/core": "~7.0.0-beta.38",
     "@babel/plugin-proposal-class-properties": "~7.0.0-beta.38",
     "@babel/preset-env": "~7.0.0-beta.38",
     "@babel/preset-react": "~7.0.0-beta.38",
@@ -44,7 +44,7 @@
     "babel-minify-webpack-plugin": "~0.2.0",
     "clean-webpack-plugin": "~0.1.17",
     "copy-webpack-plugin": "~4.3.1",
-    "css-loader": "^0.28.8",
+    "css-loader": "~0.28.9",
     "eslint": "~4.15.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-airbnb-base": "~12.1.0",
