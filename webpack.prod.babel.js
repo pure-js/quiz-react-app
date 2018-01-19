@@ -39,7 +39,7 @@ const plugins = [
   new webpack.optimize.CommonsChunkPlugin({
     name: 'manifest',
   }),
-  new ExtractTextPlugin('styles.min.css'),
+  new ExtractTextPlugin('styles.[contenthash].min.css'),
   new WorkboxPlugin({
     clientsClaim: true,
     skipWaiting: true,
