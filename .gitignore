@@ -6,13 +6,11 @@
 .idea/**/tasks.xml
 .idea/dictionaries
 
-node_modules/
-bower_components/
-*.log
-
-build/
-dist/
-.tmp/
-
 # macOS specific files
 .DS_store
+
+node_modules/
+*.log
+
+dist/
+.tmp/
