@@ -20,7 +20,7 @@ class Code extends Component {
 
   render() {
     return (
-      <div className={classNames(bootstrap['col-12'], bootstrap['bg-solarized'])}>
+      <div className={classNames(bootstrap['bg-solarized'])}>
         <pre className={styles.language_custom}>
           <code id="code" className="language-javascript">
             {this.props.question}

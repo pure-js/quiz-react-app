@@ -12,7 +12,7 @@ const Header = (props) => {
     <header>
       <div className={bootstrap.container}>
         <nav className={classNames(bootstrap.navbar, styles['navbar_no-padding'])}>
-          <a href="#" className={bootstrap['navbar-brand']} onClick={home}>JavaScript Quiz</a>
+          <a href="/" className={bootstrap['navbar-brand']} onClick={home}>JavaScript Quiz</a>
           <span className={bootstrap['navbar-text']}>
             {current} of {total}
           </span>
