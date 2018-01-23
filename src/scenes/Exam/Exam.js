@@ -10,6 +10,7 @@ import Header from '../../components/Header/Header';
 import ProgressBar from '../../components/ProgressBar';
 
 import bootstrap from '../../../node_modules/bootstrap/dist/css/bootstrap.css';
+import styles from './Exam.css';
 
 class Exam extends Component {
   constructor(props) {
@@ -91,12 +92,10 @@ class Exam extends Component {
       <div>
         <Header home={this.props.home} current={this.iteration + 1} total={this.questionsLength}/>
         <ProgressBar success={this.success} failure={this.failure} overall={this.questionsLength}/>
-        <main className={bootstrap.container}>
-          <div id="quiz-screen" className={bootstrap.row}>
-            <Code question={this.state.question.value}/>
-            <div className={bootstrap['col-12']}>
-              <Textarea userAnswer={this.addAnswer} handleAnswer={this.handleAnswer}/>
-            </div>
+        <main className={styles.container}>
+          <Code question={this.state.question.value}/>
+          <div>
+            <Textarea userAnswer={this.addAnswer} handleAnswer={this.handleAnswer}/>
           </div>
         </main>
       </div>
