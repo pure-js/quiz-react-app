@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import classNames from 'classnames';
 
 import shuffleArray from '../../services/shuffleArray';
 import getAnsweredQuestions from '../../services/getAnsweredQuestions';
@@ -91,12 +92,12 @@ class Exam extends Component {
       <div>
         <Header home={this.props.home} current={this.iteration + 1} total={this.questionsLength}/>
         <ProgressBar success={this.success} failure={this.failure} overall={this.questionsLength}/>
-        <main className={grid.container}>
+        <section className={classNames(grid.container, grid['container_mobile-no-padding'])}>
           <Code question={this.state.question.value}/>
-          <div>
-            <Textarea userAnswer={this.addAnswer} handleAnswer={this.handleAnswer}/>
-          </div>
-        </main>
+        </section>
+        <section className={grid.container}>
+          <Textarea userAnswer={this.addAnswer} handleAnswer={this.handleAnswer}/>
+        </section>
       </div>
     )
   }

@@ -56,7 +56,7 @@ class UserAnswer extends Component {
             Please note that your result is case sensitive.
           </label>
         </div>
-        <div className={bootstrap['btn-group']}>
+        <div className={classNames(bootstrap['form-group'], bootstrap['btn-group'])}>
           <button
             id="answer"
             onClick={this.handleSubmit}

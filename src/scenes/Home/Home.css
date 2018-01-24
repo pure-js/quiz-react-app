@@ -9,4 +9,5 @@ body {
   border-bottom: 60vh solid transparent;
   border-left: 60vh solid #FFC500;
   position: fixed;
+  z-index: -1;
 }
