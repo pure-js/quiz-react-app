@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import classNames from 'classnames';
 
 import shuffleArray from '../../services/shuffleArray';
 import getAnsweredQuestions from '../../services/getAnsweredQuestions';
@@ -10,8 +9,6 @@ import Code from '../../components/Code/Code';
 import Header from '../../components/Header/Header';
 import Textarea from '../../components/Textarea/Textarea';
 
-import bootstrap from '../../../node_modules/bootstrap/dist/css/bootstrap.css';
-import styles from './Train.css';
 import grid from '../../components/Grid/Grid.css';
 
 class Train extends Component {

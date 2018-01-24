@@ -16,7 +16,6 @@ const Home = (props) => {
       <main className={grid.container}>
         <div>
           <div className={classNames(bootstrap['d-flex'], bootstrap['justify-content-center'])}>
-            {/*<div className={bootstrap['btn-group']}></div>*/}
             <button
               id="exam"
               type="button"
