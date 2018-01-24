@@ -12,6 +12,7 @@ import Textarea from '../../components/Textarea/Textarea';
 
 import bootstrap from '../../../node_modules/bootstrap/dist/css/bootstrap.css';
 import styles from './Train.css';
+import grid from '../../components/Grid/Grid.css';
 
 class Train extends Component {
   constructor(props) {
@@ -97,12 +98,10 @@ class Train extends Component {
       <div>
         <Header home={this.props.home} current={this.iteration + 1} total={this.questionsLength}/>
         <ProgressBar success={this.success} failure={this.failure} overall={this.questionsLength}/>
-        <main className={bootstrap.container}>
-          <div id="quiz-screen" className={bootstrap.row}>
-            <Code question={this.state.question.value}/>
-            <div className={bootstrap['col-12']}>
-              <Textarea userAnswer={this.addAnswer} handleAnswer={this.handleAnswer}/>
-            </div>
+        <main className={grid.container}>
+          <Code question={this.state.question.value}/>
+          <div>
+            <Textarea userAnswer={this.addAnswer} handleAnswer={this.handleAnswer}/>
           </div>
         </main>
       </div>

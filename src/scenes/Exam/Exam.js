@@ -9,8 +9,7 @@ import Textarea from '../../components/Textarea/Textarea';
 import Header from '../../components/Header/Header';
 import ProgressBar from '../../components/ProgressBar';
 
-import bootstrap from '../../../node_modules/bootstrap/dist/css/bootstrap.css';
-import styles from './Exam.css';
+import grid from '../../components/Grid/Grid.css';
 
 class Exam extends Component {
   constructor(props) {
@@ -92,7 +91,7 @@ class Exam extends Component {
       <div>
         <Header home={this.props.home} current={this.iteration + 1} total={this.questionsLength}/>
         <ProgressBar success={this.success} failure={this.failure} overall={this.questionsLength}/>
-        <main className={styles.container}>
+        <main className={grid.container}>
           <Code question={this.state.question.value}/>
           <div>
             <Textarea userAnswer={this.addAnswer} handleAnswer={this.handleAnswer}/>
