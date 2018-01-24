@@ -1,5 +1,5 @@
 .console {
-  border: none;
+  border: 1px solid #E0E0E0;
   border-top: 1px solid #000;
   display: flex;
   width: 100%;
@@ -10,4 +10,5 @@
   color: blue;
   position: absolute;
   margin-top: 1px;
+  margin-left: 3px;
 }
