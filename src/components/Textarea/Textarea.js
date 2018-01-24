@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import bootstrap from '../../../node_modules/bootstrap/dist/css/bootstrap.css';
 import button from '../button.css';
-import textarea from './Textarea.css';
+import styles from './Textarea.css';
 
 class UserAnswer extends Component {
   constructor(props) {
@@ -39,20 +39,22 @@ class UserAnswer extends Component {
     return (
       <form>
         <div className={bootstrap['form-group']}>
-          <label htmlFor="console-output">
+          <label className={styles['console-label']} htmlFor="console-output">
             Web Console Output:
-            Please use enter for each new line.
-            Please note that your result is case sensitive.
           </label>
-          <div className={textarea.console_icon}
+          <div className={styles.console_icon}
           >></div>
           <textarea
             id="console-output"
             value={this.userAnswer}
             onInput={this.handleAnswerChange}
             rows="2"
-            className={textarea.console}
+            className={styles.console}
           />
+          <label>
+            Please use enter for each new line.
+            Please note that your result is case sensitive.
+          </label>
         </div>
         <div className={bootstrap['btn-group']}>
           <button
