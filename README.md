@@ -15,3 +15,8 @@ Production ready build
 ```
 npm run buld
 ```
+
+### Deploy
+```
+npm run deploy
+```
