@@ -44,6 +44,8 @@ class UserAnswer extends Component {
             Please use enter for each new line.
             Please note that your result is case sensitive.
           </label>
+          <div className={textarea.console_icon}
+          >></div>
           <textarea
             id="console-output"
             value={this.userAnswer}
@@ -51,9 +53,6 @@ class UserAnswer extends Component {
             rows="2"
             className={textarea.console}
           />
-          <span
-            className={textarea.console_icon}
-          >></span>
         </div>
         <div className={bootstrap['btn-group']}>
           <button
