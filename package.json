@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.dev.babel.js",
     "build": "webpack --config webpack.prod.babel.js && gulp",
-    "questions-to-array": "node server/transformFilesToStrings.js ./static/questions.js",
+    "questions-to-array": "node utility/transformFilesToStrings.js ./static/questions.js",
     "clean": "trash .tmp/ dist/ .publish",
     "deploy": "npm run build && gh-pages -d dist",
     "lint": "eslint src/*.js",
@@ -50,7 +50,7 @@
     "eslint-config-airbnb-base": "~12.1.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.5.1",
+    "eslint-plugin-react": "^7.6.0",
     "extract-text-webpack-plugin": "~3.0.2",
     "gh-pages": "~1.1.0",
     "gulp": "~4.0.0",
