@@ -7,8 +7,10 @@
 }
 
 .btn_start {
-  margin-top: 35vh;
   cursor: pointer;
+  width: 100%;
+  padding: 40px 0;
+  border-radius: 0;
 }
 
 .btn_start:disabled {
