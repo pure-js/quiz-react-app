@@ -11,3 +11,22 @@ body {
   position: fixed;
   z-index: -1;
 }
+
+.home-grid {
+  grid-template-areas:
+    "exam"
+    "train";
+  justify-items: center;
+  display: grid;
+  width: 100%;
+  margin: 0 auto;
+  padding: 45vh 0 0;
+  align-items: center;
+}
+
+@media (min-width: 576px) {
+  .home-grid {
+    max-width: 200px;
+    grid-row-gap: 15px;
+  }
+}
