@@ -12,6 +12,10 @@ import Textarea from '../../components/Textarea/Textarea';
 import grid from '../../components/Grid/Grid.css';
 
 class Train extends Component {
+  static answerIsCorrect(userAnswer, correctAnswer) {
+    return userAnswer === correctAnswer;
+  }
+
   constructor(props) {
     super(props);
 
@@ -23,10 +27,10 @@ class Train extends Component {
     this.failureCounter = 0;
     this.userAnswer = '';
     this.success = {
-      width: 0 + '%'
+      width: 0 + '%',
     };
     this.failure = {
-      width: 0 + '%'
+      width: 0 + '%',
     };
 
     this.state = {
@@ -35,19 +39,19 @@ class Train extends Component {
     };
     this.answer = answers.find(answer => answer.name === this.state.question.name);
     this.userAnswers = [];
+
+    this.addAnswer = this.addAnswer.bind(this);
+    this.handleAnyAnswer = this.handleAnyAnswer.bind(this);
+    this.handleNotAnswer = this.handleNotAnswer.bind(this);
   }
 
-  showDifference = () => {
-
-  };
-
-  addAnswer = (answer) => {
+  addAnswer(answer) {
     this.userAnswer = answer;
     this.answer = answers.find(answer => answer.name === this.state.question.name);
     this.handleAnswer();
-  };
+  }
 
-  handleAnyAnswer = () => {
+  handleAnyAnswer() {
     if (this.iteration < this.maxIteration) {
       this.userAnswers.push({
         name: this.state.question.name,
@@ -66,20 +70,18 @@ class Train extends Component {
         this.props.results();
       }
     }
-  };
+  }
 
-  handleNotAnswer = () => {
+  handleNotAnswer() {
     this.failureCounter += 1;
     this.failure = {
       width: (this.failureCounter * 100) / this.questionsLength + '%',
     };
     this.handleAnyAnswer();
-  };
+  }
 
-  answerIsCorrect = (userAnswer, correctAnswer) => userAnswer === correctAnswer;
-
-  handleAnswer = () => {
-    if(this.answerIsCorrect(this.userAnswer, this.answer.value)) {
+  handleAnswer() {
+    if (this.answerIsCorrect(this.userAnswer, this.answer.value)) {
       this.successCounter += 1;
       this.success = {
         width: (this.successCounter * 100) / this.questionsLength + '%',
@@ -88,7 +90,7 @@ class Train extends Component {
     } else {
       this.handleNotAnswer();
     }
-  };
+  }
 
   render() {
     return (

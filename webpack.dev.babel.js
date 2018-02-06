@@ -23,16 +23,10 @@ const plugins = [
 const module = {
   rules: [
     {
-      test: /\.js$/,
+      test: /\.(js|jsx)$/,
       exclude: /(node_modules)/,
       use: {
         loader: 'babel-loader',
-        options: {
-          presets: [
-            '@babel/preset-react',
-            '@babel/preset-env',
-          ],
-        },
       },
     },
     {
@@ -54,7 +48,7 @@ const module = {
 
 const config = {
   entry: {
-    app: './src/index.js',
+    app: './src/index.jsx',
   },
   plugins,
   module,
@@ -63,6 +57,9 @@ const config = {
     path: path.resolve(__dirname, '.tmp'),
   },
   devtool: 'inline-source-map',
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
   devServer: {
     contentBase: 'dist',
     hot: true,

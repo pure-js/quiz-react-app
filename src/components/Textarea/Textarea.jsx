@@ -13,27 +13,33 @@ class UserAnswer extends Component {
     this.state = {
       userAnswer: '',
     };
+
+    this.addRow = this.addRow.bind(this);
+    this.handleAnswerChange = this.handleAnswerChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  hasScrollbar = el => el.clientHeight < el.scrollHeight;
+  hasScrollbar(el) {
+    return el.clientHeight < el.scrollHeight;
+  }
 
-  addRow = (event) => {
-    let target = event.target;
+  addRow(event) {
+    const { target } = event;
     if (this.hasScrollbar(target)) {
       target.rows = Number(target.rows) + 1;
     }
-  };
+  }
 
-  handleAnswerChange = (event) => {
+  handleAnswerChange(event) {
     this.setState({
       userAnswer: event.target.value,
     });
     this.addRow(event);
-  };
+  }
 
-  handleSubmit = () => {
+  handleSubmit() {
     this.props.userAnswer(this.state.userAnswer);
-  };
+  }
 
   render() {
     return (
@@ -42,8 +48,10 @@ class UserAnswer extends Component {
           <label className={styles['console-label']} htmlFor="console-output">
             Web Console Output:
           </label>
-          <div className={styles.console_icon}
-          >></div>
+          <div
+            className={styles.console_icon}
+          >{'>'}
+          </div>
           <textarea
             id="console-output"
             value={this.userAnswer}

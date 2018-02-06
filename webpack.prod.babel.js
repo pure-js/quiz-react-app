@@ -49,7 +49,7 @@ const plugins = [
 const module = {
   rules: [
     {
-      test: /\.js$/,
+      test: /\.(js|jsx)$/,
       exclude: /(node_modules)/,
       use: {
         loader: 'babel-loader',
@@ -81,7 +81,7 @@ const module = {
 
 const config = {
   entry: {
-    app: './src/index.js',
+    app: './src/index.jsx',
     vendor: [
       'react',
       'react-dom',
@@ -92,6 +92,9 @@ const config = {
   },
   plugins,
   module,
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
   output: {
     filename: '[name].[chunkhash].min.js',
     path: path.resolve(__dirname, 'dist'),
