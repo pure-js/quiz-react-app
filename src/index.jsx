@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import App from './components/App';
 
 ReactDOM.render(<App />, document.getElementById('root'));
+
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('sw.js').then((registration) => {

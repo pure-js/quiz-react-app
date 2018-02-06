@@ -24,10 +24,10 @@ class Exam extends Component {
     this.failureCounter = 0;
     this.userAnswer = '';
     this.success = {
-      width: 0 + '%'
+      width: 0 + '%',
     };
     this.failure = {
-      width: 0 + '%'
+      width: 0 + '%',
     };
 
     this.state = {
@@ -36,15 +36,33 @@ class Exam extends Component {
     };
     this.answer = answers.find(answer => answer.name === this.state.question.name);
     this.userAnswers = [];
+
+    this.handleNotAnswer = this.handleNotAnswer.bind(this);
+    this.addAnswer = this.addAnswer.bind(this);
+    this.handleAnyAnswer = this.handleAnyAnswer.bind(this);
+    this.handleAnswer = this.handleAnswer.bind(this);
   }
 
-  addAnswer = (answer) => {
+  answerIsCorrect(userAnswer, correctAnswer) {
+    return userAnswer === correctAnswer;
+  }
+
+  handleNotAnswer() {
+    this.failureCounter += 1;
+    this.failure = {
+      width: (this.failureCounter * 100) / this.questionsLength + '%',
+    };
+
+    this.handleAnyAnswer();
+  }
+
+  addAnswer(answer) {
     this.userAnswer = answer;
     this.answer = answers.find(answer => answer.name === this.state.question.name);
     this.handleAnswer();
-  };
+  }
 
-  handleAnyAnswer = () => {
+  handleAnyAnswer() {
     if (this.iteration < this.maxIteration) {
       this.userAnswers.push({
         name: this.state.question.name,
@@ -63,20 +81,10 @@ class Exam extends Component {
         this.props.results();
       }
     }
-  };
+  }
 
-  handleNotAnswer = () => {
-    this.failureCounter += 1;
-    this.failure = {
-      width: (this.failureCounter * 100) / this.questionsLength + '%',
-    };
-    this.handleAnyAnswer();
-  };
-
-  answerIsCorrect = (userAnswer, correctAnswer) => userAnswer === correctAnswer;
-
-  handleAnswer = () => {
-    if(this.answerIsCorrect(this.userAnswer, this.answer.value)) {
+  handleAnswer() {
+    if (this.answerIsCorrect(this.userAnswer, this.answer.value)) {
       this.successCounter += 1;
       this.success = {
         width: (this.successCounter * 100) / this.questionsLength + '%',
@@ -85,18 +93,18 @@ class Exam extends Component {
     } else {
       this.handleNotAnswer();
     }
-  };
+  }
 
   render() {
     return (
       <div>
-        <Header home={this.props.home} current={this.iteration + 1} total={this.questionsLength}/>
-        <ProgressBar success={this.success} failure={this.failure} overall={this.questionsLength}/>
+        <Header home={this.props.home} current={this.iteration + 1} total={this.questionsLength} />
+        <ProgressBar success={this.success} failure={this.failure} overall={this.questionsLength} />
         <section className={classNames(grid.container, grid['container_mobile-no-padding'])}>
-          <Code question={this.state.question.value}/>
+          <Code question={this.state.question.value} />
         </section>
         <section className={grid.container}>
-          <Textarea userAnswer={this.addAnswer} handleAnswer={this.handleAnswer}/>
+          <Textarea userAnswer={this.addAnswer} handleAnswer={this.handleAnswer} />
         </section>
       </div>
     )
