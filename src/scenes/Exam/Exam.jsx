@@ -13,6 +13,10 @@ import ProgressBar from '../../components/ProgressBar';
 import grid from '../../components/Grid/Grid.css';
 
 class Exam extends Component {
+  static answerIsCorrect(userAnswer, correctAnswer) {
+    return userAnswer === correctAnswer;
+  }
+
   constructor(props) {
     super(props);
 
@@ -24,15 +28,14 @@ class Exam extends Component {
     this.failureCounter = 0;
     this.userAnswer = '';
     this.success = {
-      width: 0 + '%',
+      width: '0%',
     };
     this.failure = {
-      width: 0 + '%',
+      width: '0%',
     };
 
     this.state = {
       question: this.questions[0],
-      sek: this.props.uss,
     };
     this.answer = answers.find(answer => answer.name === this.state.question.name);
     this.userAnswers = [];
@@ -41,10 +44,6 @@ class Exam extends Component {
     this.addAnswer = this.addAnswer.bind(this);
     this.handleAnyAnswer = this.handleAnyAnswer.bind(this);
     this.handleAnswer = this.handleAnswer.bind(this);
-  }
-
-  answerIsCorrect(userAnswer, correctAnswer) {
-    return userAnswer === correctAnswer;
   }
 
   handleNotAnswer() {
@@ -58,7 +57,7 @@ class Exam extends Component {
 
   addAnswer(answer) {
     this.userAnswer = answer;
-    this.answer = answers.find(answer => answer.name === this.state.question.name);
+    this.answer = answers.find(x => x.name === this.state.question.name);
     this.handleAnswer();
   }
 
@@ -84,7 +83,7 @@ class Exam extends Component {
   }
 
   handleAnswer() {
-    if (this.answerIsCorrect(this.userAnswer, this.answer.value)) {
+    if (Exam.answerIsCorrect(this.userAnswer, this.answer.value)) {
       this.successCounter += 1;
       this.success = {
         width: (this.successCounter * 100) / this.questionsLength + '%',
@@ -107,7 +106,7 @@ class Exam extends Component {
           <Textarea userAnswer={this.addAnswer} handleAnswer={this.handleAnswer} />
         </section>
       </div>
-    )
+    );
   }
 }
 

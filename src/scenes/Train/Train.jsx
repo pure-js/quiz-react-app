@@ -27,15 +27,14 @@ class Train extends Component {
     this.failureCounter = 0;
     this.userAnswer = '';
     this.success = {
-      width: 0 + '%',
+      width: '0%',
     };
     this.failure = {
-      width: 0 + '%',
+      width: '0%',
     };
 
     this.state = {
       question: this.questions[0],
-      sek: this.props.uss,
     };
     this.answer = answers.find(answer => answer.name === this.state.question.name);
     this.userAnswers = [];
@@ -59,7 +58,7 @@ class Train extends Component {
       });
       this.iteration = this.iteration + 1;
       this.setState({
-        question: this.questions[this.iteration]
+        question: this.questions[this.iteration],
       });
       this.answer = answers.find(answer => answer.name === this.state.question.name);
     } else {
@@ -95,16 +94,16 @@ class Train extends Component {
   render() {
     return (
       <div>
-        <Header home={this.props.home} current={this.iteration + 1} total={this.questionsLength}/>
-        <ProgressBar success={this.success} failure={this.failure} overall={this.questionsLength}/>
+        <Header home={this.props.home} current={this.iteration + 1} total={this.questionsLength} />
+        <ProgressBar success={this.success} failure={this.failure} overall={this.questionsLength} />
         <main className={grid.container}>
-          <Code question={this.state.question.value}/>
+          <Code question={this.state.question.value} />
           <div>
-            <Textarea userAnswer={this.addAnswer} handleAnswer={this.handleAnswer}/>
+            <Textarea userAnswer={this.addAnswer} handleAnswer={this.handleAnswer} />
           </div>
         </main>
       </div>
-    )
+    );
   }
 }
 

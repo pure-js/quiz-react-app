@@ -7,6 +7,17 @@ import button from '../button.css';
 import styles from './Textarea.css';
 
 class UserAnswer extends Component {
+  static hasScrollbar(el) {
+    return el.clientHeight < el.scrollHeight;
+  }
+
+  static addRow(event) {
+    const { target } = event;
+    if (UserAnswer.hasScrollbar(target)) {
+      target.rows = Number(target.rows) + 1;
+    }
+  }
+
   constructor(props) {
     super(props);
 
@@ -14,27 +25,15 @@ class UserAnswer extends Component {
       userAnswer: '',
     };
 
-    this.addRow = this.addRow.bind(this);
     this.handleAnswerChange = this.handleAnswerChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  hasScrollbar(el) {
-    return el.clientHeight < el.scrollHeight;
-  }
-
-  addRow(event) {
-    const { target } = event;
-    if (this.hasScrollbar(target)) {
-      target.rows = Number(target.rows) + 1;
-    }
   }
 
   handleAnswerChange(event) {
     this.setState({
       userAnswer: event.target.value,
     });
-    this.addRow(event);
+    UserAnswer.addRow(event);
   }
 
   handleSubmit() {
@@ -77,7 +76,7 @@ class UserAnswer extends Component {
             onClick={this.handleSubmit}
             type="button"
             className={classNames(bootstrap.btn, bootstrap['btn-light'], button.btn_cursor)}
-          >I don't know
+          >{'I don\'t know'}
           </button>
         </div>
       </form>
@@ -86,7 +85,7 @@ class UserAnswer extends Component {
 }
 
 UserAnswer.propTypes = {
-  userAnswer: PropTypes.func,
+  userAnswer: PropTypes.func.isRequired,
   handleAnswer: PropTypes.func.isRequired,
 };
 
