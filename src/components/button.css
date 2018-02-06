@@ -5,12 +5,13 @@
 .btn_cursor:disabled {
   cursor: not-allowed;
 }
-
-.btn_start {
-  cursor: pointer;
-  width: 100%;
-  padding: 40px 0;
-  border-radius: 0;
+@media (max-width: 576px) {
+  .btn_start {
+    cursor: pointer;
+    width: 100%;
+    padding: 40px 0;
+    border-radius: 0;
+  }
 }
 
 .btn_start:disabled {
