@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import shuffleArray from '../../services/shuffleArray';
@@ -48,8 +49,9 @@ class Exam extends Component {
 
   handleNotAnswer() {
     this.failureCounter += 1;
+    const percent = (this.failureCounter * 100) / this.questionsLength;
     this.failure = {
-      width: (this.failureCounter * 100) / this.questionsLength + '%',
+      width: `${percent}%`,
     };
 
     this.handleAnyAnswer();
@@ -72,21 +74,17 @@ class Exam extends Component {
         question: this.questions[this.iteration],
       });
       this.answer = answers.find(answer => answer.name === this.state.question.name);
-    } else {
-      if (this.state.question === this.questions[this.questionsLength - 1]) {
-        this.setState({
-          sek: this.userAnswers,
-        });
-        this.props.results();
-      }
+    } else if (this.state.question === this.questions[this.questionsLength - 1]) {
+      this.props.results();
     }
   }
 
   handleAnswer() {
     if (Exam.answerIsCorrect(this.userAnswer, this.answer.value)) {
       this.successCounter += 1;
+      const percent = (this.successCounter * 100) / this.questionsLength;
       this.success = {
-        width: (this.successCounter * 100) / this.questionsLength + '%',
+        width: `${percent}%`,
       };
       this.handleAnyAnswer();
     } else {
@@ -109,5 +107,10 @@ class Exam extends Component {
     );
   }
 }
+
+Exam.propTypes = {
+  results: PropTypes.func.isRequired,
+  home: PropTypes.func.isRequired,
+};
 
 export default Exam;
