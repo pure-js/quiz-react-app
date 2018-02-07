@@ -38,7 +38,7 @@
     "@babel/preset-react": "~7.0.0-beta.39",
     "@babel/register": "~7.0.0-beta.39",
     "babel-core": "~7.0.0-bridge.0",
-    "babel-jest": "~22.1.0",
+    "babel-jest": "~22.2.0",
     "babel-loader": "~8.0.0-beta.0",
     "babel-minify-webpack-plugin": "~0.2.0",
     "clean-webpack-plugin": "^0.1.18",
