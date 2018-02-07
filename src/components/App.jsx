@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import Home from '../scenes/Home/Home';
 import Exam from '../scenes/Exam/Exam';
-import Train from '../scenes/Train/Train';
 import FinalResults from '../scenes/FinalResults';
 
 class App extends Component {
@@ -86,7 +85,7 @@ class App extends Component {
     }
     if (this.state.train) {
       screen = (
-        <Train
+        <Exam
           home={this.handleCloseExamClick}
           results={this.handleShowResults}
           uss={this.userAnswers}

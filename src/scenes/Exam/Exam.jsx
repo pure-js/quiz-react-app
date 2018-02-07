@@ -69,7 +69,7 @@ class Exam extends Component {
       });
       this.iteration = this.iteration + 1;
       this.setState({
-        question: this.questions[this.iteration]
+        question: this.questions[this.iteration],
       });
       this.answer = answers.find(answer => answer.name === this.state.question.name);
     } else {
