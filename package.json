@@ -2,7 +2,7 @@
   "name": "js-exercises",
   "version": "3.0.5",
   "description": "javascript skills training app",
-  "main": "src/main.js",
+  "main": "src/index.jsx",
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.dev.babel.js",
     "build": "webpack --config webpack.prod.babel.js && gulp",
