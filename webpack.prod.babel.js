@@ -29,16 +29,13 @@ const plugins = [
       removeScriptTypeAttributes: true,
     },
   }),
-  new ScriptExtHtmlWebpackPlugin({
-    defaultAttribute: 'defer',
-  }),
+  // new ScriptExtHtmlWebpackPlugin({
+  //   defaultAttribute: 'defer',
+  // }),
   new webpack.HashedModuleIdsPlugin(),
-  new webpack.optimize.CommonsChunkPlugin({
-    name: 'vendor',
-  }),
-  new webpack.optimize.CommonsChunkPlugin({
-    name: 'manifest',
-  }),
+  // new webpack.optimization.splitChunks({
+  //   name: 'manifest',
+  // }),
   new ExtractTextPlugin('styles.[contenthash].min.css'),
   new WorkboxPlugin({
     clientsClaim: true,
@@ -80,6 +77,7 @@ const module = {
 };
 
 const config = {
+  mode: 'production',
   entry: {
     app: './src/index.jsx',
     vendor: [

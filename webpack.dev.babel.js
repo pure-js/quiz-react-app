@@ -13,10 +13,9 @@ const plugins = [
   new HtmlWebpackPlugin({
     template: 'src/index-template.html',
   }),
-  new ScriptExtHtmlWebpackPlugin({
-    defaultAttribute: 'defer',
-  }),
-  new webpack.NamedModulesPlugin(),
+  // new ScriptExtHtmlWebpackPlugin({
+  //   defaultAttribute: 'defer',
+  // }),
   new webpack.HotModuleReplacementPlugin(),
 ];
 
@@ -47,6 +46,7 @@ const module = {
 };
 
 const config = {
+  mode: 'development',
   entry: {
     app: './src/index.jsx',
   },
