@@ -11,9 +11,6 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 const plugins = [
   new CleanWebpackPlugin(['dist']),
-  new webpack.DefinePlugin({
-    'process.env.NODE_ENV': JSON.stringify('production'),
-  }),
   new CopyWebpackPlugin([
     {
       context: 'static',
@@ -33,9 +30,6 @@ const plugins = [
   //   defaultAttribute: 'defer',
   // }),
   new webpack.HashedModuleIdsPlugin(),
-  // new webpack.optimization.splitChunks({
-  //   name: 'manifest',
-  // }),
   new ExtractTextPlugin('styles.[contenthash].min.css'),
   new WorkboxPlugin({
     clientsClaim: true,
