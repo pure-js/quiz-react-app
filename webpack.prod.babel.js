@@ -26,9 +26,9 @@ const plugins = [
       removeScriptTypeAttributes: true,
     },
   }),
-  // new ScriptExtHtmlWebpackPlugin({
-  //   defaultAttribute: 'defer',
-  // }),
+  new ScriptExtHtmlWebpackPlugin({
+    defaultAttribute: 'defer',
+  }),
   new webpack.HashedModuleIdsPlugin(),
   new ExtractTextPlugin('styles.[contenthash].min.css'),
   new WorkboxPlugin({

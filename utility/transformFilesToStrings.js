@@ -23,14 +23,15 @@ function getFilesContent(folder, files) {
   const { length } = files;
   for (let i = 0; i < length; i += 1) {
     const file = files[i];
-    let index = file.indexOf('\\');
+    let index = file.indexOf('/');
     let withoutFolder = file.substring(index + 1);
     let category = 'unclassified';
-    index = withoutFolder.indexOf('\\');
+    index = withoutFolder.indexOf('/');
     if (index >= 0) {
       category = withoutFolder.substring(0, index);
       withoutFolder = withoutFolder.substring(index + 1);
     }
+    // Remove file extension - .js
     const fileName = withoutFolder.slice(0, -3);
     arr.push(getFileContent(fileName, category, file));
   }
