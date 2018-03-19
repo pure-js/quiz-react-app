@@ -4,4 +4,4 @@ function bar() {
   function foo() {}
   var foo = '11';
 }
-alert(typeof bar());
+console.log(typeof bar());

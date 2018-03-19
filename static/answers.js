@@ -79,6 +79,18 @@ const answers = [
     name: '113',
     value: '2',
   },
+  {
+    name: '201',
+    value: 'undefined',
+  },
+  {
+    name: '204',
+    value: 'function',
+  },
+  {
+    name: '601',
+    value: 'undefined\nfalse',
+  },
 ];
 
 export default answers;

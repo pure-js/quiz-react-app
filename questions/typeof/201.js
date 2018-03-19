@@ -4,4 +4,4 @@ function aaa() {
     test: 1
   };
 }
-alert(typeof aaa());
+console.log(typeof aaa());
