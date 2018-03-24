@@ -32,6 +32,7 @@ const plugins = [
   new webpack.HashedModuleIdsPlugin(),
   new ExtractTextPlugin('styles.[contenthash].min.css'),
   new WorkboxPlugin.GenerateSW({
+    swDest: 'sw.js',
     clientsClaim: true,
     skipWaiting: true,
   }),
