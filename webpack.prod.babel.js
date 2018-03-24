@@ -16,6 +16,11 @@ const plugins = [
       context: 'static',
       from: '**/*.{png,svg,ico}',
     },
+    {
+      from: 'manifest.json',
+      // to: 'dist',
+      toType: 'dir',
+    },
   ]),
   new MinifyPlugin(),
   new HtmlWebpackPlugin({
