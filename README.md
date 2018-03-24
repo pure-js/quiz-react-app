@@ -14,7 +14,7 @@ npm run questions-to-array
 ```
 Production ready build
 ```
-npm run buld
+npm run build
 ```
 
 ### Deploy
