@@ -1,6 +1,6 @@
 {
   "name": "js-exercises",
-  "version": "3.0.6",
+  "version": "3.0.7",
   "description": "javascript skills training app",
   "main": "src/index.jsx",
   "scripts": {
