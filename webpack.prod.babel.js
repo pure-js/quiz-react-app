@@ -18,7 +18,6 @@ const plugins = [
     },
     {
       from: 'manifest.json',
-      // to: 'dist',
       toType: 'dir',
     },
   ]),
