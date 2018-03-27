@@ -7,7 +7,7 @@ import getAnsweredQuestions from '../../services/getAnsweredQuestions';
 import questions from '../../../static/questions';
 import answers from '../../../static/answers';
 import Code from '../../components/Code/Code';
-import Textarea from '../../components/Textarea/Textarea';
+import Form from '../../components/Form/Form';
 import Header from '../../components/Header/Header';
 import ProgressBar from '../../components/ProgressBar';
 
@@ -101,7 +101,7 @@ class Exam extends Component {
           <Code question={this.state.question.value} />
         </section>
         <section className={grid.container}>
-          <Textarea userAnswer={this.addAnswer} handleAnswer={this.handleAnswer} />
+          <Form userAnswer={this.addAnswer} handleAnswer={this.handleAnswer} />
         </section>
       </div>
     );
