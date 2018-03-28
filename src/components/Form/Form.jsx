@@ -12,16 +12,17 @@ import styles from './Form.css';
 class UserAnswer extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      userAnswer: '',
-    };
-
+    this.data = '';
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.getValue = this.getValue.bind(this);
+  }
+
+  getValue(value) {
+    this.data = value;
   }
 
   handleSubmit() {
-    this.props.userAnswer(this.state.userAnswer);
+    this.props.userAnswer(this.data);
   }
 
   render() {
@@ -35,7 +36,7 @@ class UserAnswer extends Component {
             className={styles.console_icon}
           >{'>'}
           </div>
-          <Textarea />
+          <Textarea getInputValue={this.getValue} />
           <label>
             Enter key starting a new line.
             Please note that your input is case sensitive.

@@ -23,18 +23,16 @@ class TextArea extends Component {
     };
 
     this.handleAnswerChange = this.handleAnswerChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleAnswerChange(event) {
+    const { value } = event.target;
+    this.props.getInputValue(value);
+
     this.setState({
-      userAnswer: event.target.value,
+      userAnswer: value,
     });
     TextArea.addRow(event);
-  }
-
-  handleSubmit() {
-    this.props.userAnswer(this.state.userAnswer);
   }
 
   render() {
@@ -51,8 +49,7 @@ class TextArea extends Component {
 }
 
 TextArea.propTypes = {
-  userAnswer: PropTypes.func.isRequired,
-  handleAnswer: PropTypes.func.isRequired,
+  getInputValue: PropTypes.func.isRequired,
 };
 
 export default TextArea;
