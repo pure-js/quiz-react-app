@@ -13,9 +13,6 @@ const plugins = [
   new HtmlWebpackPlugin({
     template: 'src/index-template.html',
   }),
-  // new ScriptExtHtmlWebpackPlugin({
-  //   defaultAttribute: 'defer',
-  // }),
   new webpack.HotModuleReplacementPlugin(),
 ];
 
