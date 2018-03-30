@@ -34,7 +34,7 @@ const plugins = [
     defaultAttribute: 'defer',
   }),
   new webpack.HashedModuleIdsPlugin(),
-  new ExtractTextPlugin('styles.[name].min.css'),
+  new ExtractTextPlugin('styles.[hash].min.css'),
   new WorkboxPlugin.GenerateSW({
     swDest: 'sw.js',
     clientsClaim: true,
