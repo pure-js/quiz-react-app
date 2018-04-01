@@ -4,12 +4,12 @@ import classNames from 'classnames';
 
 import shuffleArray from '../../services/shuffleArray';
 import getAnsweredQuestions from '../../services/getAnsweredQuestions';
-import questions from '../../../static/questions';
 import answers from '../../../static/answers';
 import Code from '../../components/Code/Code';
 import Form from '../../components/Form/Form';
 import Header from '../../components/Header/Header';
 import ProgressBar from '../../components/ProgressBar';
+import getData from '../../services/getQuestions';
 
 import grid from '../../components/Grid/Grid.css';
 
@@ -22,8 +22,8 @@ class Exam extends Component {
     super(props);
 
     this.iteration = 0;
-    this.questions = shuffleArray(getAnsweredQuestions(questions, answers));
-    this.questionsLength = this.questions.length;
+    // this.questions = shuffleArray(getAnsweredQuestions(questions, answers));
+    this.questionsLength = 0;
     this.maxIteration = this.questionsLength - 1;
     this.successCounter = 0;
     this.failureCounter = 0;
@@ -36,7 +36,7 @@ class Exam extends Component {
     };
 
     this.state = {
-      question: this.questions[0],
+      question: {},
     };
     this.answer = answers.find(answer => answer.name === this.state.question.name);
     this.userAnswers = [];
@@ -45,6 +45,19 @@ class Exam extends Component {
     this.addAnswer = this.addAnswer.bind(this);
     this.handleAnyAnswer = this.handleAnyAnswer.bind(this);
     this.handleAnswer = this.handleAnswer.bind(this);
+  }
+
+  componentDidMount() {
+    getData()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          // console.log(doc.id, ' => ', doc.data());
+          this.setState({
+            question: doc.data(),
+          });
+        });
+        this.questionsLength = querySnapshot.length;
+      });
   }
 
   handleNotAnswer() {
