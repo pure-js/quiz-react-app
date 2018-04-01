@@ -74,6 +74,7 @@ class Exam extends Component {
         question: this.questions[this.iteration],
       });
       this.answer = answers.find(answer => answer.name === this.state.question.name);
+      alert(this.answer.value);
     } else if (this.state.question === this.questions[this.questionsLength - 1]) {
       this.props.results();
     }
