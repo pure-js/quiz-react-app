@@ -1,4 +1,5 @@
 import * as firebase from 'firebase';
+import 'firebase/firestore';
 
 const config = {
   apiKey: 'AIzaSyBWqAJaKIFIYK-emBHU2gfvdFy9qo9uSIo',
@@ -10,17 +11,10 @@ const config = {
 };
 firebase.initializeApp(config);
 
-const db = firebase.firestore();
+function getData() {
+  const db = firebase.firestore();
 
-db.collection('users')
-  .add({
-    first: 'Ada',
-    last: 'Lovelace',
-    born: 1815,
-  })
-  .then((docRef) => {
-    console.log('Document written with ID: ', docRef.id);
-  })
-  .catch((error) => {
-    console.error('Error adding document: ', error);
-  });
+  return db.collection('questions').get();
+}
+
+export { getData as default };

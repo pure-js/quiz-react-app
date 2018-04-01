@@ -4,6 +4,8 @@ import Home from '../scenes/Home/Home';
 import Exam from '../scenes/Exam/Exam';
 import FinalResults from '../scenes/FinalResults';
 
+import fireStore from '../services/getQuestions';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -21,6 +23,12 @@ class App extends Component {
     this.handleCloseExamClick = this.handleCloseExamClick.bind(this);
     this.handleShowResults = this.handleShowResults.bind(this);
     this.returnHome = this.returnHome.bind(this);
+    fireStore().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        console.log(`${doc.id} => ${doc.data()}`);
+        console.log(doc.data().value);
+      });
+    });
   }
 
   handleExamClick() {
