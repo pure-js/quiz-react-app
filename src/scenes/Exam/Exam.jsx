@@ -38,7 +38,7 @@ class Exam extends Component {
     this.state = {
       question: {},
     };
-    this.answer = answers.find(answer => answer.name === this.state.question.name);
+    // this.answer = answers.find(answer => answer.name === this.state.question.name);
     this.userAnswers = [];
 
     this.handleNotAnswer = this.handleNotAnswer.bind(this);
