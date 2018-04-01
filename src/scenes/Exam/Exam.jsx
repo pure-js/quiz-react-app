@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import shuffleArray from '../../services/shuffleArray';
-import getAnsweredQuestions from '../../services/getAnsweredQuestions';
-import answers from '../../../static/answers';
+// import shuffleArray from '../../services/shuffleArray';
+// import getAnsweredQuestions from '../../services/getAnsweredQuestions';
+// import answers from '../../../static/answers';
 import Code from '../../components/Code/Code';
 import Form from '../../components/Form/Form';
 import Header from '../../components/Header/Header';
