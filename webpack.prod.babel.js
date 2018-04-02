@@ -82,6 +82,8 @@ const config = {
     vendor: [
       'react',
       'react-dom',
+      'redux',
+      'react-redux',
       'prismjs',
       'classnames',
       'prop-types',
