@@ -60,6 +60,7 @@ const config = {
   devServer: {
     contentBase: 'dist',
     hot: true,
+    open: true,
     https: true,
   },
 };

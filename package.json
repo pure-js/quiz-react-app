@@ -4,7 +4,7 @@
   "description": "javascript skills training app",
   "main": "src/index.jsx",
   "scripts": {
-    "start": "webpack-dev-server --open --config webpack.dev.babel.js",
+    "start": "webpack-dev-server --config webpack.dev.babel.js",
     "build": "webpack --config webpack.prod.babel.js",
     "clean": "trash .tmp/ dist/ .publish",
     "deploy": "npm run build && gh-pages -d dist",
