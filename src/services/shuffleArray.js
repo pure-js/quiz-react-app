@@ -1,4 +1,4 @@
-const getRand = max => Math.floor(Math.random() * (max + 1));
+import getRand from './getRandomNumber';
 
 function shuffleArray(arr) {
   const shuffled = [...arr];
