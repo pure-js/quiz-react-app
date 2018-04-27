@@ -9,6 +9,9 @@
 # macOS specific files
 .DS_store
 
+# Istanbul coverage folder
+coverage/
+
 node_modules/
 *.log
 
