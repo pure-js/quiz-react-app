@@ -1,4 +1,4 @@
-import * as firebase from 'firebase';
+import firebase from 'firebase/app';
 import 'firebase/firestore';
 
 function getData() {
@@ -11,13 +11,15 @@ function getData() {
     messagingSenderId: '456338520035',
   };
 
-  if (!firebase.apps.length) {
-    firebase.initializeApp(config);
-  }
+  firebase.initializeApp(config);
 
-  const db = firebase.firestore();
+  const firestore = firebase.firestore();
+  const settings = {
+    timestampsInSnapshots: true
+  };
+  firestore.settings(settings);
 
-  return db.collection('questions').get();
+  return firestore.collection('questions').get();
 }
 
 export { getData as default };
