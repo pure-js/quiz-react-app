@@ -1,7 +1,6 @@
 // @flow
 import React, { Component } from 'react';
 import Prism from 'prismjs';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import bootstrap from 'bootstrap/dist/css/bootstrap.css';
@@ -30,9 +29,5 @@ class Code extends Component {
     );
   }
 }
-
-Code.propTypes = {
-  question: PropTypes.string.isRequired,
-};
 
 export default Code;

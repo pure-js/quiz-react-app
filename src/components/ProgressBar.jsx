@@ -1,6 +1,5 @@
 // @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import bootstrap from 'bootstrap/dist/css/bootstrap.css';
@@ -18,20 +17,6 @@ const ProgressBar = (props) => {
       </div>
     </div>
   );
-};
-
-ProgressBar.propTypes = {
-  success: PropTypes.shape({
-    width: PropTypes.string,
-  }),
-  failure: PropTypes.shape({
-    width: PropTypes.string,
-  }),
-};
-
-ProgressBar.defaultProps = {
-  success: '0%',
-  failure: '0%',
 };
 
 export default ProgressBar;

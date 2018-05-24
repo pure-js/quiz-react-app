@@ -1,6 +1,5 @@
 // @flow
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 import styles from './Textarea.css';
 
@@ -48,9 +47,5 @@ class TextArea extends Component {
     );
   }
 }
-
-TextArea.propTypes = {
-  getInputValue: PropTypes.func.isRequired,
-};
 
 export default TextArea;

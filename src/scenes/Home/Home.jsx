@@ -1,6 +1,5 @@
 // @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import bootstrap from 'bootstrap/dist/css/bootstrap.css';
@@ -31,11 +30,6 @@ const Home = (props) => {
       </main>
     </div>
   );
-};
-
-Home.propTypes = {
-  exam: PropTypes.func.isRequired,
-  train: PropTypes.func.isRequired,
 };
 
 export default Home;

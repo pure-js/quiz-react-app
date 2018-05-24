@@ -1,6 +1,5 @@
 // @flow
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import bootstrap from 'bootstrap/dist/css/bootstrap.css';
@@ -63,10 +62,5 @@ class UserAnswer extends Component {
     );
   }
 }
-
-UserAnswer.propTypes = {
-  userAnswer: PropTypes.func.isRequired,
-  handleAnswer: PropTypes.func.isRequired,
-};
 
 export default UserAnswer;

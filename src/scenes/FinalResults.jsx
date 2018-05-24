@@ -1,6 +1,5 @@
 // @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import bootstrap from 'bootstrap/dist/css/bootstrap.css';
@@ -42,11 +41,6 @@ const FinalResults = (props) => {
       </main>
     </div>
   );
-};
-FinalResults.propTypes = {
-  userAnswers: PropTypes.arrayOf(PropTypes.any).isRequired,
-  tryAgain: PropTypes.func.isRequired,
-  returnHome: PropTypes.func.isRequired,
 };
 
 export default FinalResults;

@@ -1,6 +1,5 @@
 // @flow
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 // import shuffleArray from '../../services/shuffleArray';
@@ -122,10 +121,5 @@ class Exam extends Component {
     );
   }
 }
-
-Exam.propTypes = {
-  results: PropTypes.func.isRequired,
-  home: PropTypes.func.isRequired,
-};
 
 export default Exam;
