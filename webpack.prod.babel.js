@@ -6,7 +6,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ScriptExtHtmlWebpackPlugin from 'script-ext-html-webpack-plugin';
 import WorkboxPlugin from 'workbox-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 
 const plugins = [
@@ -34,7 +34,9 @@ const plugins = [
     defaultAttribute: 'defer',
   }),
   new webpack.HashedModuleIdsPlugin(),
-  new ExtractTextPlugin('styles.[hash].min.css'),
+  new MiniCssExtractPlugin({
+    filename: 'styles.[hash].min.css',
+  }),
   new WorkboxPlugin.GenerateSW({
     swDest: 'sw.js',
     clientsClaim: true,
@@ -59,18 +61,10 @@ const module = {
     },
     {
       test: /\.css$/,
-      use: ExtractTextPlugin.extract({
-        fallback: 'style-loader',
-        use: [
-          {
-            loader: 'css-loader',
-            options: {
-              minimize: true,
-              modules: true,
-            },
-          },
-        ],
-      }),
+      use: [
+        MiniCssExtractPlugin.loader,
+        'css-loader',
+      ],
     },
   ],
 };
