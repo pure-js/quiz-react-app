@@ -1,3 +1,4 @@
+// @flow
 import getRand from './getRandomNumber';
 
 function shuffleArray(arr) {

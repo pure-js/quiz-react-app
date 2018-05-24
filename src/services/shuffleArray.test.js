@@ -1,3 +1,4 @@
+// @flow
 import shuffleArray from './shuffleArray';
 import getRand from './getRandomNumber';
 

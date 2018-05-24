@@ -1,3 +1,4 @@
+// @flow
 import React, { Component } from 'react';
 
 import Home from '../scenes/Home/Home';

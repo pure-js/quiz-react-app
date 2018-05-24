@@ -1,3 +1,4 @@
+// @flow
 import React, { Component } from 'react';
 import Prism from 'prismjs';
 import PropTypes from 'prop-types';
