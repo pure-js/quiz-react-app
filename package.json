@@ -31,12 +31,14 @@
     "prop-types": "^15.6.1",
     "react": "16.4.0",
     "react-dom": "16.4.0",
+    "react-loadable": "^5.4.0",
     "react-redux": "^5.0.7",
     "redux": "^3.7.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.48",
     "@babel/core": "^7.0.0-beta.48",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0-beta.48",
     "@babel/preset-env": "^7.0.0-beta.48",
     "@babel/preset-flow": "^7.0.0-beta.48",
     "@babel/preset-react": "^7.0.0-beta.48",
