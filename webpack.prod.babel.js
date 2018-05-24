@@ -73,15 +73,6 @@ const config = {
   mode: 'production',
   entry: {
     app: './src/index.jsx',
-    vendor: [
-      'react',
-      'react-dom',
-      'redux',
-      'react-redux',
-      'prismjs',
-      'classnames',
-      'prop-types',
-    ],
   },
   plugins,
   module,
@@ -91,6 +82,11 @@ const config = {
   output: {
     filename: '[name].[chunkhash].min.js',
     path: path.resolve(__dirname, 'dist'),
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
   },
 };
 
