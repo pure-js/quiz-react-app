@@ -55,15 +55,18 @@ class Exam extends Component<Props, State> {
   }
 
   componentDidMount() {
-    getData()
-      .then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          // console.log(doc.id, ' => ', doc.data());
+    const docId = '48biWmHkEqggIL0U5NSG';
+    getData(docId)
+      .then((doc) => {
+        if (doc.exists) {
           this.setState({
             question: doc.data(),
           });
-        });
-        this.questionsLength = querySnapshot.length;
+        } else {
+          console.log('No such document!');
+        }
+      }).catch((error) => {
+        console.log('Error getting document:', error);
       });
   }
 

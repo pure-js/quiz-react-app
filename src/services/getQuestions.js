@@ -2,7 +2,7 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 
-function getData() {
+function getDocument(id) {
   const config = {
     apiKey: 'AIzaSyBWqAJaKIFIYK-emBHU2gfvdFy9qo9uSIo',
     authDomain: 'js-quiz-31f79.firebaseapp.com',
@@ -20,7 +20,7 @@ function getData() {
   };
   firestore.settings(settings);
 
-  return firestore.collection('questions').get();
+  return firestore.collection('questions').doc(id).get();
 }
 
-export { getData as default };
+export { getDocument as default };
