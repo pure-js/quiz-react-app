@@ -5,8 +5,17 @@ import Home from '../scenes/Home/Home';
 import Exam from '../scenes/Exam/Exam';
 import FinalResults from '../scenes/FinalResults';
 
-class App extends Component {
-  constructor(props) {
+type Props = {};
+
+type State = {
+  home: boolean,
+  exam: boolean,
+  train: boolean,
+  results: boolean,
+};
+
+class App extends Component<Props, State> {
+  constructor(props: Props) {
     super(props);
 
     this.state = {

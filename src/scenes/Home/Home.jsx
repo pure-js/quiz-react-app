@@ -6,7 +6,12 @@ import bootstrap from 'bootstrap/dist/css/bootstrap.css';
 import buttons from '../../components/button.css';
 import styles from './Home.css';
 
-const Home = (props) => {
+type Props = {
+  exam: boolean,
+  train: boolean,
+};
+
+const Home = (props: Props) => {
   const { exam, train } = props;
 
   return (

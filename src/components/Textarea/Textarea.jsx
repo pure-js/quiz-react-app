@@ -3,7 +3,15 @@ import React, { Component } from 'react';
 
 import styles from './Textarea.css';
 
-class TextArea extends Component {
+type Props = {
+  getInputValue: string,
+};
+
+type State = {
+  userAnswer: string,
+};
+
+class TextArea extends Component<Props, State> {
   static hasScrollbar(el) {
     return el.clientHeight < el.scrollHeight;
   }
@@ -15,7 +23,7 @@ class TextArea extends Component {
     }
   }
 
-  constructor(props) {
+  constructor(props: Props) {
     super(props);
 
     this.state = {

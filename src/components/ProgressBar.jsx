@@ -4,7 +4,12 @@ import classNames from 'classnames';
 
 import bootstrap from 'bootstrap/dist/css/bootstrap.css';
 
-const ProgressBar = (props) => {
+type Props = {
+  success: string,
+  failure: string,
+};
+
+const ProgressBar = (props: Props) => {
   const { success, failure } = props;
 
   return (

@@ -10,10 +10,10 @@ import button from '../button.css';
 import styles from './Form.css';
 
 type Props = {
-  userAnswer: string,
+  userAnswer: void,
 };
 
-class UserAnswer extends Component {
+class UserAnswer extends Component<Props> {
   constructor(props: Props) {
     super(props);
     this.data = '';

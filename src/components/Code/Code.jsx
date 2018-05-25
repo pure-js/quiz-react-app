@@ -12,7 +12,7 @@ type Props = {
   question: string,
 };
 
-class Code extends Component {
+class Code extends Component<Props> {
   componentDidMount() {
     Prism.highlightAll();
   }
@@ -20,8 +20,6 @@ class Code extends Component {
   componentDidUpdate() {
     Prism.highlightAll();
   }
-
-  props: Props;
 
   render() {
     return (

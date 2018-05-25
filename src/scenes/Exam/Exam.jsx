@@ -13,12 +13,24 @@ import getData from '../../services/getQuestions';
 
 import grid from '../../components/Grid/Grid.css';
 
-class Exam extends Component {
-  static answerIsCorrect(userAnswer, correctAnswer) {
+type Props = {
+  home: boolean,
+  results: void,
+};
+
+type State = {
+  question: {
+    name: string,
+    value: string,
+  },
+};
+
+class Exam extends Component<Props, State> {
+  static answerIsCorrect(userAnswer: string, correctAnswer: string) {
     return userAnswer === correctAnswer;
   }
 
-  constructor(props) {
+  constructor(props: Props) {
     super(props);
 
     this.iteration = 0;
