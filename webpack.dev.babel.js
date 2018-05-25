@@ -59,6 +59,7 @@ const config = {
   },
   devServer: {
     contentBase: 'dist',
+    port: 7050,
     hot: true,
     open: true,
     https: true,
