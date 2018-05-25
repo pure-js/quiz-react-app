@@ -9,8 +9,12 @@ import Textarea from '../../components/Textarea/Textarea';
 import button from '../button.css';
 import styles from './Form.css';
 
+type Props = {
+  userAnswer: string,
+};
+
 class UserAnswer extends Component {
-  constructor(props) {
+  constructor(props: Props) {
     super(props);
     this.data = '';
     this.handleSubmit = this.handleSubmit.bind(this);

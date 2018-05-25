@@ -8,6 +8,10 @@ import '!style-loader!css-loader!prismjs/themes/prism-solarizedlight.css';
 
 import styles from './Code.css';
 
+type Props = {
+  question: string,
+};
+
 class Code extends Component {
   componentDidMount() {
     Prism.highlightAll();
@@ -16,6 +20,8 @@ class Code extends Component {
   componentDidUpdate() {
     Prism.highlightAll();
   }
+
+  props: Props;
 
   render() {
     return (

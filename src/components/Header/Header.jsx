@@ -6,7 +6,13 @@ import bootstrap from 'bootstrap/dist/css/bootstrap.css';
 import styles from './Header.css';
 import grid from '../../components/Grid/Grid.css';
 
-const Header = (props) => {
+type Props = {
+  home: string,
+  current: string,
+  total: string,
+};
+
+const Header = (props: Props) => {
   const { home, current, total } = props;
 
   return (
