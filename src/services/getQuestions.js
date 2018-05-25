@@ -16,7 +16,7 @@ function getData() {
 
   const firestore = firebase.firestore();
   const settings = {
-    timestampsInSnapshots: true
+    timestampsInSnapshots: true,
   };
   firestore.settings(settings);
 

@@ -52,11 +52,6 @@ class Exam extends Component<Props, State> {
     };
     // this.answer = answers.find(answer => answer.name === this.state.question.name);
     this.userAnswers = [];
-
-    this.handleNotAnswer = this.handleNotAnswer.bind(this);
-    this.addAnswer = this.addAnswer.bind(this);
-    this.handleAnyAnswer = this.handleAnyAnswer.bind(this);
-    this.handleAnswer = this.handleAnswer.bind(this);
   }
 
   componentDidMount() {
@@ -72,7 +67,7 @@ class Exam extends Component<Props, State> {
       });
   }
 
-  handleNotAnswer() {
+  handleNotAnswer = () => {
     this.failureCounter += 1;
     const percent = (this.failureCounter * 100) / this.questionsLength;
     this.failure = {
@@ -80,15 +75,15 @@ class Exam extends Component<Props, State> {
     };
 
     this.handleAnyAnswer();
-  }
+  };
 
-  addAnswer(answer) {
+  addAnswer = (answer) => {
     this.userAnswer = answer;
     this.answer = answers.find(x => x.name === this.state.question.name);
     this.handleAnswer();
-  }
+  };
 
-  handleAnyAnswer() {
+  handleAnyAnswer = () => {
     if (this.iteration < this.maxIteration) {
       this.userAnswers.push({
         name: this.state.question.name,
@@ -103,9 +98,9 @@ class Exam extends Component<Props, State> {
     } else if (this.state.question === this.questions[this.questionsLength - 1]) {
       this.props.results();
     }
-  }
+  };
 
-  handleAnswer() {
+  handleAnswer = () => {
     if (Exam.answerIsCorrect(this.userAnswer, this.answer.value)) {
       this.successCounter += 1;
       const percent = (this.successCounter * 100) / this.questionsLength;
@@ -116,7 +111,7 @@ class Exam extends Component<Props, State> {
     } else {
       this.handleNotAnswer();
     }
-  }
+  };
 
   render() {
     return (

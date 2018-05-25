@@ -26,53 +26,48 @@ class App extends Component<Props, State> {
     };
 
     this.userAnswers = [];
-    this.handleExamClick = this.handleExamClick.bind(this);
-    this.handleTrainClick = this.handleTrainClick.bind(this);
-    this.handleCloseExamClick = this.handleCloseExamClick.bind(this);
-    this.handleShowResults = this.handleShowResults.bind(this);
-    this.returnHome = this.returnHome.bind(this);
   }
 
-  handleExamClick() {
+  handleExamClick = () => {
     this.setState({
       home: false,
       exam: true,
       results: false,
     });
-  }
+  };
 
-  handleTrainClick() {
+  handleTrainClick = () => {
     this.setState({
       home: false,
       train: true,
     });
-  }
+  };
 
-  handleCloseExamClick() {
+  handleCloseExamClick = () => {
     this.setState({
       home: true,
       exam: false,
       train: false,
     });
-  }
+  };
 
-  handleShowResults() {
+  handleShowResults = () => {
     this.setState({
       home: false,
       exam: false,
       train: false,
       results: true,
     });
-  }
+  };
 
-  returnHome() {
+  returnHome = () => {
     this.setState({
       home: true,
       exam: false,
       train: false,
       results: false,
     });
-  }
+  };
 
   render() {
     let screen;

@@ -17,17 +17,15 @@ class UserAnswer extends Component<Props> {
   constructor(props: Props) {
     super(props);
     this.data = '';
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.getValue = this.getValue.bind(this);
   }
 
-  getValue(value) {
+  getValue = (value) => {
     this.data = value;
-  }
+  };
 
-  handleSubmit() {
+  handleSubmit = () => {
     this.props.userAnswer(this.data);
-  }
+  };
 
   render() {
     return (

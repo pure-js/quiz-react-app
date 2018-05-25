@@ -6,7 +6,13 @@ import bootstrap from 'bootstrap/dist/css/bootstrap.css';
 import buttons from '../components/button.css';
 import grid from '../components/Grid/Grid.css';
 
-const FinalResults = (props) => {
+type Props = {
+  userAnswers: Array<string>,
+  tryAgain: boolean,
+  returnHome: boolean,
+};
+
+const FinalResults = (props: Props) => {
   const { userAnswers, tryAgain, returnHome } = props;
 
   return (

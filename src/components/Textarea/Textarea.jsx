@@ -29,11 +29,9 @@ class TextArea extends Component<Props, State> {
     this.state = {
       userAnswer: '',
     };
-
-    this.handleAnswerChange = this.handleAnswerChange.bind(this);
   }
 
-  handleAnswerChange(event) {
+  handleAnswerChange = (event) => {
     const { value } = event.target;
     this.props.getInputValue(value);
 
@@ -41,7 +39,7 @@ class TextArea extends Component<Props, State> {
       userAnswer: value,
     });
     TextArea.addRow(event);
-  }
+  };
 
   render() {
     return (
