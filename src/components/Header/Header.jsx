@@ -7,7 +7,7 @@ import styles from './Header.css';
 import grid from '../../components/Grid/Grid.css';
 
 type Props = {
-  home: string,
+  home: void,
   current: string,
   total: string,
 };

@@ -16,10 +16,10 @@ class TextArea extends Component<Props, State> {
     return el.clientHeight < el.scrollHeight;
   }
 
-  static addRow(event) {
-    const { target } = event;
-    if (TextArea.hasScrollbar(target)) {
-      target.rows = Number(target.rows) + 1;
+  static addRow(event: SyntheticEvent<any>) {
+    const { currentTarget } = event;
+    if (TextArea.hasScrollbar(currentTarget)) {
+      currentTarget.rows = Number(currentTarget.rows) + 1;
     }
   }
 
@@ -31,8 +31,8 @@ class TextArea extends Component<Props, State> {
     };
   }
 
-  handleAnswerChange = (event) => {
-    const { value } = event.target;
+  handleAnswerChange = (event: SyntheticEvent<any>) => {
+    const { value } = event.currentTarget;
     this.props.getInputValue(value);
 
     this.setState({

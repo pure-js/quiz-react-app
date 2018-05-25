@@ -19,7 +19,7 @@ class UserAnswer extends Component<Props> {
     this.data = '';
   }
 
-  getValue = (value) => {
+  getValue = (value: string): void => {
     this.data = value;
   };
 

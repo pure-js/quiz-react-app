@@ -14,7 +14,7 @@ import getData from '../../services/getQuestions';
 import grid from '../../components/Grid/Grid.css';
 
 type Props = {
-  home: boolean,
+  home: void,
   results: void,
 };
 
@@ -77,7 +77,7 @@ class Exam extends Component<Props, State> {
     this.handleAnyAnswer();
   };
 
-  addAnswer = (answer) => {
+  addAnswer = (answer: string): void => {
     this.userAnswer = answer;
     this.answer = answers.find(x => x.name === this.state.question.name);
     this.handleAnswer();
