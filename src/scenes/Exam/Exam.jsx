@@ -9,7 +9,7 @@ import Code from '../../components/Code/Code';
 import Form from '../../components/Form/Form';
 import Header from '../../components/Header/Header';
 import ProgressBar from '../../components/ProgressBar';
-import getData from '../../services/getQuestions';
+import getDocument from '../../services/getQuestions';
 
 import grid from '../../components/Grid/Grid.css';
 
@@ -56,7 +56,7 @@ class Exam extends Component<Props, State> {
 
   componentDidMount() {
     const docId = '48biWmHkEqggIL0U5NSG';
-    getData(docId)
+    getDocument(docId, 'questions')
       .then((doc) => {
         if (doc.exists) {
           this.setState({

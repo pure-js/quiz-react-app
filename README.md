@@ -13,7 +13,7 @@ Production ready build
 npm run build
 ```
 
-### Deploy
+## Deploy
 ```
 npm run deploy
 ```
