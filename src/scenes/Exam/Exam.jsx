@@ -81,9 +81,14 @@ class Exam extends Component<Props, State> {
   };
 
   addAnswer = (answer: string): void => {
-    this.userAnswer = answer;
-    this.answer = answers.find(x => x.name === this.state.question.name);
-    this.handleAnswer();
+    fetch('https://us-central1-js-quiz-31f79.cloudfunctions.net/isCorrectAnswer')
+      .then(response => response.json())
+      .then((myJson) => {
+        console.log(myJson);
+      });
+    // this.userAnswer = answer;
+    // this.answer = answers.find(x => x.name === this.state.question.name);
+    // this.handleAnswer();
   };
 
   handleAnyAnswer = () => {
@@ -104,16 +109,22 @@ class Exam extends Component<Props, State> {
   };
 
   handleAnswer = () => {
-    if (Exam.answerIsCorrect(this.userAnswer, this.answer.value)) {
-      this.successCounter += 1;
-      const percent = (this.successCounter * 100) / this.questionsLength;
-      this.success = {
-        width: `${percent}%`,
-      };
-      this.handleAnyAnswer();
-    } else {
-      this.handleNotAnswer();
-    }
+    // fetch('https://us-central1-js-quiz-31f79.cloudfunctions.net/isCorrectAnswer')
+    //   .then(response => response.json())
+    //   .then((myJson) => {
+    //     console.log(myJson);
+    //   });
+    
+    // if (Exam.answerIsCorrect(this.userAnswer, this.answer.value)) {
+    //   this.successCounter += 1;
+    //   const percent = (this.successCounter * 100) / this.questionsLength;
+    //   this.success = {
+    //     width: `${percent}%`,
+    //   };
+    //   this.handleAnyAnswer();
+    // } else {
+    //   this.handleNotAnswer();
+    // }
   };
 
   render() {
