@@ -55,7 +55,10 @@ class Exam extends Component<Props, State> {
   }
 
   componentDidMount() {
-    const docId = '48biWmHkEqggIL0U5NSG';
+    this.displayQuestion();
+  }
+
+  displayQuestion = () => {
     getRandomDocument('questions')
       .then((doc) => {
         if (doc.exists) {
@@ -84,6 +87,12 @@ class Exam extends Component<Props, State> {
     fetch('https://us-central1-js-quiz-31f79.cloudfunctions.net/isCorrectAnswer')
       .then(response => response.json())
       .then((myJson) => {
+        if (Boolean(myJson)) {
+
+        } else {
+
+        }
+        this.displayQuestion();
         console.log(myJson);
       });
     // this.userAnswer = answer;
@@ -114,7 +123,7 @@ class Exam extends Component<Props, State> {
     //   .then((myJson) => {
     //     console.log(myJson);
     //   });
-    
+
     // if (Exam.answerIsCorrect(this.userAnswer, this.answer.value)) {
     //   this.successCounter += 1;
     //   const percent = (this.successCounter * 100) / this.questionsLength;
