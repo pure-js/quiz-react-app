@@ -9,7 +9,7 @@ import Code from '../../components/Code/Code';
 import Form from '../../components/Form/Form';
 import Header from '../../components/Header/Header';
 import ProgressBar from '../../components/ProgressBar';
-import getDocument from '../../services/getQuestions';
+import { getRandomDocument } from '../../services/getQuestions';
 
 import grid from '../../components/Grid/Grid.css';
 
@@ -56,7 +56,7 @@ class Exam extends Component<Props, State> {
 
   componentDidMount() {
     const docId = '48biWmHkEqggIL0U5NSG';
-    getDocument(docId, 'questions')
+    getRandomDocument('questions')
       .then((doc) => {
         if (doc.exists) {
           this.setState({

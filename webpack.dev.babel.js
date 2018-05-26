@@ -1,3 +1,5 @@
+import "@babel/polyfill";
+
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ScriptExtHtmlWebpackPlugin from 'script-ext-html-webpack-plugin';
@@ -45,7 +47,7 @@ const module = {
 const config = {
   mode: 'development',
   entry: {
-    app: './src/index.jsx',
+    app: ['@babel/polyfill', './src/index.jsx'],
   },
   plugins,
   module,
