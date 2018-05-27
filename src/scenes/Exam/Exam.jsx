@@ -9,7 +9,7 @@ import Code from '../../components/Code/Code';
 import Form from '../../components/Form/Form';
 import Header from '../../components/Header/Header';
 import ProgressBar from '../../components/ProgressBar';
-import { getRandomDocument } from '../../services/getQuestions';
+import { getRandomDocument, getDocumentsLength } from '../../services/getQuestions';
 
 import grid from '../../components/Grid/Grid.css';
 
@@ -65,6 +65,7 @@ class Exam extends Component<Props, State> {
           this.setState({
             question: doc.data(),
           });
+          this.questionsLength = getDocumentsLength;
         } else {
           console.log('No such document!');
         }
@@ -87,17 +88,9 @@ class Exam extends Component<Props, State> {
     fetch('https://us-central1-js-quiz-31f79.cloudfunctions.net/isCorrectAnswer')
       .then(response => response.json())
       .then((myJson) => {
-        if (Boolean(myJson)) {
-
-        } else {
-
-        }
         this.displayQuestion();
         console.log(myJson);
       });
-    // this.userAnswer = answer;
-    // this.answer = answers.find(x => x.name === this.state.question.name);
-    // this.handleAnswer();
   };
 
   handleAnyAnswer = () => {

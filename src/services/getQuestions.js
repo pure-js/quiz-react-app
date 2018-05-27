@@ -1,43 +1,21 @@
 // @flow
-import firebase from 'firebase/app';
-import 'firebase/firestore';
-
 import getRand from './getRandomNumber';
+import database from './fireStoreService';
 
-function initialize() {
-  const config = {
-    apiKey: 'AIzaSyBWqAJaKIFIYK-emBHU2gfvdFy9qo9uSIo',
-    authDomain: 'js-quiz-31f79.firebaseapp.com',
-    databaseURL: 'https://js-quiz-31f79.firebaseio.com',
-    projectId: 'js-quiz-31f79',
-    storageBucket: '',
-    messagingSenderId: '456338520035',
-  };
-
-  firebase.initializeApp(config);
-}
+let getDocumentsLength = 0;
 
 function getDocument(id: string, collection: string) {
-  // initialize();
-  const firestore = firebase.firestore();
-  const settings = {
-    timestampsInSnapshots: true,
-  };
-  firestore.settings(settings);
-  return firestore.collection(collection).doc(id).get();
+  return database.collection(collection).doc(id).get();
 }
 
 function getRandomId(collection) {
-  initialize();
-  const db = firebase.firestore();
+  const documentsIds = [];
   const settings = {
     timestampsInSnapshots: true,
   };
-  db.settings(settings);
+  database.settings(settings);
 
-  const documentsIds = [];
-
-  return db.collection(collection).get()
+  return database.collection(collection).get()
     .then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         documentsIds.push(doc.id);
@@ -45,6 +23,7 @@ function getRandomId(collection) {
     })
     .then(() => {
       const { length } = documentsIds;
+      getDocumentsLength = length;
       const random = getRand(length - 1);
       const id = documentsIds[random];
       return id;
@@ -62,4 +41,5 @@ async function getRandomDocument(collection: string) {
 export {
   getDocument as default,
   getRandomDocument,
+  getDocumentsLength,
 };
