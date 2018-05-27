@@ -6,8 +6,9 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ScriptExtHtmlWebpackPlugin from 'script-ext-html-webpack-plugin';
 import WorkboxPlugin from 'workbox-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
+import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-
+import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 
 const plugins = [
   new CleanWebpackPlugin(['dist']),
@@ -35,7 +36,8 @@ const plugins = [
   }),
   new webpack.HashedModuleIdsPlugin(),
   new MiniCssExtractPlugin({
-    filename: 'styles.[hash].min.css',
+    filename: '[hash].min.css',
+    chunkFilename: '[id].[hash].min.css',
   }),
   new WorkboxPlugin.GenerateSW({
     swDest: 'sw.js',
@@ -51,12 +53,6 @@ const module = {
       exclude: /(node_modules)/,
       use: {
         loader: 'babel-loader',
-        options: {
-          presets: [
-            '@babel/preset-react',
-            '@babel/preset-env',
-          ],
-        },
       },
     },
     {
@@ -72,7 +68,7 @@ const module = {
 const config = {
   mode: 'production',
   entry: {
-    app: './src/index.jsx',
+    app: ['@babel/polyfill', './src/index.jsx'],
   },
   plugins,
   module,
@@ -87,6 +83,14 @@ const config = {
     splitChunks: {
       chunks: 'all',
     },
+    minimizer: [
+      new UglifyJsPlugin({
+        cache: true,
+        parallel: true,
+        sourceMap: false,
+      }),
+      new OptimizeCssAssetsPlugin({}),
+    ],
   },
 };
 
