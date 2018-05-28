@@ -2,9 +2,6 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 
-// import shuffleArray from '../../services/shuffleArray';
-// import getAnsweredQuestions from '../../services/getAnsweredQuestions';
-// import answers from '../../../static/answers';
 import Code from '../../components/Code/Code';
 import Form from '../../components/Form/Form';
 import Header from '../../components/Header/Header';
@@ -18,18 +15,17 @@ type Props = {
   results: void,
 };
 
+type Question = {
+  name: string,
+  category: string,
+  value: string,
+};
+
 type State = {
-  question: {
-    name: string,
-    value: string,
-  },
+  question: Question,
 };
 
 class Exam extends Component<Props, State> {
-  static answerIsCorrect(userAnswer: string, correctAnswer: string) {
-    return userAnswer === correctAnswer;
-  }
-
   constructor(props: Props) {
     super(props);
 
@@ -48,7 +44,11 @@ class Exam extends Component<Props, State> {
     };
 
     this.state = {
-      question: {},
+      question: {
+        name: '',
+        category: '',
+        value: '',
+      },
     };
     // this.answer = answers.find(answer => answer.name === this.state.question.name);
     this.userAnswers = [];
@@ -94,20 +94,20 @@ class Exam extends Component<Props, State> {
   };
 
   handleAnyAnswer = () => {
-    if (this.iteration < this.maxIteration) {
-      this.userAnswers.push({
-        name: this.state.question.name,
-        answer: this.userAnswer,
-      });
-      this.iteration = this.iteration + 1;
-      this.setState({
-        question: this.questions[this.iteration],
-      });
-      this.answer = answers.find(answer => answer.name === this.state.question.name);
-      alert(this.answer.value);
-    } else if (this.state.question === this.questions[this.questionsLength - 1]) {
-      this.props.results();
-    }
+    // if (this.iteration < this.maxIteration) {
+    //   this.userAnswers.push({
+    //     name: this.state.question.name,
+    //     answer: this.userAnswer,
+    //   });
+    //   this.iteration = this.iteration + 1;
+    //   this.setState({
+    //     question: this.questions[this.iteration],
+    //   });
+    //   this.answer = answers.find(answer => answer.name === this.state.question.name);
+    //   alert(this.answer.value);
+    // } else if (this.state.question === this.questions[this.questionsLength - 1]) {
+    //   this.props.results();
+    // }
   };
 
   handleAnswer = () => {

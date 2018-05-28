@@ -1,37 +1,18 @@
 // @flow
-import React, { Component } from 'react';
-import Prism from 'prismjs';
-import classNames from 'classnames';
+import React from 'react';
+import SyntaxHighlighter, { registerLanguage } from 'react-syntax-highlighter/light';
+import js from 'react-syntax-highlighter/languages/hljs/javascript';
+import solarizedLight from 'react-syntax-highlighter/styles/hljs/solarized-light';
 
-import bootstrap from 'bootstrap/dist/css/bootstrap.css';
-import '!style-loader!css-loader!prismjs/themes/prism-solarizedlight.css';
-
-import styles from './Code.css';
+registerLanguage('javascript', js);
+// import styles from './Code.css';
 
 type Props = {
   question: string,
 };
 
-class Code extends Component<Props> {
-  componentDidMount() {
-    Prism.highlightAll();
-  }
-
-  componentDidUpdate() {
-    Prism.highlightAll();
-  }
-
-  render() {
-    return (
-      <div className={classNames(bootstrap['bg-solarized'])}>
-        <pre className={styles.language_custom}>
-          <code id="code" className="language-javascript">
-            {this.props.question}
-          </code>
-        </pre>
-      </div>
-    );
-  }
+function Code(props: Props) {
+  return <SyntaxHighlighter language="javascript" style={solarizedLight}>{props.question}</SyntaxHighlighter>;
 }
 
 export default Code;
