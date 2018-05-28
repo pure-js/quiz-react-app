@@ -36,8 +36,8 @@ const plugins = [
   }),
   new webpack.HashedModuleIdsPlugin(),
   new MiniCssExtractPlugin({
-    filename: '[hash].min.css',
-    chunkFilename: '[id].[hash].min.css',
+    filename: '[contenthash].min.css',
+    chunkFilename: '[id].[contenthash].min.css',
   }),
   new WorkboxPlugin.GenerateSW({
     swDest: 'sw.js',
@@ -86,9 +86,6 @@ const config = {
     path: path.resolve(__dirname, 'dist'),
   },
   optimization: {
-    splitChunks: {
-      chunks: 'all',
-    },
     minimizer: [
       new UglifyJsPlugin({
         cache: true,

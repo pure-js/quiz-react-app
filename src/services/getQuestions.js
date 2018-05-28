@@ -10,11 +10,6 @@ function getDocument(id: string, collection: string) {
 
 function getRandomId(collection) {
   const documentsIds = [];
-  const settings = {
-    timestampsInSnapshots: true,
-  };
-  database.settings(settings);
-
   return database.collection(collection).get()
     .then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
@@ -25,8 +20,7 @@ function getRandomId(collection) {
       const { length } = documentsIds;
       getDocumentsLength = length;
       const random = getRand(length - 1);
-      const id = documentsIds[random];
-      return id;
+      return documentsIds[random];
     })
     .catch((error) => {
       console.log('Error getting documents: ', error);
