@@ -9,7 +9,6 @@ import CopyWebpackPlugin from 'copy-webpack-plugin';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 const plugins = [
   new CleanWebpackPlugin(['dist']),
@@ -45,7 +44,6 @@ const plugins = [
     clientsClaim: true,
     skipWaiting: true,
   }),
-  new BundleAnalyzerPlugin(),
 ];
 
 const module = {
