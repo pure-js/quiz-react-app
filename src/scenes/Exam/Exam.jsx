@@ -72,7 +72,7 @@ class Exam extends Component<Props, State> {
       }).catch((error) => {
         console.log('Error getting document:', error);
       });
-  }
+  };
 
   handleNotAnswer = () => {
     this.failureCounter += 1;
