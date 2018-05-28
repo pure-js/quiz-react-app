@@ -4,8 +4,9 @@ import SyntaxHighlighter, { registerLanguage } from 'react-syntax-highlighter/li
 import js from 'react-syntax-highlighter/languages/hljs/javascript';
 import solarizedLight from 'react-syntax-highlighter/styles/hljs/solarized-light';
 
-registerLanguage('javascript', js);
 // import styles from './Code.css';
+
+registerLanguage('javascript', js);
 
 type Props = {
   question: string,
