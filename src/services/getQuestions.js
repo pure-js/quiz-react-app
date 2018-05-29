@@ -1,6 +1,7 @@
 // @flow
 import getRand from './getRandomNumber';
 import database from './fireStoreService';
+import { signIn, onRegister } from './authService';
 
 let getDocumentsLength = 0;
 
