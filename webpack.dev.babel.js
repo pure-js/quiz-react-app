@@ -1,5 +1,4 @@
-import "@babel/polyfill";
-
+import '@babel/polyfill';
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import webpack from 'webpack';

@@ -1,3 +1,4 @@
+import '@babel/polyfill';
 import path from 'path';
 import webpack from 'webpack';
 import MinifyPlugin from 'babel-minify-webpack-plugin';
