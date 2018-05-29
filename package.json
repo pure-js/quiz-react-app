@@ -53,7 +53,7 @@
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-airbnb-base": "~12.1.0",
-    "eslint-plugin-flowtype": "2.47.1",
+    "eslint-plugin-flowtype": "^2.48.0",
     "eslint-plugin-import": "2.12.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "7.8.2",
@@ -67,7 +67,7 @@
     "script-ext-html-webpack-plugin": "^2.0.1",
     "style-loader": "0.21.0",
     "uglifyjs-webpack-plugin": "^1.2.5",
-    "webpack": "^4.9.2",
+    "webpack": "^4.10.1",
     "webpack-cli": "2.1.4",
     "webpack-dev-server": "3.1.4",
     "workbox-webpack-plugin": "3.2.0"
