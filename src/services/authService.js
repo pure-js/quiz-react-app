@@ -1,13 +1,27 @@
 // @flow
-import firebase from 'firebase/app';
 import 'firebase/auth';
 
-const auth2 = firebase.auth().signInAnonymously();
-// const auth2 = firebase.auth().signInAnonymously().catch((error) => {
-//   // Handle Errors here.
-//   const errorCode = error.code;
-//   const errorMessage = error.message;
-//   // ...
-// });
+import firebaseService from './firebaseService';
 
-export default auth2;
+const signIn = firebaseService.auth().signInAnonymously().catch((error) => {
+  // Handle Errors here.
+  const errorCode = error.code;
+  const errorMessage = error.message;
+  // ...
+});
+
+const onRegister = firebaseService.auth().onAuthStateChanged((user) => {
+  if (user) {
+    // User is signed in.
+    const isAnonymous = user.isAnonymous;
+    const uid = user.uid;
+    console.log(uid);
+    // ...
+  } else {
+    // User is signed out.
+    // ...
+  }
+  // ...
+});
+
+export { signIn, onRegister };
