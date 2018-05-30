@@ -1,9 +1,23 @@
 // @flow
 import React, { Component } from 'react';
+import Loadable from 'react-loadable';
 
-import Home from '../scenes/Home/Home';
-import Exam from '../scenes/Exam/Exam';
-import FinalResults from '../scenes/FinalResults';
+import Loading from '../components/Loading/Loading';
+
+const LoadableHome = Loadable({
+  loader: () => import('../scenes/Home/Home'),
+  loading: Loading,
+});
+
+const LoadableExam = Loadable({
+  loader: () => import('../scenes/Exam/Exam'),
+  loading: Loading,
+});
+
+const LoadableFinalResults = Loadable({
+  loader: () => import('../scenes/FinalResults'),
+  loading: Loading,
+});
 
 type Props = {};
 
@@ -73,7 +87,7 @@ class App extends Component<Props, State> {
     let screen;
     if (this.state.home) {
       screen = (
-        <Home
+        <LoadableHome
           exam={this.handleExamClick}
           train={this.handleTrainClick}
         />
@@ -81,7 +95,7 @@ class App extends Component<Props, State> {
     }
     if (this.state.exam) {
       screen = (
-        <Exam
+        <LoadableExam
           home={this.handleCloseExamClick}
           results={this.handleShowResults}
           uss={this.userAnswers}
@@ -90,7 +104,7 @@ class App extends Component<Props, State> {
     }
     if (this.state.train) {
       screen = (
-        <Exam
+        <LoadableExam
           home={this.handleCloseExamClick}
           results={this.handleShowResults}
           uss={this.userAnswers}
@@ -99,7 +113,7 @@ class App extends Component<Props, State> {
     }
     if (this.state.results) {
       screen = (
-        <FinalResults
+        <LoadableFinalResults
           userAnswers={this.userAnswers}
           tryAgain={this.handleExamClick}
           returnHome={this.returnHome}

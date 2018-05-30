@@ -1,14 +1,20 @@
 // @flow
 import React, { Component } from 'react';
 import classNames from 'classnames';
+import Loadable from 'react-loadable';
 
-import Code from '../../components/Code/Code';
 import Form from '../../components/Form/Form';
 import Header from '../../components/Header/Header';
 import ProgressBar from '../../components/ProgressBar';
-import { getRandomDocument, getDocumentsLength } from '../../services/getQuestions';
+// import { getRandomDocument, getDocumentsLength } from '../../services/getQuestions';
 
 import grid from '../../components/Grid/Grid.css';
+import Loading from '../../components/Loading/Loading';
+
+const LoadableCode = Loadable({
+  loader: () => import('../../components/Code/Code'),
+  loading: Loading,
+});
 
 type Props = {
   home: void,
@@ -59,13 +65,14 @@ class Exam extends Component<Props, State> {
   }
 
   displayQuestion = () => {
-    getRandomDocument('questions')
+    import('../../services/getQuestions')
+      .then(lol => lol.getRandomDocument('questions'))
       .then((doc) => {
         if (doc.exists) {
           this.setState({
             question: doc.data(),
           });
-          this.questionsLength = getDocumentsLength;
+          // this.questionsLength = lol.getDocumentsLength;
         } else {
           console.log('No such document!');
         }
@@ -135,7 +142,7 @@ class Exam extends Component<Props, State> {
         <Header home={this.props.home} current={this.iteration + 1} total={this.questionsLength} />
         <ProgressBar success={this.success} failure={this.failure} overall={this.questionsLength} />
         <section className={classNames(grid.container, grid['container_mobile-no-padding'])}>
-          <Code question={this.state.question.value} />
+          <LoadableCode question={this.state.question.value} />
         </section>
         <section className={grid.container}>
           <Form userAnswer={this.addAnswer} handleAnswer={this.handleAnswer} />
