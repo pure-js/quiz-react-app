@@ -3,7 +3,7 @@
 [![Greenkeeper badge](https://badges.greenkeeper.io/pure-js/js-exercises.svg)](https://greenkeeper.io/)
 
 ## Contribution
-
+Development local server with HMR
 ```
 npm i
 npm start
