@@ -8,11 +8,10 @@ import styles from './Home.css';
 
 type Props = {
   exam: boolean,
-  train: boolean,
 };
 
 const Home = (props: Props) => {
-  const { exam, train } = props;
+  const { exam } = props;
 
   return (
     <div>
@@ -25,13 +24,6 @@ const Home = (props: Props) => {
           className={classNames(styles['exam-btn'], bootstrap.btn, bootstrap['btn-lg'], bootstrap['btn-dark'], bootstrap['mr-2'], buttons.btn_start)}
           onClick={exam}
         >Exam
-        </button>
-        <button
-          id="train"
-          type="button"
-          className={classNames(styles['train-btn'], bootstrap.btn, bootstrap['btn-lg'], bootstrap['btn-dark'], bootstrap['mr-2'], buttons.btn_start)}
-          onClick={train}
-        >Train
         </button>
       </main>
     </div>

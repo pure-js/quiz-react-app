@@ -24,7 +24,6 @@ type Props = {};
 type State = {
   home: boolean,
   exam: boolean,
-  train: boolean,
   results: boolean,
 };
 
@@ -35,7 +34,6 @@ class App extends Component<Props, State> {
     this.state = {
       home: true,
       exam: false,
-      train: false,
       results: false,
     };
 
@@ -50,18 +48,10 @@ class App extends Component<Props, State> {
     });
   };
 
-  handleTrainClick = () => {
-    this.setState({
-      home: false,
-      train: true,
-    });
-  };
-
   handleCloseExamClick = () => {
     this.setState({
       home: true,
       exam: false,
-      train: false,
     });
   };
 
@@ -69,7 +59,6 @@ class App extends Component<Props, State> {
     this.setState({
       home: false,
       exam: false,
-      train: false,
       results: true,
     });
   };
@@ -78,7 +67,6 @@ class App extends Component<Props, State> {
     this.setState({
       home: true,
       exam: false,
-      train: false,
       results: false,
     });
   };
@@ -89,20 +77,10 @@ class App extends Component<Props, State> {
       screen = (
         <LoadableHome
           exam={this.handleExamClick}
-          train={this.handleTrainClick}
         />
       );
     }
     if (this.state.exam) {
-      screen = (
-        <LoadableExam
-          home={this.handleCloseExamClick}
-          results={this.handleShowResults}
-          uss={this.userAnswers}
-        />
-      );
-    }
-    if (this.state.train) {
       screen = (
         <LoadableExam
           home={this.handleCloseExamClick}
