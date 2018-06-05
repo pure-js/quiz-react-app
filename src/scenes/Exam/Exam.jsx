@@ -12,7 +12,7 @@ import grid from '../../components/Grid/Grid.css';
 import Loading from '../../components/Loading/Loading';
 
 const LoadableCode = Loadable({
-  loader: () => import('../../components/Code/Code'),
+  loader: () => import(/* webpackChunkName: "Code" */ '../../components/Code/Code'),
   loading: Loading,
 });
 
@@ -65,7 +65,7 @@ class Exam extends Component<Props, State> {
   }
 
   displayQuestion = () => {
-    import('../../services/getQuestions')
+    import(/* webpackChunkName: "getQuestions" */ '../../services/getQuestions')
       .then(lol => lol.getRandomDocument('questions'))
       .then((doc) => {
         if (doc.exists) {

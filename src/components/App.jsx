@@ -5,17 +5,17 @@ import Loadable from 'react-loadable';
 import Loading from '../components/Loading/Loading';
 
 const LoadableHome = Loadable({
-  loader: () => import('../scenes/Home/Home'),
+  loader: () => import(/* webpackChunkName: "Home" */ '../scenes/Home/Home'),
   loading: Loading,
 });
 
 const LoadableExam = Loadable({
-  loader: () => import('../scenes/Exam/Exam'),
+  loader: () => import(/* webpackChunkName: "Exam" */ '../scenes/Exam/Exam'),
   loading: Loading,
 });
 
 const LoadableFinalResults = Loadable({
-  loader: () => import('../scenes/FinalResults'),
+  loader: () => import(/* webpackChunkName: "FinalResults" */ '../scenes/FinalResults'),
   loading: Loading,
 });
 
