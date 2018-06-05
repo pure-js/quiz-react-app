@@ -18,6 +18,7 @@ const Home = (props: Props) => {
     <div>
       <div className={styles['arrow-right']} />
       <main className={styles['home-grid']}>
+        <h1>Test your JavaScript skills</h1>
         <button
           id="exam"
           type="button"

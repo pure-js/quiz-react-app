@@ -3,8 +3,8 @@ body {
 }
 
 .arrow-right {
-  width: 0; 
-  height: 0; 
+  width: 0;
+  height: 0;
   border-top: 60vh solid transparent;
   border-bottom: 60vh solid transparent;
   border-left: 60vh solid #FFC500;
@@ -26,7 +26,6 @@ body {
 
 @media (min-width: 576px) {
   .home-grid {
-    max-width: 200px;
     grid-row-gap: 15px;
   }
 }
