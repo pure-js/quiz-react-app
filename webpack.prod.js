@@ -5,7 +5,7 @@ import MinifyPlugin from 'babel-minify-webpack-plugin';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ScriptExtHtmlWebpackPlugin from 'script-ext-html-webpack-plugin';
-import WorkboxPlugin from 'workbox-webpack-plugin';
+import { GenerateSW } from 'workbox-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
@@ -40,7 +40,7 @@ const plugins = [
     filename: '[contenthash].min.css',
     chunkFilename: '[id].[contenthash].min.css',
   }),
-  new WorkboxPlugin.GenerateSW({
+  new GenerateSW({
     swDest: 'sw.js',
     clientsClaim: true,
     skipWaiting: true,
