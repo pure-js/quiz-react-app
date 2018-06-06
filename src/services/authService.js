@@ -3,25 +3,29 @@ import 'firebase/auth';
 
 import firebaseService from './firebaseService';
 
-const signIn = firebaseService.auth().signInAnonymously().catch((error) => {
-  // Handle Errors here.
-  const errorCode = error.code;
-  const errorMessage = error.message;
-  // ...
-});
+const auth = firebaseService.auth();
 
-const onRegister = firebaseService.auth().onAuthStateChanged((user) => {
-  if (user) {
-    // User is signed in.
-    const isAnonymous = user.isAnonymous;
-    const uid = user.uid;
-    console.log(uid);
+const signIn = auth
+  .signInAnonymously()
+  .catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
     // ...
-  } else {
-    // User is signed out.
-    // ...
-  }
-  // ...
-});
+  });
 
-export { signIn, onRegister };
+const onRegister = auth
+  .onAuthStateChanged((user) => {
+    if (user) {
+      // User is signed in.
+      const { uid, isAnonymous } = user;
+      console.log(uid);
+      // ...
+    } else {
+      // User is signed out.
+      // ...
+    }
+    // ...
+  });
+
+export { auth, signIn, onRegister };
