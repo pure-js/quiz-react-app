@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import Loadable from 'react-loadable';
 
-import Loading from '../components/Loading/Loading';
+import Loading from './Loading/Loading';
 
 const LoadableHome = Loadable({
   loader: () => import(/* webpackChunkName: "Home" */ '../scenes/Home/Home'),
@@ -73,14 +73,15 @@ class App extends Component<Props, State> {
 
   render() {
     let screen;
-    if (this.state.home) {
+    const { home, exam, results } = this.state;
+    if (home) {
       screen = (
         <LoadableHome
           exam={this.handleExamClick}
         />
       );
     }
-    if (this.state.exam) {
+    if (exam) {
       screen = (
         <LoadableExam
           home={this.handleCloseExamClick}
@@ -89,7 +90,7 @@ class App extends Component<Props, State> {
         />
       );
     }
-    if (this.state.results) {
+    if (results) {
       screen = (
         <LoadableFinalResults
           userAnswers={this.userAnswers}
@@ -100,7 +101,9 @@ class App extends Component<Props, State> {
     }
 
     return (
-      <div>{screen}</div>
+      <div>
+        {screen}
+      </div>
     );
   }
 }

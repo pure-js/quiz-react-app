@@ -19,8 +19,14 @@ const FinalResults = (props: Props) => {
     <div>
       <main className={grid.container}>
         <div>
-          <h1 className={bootstrap['text-center']}>Your results</h1>
-          <p className={bootstrap['text-center']}>Correct answers: {userAnswers} from 20</p>
+          <h1 className={bootstrap['text-center']}>
+            Your results
+          </h1>
+          <p className={bootstrap['text-center']}>
+            Correct answers:
+            {userAnswers}
+             from 20
+          </p>
         </div>
         <div id="first-screen" className={bootstrap.row}>
           <div className={bootstrap['col-12']}>
@@ -31,14 +37,16 @@ const FinalResults = (props: Props) => {
                   type="button"
                   className={classNames(bootstrap.btn, bootstrap['btn-lg'], bootstrap['btn-info'], buttons.btn_start)}
                   onClick={tryAgain}
-                >Try again
+                >
+                  Try again
                 </button>
                 <button
                   id="train"
                   type="button"
                   className={classNames(bootstrap.btn, bootstrap['btn-lg'], bootstrap['btn-info'], buttons.btn_start)}
                   onClick={returnHome}
-                >Return to main page
+                >
+                  Return to main page
                 </button>
               </div>
             </div>
