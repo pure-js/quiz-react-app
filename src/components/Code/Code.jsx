@@ -1,12 +1,12 @@
 // @flow
 import React from 'react';
-import SyntaxHighlighter, { registerLanguage } from 'react-syntax-highlighter/dist/light';
+import { LightAsync as SyntaxHighlighter } from 'react-syntax-highlighter';
 import js from 'react-syntax-highlighter/dist/languages/hljs/javascript';
 import solarizedLight from 'react-syntax-highlighter/dist/styles/hljs/solarized-light';
 
 // import styles from './Code.css';
 
-registerLanguage('javascript', js);
+SyntaxHighlighter.registerLanguage('javascript', js);
 
 type Props = {
   question: string,
