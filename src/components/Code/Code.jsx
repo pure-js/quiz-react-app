@@ -1,8 +1,8 @@
 // @flow
 import React from 'react';
-import SyntaxHighlighter, { registerLanguage } from 'react-syntax-highlighter/light';
-import js from 'react-syntax-highlighter/languages/hljs/javascript';
-import solarizedLight from 'react-syntax-highlighter/styles/hljs/solarized-light';
+import SyntaxHighlighter, { registerLanguage } from 'react-syntax-highlighter/dist/light';
+import js from 'react-syntax-highlighter/dist/languages/hljs/javascript';
+import solarizedLight from 'react-syntax-highlighter/dist/styles/hljs/solarized-light';
 
 // import styles from './Code.css';
 

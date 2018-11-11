@@ -29,7 +29,7 @@
     "react": "16.4.0",
     "react-dom": "16.4.0",
     "react-loadable": "^5.4.0",
-    "react-syntax-highlighter": "7.0.4"
+    "react-syntax-highlighter": "^10.0.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.5",
