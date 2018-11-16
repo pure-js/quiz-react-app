@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import bootstrap from 'bootstrap/dist/css/bootstrap.css';
 
-import Textarea from '../../components/Textarea/Textarea';
+import Textarea from '../Textarea/Textarea';
 
 import button from '../button.css';
 import styles from './Form.css';

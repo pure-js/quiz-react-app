@@ -23,7 +23,8 @@ const Home = (props: Props) => {
           type="button"
           className={classNames(styles['exam-btn'], bootstrap.btn, bootstrap['btn-lg'], bootstrap['btn-dark'], bootstrap['mr-2'], buttons.btn_start)}
           onClick={exam}
-        >Exam
+        >
+          Exam
         </button>
       </main>
     </div>

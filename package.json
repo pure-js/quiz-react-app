@@ -4,8 +4,8 @@
   "description": "javascript skills training app",
   "main": "src/index.jsx",
   "scripts": {
-    "start": "webpack-serve --open --config webpack.dev.babel.js --require @babel/register",
-    "build": "webpack --require @babel/register --config webpack.prod.js",
+    "start": "webpack-dev-server --open --config webpack.dev.babel.js --require @babel/register",
+    "build": "webpack --require @babel/register --config webpack.prod.babel.js",
     "deploy": "npm run build && gh-pages -d dist",
     "lint": "eslint src/**/*.jsx",
     "flow": "flow",
@@ -30,7 +30,8 @@
     "react": "16.4.0",
     "react-dom": "16.4.0",
     "react-loadable": "^5.4.0",
-    "react-syntax-highlighter": "^10.0.1"
+    "react-syntax-highlighter": "^10.0.1",
+    "webpack-cli": "^3.1.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.5",
@@ -48,7 +49,7 @@
     "babel-jest": "23.0.1",
     "babel-loader": "^8.0.4",
     "babel-minify-webpack-plugin": "^0.3.1",
-    "clean-webpack-plugin": "^0.1.19",
+    "clean-webpack-plugin": "^1.0.0",
     "copy-webpack-plugin": "^4.5.1",
     "css-loader": "^0.28.11",
     "eslint": "^5.9.0",
@@ -68,9 +69,8 @@
     "script-ext-html-webpack-plugin": "^2.0.1",
     "style-loader": "0.21.0",
     "uglifyjs-webpack-plugin": "^1.2.5",
-    "webpack": "4.11.1",
-    "webpack-command": "^0.2.0",
-    "webpack-serve": "^1.0.2",
+    "webpack": "^4.25.1",
+    "webpack-dev-server": "^3.1.10",
     "workbox-webpack-plugin": "3.2.0"
   },
   "keywords": [
