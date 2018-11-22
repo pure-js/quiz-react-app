@@ -36,7 +36,8 @@ class UserAnswer extends Component<Props> {
           </label>
           <div
             className={styles.console_icon}
-          >{'>'}
+          >
+            {'>'}
           </div>
           <Textarea getInputValue={this.getValue} />
           <label>
@@ -50,14 +51,16 @@ class UserAnswer extends Component<Props> {
             onClick={this.handleSubmit}
             type="button"
             className={classNames(bootstrap.btn, bootstrap['btn-info'], button.btn_cursor)}
-          >Answer
+          >
+            Answer
           </button>
           <button
             id="next-quiz"
             onClick={this.handleSubmit}
             type="button"
             className={classNames(bootstrap.btn, bootstrap['btn-light'], button.btn_cursor)}
-          >{'I don\'t know'}
+          >
+            {'I don\'t know'}
           </button>
         </div>
       </form>

@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import bootstrap from 'bootstrap/dist/css/bootstrap.css';
 import styles from './Header.css';
-import grid from '../../components/Grid/Grid.css';
+import grid from '../Grid/Grid.css';
 
 type Props = {
   home: void,
@@ -21,7 +21,9 @@ const Header = (props: Props) => {
         <nav className={classNames(bootstrap.navbar, styles['navbar_no-padding'])}>
           <a href="#" className={bootstrap['navbar-brand']} onClick={home}>JavaScript Quiz</a>
           <span className={bootstrap['navbar-text']}>
-            {current} of {total}
+            {current}
+            {' of '}
+            {total}
           </span>
         </nav>
       </div>
