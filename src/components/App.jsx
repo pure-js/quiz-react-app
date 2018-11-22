@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import Loadable from 'react-loadable';
 
 import Loading from './Loading/Loading';
@@ -27,7 +27,7 @@ type State = {
   results: boolean,
 };
 
-class App extends Component<Props, State> {
+class App extends PureComponent<Props, State> {
   constructor(props: Props) {
     super(props);
 
