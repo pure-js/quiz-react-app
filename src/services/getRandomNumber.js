@@ -1,3 +1,4 @@
 // @flow
-const getRand = (max: number) => Math.floor(Math.random() * (max + 1));
-export default getRand;
+// const mathRand = () => ;
+const getRandInteger = (max: number, random = Math.random()) => Math.floor(random * (max + 1));
+export default getRandInteger;

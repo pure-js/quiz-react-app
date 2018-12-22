@@ -9,8 +9,7 @@
     "deploy": "npm run build && gh-pages -d dist",
     "lint": "eslint src/**/*.jsx",
     "flow": "flow",
-    "test": "jest",
-    "coverage": "jest --coverage"
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
