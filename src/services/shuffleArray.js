@@ -1,5 +1,5 @@
 // @flow
-import getRand from './getRandomNumber';
+import getRand from './floatToInteger';
 
 function shuffleArray(arr: Array<any>) {
   const shuffled = arr.slice();

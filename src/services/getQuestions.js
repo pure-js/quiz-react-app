@@ -1,5 +1,5 @@
 // @flow
-import getRand from './getRandomNumber';
+import getRand from './floatToInteger';
 import database from './fireStoreService';
 import { signIn, onRegister } from './authService';
 
