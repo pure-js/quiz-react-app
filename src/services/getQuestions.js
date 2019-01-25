@@ -1,9 +1,7 @@
 // @flow
-import getRand from './floatToInteger';
+import floatToInteger from './floatToInteger';
 import database from './fireStoreService';
 import { signIn, onRegister } from './authService';
-
-let getDocumentsLength = 0;
 
 function getDocument(id: string, collection: string) {
   return database.collection(collection).doc(id).get();
@@ -19,8 +17,7 @@ function getRandomId(collection) {
     })
     .then(() => {
       const { length } = documentsIds;
-      getDocumentsLength = length;
-      const random = getRand(length - 1);
+      const random = floatToInteger(length - 1, Math.random());
       return documentsIds[random];
     })
     .catch((error) => {
@@ -36,5 +33,4 @@ async function getRandomDocument(collection: string) {
 export {
   getDocument as default,
   getRandomDocument,
-  getDocumentsLength,
 };
