@@ -12,6 +12,7 @@
 # Istanbul coverage folder
 coverage/
 
+# Node.js package manager
 node_modules/
 *.log
 
