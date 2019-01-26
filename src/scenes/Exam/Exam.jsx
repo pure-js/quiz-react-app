@@ -3,10 +3,11 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 import Loadable from 'react-loadable';
 
+import { functions } from '../../services/fireStoreService';
+
 import Form from '../../components/Form/Form';
 import Header from '../../components/Header/Header';
 import ProgressBar from '../../components/ProgressBar';
-// import { getRandomDocument, getDocumentsLength } from '../../services/getQuestions';
 
 import grid from '../../components/Grid/Grid.css';
 import Loading from '../../components/Loading/Loading';
@@ -92,11 +93,12 @@ class Exam extends Component<Props, State> {
   };
 
   addAnswer = (answer: string): void => {
-    fetch('https://us-central1-js-quiz-31f79.cloudfunctions.net/isCorrectAnswer')
-      .then(response => response.json())
-      .then((myJson) => {
+    const isCorrectAnswer = functions.httpsCallable('isCorrectAnswer');
+    isCorrectAnswer()
+      .then((result) => {
         this.displayQuestion();
-        console.log(myJson);
+        // Read result of the Cloud Function.
+        console.log(result.data.correct);
       });
   };
 

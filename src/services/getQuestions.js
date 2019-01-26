@@ -1,15 +1,15 @@
 // @flow
 import floatToInteger from './floatToInteger';
-import database from './fireStoreService';
+import firestore from './fireStoreService';
 import { signIn, onRegister } from './authService';
 
 function getDocument(id: string, collection: string) {
-  return database.collection(collection).doc(id).get();
+  return firestore.collection(collection).doc(id).get();
 }
 
 function getRandomId(collection) {
   const documentsIds = [];
-  return database.collection(collection).get()
+  return firestore.collection(collection).get()
     .then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         documentsIds.push(doc.id);

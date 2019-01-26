@@ -1,7 +1,12 @@
 // @flow
 import 'firebase/firestore';
+import 'firebase/functions';
 import firebaseService from './firebaseService';
 
-const app = firebaseService.firestore();
+const firestore = firebaseService.firestore();
+const functions = firebaseService.functions();
 
-export default app;
+export {
+  firestore as default,
+  functions,
+};
