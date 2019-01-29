@@ -4,7 +4,7 @@ import 'firebase/functions';
 import firebaseService from './firebaseService';
 
 const firestore = firebaseService.firestore();
-const functions = firebaseService.functions();
+const functions = firebaseService.functions('europe-west1');
 
 export {
   firestore as default,
