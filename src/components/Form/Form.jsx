@@ -24,7 +24,8 @@ class UserAnswer extends Component<Props> {
   };
 
   handleSubmit = () => {
-    this.props.userAnswer(this.data);
+    const { userAnswer } = this.props;
+    userAnswer(this.data);
   };
 
   render() {

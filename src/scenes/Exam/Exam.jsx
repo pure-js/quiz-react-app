@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import Loadable from 'react-loadable';
 
 import { functions } from '../../services/fireStoreService';
+import getRandomDocument from '../../services/getQuestions';
 
 import Form from '../../components/Form/Form';
 import Header from '../../components/Header/Header';
@@ -37,7 +38,6 @@ class Exam extends Component<Props, State> {
     super(props);
 
     this.iteration = 0;
-    // this.questions = shuffleArray(getAnsweredQuestions(questions, answers));
     this.questionsLength = 0;
     this.maxIteration = this.questionsLength - 1;
     this.successCounter = 0;
@@ -57,7 +57,6 @@ class Exam extends Component<Props, State> {
         value: '',
       },
     };
-    // this.answer = answers.find(answer => answer.name === this.state.question.name);
     this.userAnswers = [];
   }
 
@@ -66,16 +65,14 @@ class Exam extends Component<Props, State> {
   }
 
   displayQuestion = () => {
-    import(/* webpackChunkName: "getQuestions" */ '../../services/getQuestions')
-      .then(lol => lol.getRandomDocument('questions'))
-      .then((doc) => {
-        if (doc.exists) {
+    getRandomDocument('questions')
+      .then(({ data }) => {
+        if (data) {
           this.setState({
-            question: doc.data(),
+            question: data,
           });
-          // this.questionsLength = lol.getDocumentsLength;
         } else {
-          console.log('No such document!');
+          console.error('No such document!');
         }
       }).catch((error) => {
         console.log('Error getting document:', error);
