@@ -14,7 +14,7 @@ const Home = (props: Props) => {
   const { exam } = props;
 
   return (
-    <div>
+    <>
       <div className={styles['arrow-right']} />
       <main className={styles['home-grid']}>
         <h1>Test your JavaScript skills</h1>
@@ -27,7 +27,7 @@ const Home = (props: Props) => {
           Exam
         </button>
       </main>
-    </div>
+    </>
   );
 };
 

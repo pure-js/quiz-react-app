@@ -16,7 +16,7 @@ const FinalResults = (props: Props) => {
   const { userAnswers, tryAgain, returnHome } = props;
 
   return (
-    <div>
+    <>
       <main className={grid.container}>
         <div>
           <h1 className={bootstrap['text-center']}>
@@ -53,7 +53,7 @@ const FinalResults = (props: Props) => {
           </div>
         </div>
       </main>
-    </div>
+    </>
   );
 };
 

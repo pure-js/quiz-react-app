@@ -101,9 +101,9 @@ class App extends PureComponent<Props, State> {
     }
 
     return (
-      <div>
+      <>
         {screen}
-      </div>
+      </>
     );
   }
 }

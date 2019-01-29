@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import classNames from 'classnames';
 import Loadable from 'react-loadable';
 
@@ -33,7 +33,7 @@ type State = {
   question: Question,
 };
 
-class Exam extends Component<Props, State> {
+class Exam extends PureComponent<Props, State> {
   constructor(props: Props) {
     super(props);
 
@@ -52,6 +52,7 @@ class Exam extends Component<Props, State> {
 
     this.state = {
       question: {
+        id: '',
         name: '',
         category: '',
         value: '',
@@ -75,7 +76,7 @@ class Exam extends Component<Props, State> {
           console.error('No such document!');
         }
       }).catch((error) => {
-        console.log('Error getting document:', error);
+        console.error('Error getting document:', error);
       });
   };
 
@@ -85,8 +86,6 @@ class Exam extends Component<Props, State> {
     this.failure = {
       width: `${percent}%`,
     };
-
-    this.handleAnyAnswer();
   };
 
   addAnswer = (answer: string): void => {
@@ -104,7 +103,7 @@ class Exam extends Component<Props, State> {
     const { home } = this.props;
     const { question } = this.state;
     return (
-      <div>
+      <>
         <Header home={home} current={this.iteration + 1} total={this.questionsLength} />
         <ProgressBar success={this.success} failure={this.failure} overall={this.questionsLength} />
         <section className={classNames(grid.container, grid['container_mobile-no-padding'])}>
@@ -113,7 +112,7 @@ class Exam extends Component<Props, State> {
         <section className={grid.container}>
           <Form userAnswer={this.addAnswer} />
         </section>
-      </div>
+      </>
     );
   }
 }
