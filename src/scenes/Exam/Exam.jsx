@@ -37,12 +37,10 @@ class Exam extends PureComponent<Props, State> {
   constructor(props: Props) {
     super(props);
 
-    this.iteration = 0;
+    this.iteration = 1;
     this.questionsLength = 5;
-    this.maxIteration = this.questionsLength - 1;
     this.successCounter = 0;
     this.failureCounter = 0;
-    this.userAnswer = '';
     this.success = {
       width: '0%',
     };
@@ -120,7 +118,7 @@ class Exam extends PureComponent<Props, State> {
     const { question } = this.state;
     return (
       <>
-        <Header home={home} current={this.iteration + 1} total={this.questionsLength} />
+        <Header home={home} current={this.iteration} total={this.questionsLength} />
         <ProgressBar success={this.success} failure={this.failure} overall={this.questionsLength} />
         <section className={classNames(grid.container, grid['container_mobile-no-padding'])}>
           <LoadableCode question={question.value} />
