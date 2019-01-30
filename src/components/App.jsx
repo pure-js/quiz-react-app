@@ -37,7 +37,7 @@ class App extends PureComponent<Props, State> {
       results: false,
     };
 
-    this.userAnswers = [];
+    this.userAnswers = 0;
   }
 
   handleExamClick = () => {
@@ -55,7 +55,8 @@ class App extends PureComponent<Props, State> {
     });
   };
 
-  handleShowResults = () => {
+  handleShowResults = (correctAnswers) => {
+    this.userAnswers = correctAnswers;
     this.setState({
       home: false,
       exam: false,
@@ -86,7 +87,6 @@ class App extends PureComponent<Props, State> {
         <LoadableExam
           home={this.handleCloseExamClick}
           results={this.handleShowResults}
-          uss={this.userAnswers}
         />
       );
     }

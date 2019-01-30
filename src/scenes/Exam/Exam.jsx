@@ -38,7 +38,7 @@ class Exam extends PureComponent<Props, State> {
     super(props);
 
     this.iteration = 0;
-    this.questionsLength = 0;
+    this.questionsLength = 5;
     this.maxIteration = this.questionsLength - 1;
     this.successCounter = 0;
     this.failureCounter = 0;
@@ -80,22 +80,35 @@ class Exam extends PureComponent<Props, State> {
       });
   };
 
-  handleNotAnswer = () => {
-    this.failureCounter += 1;
-    const percent = (this.failureCounter * 100) / this.questionsLength;
-    this.failure = {
-      width: `${percent}%`,
-    };
+  upProgressBar = (isCorrect) => {
+    if (isCorrect) {
+      this.successCounter += 1;
+      const percent = (this.successCounter * 100) / this.questionsLength;
+      this.success = {
+        width: `${percent}%`,
+      };
+    } else {
+      this.failureCounter += 1;
+      const percent = (this.failureCounter * 100) / this.questionsLength;
+      this.failure = {
+        width: `${percent}%`,
+      };
+    }
   };
 
   addAnswer = (answer: string): void => {
     const isCorrectAnswer = functions.httpsCallable('isCorrectAnswer');
-    console.log(answer, 'answer');
     isCorrectAnswer(answer)
       .then((result) => {
-        this.displayQuestion();
-        // Read result of the Cloud Function.
-        console.log(result.data.correct);
+        this.upProgressBar(result.data.correct);
+
+        if (this.iteration === this.questionsLength) {
+          const { results } = this.props;
+          results(this.successCounter);
+        } else {
+          this.displayQuestion();
+          this.iteration += 1;
+        }
       });
   };
 
