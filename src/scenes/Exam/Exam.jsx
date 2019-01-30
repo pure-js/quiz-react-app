@@ -104,7 +104,10 @@ class Exam extends PureComponent<Props, State> {
 
         if (this.iteration === this.questionsLength) {
           const { results } = this.props;
-          results(this.successCounter);
+          results({
+            correct: this.successCounter,
+            total: this.questionsLength,
+          });
         } else {
           this.displayQuestion();
           this.iteration += 1;

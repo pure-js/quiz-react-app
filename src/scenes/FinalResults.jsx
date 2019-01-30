@@ -24,8 +24,9 @@ const FinalResults = (props: Props) => {
           </h1>
           <p className={bootstrap['text-center']}>
             Correct answers:
-            {userAnswers}
-             from 20
+            {userAnswers.correct}
+            from
+            {userAnswers.total}
           </p>
         </div>
         <div id="first-screen" className={bootstrap.row}>

@@ -37,7 +37,10 @@ class App extends PureComponent<Props, State> {
       results: false,
     };
 
-    this.userAnswers = 0;
+    this.userAnswers = {
+      correct: 0,
+      total: 0,
+    };
   }
 
   handleExamClick = () => {
