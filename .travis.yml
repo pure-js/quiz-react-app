@@ -10,5 +10,4 @@ deploy:
   github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
   local_dir: dist
   on:
-    branch: master
     tags: true
