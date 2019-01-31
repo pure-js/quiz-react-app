@@ -13,7 +13,9 @@ Production ready build
 npm run build
 ```
 
-## Deploy
+## Manual Deploy
 ```
 npm run deploy
 ```
+## Automatic deploy
+For aytomatic deploy just add new tag, and Travis CI will make a new build
