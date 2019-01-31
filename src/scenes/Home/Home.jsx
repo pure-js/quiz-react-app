@@ -1,9 +1,9 @@
 // @flow
 import React from 'react';
-import classNames from 'classnames';
+import Typography from '@material-ui/core/Typography';
+import Fab from '@material-ui/core/Fab';
+import FlashOnIcon from '@material-ui/icons/FlashOn';
 
-import bootstrap from 'bootstrap/dist/css/bootstrap.css';
-import buttons from '../../components/button.css';
 import styles from './Home.css';
 
 type Props = {
@@ -17,15 +17,19 @@ const Home = (props: Props) => {
     <>
       <div className={styles['arrow-right']} />
       <main className={styles['home-grid']}>
-        <h1>Test your JavaScript skills</h1>
-        <button
+        <Typography component="h1" variant="h3" gutterBottom>
+          Test your JavaScript skills
+        </Typography>
+        <Fab
+          variant="extended"
+          color="primary"
+          size="large"
           id="exam"
-          type="button"
-          className={classNames(styles['exam-btn'], bootstrap.btn, bootstrap['btn-lg'], bootstrap['btn-dark'], bootstrap['mr-2'], buttons.btn_start)}
           onClick={exam}
         >
+          <FlashOnIcon />
           Exam
-        </button>
+        </Fab>
       </main>
     </>
   );

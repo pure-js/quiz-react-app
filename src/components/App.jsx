@@ -1,7 +1,7 @@
 // @flow
 import React, { PureComponent } from 'react';
 import Loadable from 'react-loadable';
-
+import CssBaseline from '@material-ui/core/CssBaseline';
 import Loading from './Loading/Loading';
 
 const LoadableHome = Loadable({
@@ -105,6 +105,7 @@ class App extends PureComponent<Props, State> {
 
     return (
       <>
+        <CssBaseline />
         {screen}
       </>
     );
