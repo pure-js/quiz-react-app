@@ -1,7 +1,7 @@
 {
-  "name": "js-exercises",
+  "name": "code-quiz-web-app",
   "version": "3.1.2",
-  "description": "javascript skills training app",
+  "description": "coding skills training app",
   "main": "src/index.jsx",
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.dev.babel.js --require @babel/register",
@@ -70,10 +70,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/js-quiz/js-quiz-web-app.git"
+    "url": "git+https://github.com/js-quiz/code-quiz-web-app.git"
   },
   "bugs": {
-    "url": "https://github.com/js-quiz/js-quiz-web-app/issues"
+    "url": "https://github.com/js-quiz/code-quiz-web-app/issues"
   },
-  "homepage": "https://github.com/js-quiz/js-quiz-web-app#readme"
+  "homepage": "https://github.com/js-quiz/code-quiz-web-app#readme"
 }
