@@ -1,6 +1,7 @@
 import '@babel/polyfill';
 import path from 'path';
 import webpack from 'webpack';
+import SizePlugin from 'size-plugin';
 import MinifyPlugin from 'babel-minify-webpack-plugin';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
@@ -12,7 +13,10 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 
 const plugins = [
-  new CleanWebpackPlugin(['dist']),
+  new SizePlugin(),
+  new CleanWebpackPlugin(['dist'], {
+    beforeEmit: true,
+  }),
   new CopyWebpackPlugin([
     {
       context: 'static',
