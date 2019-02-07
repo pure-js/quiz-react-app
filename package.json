@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.dev.babel.js --require @babel/register",
     "build": "webpack --require @babel/register --config webpack.prod.babel.js",
-    "deploy": "npm run build && gh-pages -d dist",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "lint": "eslint src/**/*.{js,jsx}",
     "flow": "flow",
     "test": "jest --coverage"
