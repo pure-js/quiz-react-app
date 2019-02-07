@@ -1,5 +1,5 @@
 {
-  "name": "code-quiz-web-app",
+  "name": "code-quiz-react",
   "version": "3.1.2",
   "description": "coding skills training app",
   "main": "src/index.jsx",
@@ -70,10 +70,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/js-quiz/code-quiz-web-app.git"
+    "url": "git+https://github.com/js-quiz/code-quiz-react.git"
   },
   "bugs": {
-    "url": "https://github.com/js-quiz/code-quiz-web-app/issues"
+    "url": "https://github.com/js-quiz/code-quiz-react/issues"
   },
-  "homepage": "https://github.com/js-quiz/code-quiz-web-app#readme"
+  "homepage": "https://github.com/js-quiz/code-quiz-react#readme"
 }
