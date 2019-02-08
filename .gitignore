@@ -9,7 +9,7 @@
 # macOS specific files
 .DS_store
 
-# Istanbul coverage folder
+# Istanbul JS code coverage tool
 coverage/
 
 # Node.js package manager
