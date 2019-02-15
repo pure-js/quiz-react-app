@@ -30,7 +30,7 @@ const TextArea = ({ getInputValue }: Props) => {
     <textarea
       id="console-output"
       value={userAnswer}
-      onInput={handleAnswerChange}
+      onChange={handleAnswerChange}
       rows="2"
       className={styles.console}
     />
