@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
 import styles from './Textarea.css';
 
@@ -7,51 +7,34 @@ type Props = {
   getInputValue: string,
 };
 
-type State = {
-  userAnswer: string,
-};
+const TextArea = ({ getInputValue }: Props) => {
+  const [userAnswer, setUserAnswer] = useState('');
 
-class TextArea extends Component<Props, State> {
-  static hasScrollbar(el) {
-    return el.clientHeight < el.scrollHeight;
-  }
+  const hasScrollbar = el => el.clientHeight < el.scrollHeight;
 
-  static addRow(event: SyntheticEvent<any>) {
+  const addRow = (event: SyntheticEvent<any>) => {
     const { currentTarget } = event;
-    if (TextArea.hasScrollbar(currentTarget)) {
+    if (hasScrollbar(currentTarget)) {
       currentTarget.rows = Number(currentTarget.rows) + 1;
     }
-  }
-
-  constructor(props: Props) {
-    super(props);
-
-    this.state = {
-      userAnswer: '',
-    };
-  }
-
-  handleAnswerChange = (event: SyntheticEvent<any>) => {
-    const { value } = event.currentTarget;
-    this.props.getInputValue(value);
-
-    this.setState({
-      userAnswer: value,
-    });
-    TextArea.addRow(event);
   };
 
-  render() {
-    return (
-      <textarea
-        id="console-output"
-        value={this.userAnswer}
-        onInput={this.handleAnswerChange}
-        rows="2"
-        className={styles.console}
-      />
-    );
-  }
-}
+  const handleAnswerChange = (event: SyntheticEvent<any>) => {
+    const { value } = event.currentTarget;
+    getInputValue(value);
+    setUserAnswer(value);
+    addRow(event);
+  };
+
+  return (
+    <textarea
+      id="console-output"
+      value={userAnswer}
+      onInput={handleAnswerChange}
+      rows="2"
+      className={styles.console}
+    />
+  );
+};
 
 export default TextArea;
