@@ -1,5 +1,5 @@
 // @flow
-import React, { PureComponent } from 'react';
+import React, { useState } from 'react';
 import Loadable from 'react-loadable';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Loading from './Loading/Loading';
@@ -19,97 +19,67 @@ const LoadableFinalResults = Loadable({
   loading: Loading,
 });
 
-type Props = {};
-
-type State = {
-  home: boolean,
-  exam: boolean,
-  results: boolean,
+let userAnswers = {
+  correct: 0,
+  total: 0,
 };
 
-class App extends PureComponent<Props, State> {
-  constructor(props: Props) {
-    super(props);
+const App = () => {
+  const [home, setHome] = useState(true);
+  const [exam, setExam] = useState(false);
+  const [results, setResults] = useState(false);
 
-    this.state = {
-      home: true,
-      exam: false,
-      results: false,
-    };
-
-    this.userAnswers = {
-      correct: 0,
-      total: 0,
-    };
-  }
-
-  handleExamClick = () => {
-    this.setState({
-      home: false,
-      exam: true,
-      results: false,
-    });
-  };
-
-  handleCloseExamClick = () => {
-    this.setState({
-      home: true,
-      exam: false,
-    });
-  };
-
-  handleShowResults = (correctAnswers) => {
-    this.userAnswers = correctAnswers;
-    this.setState({
-      home: false,
-      exam: false,
-      results: true,
-    });
-  };
-
-  returnHome = () => {
-    this.setState({
-      home: true,
-      exam: false,
-      results: false,
-    });
-  };
-
-  render() {
-    let screen;
-    const { home, exam, results } = this.state;
-    if (home) {
-      screen = (
-        <LoadableHome
-          exam={this.handleExamClick}
-        />
-      );
-    }
-    if (exam) {
-      screen = (
-        <LoadableExam
-          home={this.handleCloseExamClick}
-          results={this.handleShowResults}
-        />
-      );
-    }
-    if (results) {
-      screen = (
-        <LoadableFinalResults
-          userAnswers={this.userAnswers}
-          tryAgain={this.handleExamClick}
-          returnHome={this.returnHome}
-        />
-      );
-    }
-
-    return (
-      <>
-        <CssBaseline />
-        {screen}
-      </>
+  let screen;
+  if (home) {
+    screen = (
+      <LoadableHome
+        exam={() => {
+          setHome(false);
+          setExam(true);
+          setResults(false);
+        }}
+      />
+    );
+  } else if (exam) {
+    screen = (
+      <LoadableExam
+        home={() => {
+          setHome(true);
+          setExam(false);
+          setResults(false);
+        }}
+        results={(correctAnswers) => {
+          userAnswers = correctAnswers;
+          setHome(false);
+          setExam(false);
+          setResults(true);
+        }}
+      />
+    );
+  } else if (results) {
+    screen = (
+      <LoadableFinalResults
+        userAnswers={userAnswers}
+        tryAgain={() => {
+          setHome(false);
+          setExam(true);
+          setResults(false);
+        }}
+        returnHome={() => {
+          setHome(true);
+          setExam(false);
+          setResults(false);
+        }}
+      />
     );
   }
-}
+
+  return (
+    <>
+      <CssBaseline />
+      {screen}
+    </>
+  );
+};
 
 export default App;
