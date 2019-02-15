@@ -1,5 +1,5 @@
 // @flow
-import React, { PureComponent } from 'react';
+import React, { useState, useEffect } from 'react';
 import Loadable from 'react-loadable';
 
 import { functions } from '../../services/fireStoreService';
@@ -32,43 +32,32 @@ type State = {
   question: Question,
 };
 
-class Exam extends PureComponent<Props, State> {
-  constructor(props: Props) {
-    super(props);
+let iteration = 1;
+let questionsLength = 5;
+let successCounter = 0;
+let failureCounter = 0;
+let success = {
+  width: '0%',
+};
+let failure = {
+  width: '0%',
+};
 
-    this.iteration = 1;
-    this.questionsLength = 5;
-    this.successCounter = 0;
-    this.failureCounter = 0;
-    this.success = {
-      width: '0%',
-    };
-    this.failure = {
-      width: '0%',
-    };
+let userAnswers = [];
 
-    this.state = {
-      question: {
-        id: '',
-        name: '',
-        category: '',
-        value: '',
-      },
-    };
-    this.userAnswers = [];
-  }
+const Exam = ({ home, results }: Props) => {
+  const [question, setQuestion] = useState({
+    id: '',
+    name: '',
+    category: '',
+    value: '',
+  });
 
-  componentDidMount() {
-    this.displayQuestion();
-  }
-
-  displayQuestion = () => {
+  const displayQuestion = () => {
     getRandomDocument('questions')
       .then(({ data }) => {
         if (data) {
-          this.setState({
-            question: data,
-          });
+          setQuestion(data);
         } else {
           console.error('No such document!');
         }
@@ -77,57 +66,56 @@ class Exam extends PureComponent<Props, State> {
       });
   };
 
-  upProgressBar = (isCorrect) => {
+  useEffect(() => {
+    displayQuestion();
+  });
+
+  const upProgressBar = (isCorrect) => {
     if (isCorrect) {
-      this.successCounter += 1;
-      const percent = (this.successCounter * 100) / this.questionsLength;
-      this.success = {
+      successCounter += 1;
+      const percent = (successCounter * 100) / questionsLength;
+      success = {
         width: `${percent}%`,
       };
     } else {
-      this.failureCounter += 1;
-      const percent = (this.failureCounter * 100) / this.questionsLength;
-      this.failure = {
+      failureCounter += 1;
+      const percent = (failureCounter * 100) / questionsLength;
+      failure = {
         width: `${percent}%`,
       };
     }
   };
 
-  addAnswer = (answer: string): void => {
+  const addAnswer = (answer: string): void => {
     const isCorrectAnswer = functions.httpsCallable('isCorrectAnswer');
     isCorrectAnswer(answer)
       .then((result) => {
-        this.upProgressBar(result.data.correct);
+        upProgressBar(result.data.correct);
 
-        if (this.iteration === this.questionsLength) {
-          const { results } = this.props;
+        if (iteration === questionsLength) {
           results({
-            correct: this.successCounter,
-            total: this.questionsLength,
+            correct: successCounter,
+            total: questionsLength,
           });
         } else {
-          this.displayQuestion();
-          this.iteration += 1;
+          displayQuestion();
+          iteration += 1;
         }
       });
   };
 
-  render() {
-    const { home } = this.props;
-    const { question } = this.state;
-    return (
-      <>
-        <Header home={home} current={this.iteration} total={this.questionsLength} />
-        <ProgressBar success={this.success} failure={this.failure} overall={this.questionsLength} />
-        <section className={`${grid.container} ${grid['container_mobile-no-padding']}`}>
-          <LoadableCode question={question.value} />
-        </section>
-        <section className={grid.container}>
-          <Form userAnswer={this.addAnswer} />
-        </section>
-      </>
-    );
-  }
-}
+  return (
+    <>
+      <Header home={home} current={iteration} total={questionsLength} />
+      <ProgressBar success={success} failure={failure} overall={questionsLength} />
+      <section className={`${grid.container} ${grid['container_mobile-no-padding']}`}>
+        <LoadableCode question={question.value} />
+      </section>
+      <section className={grid.container}>
+        <Form userAnswer={addAnswer} />
+      </section>
+    </>
+  );
+};
 
 export default Exam;
