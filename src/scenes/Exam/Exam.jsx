@@ -1,6 +1,5 @@
 // @flow
 import React, { PureComponent } from 'react';
-import classNames from 'classnames';
 import Loadable from 'react-loadable';
 
 import { functions } from '../../services/fireStoreService';
@@ -120,7 +119,7 @@ class Exam extends PureComponent<Props, State> {
       <>
         <Header home={home} current={this.iteration} total={this.questionsLength} />
         <ProgressBar success={this.success} failure={this.failure} overall={this.questionsLength} />
-        <section className={classNames(grid.container, grid['container_mobile-no-padding'])}>
+        <section className={`${grid.container} ${grid['container_mobile-no-padding']}`}>
           <LoadableCode question={question.value} />
         </section>
         <section className={grid.container}>

@@ -1,6 +1,5 @@
 // @flow
 import React from 'react';
-import classNames from 'classnames';
 
 import bootstrap from 'bootstrap/dist/css/bootstrap.css';
 
@@ -9,19 +8,15 @@ type Props = {
   failure: string,
 };
 
-const ProgressBar = (props: Props) => {
-  const { success, failure } = props;
-
-  return (
-    <>
-      <div style={{ height: '5px' }} className={bootstrap.progress}>
-        <div id="progress-success" style={success} className={classNames(bootstrap['progress-bar'], bootstrap['bg-success'])} />
-      </div>
-      <div style={{ height: '5px' }} className={bootstrap.progress}>
-        <div id="progress-failure" style={failure} className={classNames(bootstrap['progress-bar'], bootstrap['bg-danger'])} />
-      </div>
-    </>
-  );
-};
+const ProgressBar = ({ success, failure }: Props) => (
+  <>
+    <div style={{ height: '5px' }} className={bootstrap.progress}>
+      <div id="progress-success" style={success} className={`${bootstrap['progress-bar']} ${bootstrap['bg-success']}`} />
+    </div>
+    <div style={{ height: '5px' }} className={bootstrap.progress}>
+      <div id="progress-failure" style={failure} className={`${bootstrap['progress-bar']} ${bootstrap['bg-danger']}`} />
+    </div>
+  </>
+);
 
 export default ProgressBar;

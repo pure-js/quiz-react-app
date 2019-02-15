@@ -1,6 +1,5 @@
 // @flow
 import React from 'react';
-import classNames from 'classnames';
 
 import bootstrap from 'bootstrap/dist/css/bootstrap.css';
 import styles from './Header.css';
@@ -18,8 +17,8 @@ const Header = (props: Props) => {
   return (
     <header>
       <div className={grid.container}>
-        <nav className={classNames(bootstrap.navbar, styles['navbar_no-padding'])}>
-          <a href="#" className={bootstrap['navbar-brand']} onClick={home}>JavaScript Quiz</a>
+        <nav className={`${bootstrap.navbar} ${styles['navbar_no-padding']}`}>
+          <button type="button" className={bootstrap['navbar-brand']} onClick={home}>JavaScript Quiz</button>
           <span className={bootstrap['navbar-text']}>
             {current}
             {' of '}
