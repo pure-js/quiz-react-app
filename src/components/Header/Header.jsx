@@ -11,23 +11,19 @@ type Props = {
   total: string,
 };
 
-const Header = (props: Props) => {
-  const { home, current, total } = props;
-
-  return (
-    <header>
-      <div className={grid.container}>
-        <nav className={`${bootstrap.navbar} ${styles['navbar_no-padding']}`}>
-          <button type="button" className={bootstrap['navbar-brand']} onClick={home}>JavaScript Quiz</button>
-          <span className={bootstrap['navbar-text']}>
-            {current}
-            {' of '}
-            {total}
-          </span>
-        </nav>
-      </div>
-    </header>
-  );
-};
+const Header = ({ home, current, total }: Props) => (
+  <header>
+    <div className={grid.container}>
+      <nav className={`${bootstrap.navbar} ${styles['navbar_no-padding']}`}>
+        <a href="#" className={bootstrap['navbar-brand']} onClick={home}>JavaScript Quiz</a>
+        <span className={bootstrap['navbar-text']}>
+          {current}
+          {' of '}
+          {total}
+        </span>
+      </nav>
+    </div>
+  </header>
+);
 
 export default Header;

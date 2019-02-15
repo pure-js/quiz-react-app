@@ -12,9 +12,8 @@ type Props = {
   question: string,
 };
 
-function Code(props: Props) {
-  const { question } = props;
-  return <SyntaxHighlighter language="javascript" style={solarizedLight}>{question}</SyntaxHighlighter>;
-}
+const Code = ({ question }: Props) => (
+  <SyntaxHighlighter language="javascript" style={solarizedLight}>{question}</SyntaxHighlighter>
+);
 
 export default Code;
