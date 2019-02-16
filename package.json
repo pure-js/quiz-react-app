@@ -4,7 +4,7 @@
   "description": "coding skills training app",
   "main": "src/index.jsx",
   "scripts": {
-    "start": "webpack-dev-server --open --config webpack.dev.babel.js --require @babel/register",
+    "start": "webpack-dev-server --open --config webpack.dev.js",
     "build": "webpack --require @babel/register --config webpack.prod.babel.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",

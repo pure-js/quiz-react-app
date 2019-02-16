@@ -1,4 +1,3 @@
-require('@babel/polyfill');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
@@ -19,7 +18,7 @@ const plugins = [
 const config = {
   mode: 'development',
   entry: {
-    app: ['@babel/polyfill', './src/index.jsx'],
+    app: ['./src/index.jsx'],
   },
   plugins,
   module: {
