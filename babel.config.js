@@ -10,7 +10,6 @@ module.exports = (api) => {
   const plugins = [
     '@babel/plugin-transform-regenerator',
     '@babel/plugin-syntax-dynamic-import',
-    '@babel/plugin-proposal-class-properties',
   ];
 
   return {
