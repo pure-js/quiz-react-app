@@ -7,24 +7,19 @@ import FlashOnIcon from '@material-ui/icons/FlashOn';
 
 import styles from './Home.css';
 
-type Props = {
-  exam: boolean
-};
-
-const Home = ({ exam }: Props) => (
+const Home = () => (
   <>
     <div className={styles['arrow-right']} />
     <main className={styles['home-grid']}>
       <Typography component="h1" variant="h3" gutterBottom>
         Test your JavaScript skills
       </Typography>
-      <Link to="/exam">Exam</Link>
       <Fab
+        component={Link}
+        to="/exam"
         variant="extended"
         color="primary"
         size="large"
-        id="exam"
-        onClick={exam}
       >
         <FlashOnIcon />
         Exam
