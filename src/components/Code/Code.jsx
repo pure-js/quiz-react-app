@@ -9,11 +9,11 @@ import solarizedLight from 'react-syntax-highlighter/dist/styles/hljs/solarized-
 SyntaxHighlighter.registerLanguage('javascript', js);
 
 type Props = {
-  question: string,
+  codeString: string,
 };
 
-const Code = ({ question }: Props) => (
-  <SyntaxHighlighter language="javascript" style={solarizedLight}>{question}</SyntaxHighlighter>
+const Code = ({ codeString }: Props) => (
+  <SyntaxHighlighter language="javascript" style={solarizedLight}>{codeString}</SyntaxHighlighter>
 );
 
 export default Code;
