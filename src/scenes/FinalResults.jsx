@@ -20,9 +20,7 @@ const FinalResults = ({ userAnswers, tryAgain, returnHome }: Props) => (
         </h1>
         <p className={bootstrap['text-center']}>
           Correct answers:
-          {userAnswers.correct}
-          from
-          {userAnswers.total}
+          {`${userAnswers.correct} from ${userAnswers.total}`}
         </p>
       </div>
       <div id="first-screen" className={bootstrap.row}>

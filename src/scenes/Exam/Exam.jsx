@@ -45,6 +45,53 @@ let failure = {
 
 let userAnswers = [];
 
+const displayQuestion = (callback) => {
+  getRandomDocument('questions')
+    .then(({ data }) => {
+      if (data) {
+        callback(data);
+      } else {
+        console.error('No such document!');
+      }
+    }).catch((error) => {
+      console.error('Error getting document:', error);
+    });
+};
+
+const upProgressBar = (isCorrect) => {
+  if (isCorrect) {
+    successCounter += 1;
+    const percent = (successCounter * 100) / questionsLength;
+    success = {
+      width: `${percent}%`,
+    };
+  } else {
+    failureCounter += 1;
+    const percent = (failureCounter * 100) / questionsLength;
+    failure = {
+      width: `${percent}%`,
+    };
+  }
+};
+
+const addAnswer = (answer: string, questionCallback: void, resultsCallback: void): void => {
+  const isCorrectAnswer = functions.httpsCallable('isCorrectAnswer');
+  isCorrectAnswer(answer)
+    .then((result) => {
+      upProgressBar(result.data.correct);
+
+      if (iteration === questionsLength) {
+        resultsCallback({
+          correct: successCounter,
+          total: questionsLength,
+        });
+      } else {
+        displayQuestion(questionCallback);
+        iteration += 1;
+      }
+    });
+};
+
 const Exam = ({ home, results }: Props) => {
   const [question, setQuestion] = useState({
     id: '',
@@ -53,56 +100,9 @@ const Exam = ({ home, results }: Props) => {
     value: '',
   });
 
-  const displayQuestion = () => {
-    getRandomDocument('questions')
-      .then(({ data }) => {
-        if (data) {
-          setQuestion(data);
-        } else {
-          console.error('No such document!');
-        }
-      }).catch((error) => {
-        console.error('Error getting document:', error);
-      });
-  };
-
   useEffect(() => {
-    displayQuestion();
-  });
-
-  const upProgressBar = (isCorrect) => {
-    if (isCorrect) {
-      successCounter += 1;
-      const percent = (successCounter * 100) / questionsLength;
-      success = {
-        width: `${percent}%`,
-      };
-    } else {
-      failureCounter += 1;
-      const percent = (failureCounter * 100) / questionsLength;
-      failure = {
-        width: `${percent}%`,
-      };
-    }
-  };
-
-  const addAnswer = (answer: string): void => {
-    const isCorrectAnswer = functions.httpsCallable('isCorrectAnswer');
-    isCorrectAnswer(answer)
-      .then((result) => {
-        upProgressBar(result.data.correct);
-
-        if (iteration === questionsLength) {
-          results({
-            correct: successCounter,
-            total: questionsLength,
-          });
-        } else {
-          displayQuestion();
-          iteration += 1;
-        }
-      });
-  };
+    displayQuestion(setQuestion);
+  }, []);
 
   return (
     <>
@@ -112,7 +112,7 @@ const Exam = ({ home, results }: Props) => {
         <LoadableCode question={question.value} />
       </section>
       <section className={grid.container}>
-        <Form userAnswer={addAnswer} />
+        <Form userAnswer={(answer) => addAnswer(answer, setQuestion, results)} />
       </section>
     </>
   );

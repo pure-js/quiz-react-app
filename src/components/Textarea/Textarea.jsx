@@ -7,17 +7,17 @@ type Props = {
   getInputValue: string,
 };
 
+const hasScrollbar = el => el.clientHeight < el.scrollHeight;
+
+const addRow = (event: SyntheticEvent<any>) => {
+  const { currentTarget } = event;
+  if (hasScrollbar(currentTarget)) {
+    currentTarget.rows = Number(currentTarget.rows) + 1;
+  }
+};
+
 const TextArea = ({ getInputValue }: Props) => {
   const [userAnswer, setUserAnswer] = useState('');
-
-  const hasScrollbar = el => el.clientHeight < el.scrollHeight;
-
-  const addRow = (event: SyntheticEvent<any>) => {
-    const { currentTarget } = event;
-    if (hasScrollbar(currentTarget)) {
-      currentTarget.rows = Number(currentTarget.rows) + 1;
-    }
-  };
 
   const handleAnswerChange = (event: SyntheticEvent<any>) => {
     const { value } = event.currentTarget;
