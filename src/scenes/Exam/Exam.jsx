@@ -102,6 +102,17 @@ const Exam = ({ home, results }: Props) => {
 
   useEffect(() => {
     displayQuestion(setQuestion);
+    return function cleanup() {
+      iteration = 1;
+      successCounter = 0;
+      failureCounter = 0;
+      success = {
+        width: '0%',
+      };
+      failure = {
+        width: '0%',
+      };
+    }
   }, []);
 
   return (
