@@ -18,7 +18,6 @@ const LoadableCode = Loadable({
 });
 
 type Props = {
-  home: void,
   results: void,
 };
 
@@ -32,18 +31,10 @@ type State = {
   question: Question,
 };
 
+const questionsLength = 5;
 let iteration = 1;
-let questionsLength = 5;
 let successCounter = 0;
 let failureCounter = 0;
-let success = {
-  width: '0%',
-};
-let failure = {
-  width: '0%',
-};
-
-let userAnswers = [];
 
 const displayQuestion = (callback) => {
   getRandomDocument('questions')
@@ -61,16 +52,8 @@ const displayQuestion = (callback) => {
 const upProgressBar = (isCorrect) => {
   if (isCorrect) {
     successCounter += 1;
-    const percent = (successCounter * 100) / questionsLength;
-    success = {
-      width: `${percent}%`,
-    };
   } else {
     failureCounter += 1;
-    const percent = (failureCounter * 100) / questionsLength;
-    failure = {
-      width: `${percent}%`,
-    };
   }
 };
 
@@ -92,7 +75,19 @@ const addAnswer = (answer: string, questionCallback: void, resultsCallback: void
     });
 };
 
-const Exam = ({ home, results }: Props) => {
+type ProgressBarWrapperProps = {
+  success?: number,
+  failure?: number,
+  overall: number,
+};
+
+const ProgressBarWrapper = ({ success = 0, failure = 0, overall }: ProgressBarWrapperProps) => {
+  const successBarWidth = `${(success * 100) / overall}%`;
+  const failureBarWidth = `${(failure * 100) / overall}%`;
+  return (<ProgressBar successBar={successBarWidth} failureBar={failureBarWidth} />);
+};
+
+const Exam = ({ results }: Props) => {
   const [question, setQuestion] = useState({
     id: '',
     name: '',
@@ -106,24 +101,18 @@ const Exam = ({ home, results }: Props) => {
       iteration = 1;
       successCounter = 0;
       failureCounter = 0;
-      success = {
-        width: '0%',
-      };
-      failure = {
-        width: '0%',
-      };
-    }
+    };
   }, []);
 
   return (
     <>
-      <Header home={home} current={iteration} total={questionsLength} />
-      <ProgressBar success={success} failure={failure} overall={questionsLength} />
+      <Header current={iteration} total={questionsLength} />
+      <ProgressBarWrapper success={successCounter} failure={failureCounter} overall={questionsLength} />
       <section className={`${grid.container} ${grid['container_mobile-no-padding']}`}>
-        <LoadableCode question={question.value} />
+        <LoadableCode codeString={question.value} />
       </section>
       <section className={grid.container}>
-        <Form userAnswer={(answer) => addAnswer(answer, setQuestion, results)} />
+        <Form userAnswer={answer => addAnswer(answer, setQuestion, results)} />
       </section>
     </>
   );
