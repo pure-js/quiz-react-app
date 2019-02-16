@@ -50,6 +50,7 @@ const config = {
   },
   output: {
     filename: '[name].js',
+    publicPath: '/',
     path: path.resolve(__dirname, '.tmp'),
   },
   devtool: 'inline-source-map',
@@ -61,6 +62,7 @@ const config = {
     port: 7050,
     hot: true,
     open: true,
+    historyApiFallback: true,
     // https: true,
   },
 };
