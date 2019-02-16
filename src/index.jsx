@@ -1,13 +1,15 @@
 // @flow
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom'
 
 import App from './components/App';
 
-ReactDOM.render(
-  <App />,
-  (document.getElementById('root'): any),
-);
+ReactDOM.render((
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+), document.getElementById('root'));
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {

@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 import Fab from '@material-ui/core/Fab';
 import FlashOnIcon from '@material-ui/icons/FlashOn';
@@ -17,6 +18,7 @@ const Home = ({ exam }: Props) => (
       <Typography component="h1" variant="h3" gutterBottom>
         Test your JavaScript skills
       </Typography>
+      <Link to="/exam">Exam</Link>
       <Fab
         variant="extended"
         color="primary"

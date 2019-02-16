@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import bootstrap from 'bootstrap/dist/css/bootstrap.css';
 
@@ -57,6 +58,7 @@ const UserAnswer = ({ userAnswer }: Props) => (
       >
         {'I don\'t know'}
       </button>
+      <Link to="/results">See results</Link>
     </div>
   </form>
 );
