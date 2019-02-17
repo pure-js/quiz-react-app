@@ -70,10 +70,6 @@ const config = {
     historyApiFallback: true,
     // https: true,
   },
-  externals: {
-    react: 'React',
-    'react-dom': 'ReactDOM',
-  },
 };
 
 module.exports = config;
