@@ -24,7 +24,9 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/, loader: 'awesome-typescript-loader',
+        test: /\.tsx?$/,
+        exclude: /(node_modules)/,
+        loader: 'awesome-typescript-loader',
       },
       {
         enforce: 'pre', test: /\.js$/, loader: 'source-map-loader',
