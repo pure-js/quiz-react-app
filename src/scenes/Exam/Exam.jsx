@@ -7,6 +7,7 @@ import getRandomDocument from '../../services/getQuestions';
 import Form from '../../components/Form/Form';
 import Header from '../../components/Header/Header';
 import ProgressBar from '../../components/ProgressBar';
+import ErrorBoundary from '../../components/ErrorBoundary';
 
 import grid from '../../components/Grid/Grid.css';
 import Loading from '../../components/Loading/Loading';
@@ -108,7 +109,9 @@ const Exam = ({ results }) => {
       <Header current={iteration} total={questionsLength} />
       <ProgressBarWrapper success={successCounter} failure={failureCounter} overall={questionsLength} />
       <section className={`${grid.container} ${grid['container_mobile-no-padding']}`}>
-        <LoadableCode codeString={question.value} />
+        <ErrorBoundary>
+          <LoadableCode codeString={question.value} />
+        </ErrorBoundary>
       </section>
       <section className={grid.container}>
         <Form userAnswer={answer => addAnswer(answer, setQuestion, results)} />
