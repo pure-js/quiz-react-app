@@ -3,6 +3,7 @@
   "version": "3.1.2",
   "description": "coding skills training app",
   "main": "src/index.tsx",
+  "homepage": "https://js-quiz.github.io/code-quiz-react/",
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.dev.js",
     "build": "webpack --require @babel/register --config webpack.prod.babel.js",
@@ -81,6 +82,5 @@
   },
   "bugs": {
     "url": "https://github.com/js-quiz/code-quiz-react/issues"
-  },
-  "homepage": "https://github.com/js-quiz/code-quiz-react#readme"
+  }
 }

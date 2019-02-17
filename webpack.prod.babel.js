@@ -53,6 +53,7 @@ const plugins = [
 
 const module = {
   rules: [
+    { test: /\.tsx?$/, loader: 'awesome-typescript-loader' },
     {
       test: /\.(js|jsx)$/,
       exclude: /(node_modules)/,
