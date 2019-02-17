@@ -1,4 +1,3 @@
-// @flow
 import React from 'react';
 import { LightAsync as SyntaxHighlighter } from 'react-syntax-highlighter';
 import js from 'react-syntax-highlighter/dist/languages/hljs/javascript';
@@ -8,11 +7,11 @@ import solarizedLight from 'react-syntax-highlighter/dist/styles/hljs/solarized-
 
 SyntaxHighlighter.registerLanguage('javascript', js);
 
-type Props = {
-  codeString: string,
-};
+// type Props = {
+//   codeString: string,
+// };
 
-const Code = ({ codeString }: Props) => (
+const Code = ({ codeString }) => (
   <SyntaxHighlighter language="javascript" style={solarizedLight}>{codeString}</SyntaxHighlighter>
 );
 

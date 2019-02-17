@@ -1,4 +1,3 @@
-// @flow
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -6,11 +5,11 @@ import bootstrap from 'bootstrap/dist/css/bootstrap.css';
 import buttons from '../components/button.css';
 import grid from '../components/Grid/Grid.css';
 
-type Props = {
-  userAnswers: Array<string>,
-};
+// type Props = {
+//   userAnswers: Array<string>,
+// };
 
-const FinalResults = ({ userAnswers }: Props) => (
+const FinalResults = ({ userAnswers }) => (
   <>
     <main className={grid.container}>
       <div>

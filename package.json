@@ -2,14 +2,14 @@
   "name": "code-quiz-react",
   "version": "3.1.2",
   "description": "coding skills training app",
-  "main": "src/index.jsx",
+  "main": "src/index.tsx",
+  "homepage": "https://js-quiz.github.io/code-quiz-react/",
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.dev.js",
     "build": "webpack --require @babel/register --config webpack.prod.babel.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "lint": "eslint src/**/*.{js,jsx}",
-    "flow": "flow",
     "test": "jest --coverage"
   },
   "author": "pure-js",
@@ -17,6 +17,9 @@
   "dependencies": {
     "@material-ui/core": "^3.9.2",
     "@material-ui/icons": "^3.0.2",
+    "@types/react": "^16.8.3",
+    "@types/react-dom": "^16.8.2",
+    "@types/react-router-dom": "^4.3.1",
     "bootstrap": "^4.3.1",
     "firebase": "^5.8.3",
     "react": "^16.8.2",
@@ -32,10 +35,10 @@
     "@babel/plugin-transform-regenerator": "^7.0.0",
     "@babel/polyfill": "^7.2.5",
     "@babel/preset-env": "^7.3.1",
-    "@babel/preset-flow": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.0.0",
     "@babel/runtime": "^7.3.1",
+    "awesome-typescript-loader": "^5.2.1",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.1.0",
     "babel-loader": "^8.0.5",
@@ -50,7 +53,6 @@
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
-    "flow-bin": "^0.93.0",
     "gh-pages": "^2.0.1",
     "html-webpack-plugin": "^3.2.0",
     "jest": "^24.1.0",
@@ -58,7 +60,9 @@
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "script-ext-html-webpack-plugin": "^2.1.3",
     "size-plugin": "^1.1.2",
+    "source-map-loader": "^0.2.4",
     "style-loader": "^0.23.1",
+    "typescript": "^3.3.3",
     "uglifyjs-webpack-plugin": "^2.1.1",
     "webpack": "^4.29.4",
     "webpack-cli": "^3.2.3",
@@ -75,6 +79,5 @@
   },
   "bugs": {
     "url": "https://github.com/js-quiz/code-quiz-react/issues"
-  },
-  "homepage": "https://github.com/js-quiz/code-quiz-react#readme"
+  }
 }

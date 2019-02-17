@@ -1,25 +1,28 @@
-// @flow
 import React, { useState } from 'react';
 
+// declare module './Textarea.css' {
+//   const css: any
+//   export default css
+// }
 import styles from './Textarea.css';
 
-type Props = {
-  getInputValue: string,
-};
+// interface Props {
+//   getInputValue: string,
+// }
 
 const hasScrollbar = el => el.clientHeight < el.scrollHeight;
 
-const addRow = (event: SyntheticEvent<any>) => {
+const addRow = (event) => {
   const { currentTarget } = event;
   if (hasScrollbar(currentTarget)) {
     currentTarget.rows = Number(currentTarget.rows) + 1;
   }
 };
 
-const TextArea = ({ getInputValue }: Props) => {
+const TextArea = ({ getInputValue }) => {
   const [userAnswer, setUserAnswer] = useState('');
 
-  const handleAnswerChange = (event: SyntheticEvent<any>) => {
+  const handleAnswerChange = (event) => {
     const { value } = event.currentTarget;
     getInputValue(value);
     setUserAnswer(value);

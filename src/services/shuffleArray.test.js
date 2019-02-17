@@ -1,4 +1,3 @@
-// @flow
 import shuffleArray from './shuffleArray';
 import floatToInteger from './floatToInteger';
 

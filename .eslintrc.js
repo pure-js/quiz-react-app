@@ -1,6 +1,5 @@
 module.exports = {
   extends: [
-    'plugin:flowtype/recommended',
     'airbnb'
   ],
   env: {
@@ -8,12 +7,4 @@ module.exports = {
     jest: true,
   },
   parser: 'babel-eslint',
-  plugins: [
-    "flowtype",
-  ],
-  settings: {
-    "flowtype": {
-      "onlyFilesWithFlowAnnotation": false
-    }
-  }
 };
