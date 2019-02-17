@@ -10,10 +10,10 @@ import bootstrap from 'bootstrap/dist/css/bootstrap.css';
 const ProgressBar = ({ successBar, failureBar }) => (
   <>
     <div style={{ height: '5px' }} className={bootstrap.progress}>
-      <div id="progress-success" style={{ width: successBar }} className={`${bootstrap['progress-bar']} ${bootstrap['bg-success']}`} />
+      <div style={{ width: successBar }} className={`${bootstrap['progress-bar']} ${bootstrap['bg-success']}`} />
     </div>
     <div style={{ height: '5px' }} className={bootstrap.progress}>
-      <div id="progress-failure" style={{ width: failureBar }} className={`${bootstrap['progress-bar']} ${bootstrap['bg-danger']}`} />
+      <div style={{ width: failureBar }} className={`${bootstrap['progress-bar']} ${bootstrap['bg-danger']}`} />
     </div>
   </>
 );
