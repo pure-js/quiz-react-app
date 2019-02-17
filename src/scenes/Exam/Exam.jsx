@@ -16,19 +16,19 @@ const LoadableCode = Loadable({
   loading: Loading,
 });
 
-type Props = {
-  results: void,
-};
+// type Props = {
+//   results: void,
+// };
 
-type Question = {
-  name: string,
-  category: string,
-  value: string,
-};
+// type Question = {
+//   name: string,
+//   category: string,
+//   value: string,
+// };
 
-type State = {
-  question: Question,
-};
+// type State = {
+//   question: Question,
+// };
 
 const questionsLength = 5;
 let iteration = 1;
@@ -56,7 +56,7 @@ const upProgressBar = (isCorrect) => {
   }
 };
 
-const addAnswer = (answer: string, questionCallback: void, resultsCallback: void): void => {
+const addAnswer = (answer, questionCallback, resultsCallback) => {
   const isCorrectAnswer = functions.httpsCallable('isCorrectAnswer');
   isCorrectAnswer(answer)
     .then((result) => {
@@ -74,19 +74,19 @@ const addAnswer = (answer: string, questionCallback: void, resultsCallback: void
     });
 };
 
-type ProgressBarWrapperProps = {
-  success?: number,
-  failure?: number,
-  overall: number,
-};
+// type ProgressBarWrapperProps = {
+//   success?: number,
+//   failure?: number,
+//   overall: number,
+// };
 
-const ProgressBarWrapper = ({ success = 0, failure = 0, overall }: ProgressBarWrapperProps) => {
+const ProgressBarWrapper = ({ success = 0, failure = 0, overall }) => {
   const successBarWidth = `${(success * 100) / overall}%`;
   const failureBarWidth = `${(failure * 100) / overall}%`;
   return (<ProgressBar successBar={successBarWidth} failureBar={failureBarWidth} />);
 };
 
-const Exam = ({ results }: Props) => {
+const Exam = ({ results }) => {
   const [question, setQuestion] = useState({
     id: '',
     name: '',

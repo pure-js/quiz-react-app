@@ -5,12 +5,12 @@ import bootstrap from 'bootstrap/dist/css/bootstrap.css';
 import styles from './Header.css';
 import grid from '../Grid/Grid.css';
 
-type Props = {
-  current: string,
-  total: string,
-};
+// type Props = {
+//   current: string,
+//   total: string,
+// };
 
-const Header = ({ current, total }: Props) => (
+const Header = ({ current, total }) => (
   <header>
     <div className={grid.container}>
       <nav className={`${bootstrap.navbar} ${styles['navbar_no-padding']}`}>

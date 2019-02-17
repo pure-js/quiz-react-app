@@ -2,12 +2,12 @@ import React from 'react';
 
 import bootstrap from 'bootstrap/dist/css/bootstrap.css';
 
-type Props = {
-  successBar: string,
-  failureBar: string,
-};
+// type Props = {
+//   successBar: string,
+//   failureBar: string,
+// };
 
-const ProgressBar = ({ successBar, failureBar }: Props) => (
+const ProgressBar = ({ successBar, failureBar }) => (
   <>
     <div style={{ height: '5px' }} className={bootstrap.progress}>
       <div id="progress-success" style={{ width: successBar }} className={`${bootstrap['progress-bar']} ${bootstrap['bg-success']}`} />

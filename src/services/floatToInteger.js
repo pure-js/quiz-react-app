@@ -1,2 +1,2 @@
-const floatToInteger = (max: number, float: number) => Math.floor(float * (max + 1));
+const floatToInteger = (max, float) => Math.floor(float * (max + 1));
 export default floatToInteger;
