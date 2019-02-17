@@ -1,4 +1,3 @@
-// @flow
 type Question = {
   name: string
 };

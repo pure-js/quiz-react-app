@@ -1,4 +1,3 @@
-// @flow
 import floatToInteger from './floatToInteger';
 
 function shuffleArray(arr: Array<any>) {

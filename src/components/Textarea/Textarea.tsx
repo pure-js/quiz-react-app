@@ -1,11 +1,14 @@
-// @flow
 import React, { useState } from 'react';
 
+declare module './Textarea.css' {
+  const css: any
+  export default css
+}
 import styles from './Textarea.css';
 
-type Props = {
+interface Props {
   getInputValue: string,
-};
+}
 
 const hasScrollbar = el => el.clientHeight < el.scrollHeight;
 

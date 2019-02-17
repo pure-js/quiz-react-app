@@ -18,11 +18,17 @@ const plugins = [
 const config = {
   mode: 'development',
   entry: {
-    app: ['./src/index.jsx'],
+    app: ['./src/index.tsx'],
   },
   plugins,
   module: {
     rules: [
+      {
+        test: /\.tsx?$/, loader: 'awesome-typescript-loader',
+      },
+      {
+        enforce: 'pre', test: /\.js$/, loader: 'source-map-loader',
+      },
       {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules)/,
@@ -54,7 +60,7 @@ const config = {
   },
   devtool: 'inline-source-map',
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
   devServer: {
     contentBase: 'dist',
@@ -63,6 +69,10 @@ const config = {
     open: true,
     historyApiFallback: true,
     // https: true,
+  },
+  externals: {
+    react: 'React',
+    'react-dom': 'ReactDOM',
   },
 };
 

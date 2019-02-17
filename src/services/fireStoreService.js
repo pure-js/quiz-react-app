@@ -1,4 +1,3 @@
-// @flow
 import 'firebase/firestore';
 import 'firebase/functions';
 import firebaseService from './firebaseService';

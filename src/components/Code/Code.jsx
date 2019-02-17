@@ -1,4 +1,3 @@
-// @flow
 import React from 'react';
 import { LightAsync as SyntaxHighlighter } from 'react-syntax-highlighter';
 import js from 'react-syntax-highlighter/dist/languages/hljs/javascript';
