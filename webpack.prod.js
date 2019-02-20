@@ -1,16 +1,16 @@
-import '@babel/polyfill';
-import path from 'path';
-import webpack from 'webpack';
-import SizePlugin from 'size-plugin';
-import MinifyPlugin from 'babel-minify-webpack-plugin';
-import CleanWebpackPlugin from 'clean-webpack-plugin';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import ScriptExtHtmlWebpackPlugin from 'script-ext-html-webpack-plugin';
-import { GenerateSW } from 'workbox-webpack-plugin';
-import CopyWebpackPlugin from 'copy-webpack-plugin';
-import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import OptimizeCssAssetsPlugin from 'optimize-css-assets-webpack-plugin';
+const path = require('path');
+const webpack = require('webpack');
+const SizePlugin = require('size-plugin');
+const MinifyPlugin = require('babel-minify-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+const { GenerateSW } = require('workbox-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const plugins = [
   new SizePlugin(),
@@ -49,9 +49,12 @@ const plugins = [
     clientsClaim: true,
     skipWaiting: true,
   }),
+  new BundleAnalyzerPlugin({
+    generateStatsFile: true,
+  }),
 ];
 
-const module = {
+const moduleWebpack = {
   rules: [
     { test: /\.tsx?$/, loader: 'awesome-typescript-loader' },
     {
@@ -79,10 +82,10 @@ const module = {
 const config = {
   mode: 'production',
   entry: {
-    app: ['@babel/polyfill', './src/index.tsx'],
+    app: ['./src/index.tsx'],
   },
   plugins,
-  module,
+  module: moduleWebpack,
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
@@ -98,9 +101,9 @@ const config = {
         parallel: true,
         sourceMap: false,
       }),
-      new OptimizeCssAssetsPlugin({}),
+      new OptimizeCssAssetsPlugin(),
     ],
   },
 };
 
-export default config;
+module.exports = config;

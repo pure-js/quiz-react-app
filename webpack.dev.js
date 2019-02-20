@@ -70,7 +70,6 @@ const config = {
     hot: true,
     open: true,
     historyApiFallback: true,
-    // https: true,
   },
 };
 

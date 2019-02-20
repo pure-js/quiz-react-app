@@ -5,8 +5,8 @@
   "main": "src/index.tsx",
   "homepage": "https://js-quiz.github.io/code-quiz-react/",
   "scripts": {
-    "start": "webpack-dev-server --open --config webpack.dev.js",
-    "build": "webpack --require @babel/register --config webpack.prod.babel.js",
+    "start": "webpack-dev-server --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "lint": "eslint src/**/*.{js,jsx}",
@@ -46,6 +46,7 @@
     "babel-jest": "^24.1.0",
     "babel-loader": "^8.0.5",
     "babel-minify-webpack-plugin": "^0.3.1",
+    "babel-plugin-transform-imports": "^1.5.1",
     "clean-webpack-plugin": "^1.0.1",
     "copy-webpack-plugin": "^4.6.0",
     "css-loader": "^2.1.0",
@@ -68,6 +69,7 @@
     "typescript": "^3.3.3",
     "uglifyjs-webpack-plugin": "^2.1.1",
     "webpack": "^4.29.4",
+    "webpack-bundle-analyzer": "^3.0.4",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.1.14",
     "workbox-webpack-plugin": "^3.6.3"
