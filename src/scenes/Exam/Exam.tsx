@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import Loadable from 'react-loadable';
 
 import { functions } from '../../services/fireStoreService';
@@ -75,13 +75,13 @@ const addAnswer = (answer, questionCallback, resultsCallback) => {
     });
 };
 
-// type ProgressBarWrapperProps = {
-//   success?: number,
-//   failure?: number,
-//   overall: number,
-// };
+interface IProgressBarWrapperProps {
+  success?: number,
+  failure?: number,
+  overall: number,
+}
 
-const ProgressBarWrapper = ({ success = 0, failure = 0, overall }) => {
+const ProgressBarWrapper = ({ success = 0, failure = 0, overall }: IProgressBarWrapperProps) => {
   const successBarWidth = `${(success * 100) / overall}%`;
   const failureBarWidth = `${(failure * 100) / overall}%`;
   return (<ProgressBar successBar={successBarWidth} failureBar={failureBarWidth} />);
@@ -120,4 +120,4 @@ const Exam = ({ results }) => {
   );
 };
 
-export default Exam;
+export default memo(Exam);

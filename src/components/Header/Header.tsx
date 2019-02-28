@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 
 import bootstrap from 'bootstrap/dist/css/bootstrap.css';
 import styles from './Header.css';
 import grid from '../Grid/Grid.css';
 
-// type Props = {
-//   current: string,
-//   total: string,
-// };
+interface IProps {
+  current: string,
+  total: string,
+}
 
-const Header = ({ current, total }) => (
+const Header = ({ current, total }: IProps) => (
   <header>
     <div className={grid.container}>
       <nav className={`${bootstrap.navbar} ${styles['navbar_no-padding']}`}>
@@ -25,4 +25,4 @@ const Header = ({ current, total }) => (
   </header>
 );
 
-export default Header;
+export default memo(Header);

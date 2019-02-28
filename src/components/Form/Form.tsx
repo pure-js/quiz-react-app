@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 
 import bootstrap from 'bootstrap/dist/css/bootstrap.css';
@@ -8,9 +8,9 @@ import Textarea from '../Textarea/Textarea';
 import button from '../button.css';
 import styles from './Form.css';
 
-// type Props = {
-//   userAnswer: void,
-// };
+interface IProps {
+  userAnswer: void,
+}
 
 let data = '';
 
@@ -18,7 +18,7 @@ const getValue = (value) => {
   data = value;
 };
 
-const UserAnswer = ({ userAnswer }) => (
+const UserAnswer = ({ userAnswer }: IProps) => (
   <form>
     <div className={bootstrap['form-group']}>
       <label className={styles['console-label']} htmlFor="console-output">
@@ -62,4 +62,4 @@ const UserAnswer = ({ userAnswer }) => (
   </form>
 );
 
-export default UserAnswer;
+export default memo(UserAnswer);

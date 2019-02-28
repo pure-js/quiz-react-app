@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 
 import bootstrap from 'bootstrap/dist/css/bootstrap.css';
 import buttons from '../components/button.css';
 import grid from '../components/Grid/Grid.css';
 
-// type Props = {
-//   userAnswers: Array<string>,
-// };
+interface IPropsFinalResults {
+  userAnswers: Array<string>,
+}
 
-const FinalResults = ({ userAnswers }) => (
+const FinalResults = ({ userAnswers }: IPropsFinalResults) => (
   <>
     <main className={grid.container}>
       <div>
@@ -47,4 +47,4 @@ const FinalResults = ({ userAnswers }) => (
   </>
 );
 
-export default FinalResults;
+export default memo(FinalResults);
