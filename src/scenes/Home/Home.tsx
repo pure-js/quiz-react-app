@@ -6,7 +6,7 @@ import FlashOnIcon from '@material-ui/icons/FlashOn';
 
 import styles from './Home.css';
 
-const Home = () => (
+const Home: React.FC = () => (
   <>
     <div className={styles['arrow-right']} />
     <main className={styles['home-grid']}>

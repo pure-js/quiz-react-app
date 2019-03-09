@@ -6,8 +6,8 @@ import React, { useState } from 'react';
 // }
 import styles from './Textarea.css';
 
-interface IProps {
-  getInputValue: string,
+type IProps = {
+  getInputValue: string;
 }
 
 const hasScrollbar = el => el.clientHeight < el.scrollHeight;
@@ -19,7 +19,7 @@ const addRow = (event) => {
   }
 };
 
-const TextArea = ({ getInputValue }: IProps) => {
+const TextArea: React.FC<IProps> = ({ getInputValue }) => {
   const [userAnswer, setUserAnswer] = useState('');
 
   const handleAnswerChange = (event) => {

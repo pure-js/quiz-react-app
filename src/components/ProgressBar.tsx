@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import bootstrap from 'bootstrap/dist/css/bootstrap.css';
 
-interface IProps {
-  successBar: string,
-  failureBar: string,
+type IProps = {
+  successBar: string;
+  failureBar: string;
 }
 
-const ProgressBar = ({ successBar, failureBar }: IProps) => (
+const ProgressBar: React.FC<IProps> = ({ successBar, failureBar }) => (
   <>
     <div style={{ height: '5px' }} className={bootstrap.progress}>
       <div style={{ width: successBar }} className={`${bootstrap['progress-bar']} ${bootstrap['bg-success']}`} />
@@ -18,4 +18,4 @@ const ProgressBar = ({ successBar, failureBar }: IProps) => (
   </>
 );
 
-export default ProgressBar;
+export default memo(ProgressBar);

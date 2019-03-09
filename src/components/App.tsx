@@ -6,7 +6,7 @@ import Home from '../scenes/Home/Home';
 import Exam from '../scenes/Exam/Exam';
 import FinalResults from '../scenes/FinalResults';
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <CssBaseline />
     <Route path="/" exact component={Home} />

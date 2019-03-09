@@ -17,9 +17,9 @@ const LoadableCode = Loadable({
   loading: Loading,
 });
 
-// type Props = {
-//   results: void,
-// };
+type IProps = {
+  results: void,
+};
 
 // type Question = {
 //   name: string,
@@ -87,7 +87,7 @@ const ProgressBarWrapper = ({ success = 0, failure = 0, overall }: IProgressBarW
   return (<ProgressBar successBar={successBarWidth} failureBar={failureBarWidth} />);
 };
 
-const Exam = ({ results }) => {
+const Exam: React.FC<IProps> = ({ results }) => {
   const [question, setQuestion] = useState({
     id: '',
     name: '',

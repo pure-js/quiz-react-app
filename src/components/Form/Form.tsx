@@ -8,8 +8,8 @@ import Textarea from '../Textarea/Textarea';
 import button from '../button.css';
 import styles from './Form.css';
 
-interface IProps {
-  userAnswer: void,
+type IProps = {
+  userAnswer: void;
 }
 
 let data = '';
@@ -18,7 +18,7 @@ const getValue = (value) => {
   data = value;
 };
 
-const UserAnswer = ({ userAnswer }: IProps) => (
+const UserAnswer: React.FC<IProps> = ({ userAnswer }) => (
   <form>
     <div className={bootstrap['form-group']}>
       <label className={styles['console-label']} htmlFor="console-output">

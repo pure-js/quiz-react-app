@@ -5,12 +5,12 @@ import bootstrap from 'bootstrap/dist/css/bootstrap.css';
 import styles from './Header.css';
 import grid from '../Grid/Grid.css';
 
-interface IProps {
-  current: string,
-  total: string,
+type IProps = {
+  current: string;
+  total: string;
 }
 
-const Header = ({ current, total }: IProps) => (
+const Header: React.FC<IProps> = ({ current, total }) => (
   <header>
     <div className={grid.container}>
       <nav className={`${bootstrap.navbar} ${styles['navbar_no-padding']}`}>

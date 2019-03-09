@@ -5,11 +5,11 @@ import bootstrap from 'bootstrap/dist/css/bootstrap.css';
 import buttons from '../components/button.css';
 import grid from '../components/Grid/Grid.css';
 
-interface IPropsFinalResults {
-  userAnswers: Array<string>,
+type IPropsFinalResults = {
+  userAnswers: string[];
 }
 
-const FinalResults = ({ userAnswers }: IPropsFinalResults) => (
+const FinalResults: React.FC<IPropsFinalResults> = ({ userAnswers }) => (
   <>
     <main className={grid.container}>
       <div>
