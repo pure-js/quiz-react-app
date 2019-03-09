@@ -36,7 +36,7 @@ let iteration = 1;
 let successCounter = 0;
 let failureCounter = 0;
 
-const displayQuestion = (callback) => {
+const displayQuestion = (callback: void) => {
   getRandomDocument('questions')
     .then(({ data }) => {
       if (data) {
@@ -49,7 +49,7 @@ const displayQuestion = (callback) => {
     });
 };
 
-const upProgressBar = (isCorrect) => {
+const upProgressBar = (isCorrect: boolean) => {
   if (isCorrect) {
     successCounter += 1;
   } else {

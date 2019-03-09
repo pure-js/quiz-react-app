@@ -10,9 +10,9 @@ type IProps = {
   getInputValue: string;
 }
 
-const hasScrollbar = el => el.clientHeight < el.scrollHeight;
+const hasScrollbar = (el: HTMLElement) => el.clientHeight < el.scrollHeight;
 
-const addRow = (event) => {
+const addRow = (event: React.FormEvent<HTMLInputElement>) => {
   const { currentTarget } = event;
   if (hasScrollbar(currentTarget)) {
     currentTarget.rows = Number(currentTarget.rows) + 1;
@@ -22,7 +22,7 @@ const addRow = (event) => {
 const TextArea: React.FC<IProps> = ({ getInputValue }) => {
   const [userAnswer, setUserAnswer] = useState('');
 
-  const handleAnswerChange = (event) => {
+  const handleAnswerChange = (event: React.FormEvent<HTMLInputElement>) => {
     const { value } = event.currentTarget;
     getInputValue(value);
     setUserAnswer(value);
@@ -34,7 +34,7 @@ const TextArea: React.FC<IProps> = ({ getInputValue }) => {
       id="console-output"
       value={userAnswer}
       onChange={handleAnswerChange}
-      rows="2"
+      rows={2}
       className={styles.console}
     />
   );
