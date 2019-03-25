@@ -57,7 +57,7 @@ const upProgressBar = (isCorrect: boolean) => {
   }
 };
 
-const addAnswer = (answer, questionCallback, resultsCallback) => {
+const addAnswer = (answer: string, questionCallback: void, resultsCallback: void) => {
   const isCorrectAnswer = functions.httpsCallable('isCorrectAnswer');
   isCorrectAnswer(answer)
     .then((result) => {

@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
 
-// declare module './Textarea.css' {
-//   const css: any
-//   export default css
-// }
 import styles from './Textarea.css';
 
 type IProps = {
-  getInputValue: string;
+  getInputValue: () => string;
 }
 
 const hasScrollbar = (el: HTMLElement) => el.clientHeight < el.scrollHeight;
