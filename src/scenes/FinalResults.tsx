@@ -9,7 +9,7 @@ type IPropsFinalResults = {
   userAnswers: string[];
 }
 
-const FinalResults: React.FC<IPropsFinalResults> = ({ userAnswers }) => (
+const FinalResults = ({ userAnswers }: IPropsFinalResults) => (
   <>
     <main className={grid.container}>
       <div>

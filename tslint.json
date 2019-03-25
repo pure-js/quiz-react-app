@@ -4,6 +4,8 @@
         "tslint:recommended"
     ],
     "jsRules": {},
-    "rules": {},
+    "rules": {
+        "typedef": [true, "call-signature", "arrow-call-signature"]
+    },
     "rulesDirectory": []
 }

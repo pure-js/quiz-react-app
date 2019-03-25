@@ -87,7 +87,7 @@ const ProgressBarWrapper = ({ success = 0, failure = 0, overall }: IProgressBarW
   return (<ProgressBar successBar={successBarWidth} failureBar={failureBarWidth} />);
 };
 
-const Exam: React.FC<IProps> = ({ results }) => {
+const Exam = ({ results }: IProps) => {
   const [question, setQuestion] = useState({
     id: '',
     name: '',
@@ -114,7 +114,7 @@ const Exam: React.FC<IProps> = ({ results }) => {
         </ErrorBoundary>
       </section>
       <section className={grid.container}>
-        <Form userAnswer={answer => addAnswer(answer, setQuestion, results)} />
+        <Form userAnswer={(answer: string) => addAnswer(answer, setQuestion, results)} />
       </section>
     </>
   );

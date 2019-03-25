@@ -10,7 +10,7 @@ type IProps = {
   total: string;
 }
 
-const Header: React.FC<IProps> = ({ current, total }) => (
+const Header = ({ current, total }: IProps) => (
   <header>
     <div className={grid.container}>
       <nav className={`${bootstrap.navbar} ${styles['navbar_no-padding']}`}>

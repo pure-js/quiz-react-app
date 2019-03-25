@@ -15,7 +15,7 @@ const addRow = (event: React.FormEvent<HTMLInputElement>) => {
   }
 };
 
-const TextArea: React.FC<IProps> = ({ getInputValue }) => {
+const TextArea = ({ getInputValue }: IProps) => {
   const [userAnswer, setUserAnswer] = useState('');
 
   const handleAnswerChange = (event: React.FormEvent<HTMLInputElement>) => {

@@ -18,7 +18,7 @@ const getValue = (value: string) => {
   data = value;
 };
 
-const UserAnswer: React.FC<IProps> = ({ userAnswer }) => (
+const UserAnswer = ({ userAnswer }: IProps) => (
   <form>
     <div className={bootstrap['form-group']}>
       <label className={styles['console-label']} htmlFor="console-output">
