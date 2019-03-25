@@ -14,7 +14,7 @@ type IProps = {
 
 let data = '';
 
-const getValue = (value) => {
+const getValue = (value: string) => {
   data = value;
 };
 
