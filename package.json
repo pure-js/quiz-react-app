@@ -10,6 +10,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "lint": "tslint src/**/*.{ts,tsx}",
+    "analyze": "webpack --profile --json > stats.json --config webpack.prod.js",
     "test": "jest --coverage"
   },
   "author": "pure-js",
@@ -64,7 +65,7 @@
     "typescript": "^3.3.4000",
     "uglifyjs-webpack-plugin": "^2.1.2",
     "webpack": "^4.29.6",
-    "webpack-bundle-analyzer": "^3.0.4",
+    "webpack-bundle-analyzer": "^3.4.1",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.2.1",
     "workbox-webpack-plugin": "^4.0.0"

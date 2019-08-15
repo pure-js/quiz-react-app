@@ -1,0 +1,23 @@
+{
+  "errors": [
+    "Entry module not found: Error: Can't resolve './src' in '/Users/ace/Repositories/code-quiz-react'\nresolve './src' in '/Users/ace/Repositories/code-quiz-react'\n  using description file: /Users/ace/Repositories/code-quiz-react/package.json (relative path: .)\n    Field 'browser' doesn't contain a valid alias configuration\n    using description file: /Users/ace/Repositories/code-quiz-react/package.json (relative path: ./src)\n      no extension\n        Field 'browser' doesn't contain a valid alias configuration\n        /Users/ace/Repositories/code-quiz-react/src is not a file\n      .wasm\n        Field 'browser' doesn't contain a valid alias configuration\n        /Users/ace/Repositories/code-quiz-react/src.wasm doesn't exist\n      .mjs\n        Field 'browser' doesn't contain a valid alias configuration\n        /Users/ace/Repositories/code-quiz-react/src.mjs doesn't exist\n      .js\n        Field 'browser' doesn't contain a valid alias configuration\n        /Users/ace/Repositories/code-quiz-react/src.js doesn't exist\n      .json\n        Field 'browser' doesn't contain a valid alias configuration\n        /Users/ace/Repositories/code-quiz-react/src.json doesn't exist\n      as directory\n        existing directory\n          using path: /Users/ace/Repositories/code-quiz-react/src/index\n            using description file: /Users/ace/Repositories/code-quiz-react/package.json (relative path: ./src/index)\n              no extension\n                Field 'browser' doesn't contain a valid alias configuration\n                /Users/ace/Repositories/code-quiz-react/src/index doesn't exist\n              .wasm\n                Field 'browser' doesn't contain a valid alias configuration\n                /Users/ace/Repositories/code-quiz-react/src/index.wasm doesn't exist\n              .mjs\n                Field 'browser' doesn't contain a valid alias configuration\n                /Users/ace/Repositories/code-quiz-react/src/index.mjs doesn't exist\n              .js\n                Field 'browser' doesn't contain a valid alias configuration\n                /Users/ace/Repositories/code-quiz-react/src/index.js doesn't exist\n              .json\n                Field 'browser' doesn't contain a valid alias configuration\n                /Users/ace/Repositories/code-quiz-react/src/index.json doesn't exist"
+  ],
+  "warnings": [
+    "configuration\nThe 'mode' option has not been set, webpack will fallback to 'production' for this value. Set 'mode' option to 'development' or 'production' to enable defaults for each environment.\nYou can also set it to 'none' to disable any default behavior. Learn more: https://webpack.js.org/concepts/mode/"
+  ],
+  "version": "4.29.6",
+  "hash": "89e3ad8600a7dc52f301",
+  "time": 86,
+  "builtAt": 1565901259576,
+  "publicPath": "",
+  "outputPath": "/Users/ace/Repositories/code-quiz-react/dist",
+  "assetsByChunkName": {},
+  "assets": [],
+  "filteredAssets": 0,
+  "entrypoints": {},
+  "namedChunkGroups": {},
+  "chunks": [],
+  "modules": [],
+  "filteredModules": 0,
+  "children": []
+}
