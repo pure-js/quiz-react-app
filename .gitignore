@@ -18,6 +18,3 @@ node_modules/
 
 dist/
 .tmp/
-
-# Webpack analytic file
-stats.json
