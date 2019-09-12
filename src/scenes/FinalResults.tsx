@@ -6,7 +6,10 @@ import buttons from '../components/button.css';
 import grid from '../components/Grid/Grid.css';
 
 type IPropsFinalResults = {
-  userAnswers: string[];
+  userAnswers: {
+    correct: number;
+    total: number;
+  };
 }
 
 const FinalResults = ({ userAnswers }: IPropsFinalResults) => (
