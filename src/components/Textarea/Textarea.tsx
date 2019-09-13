@@ -8,7 +8,7 @@ type IProps = {
 
 const hasScrollbar = (el: HTMLElement) => el.clientHeight < el.scrollHeight;
 
-const addRow = (event: React.FormEvent<HTMLInputElement>) => {
+const addRow = (event: React.FormEvent<HTMLTextAreaElement>) => {
   const { currentTarget } = event;
   if (hasScrollbar(currentTarget)) {
     currentTarget.rows = Number(currentTarget.rows) + 1;

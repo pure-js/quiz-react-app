@@ -14,7 +14,7 @@ type IProps = {
 
 let data = '';
 
-const getValue = (value: string) => {
+const getValue = (value: string): void => {
   data = value;
 };
 
@@ -38,7 +38,7 @@ const UserAnswer = ({ userAnswer }: IProps) => (
     <div
       className={`
         ${bootstrap['form-group']}
-        ${bootstrap['btn-group']} 
+        ${bootstrap['btn-group']}
       `}
     >
       <button
