@@ -36,7 +36,7 @@ let iteration = 1;
 let successCounter = 0;
 let failureCounter = 0;
 
-const displayQuestion = (callback: void) => {
+const displayQuestion = (callback: void): void => {
   getRandomDocument('questions')
     .then(({ data }) => {
       if (data) {
@@ -49,7 +49,7 @@ const displayQuestion = (callback: void) => {
     });
 };
 
-const upProgressBar = (isCorrect: boolean) => {
+const upProgressBar = (isCorrect: boolean): void => {
   if (isCorrect) {
     successCounter += 1;
   } else {
@@ -57,7 +57,7 @@ const upProgressBar = (isCorrect: boolean) => {
   }
 };
 
-const addAnswer = (answer: string, questionCallback: void, resultsCallback: void) => {
+const addAnswer = (answer: string, questionCallback: void, resultsCallback: void): void => {
   const isCorrectAnswer = functions.httpsCallable('isCorrectAnswer');
   isCorrectAnswer(answer)
     .then((result) => {
@@ -76,12 +76,12 @@ const addAnswer = (answer: string, questionCallback: void, resultsCallback: void
 };
 
 interface IProgressBarWrapperProps {
-  success?: number,
-  failure?: number,
-  overall: number,
+  success?: number;
+  failure?: number;
+  overall: number;
 }
 
-const ProgressBarWrapper = ({ success = 0, failure = 0, overall }: IProgressBarWrapperProps) => {
+const ProgressBarWrapper = ({ success = 0, failure = 0, overall }: IProgressBarWrapperProps): Element => {
   const successBarWidth = `${(success * 100) / overall}%`;
   const failureBarWidth = `${(failure * 100) / overall}%`;
   return (<ProgressBar successBar={successBarWidth} failureBar={failureBarWidth} />);
