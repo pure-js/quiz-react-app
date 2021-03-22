@@ -1,6 +1,4 @@
 # Code Quiz React.js component
-[![Build Status](https://travis-ci.org/js-quiz/code-quiz-react.svg?branch=master)](https://travis-ci.org/js-quiz/code-quiz-react)
-
 ## Contribution
 Development local server with HMR
 ```
