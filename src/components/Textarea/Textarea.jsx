@@ -2,23 +2,19 @@ import React, { useState } from 'react';
 
 import styles from './Textarea.css';
 
-type IProps = {
-  getInputValue: () => string;
-}
+const hasScrollbar = (el) => el.clientHeight < el.scrollHeight;
 
-const hasScrollbar = (el: HTMLElement) => el.clientHeight < el.scrollHeight;
-
-const addRow = (event: React.FormEvent<HTMLTextAreaElement>) => {
+const addRow = (event) => {
   const { currentTarget } = event;
   if (hasScrollbar(currentTarget)) {
     currentTarget.rows = Number(currentTarget.rows) + 1;
   }
 };
 
-const TextArea = ({ getInputValue }: IProps) => {
+const TextArea = ({ getInputValue }) => {
   const [userAnswer, setUserAnswer] = useState('');
 
-  const handleAnswerChange = (event: React.FormEvent<HTMLInputElement>) => {
+  const handleAnswerChange = (event) => {
     const { value } = event.currentTarget;
     getInputValue(value);
     setUserAnswer(value);

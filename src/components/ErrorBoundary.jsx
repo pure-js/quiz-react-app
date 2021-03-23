@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// @ts-ignore
 import AirbrakeClient from 'airbrake-js';
 
 class ErrorBoundary extends Component {
