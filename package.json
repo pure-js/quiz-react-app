@@ -4,6 +4,9 @@
   "description": "coding skills training app",
   "main": "src/index.tsx",
   "homepage": "https://js-quiz.github.io/code-quiz-react/",
+  "sideEffects":  [
+    "**/*.css"
+  ],
   "scripts": {
     "start": "webpack serve --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",

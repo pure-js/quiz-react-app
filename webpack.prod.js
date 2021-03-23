@@ -15,12 +15,10 @@ const plugins = [
   new CopyWebpackPlugin({
     patterns: [
       {
-        from: '**/*.{png,svg,ico}',
-        to: 'dist'
+        from: 'static/**/*.{png,svg,ico}',
       },
       {
-        from: 'manifest.json',
-        to: 'dist',
+        from: 'public/',
       },
     ]
   }),
@@ -97,6 +95,7 @@ const config = {
       }),
       new CssMinimizerPlugin(),
     ],
+    usedExports: true,
   },
 };
 

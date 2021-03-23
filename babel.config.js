@@ -5,7 +5,12 @@ module.exports = (api) => {
     ['@babel/preset-react', {
       runtime: 'automatic'
     }],
-    '@babel/preset-env',
+    ['@babel/preset-env', {
+      "targets": {
+        "esmodules": true
+      },
+      modules: false,
+    }],
   ];
 
   const plugins = [
