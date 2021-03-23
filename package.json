@@ -23,7 +23,7 @@
     "@types/react-loadable": "^5.5.0",
     "@types/react-router-dom": "^4.3.1",
     "@types/react-syntax-highlighter": "^10.1.0",
-    "airbrake-js": "^1.6.5",
+    "airbrake-js": "^1.6.8",
     "bootstrap": "^4.3.1",
     "cross-fetch": "^3.0.1",
     "firebase": "^5.8.4",

@@ -51,6 +51,7 @@ const plugins = [
     skipWaiting: true,
   }),
   new BundleAnalyzerPlugin({
+    analyzerMode: 'json',
     generateStatsFile: true,
   }),
 ];

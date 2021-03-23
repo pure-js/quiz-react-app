@@ -8,17 +8,13 @@ import Textarea from '../Textarea/Textarea';
 import button from '../button.css';
 import styles from './Form.css';
 
-type IProps = {
-  userAnswer: void;
-}
-
 let data = '';
 
-const getValue = (value: string): void => {
+const getValue = (value) => {
   data = value;
 };
 
-const UserAnswer = ({ userAnswer }: IProps) => (
+const UserAnswer = ({ userAnswer }) => (
   <form>
     <div className={bootstrap['form-group']}>
       <label className={styles['console-label']} htmlFor="console-output">

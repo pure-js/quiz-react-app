@@ -17,26 +17,12 @@ const LoadableCode = Loadable({
   loading: Loading,
 });
 
-type IProps = {
-  results: void,
-};
-
-// type Question = {
-//   name: string,
-//   category: string,
-//   value: string,
-// };
-
-// type State = {
-//   question: Question,
-// };
-
 const questionsLength = 5;
 let iteration = 1;
 let successCounter = 0;
 let failureCounter = 0;
 
-const displayQuestion = (callback: void): void => {
+const displayQuestion = (callback) => {
   getRandomDocument('questions')
     .then(({ data }) => {
       if (data) {
@@ -49,7 +35,7 @@ const displayQuestion = (callback: void): void => {
     });
 };
 
-const upProgressBar = (isCorrect: boolean): void => {
+const upProgressBar = (isCorrect) => {
   if (isCorrect) {
     successCounter += 1;
   } else {
@@ -57,7 +43,7 @@ const upProgressBar = (isCorrect: boolean): void => {
   }
 };
 
-const addAnswer = (answer: string, questionCallback: void, resultsCallback: void): void => {
+const addAnswer = (answer, questionCallback, resultsCallback) => {
   const isCorrectAnswer = functions.httpsCallable('isCorrectAnswer');
   isCorrectAnswer(answer)
     .then((result) => {
@@ -75,19 +61,13 @@ const addAnswer = (answer: string, questionCallback: void, resultsCallback: void
     });
 };
 
-interface IProgressBarWrapperProps {
-  success?: number;
-  failure?: number;
-  overall: number;
-}
-
-const ProgressBarWrapper = ({ success = 0, failure = 0, overall }: IProgressBarWrapperProps): Element => {
+const ProgressBarWrapper = ({ success = 0, failure = 0, overall }) => {
   const successBarWidth = `${(success * 100) / overall}%`;
   const failureBarWidth = `${(failure * 100) / overall}%`;
   return (<ProgressBar successBar={successBarWidth} failureBar={failureBarWidth} />);
 };
 
-const Exam = ({ results }: IProps) => {
+const Exam = ({ results }) => {
   const [question, setQuestion] = useState({
     id: '',
     name: '',
@@ -114,7 +94,7 @@ const Exam = ({ results }: IProps) => {
         </ErrorBoundary>
       </section>
       <section className={grid.container}>
-        <Form userAnswer={(answer: string) => addAnswer(answer, setQuestion, results)} />
+        <Form userAnswer={(answer) => addAnswer(answer, setQuestion, results)} />
       </section>
     </>
   );
