@@ -2,14 +2,17 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const plugins = [
-  new CopyWebpackPlugin([
-    {
-      from: 'manifest.json',
-    },
-  ]),
+  new CopyPlugin({
+    patterns: [
+      {
+        from: 'manifest.json',
+        to: 'dist',
+      },
+    ]
+  }),
   new HtmlWebpackPlugin({
     template: 'src/index-template.html',
   }),
@@ -66,7 +69,7 @@ const config = {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
   devServer: {
-    contentBase: 'dist',
+    contentBase: path.join(__dirname, 'dist'),
     port: 7050,
     hot: true,
     open: true,

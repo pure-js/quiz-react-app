@@ -2,31 +2,28 @@
 const path = require('path');
 const webpack = require('webpack');
 const SizePlugin = require('size-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const { GenerateSW } = require('workbox-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const plugins = [
   new SizePlugin(),
-  new CleanWebpackPlugin(['dist'], {
-    beforeEmit: true,
+  new CopyWebpackPlugin({
+    patterns: [
+      {
+        from: '**/*.{png,svg,ico}',
+        to: 'dist'
+      },
+      {
+        from: 'manifest.json',
+        to: 'dist',
+      },
+    ]
   }),
-  new CopyWebpackPlugin([
-    {
-      context: 'static',
-      from: '**/*.{png,svg,ico}',
-    },
-    {
-      from: 'manifest.json',
-      toType: 'dir',
-    },
-  ]),
   new HtmlWebpackPlugin({
     template: 'src/index-template.html',
     minify: {
@@ -35,10 +32,7 @@ const plugins = [
       removeScriptTypeAttributes: true,
     },
   }),
-  new ScriptExtHtmlWebpackPlugin({
-    defaultAttribute: 'defer',
-  }),
-  new webpack.HashedModuleIdsPlugin(),
+  new webpack.ids.HashedModuleIdsPlugin(),
   new MiniCssExtractPlugin({
     filename: '[contenthash].min.css',
     chunkFilename: '[id].[contenthash].min.css',
@@ -93,16 +87,15 @@ const config = {
     filename: '[name].[chunkhash].min.js',
     chunkFilename: '[name].[chunkhash].min.js',
     path: path.resolve(__dirname, 'dist'),
+    clean: true,
   },
   optimization: {
     minimize: true,
     minimizer: [
       new TerserPlugin({
-        cache: true,
         parallel: true,
-        sourceMap: false,
       }),
-      new OptimizeCssAssetsPlugin(),
+      new CssMinimizerPlugin(),
     ],
   },
 };
