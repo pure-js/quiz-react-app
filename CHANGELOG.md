@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.3.0](https://github.com/js-quiz/code-quiz-react/compare/v3.2.0...v3.3.0) (2021-03-23)
+
+
+### Features
+
+* use new jsx runtime ([9b4cbee](https://github.com/js-quiz/code-quiz-react/commit/9b4cbeee59b76eab69725adca314cb482c3a9341))
+
 ## [3.2.0](https://github.com/js-quiz/code-quiz-react/compare/v3.1.2...v3.2.0) (2021-03-23)
 
 
