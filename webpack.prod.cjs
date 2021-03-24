@@ -69,6 +69,12 @@ const moduleWebpack = {
         },
       ],
     },
+    {
+      test: /\.m?js$/,
+      resolve: {
+        fullySpecified: false,
+      },
+    },
   ],
 };
 
