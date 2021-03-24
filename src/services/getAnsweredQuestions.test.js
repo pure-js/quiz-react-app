@@ -1,3 +1,5 @@
+import { jest } from '@jest/globals';
+
 import getAnsweredQuestions from './getAnsweredQuestions';
 
 test('adds 1 + 2 to equal 3', () => {

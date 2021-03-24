@@ -13,6 +13,7 @@ module.exports = (api) => {
       {
         targets: {
           esmodules: true,
+          node: 'current',
         },
         modules: false,
       },

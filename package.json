@@ -4,19 +4,20 @@
   "description": "coding skills training app",
   "main": "src/index.tsx",
   "homepage": "https://js-quiz.github.io/code-quiz-react/",
+  "type": "module",
   "sideEffects": [
     "**/*.css"
   ],
   "scripts": {
-    "start": "webpack serve --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js",
+    "start": "webpack serve --config webpack.dev.cjs",
+    "build": "webpack --config webpack.prod.cjs",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "lint": "eslint src/**/*.{js,jsx,ts,tsx}",
-    "analyze": "webpack --profile --json > stats.json --config webpack.prod.js",
-    "test": "jest --coverage",
+    "analyze": "webpack --profile --json > stats.json --config webpack.prod.cjs",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest --coverage",
     "release": "standard-version",
-    "format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|md)\""
+    "format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|md|cjs|mjs)\""
   },
   "author": "pure-js",
   "license": "GPL-3.0",
@@ -44,7 +45,7 @@
     "@babel/preset-env": "^7.3.4",
     "@babel/preset-react": "^7.12.13",
     "@babel/register": "^7.0.0",
-    "@babel/runtime": "^7.3.4",
+    "@babel/runtime": "^7.13.10",
     "@typescript-eslint/eslint-plugin": "^4.19.0",
     "@typescript-eslint/parser": "^4.19.0",
     "babel-jest": "^26.6.3",

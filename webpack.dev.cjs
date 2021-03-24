@@ -8,8 +8,7 @@ const plugins = [
   new CopyPlugin({
     patterns: [
       {
-        from: 'manifest.json',
-        to: 'dist',
+        from: 'public/',
       },
     ],
   }),
@@ -58,6 +57,12 @@ const config = {
             },
           },
         ],
+      },
+      {
+        test: /\.m?js$/,
+        resolve: {
+          fullySpecified: false,
+        },
       },
     ],
   },
