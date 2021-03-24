@@ -15,7 +15,8 @@ const plugins = [
   new CopyWebpackPlugin({
     patterns: [
       {
-        from: 'static/**/*.{png,svg,ico}',
+        from: '**/*.{png,svg,ico}',
+        context: 'static/'
       },
       {
         from: 'public/',
