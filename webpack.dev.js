@@ -11,7 +11,7 @@ const plugins = [
         from: 'manifest.json',
         to: 'dist',
       },
-    ]
+    ],
   }),
   new HtmlWebpackPlugin({
     template: 'src/index-template.html',
@@ -33,7 +33,9 @@ const config = {
         loader: 'ts-loader',
       },
       {
-        enforce: 'pre', test: /\.js$/, loader: 'source-map-loader',
+        enforce: 'pre',
+        test: /\.js$/,
+        loader: 'source-map-loader',
       },
       {
         test: /\.(js|jsx)$/,

@@ -16,12 +16,12 @@ const plugins = [
     patterns: [
       {
         from: '**/*.{png,svg,ico}',
-        context: 'static/'
+        context: 'static/',
       },
       {
         from: 'public/',
       },
-    ]
+    ],
   }),
   new HtmlWebpackPlugin({
     template: 'src/index-template.html',
