@@ -1,5 +1,4 @@
 import React, { useState, useEffect, memo } from 'react';
-import Loadable from 'react-loadable';
 
 import { functions } from '../../services/fireStoreService';
 import getRandomDocument from '../../services/getQuestions';
@@ -11,11 +10,7 @@ import ErrorBoundary from '../../components/ErrorBoundary';
 
 import grid from '../../components/Grid/Grid.css';
 import Loading from '../../components/Loading/Loading';
-
-const LoadableCode = Loadable({
-  loader: () => import(/* webpackChunkName: "Code" */ '../../components/Code/Code'),
-  loading: Loading,
-});
+import { Code } from '../../components/Code/Code';
 
 const questionsLength = 5;
 let iteration = 1;
@@ -90,7 +85,7 @@ const Exam = ({ results }) => {
       <ProgressBarWrapper success={successCounter} failure={failureCounter} overall={questionsLength} />
       <section className={`${grid.container} ${grid['container_mobile-no-padding']}`}>
         <ErrorBoundary>
-          <LoadableCode codeString={question.value} />
+          <Code codeString={question.value} />
         </ErrorBoundary>
       </section>
       <section className={grid.container}>
