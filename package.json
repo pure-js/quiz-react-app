@@ -4,7 +4,7 @@
   "description": "coding skills training app",
   "main": "src/index.tsx",
   "homepage": "https://js-quiz.github.io/code-quiz-react/",
-  "sideEffects":  [
+  "sideEffects": [
     "**/*.css"
   ],
   "scripts": {
@@ -31,7 +31,6 @@
     "firebase": "^8.3.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
-    "react-loadable": "^5.5.0",
     "react-router-dom": "^4.3.1",
     "react-syntax-highlighter": "^15.4.3"
   },
