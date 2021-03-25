@@ -1,15 +1,15 @@
+/* eslint-disable react/prop-types */
 import React, { useState, useEffect, memo } from 'react';
 
 import { functions } from '../../services/fireStoreService';
 import getRandomDocument from '../../services/getQuestions';
 
 import Form from '../../components/Form/Form';
-import Header from '../../components/Header/Header';
-import ProgressBar from '../../components/ProgressBar';
+import Header from '../../components/Header/Header.tsx;
+import ProgressBar from '../../components/ProgressBar.tsx';
 import ErrorBoundary from '../../components/ErrorBoundary';
 
 import grid from '../../components/Grid/Grid.css';
-import Loading from '../../components/Loading/Loading';
 import { Code } from '../../components/Code/Code';
 
 const questionsLength = 5;
