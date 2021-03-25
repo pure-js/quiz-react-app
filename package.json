@@ -15,7 +15,7 @@
     "deploy": "gh-pages -d dist",
     "lint:js": "eslint src/**/*.{js,jsx,ts,tsx}",
     "analyze": "webpack --profile --json > stats.json --config webpack.prod.cjs",
-    "test": "node --experimental-vm-modules node_modules/.bin/jest --coverage",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest --config jest.config.cjs --coverage",
     "release": "standard-version",
     "format": "prettier --write \"**/*.+(json|yml|yaml|css|md|cjs|mjs)\""
   },

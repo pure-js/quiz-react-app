@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable react/prop-types */
 import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -47,7 +49,7 @@ const UserAnswer = ({ userAnswer }) => (
         type="button"
         className={`${bootstrap.btn} ${bootstrap['btn-light']} ${button.btn_cursor}`}
       >
-        {"I don't know"}
+        I don't know
       </button>
       <Link to="/results">See results</Link>
     </div>

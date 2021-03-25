@@ -8,13 +8,15 @@ import grid from '../Grid/Grid.css';
 type IProps = {
   current: string;
   total: string;
-}
+};
 
 const Header = ({ current, total }: IProps) => (
   <header>
     <div className={grid.container}>
       <nav className={`${bootstrap.navbar} ${styles['navbar_no-padding']}`}>
-        <Link to="/" className={bootstrap['navbar-brand']}>JavaScript Quiz</Link>
+        <Link to="/" className={bootstrap['navbar-brand']}>
+          JavaScript Quiz
+        </Link>
         <span className={bootstrap['navbar-text']}>
           {current}
           {' of '}
