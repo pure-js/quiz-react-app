@@ -1,11 +1,11 @@
 name: Code Linting
 on: push
 jobs:
-  lint:
+  eslint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Install modules
-        run: npm i
+        run: npm ci
       - name: Run ESLint
         run: mpm run lint:js
