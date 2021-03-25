@@ -20,15 +20,11 @@ const UserAnswer = ({ userAnswer }) => (
       <label className={styles['console-label']} htmlFor="console-output">
         Web Console Output:
       </label>
-      <div
-        className={styles.console_icon}
-      >
-        {'>'}
-      </div>
+      <div className={styles.console_icon}>{'>'}</div>
       <Textarea getInputValue={getValue} />
       <label>
-        Enter key starting a new line.
-        Please note that your input is case sensitive.
+        Enter key starting a new line. Please note that your input is case
+        sensitive.
       </label>
     </div>
     <div
@@ -51,7 +47,7 @@ const UserAnswer = ({ userAnswer }) => (
         type="button"
         className={`${bootstrap.btn} ${bootstrap['btn-light']} ${button.btn_cursor}`}
       >
-        {'I don\'t know'}
+        {"I don't know"}
       </button>
       <Link to="/results">See results</Link>
     </div>

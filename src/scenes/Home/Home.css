@@ -11,15 +11,15 @@ body {
   height: 0;
   border-top: 60vh solid transparent;
   border-bottom: 60vh solid transparent;
-  border-left: 60vh solid #FFC500;
+  border-left: 60vh solid #ffc500;
   position: fixed;
   z-index: -1;
 }
 
 .home-grid {
   grid-template-areas:
-    "exam"
-    "train";
+    'exam'
+    'train';
   justify-items: center;
   display: grid;
   width: 100%;

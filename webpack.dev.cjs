@@ -8,10 +8,9 @@ const plugins = [
   new CopyPlugin({
     patterns: [
       {
-        from: 'manifest.json',
-        to: 'dist',
+        from: 'public/',
       },
-    ]
+    ],
   }),
   new HtmlWebpackPlugin({
     template: 'src/index-template.html',
@@ -33,7 +32,9 @@ const config = {
         loader: 'ts-loader',
       },
       {
-        enforce: 'pre', test: /\.js$/, loader: 'source-map-loader',
+        enforce: 'pre',
+        test: /\.js$/,
+        loader: 'source-map-loader',
       },
       {
         test: /\.(js|jsx)$/,
@@ -56,6 +57,12 @@ const config = {
             },
           },
         ],
+      },
+      {
+        test: /\.m?js$/,
+        resolve: {
+          fullySpecified: false,
+        },
       },
     ],
   },

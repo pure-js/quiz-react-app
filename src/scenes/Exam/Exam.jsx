@@ -25,7 +25,8 @@ const displayQuestion = (callback) => {
       } else {
         console.error('No such document!');
       }
-    }).catch((error) => {
+    })
+    .catch((error) => {
       console.error('Error getting document:', error);
     });
 };
@@ -40,26 +41,27 @@ const upProgressBar = (isCorrect) => {
 
 const addAnswer = (answer, questionCallback, resultsCallback) => {
   const isCorrectAnswer = functions.httpsCallable('isCorrectAnswer');
-  isCorrectAnswer(answer)
-    .then((result) => {
-      upProgressBar(result.data.correct);
+  isCorrectAnswer(answer).then((result) => {
+    upProgressBar(result.data.correct);
 
-      if (iteration === questionsLength) {
-        resultsCallback({
-          correct: successCounter,
-          total: questionsLength,
-        });
-      } else {
-        displayQuestion(questionCallback);
-        iteration += 1;
-      }
-    });
+    if (iteration === questionsLength) {
+      resultsCallback({
+        correct: successCounter,
+        total: questionsLength,
+      });
+    } else {
+      displayQuestion(questionCallback);
+      iteration += 1;
+    }
+  });
 };
 
 const ProgressBarWrapper = ({ success = 0, failure = 0, overall }) => {
   const successBarWidth = `${(success * 100) / overall}%`;
   const failureBarWidth = `${(failure * 100) / overall}%`;
-  return (<ProgressBar successBar={successBarWidth} failureBar={failureBarWidth} />);
+  return (
+    <ProgressBar successBar={successBarWidth} failureBar={failureBarWidth} />
+  );
 };
 
 const Exam = ({ results }) => {
@@ -82,14 +84,22 @@ const Exam = ({ results }) => {
   return (
     <>
       <Header current={iteration} total={questionsLength} />
-      <ProgressBarWrapper success={successCounter} failure={failureCounter} overall={questionsLength} />
-      <section className={`${grid.container} ${grid['container_mobile-no-padding']}`}>
+      <ProgressBarWrapper
+        success={successCounter}
+        failure={failureCounter}
+        overall={questionsLength}
+      />
+      <section
+        className={`${grid.container} ${grid['container_mobile-no-padding']}`}
+      >
         <ErrorBoundary>
           <Code codeString={question.value} />
         </ErrorBoundary>
       </section>
       <section className={grid.container}>
-        <Form userAnswer={(answer) => addAnswer(answer, setQuestion, results)} />
+        <Form
+          userAnswer={(answer) => addAnswer(answer, setQuestion, results)}
+        />
       </section>
     </>
   );

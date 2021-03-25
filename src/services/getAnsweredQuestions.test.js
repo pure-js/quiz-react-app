@@ -1,3 +1,5 @@
+import { jest } from '@jest/globals';
+
 import getAnsweredQuestions from './getAnsweredQuestions';
 
 test('adds 1 + 2 to equal 3', () => {
@@ -15,7 +17,9 @@ test('adds 1 + 2 to equal 3', () => {
     },
   ];
 
-  expect(getAnsweredQuestions(questions, answers)).toEqual([{
-    name: '1',
-  }]);
+  expect(getAnsweredQuestions(questions, answers)).toEqual([
+    {
+      name: '1',
+    },
+  ]);
 });

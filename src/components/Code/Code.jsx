@@ -8,7 +8,9 @@ import styles from './Code.css';
 SyntaxHighlighter.registerLanguage('javascript', js);
 
 export const Code = ({ codeString }) => (
-  <SyntaxHighlighter language="javascript" style={solarizedLight}>{codeString}</SyntaxHighlighter>
+  <SyntaxHighlighter language="javascript" style={solarizedLight}>
+    {codeString}
+  </SyntaxHighlighter>
 );
 
 export default memo(Code);
