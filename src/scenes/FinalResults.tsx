@@ -10,15 +10,13 @@ type IPropsFinalResults = {
     correct: number;
     total: number;
   };
-}
+};
 
 const FinalResults = ({ userAnswers }: IPropsFinalResults) => (
   <>
     <main className={grid.container}>
       <div>
-        <h1 className={bootstrap['text-center']}>
-          Your results
-        </h1>
+        <h1 className={bootstrap['text-center']}>Your results</h1>
         <p className={bootstrap['text-center']}>
           Correct answers:
           {`${userAnswers.correct} from ${userAnswers.total}`}
@@ -26,7 +24,9 @@ const FinalResults = ({ userAnswers }: IPropsFinalResults) => (
       </div>
       <div id="first-screen" className={bootstrap.row}>
         <div className={bootstrap['col-12']}>
-          <div className={`${bootstrap['d-flex']} ${bootstrap['justify-content-center']}`}>
+          <div
+            className={`${bootstrap['d-flex']} ${bootstrap['justify-content-center']}`}
+          >
             <div className={bootstrap['btn-group']}>
               <Link
                 id="exam"
