@@ -2,9 +2,9 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
-import Home from '../scenes/Home/Home';
+import Home from '../scenes/Home/Home.tsx';
 import Exam from '../scenes/Exam/Exam';
-import FinalResults from '../scenes/FinalResults';
+import FinalResults from '../scenes/FinalResults.tsx';
 
 const App: React.FC = () => (
   <>

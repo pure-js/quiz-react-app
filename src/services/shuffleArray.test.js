@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { jest } from '@jest/globals';
 
 import shuffleArray from './shuffleArray';
