@@ -5,7 +5,7 @@ import { functions } from '../../services/fireStoreService';
 import getRandomDocument from '../../services/getQuestions';
 
 import Form from '../../components/Form/Form';
-import Header from '../../components/Header/Header.tsx;
+import Header from '../../components/Header/Header.tsx';
 import ProgressBar from '../../components/ProgressBar.tsx';
 import ErrorBoundary from '../../components/ErrorBoundary';
 
