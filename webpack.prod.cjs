@@ -9,6 +9,9 @@ const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const GitRevisionPlugin = require('git-revision-webpack-plugin');
+
+const gitRevisionPlugin = new GitRevisionPlugin();
 
 const plugins = [
   new SizePlugin(),
@@ -44,6 +47,10 @@ const plugins = [
   new BundleAnalyzerPlugin({
     analyzerMode: 'json',
     generateStatsFile: true,
+  }),
+  gitRevisionPlugin,
+  new webpack.DefinePlugin({
+    VERSION: JSON.stringify(gitRevisionPlugin.version()),
   }),
 ];
 
