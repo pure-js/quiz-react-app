@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'wouter';
 
 import bootstrap from 'bootstrap/dist/css/bootstrap.css';
 import styles from './Header.css';
@@ -14,7 +14,7 @@ const Header = ({ current, total }: IProps) => (
   <header>
     <div className={grid.container}>
       <nav className={`${bootstrap.navbar} ${styles['navbar_no-padding']}`}>
-        <Link to="/" className={bootstrap['navbar-brand']}>
+        <Link href="/" className={bootstrap['navbar-brand']}>
           JavaScript Quiz
         </Link>
         <span className={bootstrap['navbar-text']}>

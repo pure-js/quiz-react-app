@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'wouter';
 import Typography from '@material-ui/core/Typography';
 import Fab from '@material-ui/core/Fab';
 import FlashOnIcon from '@material-ui/icons/FlashOn';

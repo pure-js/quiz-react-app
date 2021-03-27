@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'wouter';
 
 import bootstrap from 'bootstrap/dist/css/bootstrap.css';
 import buttons from '../components/button.css';
@@ -31,14 +31,14 @@ const FinalResults = ({ userAnswers }: IPropsFinalResults) => (
               <Link
                 id="exam"
                 className={`${bootstrap.btn} ${bootstrap['btn-lg']} ${bootstrap['btn-info']} ${buttons.btn_start}`}
-                to="/exam"
+                href="/exam"
               >
                 Try again
               </Link>
               <Link
                 id="train"
                 className={`${bootstrap.btn} ${bootstrap['btn-lg']} ${bootstrap['btn-info']} ${buttons.btn_start}`}
-                to="/"
+                href="/"
               >
                 Return to main page
               </Link>

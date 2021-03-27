@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route } from 'wouter';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 import Home from '../scenes/Home/Home.tsx';
@@ -9,9 +9,9 @@ import FinalResults from '../scenes/FinalResults.tsx';
 const App: React.FC = () => (
   <>
     <CssBaseline />
-    <Route path="/" exact component={Home} />
-    <Route path="/exam" exact component={Exam} />
-    <Route path="/results" exact component={FinalResults} />
+    <Route path="/" component={Home} />
+    <Route path="/exam" component={Exam} />
+    <Route path="/results" component={FinalResults} />
   </>
 );
 

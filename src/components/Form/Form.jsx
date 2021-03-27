@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/prop-types */
 import React, { memo } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'wouter';
 
 import bootstrap from 'bootstrap/dist/css/bootstrap.css';
 
@@ -52,7 +52,7 @@ const UserAnswer = ({ userAnswer }) => (
       >
         I don't know
       </button>
-      <Link to="/results">See results</Link>
+      <Link href="/results">See results</Link>
     </div>
   </form>
 );

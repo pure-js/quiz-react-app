@@ -23,15 +23,7 @@ module.exports = (api) => {
   const plugins = [
     '@babel/plugin-transform-regenerator',
     '@babel/plugin-syntax-dynamic-import',
-    [
-      'transform-imports',
-      {
-        'react-router': {
-          transform: 'react-router/${member}',
-          preventFullImport: true,
-        },
-      },
-    ],
+    ['transform-imports', {}],
   ];
 
   return {
