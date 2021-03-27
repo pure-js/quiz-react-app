@@ -18,5 +18,4 @@ if ('serviceWorker' in navigator) {
   });
 }
 
-// eslint-disable-next-line no-undef
 console.log('App Version ', VERSION);
