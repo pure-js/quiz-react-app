@@ -12,7 +12,9 @@ type IPropsFinalResults = {
   };
 };
 
-const FinalResults = ({ userAnswers }: IPropsFinalResults) => (
+const FinalResults: React.FC<IPropsFinalResults> = ({
+  userAnswers,
+}: IPropsFinalResults) => (
   <>
     <main className={grid.container}>
       <div>
