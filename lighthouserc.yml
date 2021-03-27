@@ -1,7 +1,7 @@
 ci:
   collect:
     # url: ['http://localhost/', 'http://localhost/exam', 'http://localhost/results']
-    url: ['http://localhost/']
+    url: ['http://localhost/', 'http://localhost/exam']
     staticDistDir: './dist'
     isSinglePageApplication: true
   upload:
