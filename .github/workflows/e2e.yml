@@ -1,0 +1,15 @@
+  name: End-to-end Testing
+  on: push
+  jobs:
+    e2e-tests:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - uses: actions/setup-node@v2
+          with:
+            node-version: '15'
+        - name: Install dependencies
+          run: npm ci
+        - uses: microsoft/playwright-github-action@v1
+        - name: Run e2e tests
+          run: npm run e2e
