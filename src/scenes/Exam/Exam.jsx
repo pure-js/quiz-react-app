@@ -8,7 +8,7 @@ import Form from '../../components/Form/Form';
 import Header from '../../components/Header/Header.tsx';
 import ProgressBar from '../../components/ProgressBar.tsx';
 import ErrorBoundary from '../../components/ErrorBoundary';
-import Loading from '../../components/Loading/Loading';
+import Loading from '../../components/Loading/Loading.tsx';
 
 import grid from '../../components/Grid/Grid.css';
 import { Code } from '../../components/Code/Code';
