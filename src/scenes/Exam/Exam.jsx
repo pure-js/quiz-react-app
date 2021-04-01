@@ -8,6 +8,7 @@ import Form from '../../components/Form/Form';
 import Header from '../../components/Header/Header.tsx';
 import ProgressBar from '../../components/ProgressBar.tsx';
 import ErrorBoundary from '../../components/ErrorBoundary';
+import Loading from '../../components/Loading/Loading';
 
 import grid from '../../components/Grid/Grid.css';
 import { Code } from '../../components/Code/Code';
@@ -17,16 +18,18 @@ let iteration = 1;
 let successCounter = 0;
 let failureCounter = 0;
 
-const displayQuestion = (callback) => {
+const displayQuestion = (callback, setIsLoaded) => {
   getRandomDocument('questions')
     .then(({ data }) => {
       if (data) {
+        setIsLoaded(true);
         callback(data);
       } else {
         console.error('No such document!');
       }
     })
     .catch((error) => {
+      setIsLoaded(true);
       console.error('Error getting document:', error);
     });
 };
@@ -39,7 +42,7 @@ const upProgressBar = (isCorrect) => {
   }
 };
 
-const addAnswer = (answer, questionCallback, resultsCallback) => {
+const addAnswer = (answer, questionCallback, setIsLoaded, resultsCallback) => {
   const isCorrectAnswer = functions.httpsCallable('isCorrectAnswer');
   isCorrectAnswer(answer).then((result) => {
     upProgressBar(result.data.correct);
@@ -50,7 +53,7 @@ const addAnswer = (answer, questionCallback, resultsCallback) => {
         total: questionsLength,
       });
     } else {
-      displayQuestion(questionCallback);
+      displayQuestion(questionCallback, setIsLoaded);
       iteration += 1;
     }
   });
@@ -65,6 +68,7 @@ const ProgressBarWrapper = ({ success = 0, failure = 0, overall }) => {
 };
 
 const Exam = ({ results }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
   const [question, setQuestion] = useState({
     id: '',
     name: '',
@@ -73,7 +77,7 @@ const Exam = ({ results }) => {
   });
 
   useEffect(() => {
-    displayQuestion(setQuestion);
+    displayQuestion(setQuestion, setIsLoaded);
     return function cleanup() {
       iteration = 1;
       successCounter = 0;
@@ -95,10 +99,13 @@ const Exam = ({ results }) => {
         <ErrorBoundary>
           <Code codeString={question.value} />
         </ErrorBoundary>
+        {!isLoaded && <Loading />}
       </section>
       <section className={grid.container}>
         <Form
-          userAnswer={(answer) => addAnswer(answer, setQuestion, results)}
+          userAnswer={(answer) =>
+            addAnswer(answer, setQuestion, setIsLoaded, results)
+          }
         />
       </section>
     </>
