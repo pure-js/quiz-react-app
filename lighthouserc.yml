@@ -6,3 +6,5 @@ ci:
     isSinglePageApplication: true
   upload:
     target: 'temporary-public-storage'
+  assert:
+    presets: lighthouse:all
