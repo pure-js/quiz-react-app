@@ -21,6 +21,9 @@
   },
   "author": "pure-js",
   "license": "GPL-3.0",
+  "engines": {
+    "node": ">=15.12"
+  },
   "dependencies": {
     "@material-ui/core": "^4.4.2",
     "@material-ui/icons": "^4.4.1",
