@@ -14,9 +14,14 @@ const Header = ({ current, total }: IProps) => (
   <header>
     <div className={grid.container}>
       <nav className={`${bootstrap.navbar} ${styles['navbar_no-padding']}`}>
-        <Link href="/" className={bootstrap['navbar-brand']}>
-          JavaScript Quiz
-        </Link>
+        <h1 className={styles['no-margin']}>
+          <Link
+            href="/"
+            className={`${bootstrap['navbar-brand']} ${styles['navbar-override']}`}
+          >
+            JavaScript Quiz
+          </Link>
+        </h1>
         <span className={bootstrap['navbar-text']}>
           {current}
           {' of '}
