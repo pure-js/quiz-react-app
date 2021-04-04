@@ -24,7 +24,7 @@ const FinalResults: React.FC<IPropsFinalResults> = ({
         <Typography variant="h1" align="center">
           Your results
         </Typography>
-        <Typography variant="subtitle1" align="center">
+        <Typography variant="caption" align="center">
           Correct answers:
           {`${userAnswers.correct} from ${userAnswers.total}`}
         </Typography>
