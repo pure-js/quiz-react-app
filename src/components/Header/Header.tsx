@@ -21,7 +21,7 @@ const Header = ({ current, total }: IProps) => (
               JavaScript Quiz
             </Link>
           </h1>
-          <Typography variant="h6">
+          <Typography variant="caption">
             {current}
             {' of '}
             {total}
