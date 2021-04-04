@@ -1,10 +1,11 @@
+/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/prop-types */
 import React, { memo } from 'react';
 import { Link } from 'wouter';
-
-import bootstrap from 'bootstrap/dist/css/bootstrap.css';
+import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 
 import Textarea from '../Textarea/Textarea';
 
@@ -19,7 +20,7 @@ const getValue = (value) => {
 
 const UserAnswer = ({ userAnswer }) => (
   <form>
-    <div className={bootstrap['form-group']}>
+    <div>
       <label className={styles['console-label']} htmlFor="console-output">
         Web Console Output:
       </label>
@@ -30,30 +31,32 @@ const UserAnswer = ({ userAnswer }) => (
         sensitive.
       </label>
     </div>
-    <div
-      className={`
-        ${bootstrap['form-group']}
-        ${bootstrap['btn-group']}
-      `}
-    >
-      <button
+    <ButtonGroup color="primary" aria-label="outlined primary button group">
+      <Button
         id="answer"
         onClick={() => userAnswer(data)}
         type="button"
-        className={`${bootstrap.btn} ${bootstrap['btn-info']} ${button.btn_cursor}`}
+        className={`${button.btn_cursor}`}
       >
         Answer
-      </button>
-      <button
+      </Button>
+      <Button
         id="next-quiz"
         onClick={() => userAnswer(data)}
         type="button"
-        className={`${bootstrap.btn} ${bootstrap['btn-light']} ${button.btn_cursor}`}
+        className={`${button.btn_cursor}`}
       >
         I don't know
-      </button>
-      <Link href="/results">See results</Link>
-    </div>
+      </Button>
+      <Button
+        href="/results"
+        component={React.forwardRef((props, ref) => (
+          <Link {...props} ref={ref} />
+        ))}
+      >
+        See results
+      </Button>
+    </ButtonGroup>
   </form>
 );
 

@@ -1,10 +1,9 @@
 import React, { memo } from 'react';
-
-import bootstrap from 'bootstrap/dist/css/bootstrap.css';
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 interface IProps {
-  successBar: string;
-  failureBar: string;
+  successBar: number;
+  failureBar: number;
 }
 
 const ProgressBar: React.FC<IProps> = ({
@@ -12,18 +11,18 @@ const ProgressBar: React.FC<IProps> = ({
   failureBar,
 }: IProps): React.ReactElement => (
   <>
-    <div style={{ height: '5px' }} className={bootstrap.progress}>
-      <div
-        style={{ width: successBar }}
-        className={`${bootstrap['progress-bar']} ${bootstrap['bg-success']}`}
-      />
-    </div>
-    <div style={{ height: '5px' }} className={bootstrap.progress}>
-      <div
-        style={{ width: failureBar }}
-        className={`${bootstrap['progress-bar']} ${bootstrap['bg-danger']}`}
-      />
-    </div>
+    <LinearProgress
+      style={{ height: '5px' }}
+      variant="determinate"
+      value={successBar}
+      color="primary"
+    />
+    <LinearProgress
+      style={{ height: '5px' }}
+      variant="determinate"
+      value={failureBar}
+      color="secondary"
+    />
   </>
 );
 
