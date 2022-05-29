@@ -1,7 +1,8 @@
 import React, { memo } from 'react';
 import { Link } from 'wouter';
 
-import bootstrap from 'bootstrap/dist/css/bootstrap.css';
+import AppBar from '@material-ui/core/AppBar';
+import Typography from '@material-ui/core/Typography';
 import styles from './Header.css';
 import grid from '../Grid/Grid.css';
 
@@ -12,18 +13,22 @@ type IProps = {
 
 const Header = ({ current, total }: IProps) => (
   <header>
-    <div className={grid.container}>
-      <nav className={`${bootstrap.navbar} ${styles['navbar_no-padding']}`}>
-        <Link href="/" className={bootstrap['navbar-brand']}>
-          JavaScript Quiz
-        </Link>
-        <span className={bootstrap['navbar-text']}>
-          {current}
-          {' of '}
-          {total}
-        </span>
-      </nav>
-    </div>
+    <AppBar position="static" color="transparent">
+      <div className={grid.container}>
+        <nav className={`${styles['navbar_no-padding']}`}>
+          <h1 className={styles['no-margin']}>
+            <Link href="/" className={`${styles['navbar-override']}`}>
+              JavaScript Quiz
+            </Link>
+          </h1>
+          <Typography variant="caption">
+            {current}
+            {' of '}
+            {total}
+          </Typography>
+        </nav>
+      </div>
+    </AppBar>
   </header>
 );
 

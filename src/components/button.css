@@ -5,6 +5,7 @@
 .btn_cursor:disabled {
   cursor: not-allowed;
 }
+
 @media (max-width: 576px) {
   .btn_start {
     cursor: pointer;
@@ -16,4 +17,9 @@
 
 .btn_start:disabled {
   cursor: not-allowed;
+}
+
+.btn_centre {
+  display: flex;
+  justify-content: center;
 }

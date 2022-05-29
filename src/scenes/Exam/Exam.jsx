@@ -60,8 +60,8 @@ const addAnswer = (answer, questionCallback, setIsLoaded, resultsCallback) => {
 };
 
 const ProgressBarWrapper = ({ success = 0, failure = 0, overall }) => {
-  const successBarWidth = `${(success * 100) / overall}%`;
-  const failureBarWidth = `${(failure * 100) / overall}%`;
+  const successBarWidth = (success * 100) / overall;
+  const failureBarWidth = (failure * 100) / overall;
   return (
     <ProgressBar successBar={successBarWidth} failureBar={failureBarWidth} />
   );

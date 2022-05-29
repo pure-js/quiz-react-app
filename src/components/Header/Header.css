@@ -2,3 +2,11 @@
   padding-left: 0;
   padding-right: 0;
 }
+
+.navbar-override {
+  display: block;
+}
+
+.no-margin {
+  margin: 0;
+}

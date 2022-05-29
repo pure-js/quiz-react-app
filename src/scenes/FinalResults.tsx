@@ -1,7 +1,10 @@
 import React, { memo } from 'react';
 import { Link } from 'wouter';
+import Typography from '@material-ui/core/Typography';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
 
-import bootstrap from 'bootstrap/dist/css/bootstrap.css';
 import buttons from '../components/button.css';
 import grid from '../components/Grid/Grid.css';
 
@@ -18,36 +21,41 @@ const FinalResults: React.FC<IPropsFinalResults> = ({
   <>
     <main className={grid.container}>
       <div>
-        <h1 className={bootstrap['text-center']}>Your results</h1>
-        <p className={bootstrap['text-center']}>
+        <Typography variant="h1" align="center">
+          Your results
+        </Typography>
+        <Typography variant="caption" align="center">
           Correct answers:
           {`${userAnswers.correct} from ${userAnswers.total}`}
-        </p>
+        </Typography>
       </div>
-      <div id="first-screen" className={bootstrap.row}>
-        <div className={bootstrap['col-12']}>
-          <div
-            className={`${bootstrap['d-flex']} ${bootstrap['justify-content-center']}`}
-          >
-            <div className={bootstrap['btn-group']}>
-              <Link
+      <Grid container id="first-screen">
+        <Grid item xs={12}>
+          <div className={`${buttons.btn_centre}`}>
+            <ButtonGroup
+              color="primary"
+              aria-label="outlined primary button group"
+            >
+              <Button
                 id="exam"
-                className={`${bootstrap.btn} ${bootstrap['btn-lg']} ${bootstrap['btn-info']} ${buttons.btn_start}`}
+                className={`${buttons.btn_start}`}
+                component={Link}
                 href="/exam"
               >
                 Try again
-              </Link>
-              <Link
+              </Button>
+              <Button
                 id="train"
-                className={`${bootstrap.btn} ${bootstrap['btn-lg']} ${bootstrap['btn-info']} ${buttons.btn_start}`}
+                className={`${buttons.btn_start}`}
+                component={Link}
                 href="/"
               >
                 Return to main page
-              </Link>
-            </div>
+              </Button>
+            </ButtonGroup>
           </div>
-        </div>
-      </div>
+        </Grid>
+      </Grid>
     </main>
   </>
 );
