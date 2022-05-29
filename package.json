@@ -1,9 +1,9 @@
 {
   "name": "code-quiz-react",
   "version": "3.3.1",
-  "description": "coding skills training app",
+  "description": "Coding training app",
   "main": "src/index.tsx",
-  "homepage": "https://js-quiz.github.io/code-quiz-react/",
+  "homepage": "https://pure-js.github.io/code-quiz-react/",
   "type": "module",
   "sideEffects": [
     "**/*.css"
@@ -22,18 +22,18 @@
   "author": "pure-js",
   "license": "GPL-3.0",
   "engines": {
-    "node": ">=15.12"
+    "node": ">=16.15"
   },
   "dependencies": {
     "@material-ui/core": "^4.4.2",
     "@material-ui/icons": "^4.4.1",
-    "@types/react": "^17.0.3",
-    "@types/react-dom": "^17.0.3",
+    "@types/react": "^18.0.9",
+    "@types/react-dom": "^18.0.5",
     "@types/react-syntax-highlighter": "^13.5.0",
-    "bootstrap": "^4.6.0",
+    "bootstrap": "^4.6.1",
     "firebase": "^8.3.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
     "react-syntax-highlighter": "^15.4.3",
     "wouter": "^2.7.4"
   },
