@@ -1,5 +1,6 @@
 ci:
   collect:
+    numberOfRuns: 5
     url:
       ['http://localhost/', 'http://localhost/exam', 'http://localhost/results']
     staticDistDir: './dist'
