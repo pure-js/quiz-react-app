@@ -17,44 +17,46 @@ const getValue = (value) => {
   data = value;
 };
 
-const UserAnswer = ({ userAnswer }) => (
-  <form>
-    <div className={bootstrap['form-group']}>
-      <label className={styles['console-label']} htmlFor="console-output">
-        Web Console Output:
-      </label>
-      <div className={styles.console_icon}>{'>'}</div>
-      <Textarea getInputValue={getValue} />
-      <label>
-        Enter key starting a new line. Please note that your input is case
-        sensitive.
-      </label>
-    </div>
-    <div
-      className={`
+function UserAnswer({ userAnswer }) {
+  return (
+    <form>
+      <div className={bootstrap['form-group']}>
+        <label className={styles['console-label']} htmlFor="console-output">
+          Web Console Output:
+        </label>
+        <div className={styles.console_icon}>{'>'}</div>
+        <Textarea getInputValue={getValue} />
+        <label>
+          Enter key starting a new line. Please note that your input is case
+          sensitive.
+        </label>
+      </div>
+      <div
+        className={`
         ${bootstrap['form-group']}
         ${bootstrap['btn-group']}
       `}
-    >
-      <button
-        id="answer"
-        onClick={() => userAnswer(data)}
-        type="button"
-        className={`${bootstrap.btn} ${bootstrap['btn-info']} ${button.btn_cursor}`}
       >
-        Answer
-      </button>
-      <button
-        id="next-quiz"
-        onClick={() => userAnswer(data)}
-        type="button"
-        className={`${bootstrap.btn} ${bootstrap['btn-light']} ${button.btn_cursor}`}
-      >
-        I don't know
-      </button>
-      <Link href="/results">See results</Link>
-    </div>
-  </form>
-);
+        <button
+          id="answer"
+          onClick={() => userAnswer(data)}
+          type="button"
+          className={`${bootstrap.btn} ${bootstrap['btn-info']} ${button.btn_cursor}`}
+        >
+          Answer
+        </button>
+        <button
+          id="next-quiz"
+          onClick={() => userAnswer(data)}
+          type="button"
+          className={`${bootstrap.btn} ${bootstrap['btn-light']} ${button.btn_cursor}`}
+        >
+          I don't know
+        </button>
+        <Link href="/results">See results</Link>
+      </div>
+    </form>
+  );
+}
 
 export default memo(UserAnswer);

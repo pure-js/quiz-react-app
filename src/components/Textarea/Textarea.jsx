@@ -13,7 +13,7 @@ const addRow = (event) => {
   }
 };
 
-const TextArea = ({ getInputValue }) => {
+function TextArea({ getInputValue }) {
   const [userAnswer, setUserAnswer] = useState('');
 
   const handleAnswerChange = (event) => {
@@ -32,6 +32,6 @@ const TextArea = ({ getInputValue }) => {
       className={styles.console}
     />
   );
-};
+}
 
 export default TextArea;
