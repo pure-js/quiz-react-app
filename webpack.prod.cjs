@@ -19,7 +19,7 @@ const plugins = [
     patterns: [
       {
         from: '**/*.{png,svg,ico}',
-        context: 'static/',
+        context: 'public/',
       },
       {
         from: 'public/',
