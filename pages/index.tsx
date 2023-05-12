@@ -1,3 +1,5 @@
+/* eslint-disable react/function-component-definition */
+
 import React, { memo } from 'react';
 import { Link } from 'wouter';
 import Typography from '@mui/material/Typography';

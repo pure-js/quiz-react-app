@@ -14,7 +14,7 @@
     "build": "webpack --config webpack.prod.cjs",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "lint:js": "eslint src/**/*.{js,jsx,ts,tsx}",
+    "lint:js": "eslint --ext .tsx,.jsx,.js,.ts src/ pages/",
     "analyze": "webpack --profile --json > stats.json --config webpack.prod.cjs",
     "test": "node --experimental-vm-modules node_modules/.bin/jest --config jest.config.cjs --coverage",
     "release": "standard-version",
