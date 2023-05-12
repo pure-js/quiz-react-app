@@ -1,3 +1,5 @@
+/* eslint-disable react/function-component-definition */
+
 import React, { memo } from 'react';
 
 import bootstrap from 'bootstrap/dist/css/bootstrap.css';

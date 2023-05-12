@@ -19,24 +19,26 @@ const defaultAnsers = {
 
 const theme = createTheme();
 
-const App: React.FC = () => (
-  <StyledEngineProvider injectFirst>
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Switch>
-        <Route path="/" component={Home} />
-        <Route path="/exam">
-          <Exam results={() => {}} />
-        </Route>
-        <Route path="/results">
-          <FinalResults userAnswers={defaultAnsers} />
-        </Route>
-        <Route path="/:rest*">
-          {(params) => `404, Sorry the page ${params.rest} does not exist!`}
-        </Route>
-      </Switch>
-    </ThemeProvider>
-  </StyledEngineProvider>
-);
+function App() {
+  return (
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Switch>
+          <Route path="/" component={Home} />
+          <Route path="/exam">
+            <Exam results={() => {}} />
+          </Route>
+          <Route path="/results">
+            <FinalResults userAnswers={defaultAnsers} />
+          </Route>
+          <Route path="/:rest*">
+            {(params) => `404, Sorry the page ${params.rest} does not exist!`}
+          </Route>
+        </Switch>
+      </ThemeProvider>
+    </StyledEngineProvider>
+  );
+}
 
 export default App;
