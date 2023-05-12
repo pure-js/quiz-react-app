@@ -8,9 +8,9 @@ import {
   createTheme,
 } from '@mui/material/styles';
 
-import Home from '../scenes/Home/Home';
-import Exam from '../scenes/Exam/Exam';
-import FinalResults from '../scenes/FinalResults';
+import Home from '../../pages/index';
+import Exam from '../../pages/exam/index';
+import FinalResults from '../../pages/results/index';
 
 const defaultAnsers = {
   correct: 146,

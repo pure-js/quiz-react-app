@@ -1,17 +1,17 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect, memo } from 'react';
 
-import { functions } from '../../services/fireStoreService';
-import getRandomDocument from '../../services/getQuestions';
+import { functions } from '../../src/services/fireStoreService';
+import getRandomDocument from '../../src/services/getQuestions';
 
-import Form from '../../components/Form/Form';
-import Header from '../../components/Header/Header.tsx';
-import ProgressBar from '../../components/ProgressBar.tsx';
-import ErrorBoundary from '../../components/ErrorBoundary';
-import Loading from '../../components/Loading/Loading.tsx';
+import Form from '../../src/components/Form/Form';
+import Header from '../../src/components/Header/Header';
+import ProgressBar from '../../src/components/ProgressBar';
+import ErrorBoundary from '../../src/components/ErrorBoundary';
+import Loading from '../../src/components/Loading/Loading';
 
-import grid from '../../components/Grid/Grid.css';
-import { Code } from '../../components/Code/Code';
+import grid from '../../src/components/Grid/Grid.css';
+import { Code } from '../../src/components/Code/Code';
 
 const questionsLength = 5;
 let iteration = 1;

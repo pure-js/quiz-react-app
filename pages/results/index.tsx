@@ -2,8 +2,8 @@ import React, { memo } from 'react';
 import { Link } from 'wouter';
 
 import bootstrap from 'bootstrap/dist/css/bootstrap.css';
-import buttons from '../components/button.css';
-import grid from '../components/Grid/Grid.css';
+import buttons from '../../src/components/button.css';
+import grid from '../../src/components/Grid/Grid.css';
 
 type IPropsFinalResults = {
   userAnswers: {
